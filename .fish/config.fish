@@ -1,4 +1,4 @@
-source ~/dotfiles/fish/alias.fish
+source ~/dotfiles/.fish/alias.fish
 cd ~/
 
 # fzf .git ignore setting
