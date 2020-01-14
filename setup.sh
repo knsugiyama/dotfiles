@@ -54,6 +54,7 @@ brew install graphviz
 brew install plantuml
 brew install git-credential-manager
 brew install ruby
+brew install anyenv
 
 # fish shell の導入と設定
 ## fisher
