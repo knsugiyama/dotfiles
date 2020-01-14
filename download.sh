@@ -3,29 +3,14 @@
 DOTFILESPATH=~/.dotfiles
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
 
-# git が使えるなら git
+# git が使えるかチェック
 if type "git" > /dev/null 2>&1; then
-    git clone --recursive "$GITHUB_URL" "$DOTFILESPATH"
-
-# 使えない場合は curl か wget を使用する
-elif type "curl" > /dev/null 2>&1 || type "wget" > /dev/null 2>&1; then
-    tarball="https://github.com/knsugiyama/dotfiles/archive/master.tar.gz"
-
-    # どっちかでダウンロードして，tar に流す
-    if type "curl" > /dev/null 2>&1; then
-        curl -L "$tarball"
-
-    elif type "wget" > /dev/null 2>&1; then
-        wget -O - "$tarball"
-
-    fi | tar zxv
-
-    # 解凍したら，DOTFILESPATH に置く
-    mv -f dotfiles-master "$DOTFILESPATH"
-
+# 使えない場合は git をインストールする
 else
-    die "curl or wget or git required"
+    sudo apt install git
 fi
+
+git clone --recursive "$GITHUB_URL" "$DOTFILESPATH"
 
 cd ~/.dotfiles
 if [ $? -ne 0 ]; then
