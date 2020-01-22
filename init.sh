@@ -29,3 +29,5 @@ do
 
     ln -snfv "$DOTFILESPATH"/"$f" "$HOME"/"$f"
 done
+
+sudo apt install build-essential -y

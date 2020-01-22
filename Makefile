@@ -9,18 +9,18 @@ update: ## Update packages
 	brew update
 
 setup: ## Install default applications
-	fish git anyenv wsl doc-creation node
+	fish git anyenv doc-creation node
 
-fish:
+fish: ## Install fish shell
 	sudo bash ${PWD}/.bin/install/fish.sh
 	ln -snfv "${PWD}/.conf/fish/alias.fish" "${HOME}/.config/fish/alias.fish"
 	ln -snfv "${PWD}/.conf/fish/config.fish" "${HOME}/.config/fish/config.fish"
 
-git:
+git: ## Setup git config
 	ln -snfv "${PWD}/.conf/git/.gitignore_global" "${HOME}/.gitignore_global"
 	ln -snfv "${PWD}/.conf/git/.gitconfig" "${HOME}/.gitconfig"
 
-anyenv:
+anyenv: ## Install anyenv
 	sudo bash ${PWD}/.bin/setup/anyenv.sh
 
 wsl: ## For wsl configulations
