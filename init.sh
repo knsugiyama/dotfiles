@@ -5,6 +5,9 @@ set -ue
 DOTFILESPATH=~/.dotfiles
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
 
+sudo apt update
+sudo apt upgrade
+
 # git が使えるかチェック
 if !(type "git" > /dev/null 2>&1); then
     # 使えない場合は git をインストールする
@@ -21,9 +24,8 @@ fi
 # シンボリックリンク作成
 for f in .??*
 do
-    [ "$f" = ".git" ] && continue
-    [ "$f" = ".wsl" ] && continue
-    [ "$f" = ".fish" ] && continue
+    [ "$f" = ".bin" ] && continue
+    [ "$f" = ".config" ] && continue
 
     ln -snfv "$DOTFILESPATH"/"$f" "$HOME"/"$f"
 done
