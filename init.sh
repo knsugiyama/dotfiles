@@ -1,12 +1,13 @@
 #!/bin/bash
 
+set -ue
+
 DOTFILESPATH=~/.dotfiles
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
 
 # git が使えるかチェック
-if type "git" > /dev/null 2>&1; then
-# 使えない場合は git をインストールする
-else
+if !(type "git" > /dev/null 2>&1); then
+    # 使えない場合は git をインストールする
     sudo apt install git
 fi
 

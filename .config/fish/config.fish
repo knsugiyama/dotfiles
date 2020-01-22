@@ -1,5 +1,4 @@
-source ~/dotfiles/.fish/alias.fish
-cd ~/
+source alias.fish
 
 # fzf .git ignore setting
 set --export FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'
@@ -12,7 +11,3 @@ set -g theme_display_git_master_branch yes
 set -g theme_color_scheme dracula
 set -g theme_display_date no
 set -g theme_display_cmd_duration no
-
-# anyenvの初期化
-set -gx PATH $HOME/.anyenv/bin $PATH
-source (anyenv init - fish|psub)

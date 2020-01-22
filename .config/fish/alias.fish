@@ -86,8 +86,6 @@ alias gstl 'git stash list'
 alias gstp 'git stash pop'
 alias gsts 'git stash show --text'
 
-# alias gparent 'git show-branch | grep '*' | grep -v '(git rev-parse --abbrev-ref HEAD)' | head -1 | awk -F'[]~^[]' '{print $2}''
-
 # simple repository move
 alias g 'cd (ghq root)/(ghq list | peco)'
 

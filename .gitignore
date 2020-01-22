@@ -1,0 +1,15 @@
+### all ignore ###
+/*
+/.**
+
+### not ignore ###
+!/.bin/
+!/.bin/**
+!/.config/
+!/.config/**
+!/.bashrc
+!/.gitignore
+!/init.sh
+!/LICNSE
+!/Makefile
+!/README.md
