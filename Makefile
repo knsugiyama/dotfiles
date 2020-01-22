@@ -2,6 +2,7 @@ install: ## Install base packages
 	sudo bash ${PWD}/.bin/install.sh
 
 update: ## Update packages
+	git pull origin master
 	sudo apt -y update
 	sudo apt -y upgrade
 	sudo apt autoremove
