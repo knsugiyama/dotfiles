@@ -9,7 +9,11 @@ update: ## Update packages
 	brew update
 
 setup: ## Install default applications
-	fish git anyenv doc-creation node
+	@make git
+	@make fish
+	@make anyenv
+	@make node
+	@make doc-creation
 
 fish: ## Install fish shell
 	bash ${PWD}/.bin/install/fish.sh
