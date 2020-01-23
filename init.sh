@@ -30,3 +30,6 @@ do
 
     ln -snfv "$DOTFILESPATH"/"$f" "$HOME"/"$f"
 done
+
+# 以降のインストールおよびセットアップ作業にはmakeコマンドが必要なので、install
+sudo apt install -y make

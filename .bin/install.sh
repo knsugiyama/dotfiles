@@ -2,6 +2,9 @@
 
 set -ue
 
+DOTFILESPATH=~/.dotfiles
+CURRENTPATH=$DOTFILESPATH/.bin
+
 sudo apt -y update
 sudo apt -y upgrade
 
@@ -17,7 +20,7 @@ sudo apt -y install manpages-ja manpages-ja-dev
 sudo locale-gen ja_JP.UTF-8
 
 # linuxbrewの導入
-bash ./install/linuxbrew.sh
+bash $CURRENTPATH/install/linuxbrew.sh
 
 # フォントの導入
-bash ./install/font.sh
+bash $CURRENTPATH/install/font.sh
