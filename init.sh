@@ -24,10 +24,9 @@ fi
 # シンボリックリンク作成
 for f in .??*
 do
+    [ "$f" = ".git" ] && continue
     [ "$f" = ".bin" ] && continue
     [ "$f" = ".config" ] && continue
 
     ln -snfv "$DOTFILESPATH"/"$f" "$HOME"/"$f"
 done
-
-sudo apt install build-essential -y
