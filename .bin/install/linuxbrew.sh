@@ -22,3 +22,5 @@ brew install tig
 brew install hub
 brew install rg
 brew install ghq
+
+exec $SHELL -l
