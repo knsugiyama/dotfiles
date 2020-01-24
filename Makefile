@@ -9,7 +9,6 @@ update: ## Update packages
 	brew update
 
 setup: ## Setup default config
-	bash ~/.dotfiles/.bin/setup/fish-plugins.sh
 	bash ~/.dotfiles/.bin/setup/font.sh
 	ln -snfv "~/.dotfiles/.conf/git/.gitignore_global" "~/.gitignore_global"
 	ln -snfv "~/.dotfiles/.conf/git/.gitconfig" "~/.gitconfig"
