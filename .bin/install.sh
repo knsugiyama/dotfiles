@@ -23,3 +23,6 @@ bash $CURRENTPATH/install/linuxbrew.sh
 
 # フォントの導入
 bash $CURRENTPATH/install/font.sh
+
+# fish shellの導入
+bash $CURRENTPATH/install/fish.sh

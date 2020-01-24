@@ -15,12 +15,11 @@ setup: ## Install default applications
 	@make node
 	@make doc-creation
 
-fish: ## Install fish shell
-	bash ${PWD}/.bin/install/fish.sh
+setup-fish: ## Setup fish shell
 	ln -snfv "${PWD}/.conf/fish/alias.fish" "${HOME}/.config/fish/alias.fish"
 	ln -snfv "${PWD}/.conf/fish/config.fish" "${HOME}/.config/fish/config.fish"
 
-git: ## Setup git config
+setup-git: ## Setup git config
 	ln -snfv "${PWD}/.conf/git/.gitignore_global" "${HOME}/.gitignore_global"
 	ln -snfv "${PWD}/.conf/git/.gitconfig" "${HOME}/.gitconfig"
 
