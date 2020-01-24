@@ -2,33 +2,33 @@ install: ## Install base packages
 	bash ${PWD}/.bin/install.sh
 
 update: ## Update packages
-	git pull origin master &&
-	sudo apt -y update &&
-	sudo apt -y upgrade &&
-	sudo apt autoremove &&
+	git pull origin master
+	sudo apt -y update
+	sudo apt -y upgrade
+	sudo apt autoremove
 	brew update
 
 setup: ## Setup default config
-	bash ${PWD}/.bin/install/font.sh &&
-	ln -snfv "${PWD}/.conf/git/.gitignore_global" "${HOME}/.gitignore_global" &&
+	bash ${PWD}/.bin/install/font.sh
+	ln -snfv "${PWD}/.conf/git/.gitignore_global" "${HOME}/.gitignore_global"
 	ln -snfv "${PWD}/.conf/git/.gitconfig" "${HOME}/.gitconfig"
 
 fish: ## Install fish shell
-	bash ${PWD}/.bin/install/fish.sh &&
-	ln -snfv "${PWD}/.conf/fish/alias.fish" "${HOME}/.config/fish/alias.fish" &&
+	bash ${PWD}/.bin/install/fish.sh
+	ln -snfv "${PWD}/.conf/fish/alias.fish" "${HOME}/.config/fish/alias.fish"
 	ln -snfv "${PWD}/.conf/fish/config.fish" "${HOME}/.config/fish/config.fish"
-
-dev-install: ## Install development applications
-	@make anyenv
-	@make node
-	@make doc-creation
-
-anyenv: ## Install anyenv
-	bash ${PWD}/.bin/anyenv/anyenv.sh
 
 wsl: ## For wsl configulations
 	bash ${PWD}/.bin/setup/wsl.sh
 	ln -snfv "${PWD}/.conf/wsl/wsl.conf" "/etc/wsl.conf"
+
+dev-install: ## Install development applications
+	make anyenv
+	make node
+	make doc-creation
+
+anyenv: ## Install anyenv
+	bash ${PWD}/.bin/anyenv/anyenv.sh
 
 doc-creation: ## Install plantuml & asciidoc
 	bash ${PWD}/.bin/anyenv/plantuml.sh
