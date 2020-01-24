@@ -8,12 +8,9 @@ update: ## Update packages
 	sudo apt autoremove
 	brew update
 
-setup: ## Install default applications
+setup: ## Setup default config
 	@make git
 	@make fish
-	@make anyenv
-	@make node
-	@make doc-creation
 
 setup-fish: ## Setup fish shell
 	ln -snfv "${PWD}/.conf/fish/alias.fish" "${HOME}/.config/fish/alias.fish"
@@ -23,19 +20,24 @@ setup-git: ## Setup git config
 	ln -snfv "${PWD}/.conf/git/.gitignore_global" "${HOME}/.gitignore_global"
 	ln -snfv "${PWD}/.conf/git/.gitconfig" "${HOME}/.gitconfig"
 
+dev-install: ## Install development applications
+	@make anyenv
+	@make node
+	@make doc-creation
+
 anyenv: ## Install anyenv
-	bash ${PWD}/.bin/setup/anyenv.sh
+	bash ${PWD}/.bin/anyenv/anyenv.sh
 
 wsl: ## For wsl configulations
 	bash ${PWD}/.bin/setup/wsl.sh
 	ln -snfv "${PWD}/.conf/wsl/wsl.conf" "/etc/wsl.conf"
 
 doc-creation: ## Install plantuml & asciidoc
-	bash ${PWD}/.bin/setup/plantuml.sh
-	bash ${PWD}/.bin/setup/asciidoc.sh
+	bash ${PWD}/.bin/anyenv/plantuml.sh
+	bash ${PWD}/.bin/anyenv/asciidoc.sh
 
 node: ## Install node
-	bash ${PWD}/.bin.setup/node.sh
+	bash ${PWD}/.bin/anyenv/node.sh
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
