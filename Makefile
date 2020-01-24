@@ -1,5 +1,5 @@
 install: ## Install base packages
-	bash $PWD/.bin/install.sh
+	bash ~/.dotfiles/.bin/install.sh
 
 update: ## Update packages
 	git pull origin master
@@ -9,16 +9,16 @@ update: ## Update packages
 	brew update
 
 setup: ## Setup default config
-	bash $PWD/.bin/setup/fish-plugins.sh
-	bash $PWD/.bin/setup/font.sh
-	ln -snfv "$PWD/.conf/git/.gitignore_global" "$HOME/.gitignore_global"
-	ln -snfv "$PWD/.conf/git/.gitconfig" "$HOME/.gitconfig"
-	ln -snfv "$PWD/.conf/fish/alias.fish" "$HOME/.config/fish/alias.fish"
-	ln -snfv "$PWD/.conf/fish/config.fish" "$HOME/.config/fish/config.fish"
+	bash ~/.dotfiles/.bin/setup/fish-plugins.sh
+	bash ~/.dotfiles/.bin/setup/font.sh
+	ln -snfv "~/.dotfiles/.conf/git/.gitignore_global" "~/.gitignore_global"
+	ln -snfv "~/.dotfiles/.conf/git/.gitconfig" "~/.gitconfig"
+	ln -snfv "~/.dotfiles/.conf/fish/alias.fish" "~/.config/fish/alias.fish"
+	ln -snfv "~/.dotfiles/.conf/fish/config.fish" "~/.config/fish/config.fish"
 
 wsl: ## For wsl configulations
-	bash $PWD/.bin/setup/wsl.sh
-	ln -snfv "$PWD/.conf/wsl/wsl.conf" "/etc/wsl.conf"
+	bash ~/.dotfiles/.bin/setup/wsl.sh
+	ln -snfv "~/.dotfiles/.conf/wsl/wsl.conf" "/etc/wsl.conf"
 
 dev-install: ## Install development applications
 	make anyenv
@@ -26,14 +26,14 @@ dev-install: ## Install development applications
 	make doc-creation
 
 anyenv: ## Install anyenv
-	bash $PWD/.bin/anyenv/anyenv.sh
+	bash ~/.dotfiles/.bin/anyenv/anyenv.sh
 
 doc-creation: ## Install plantuml & asciidoc
-	bash $PWD/.bin/anyenv/plantuml.sh
-	bash $PWD/.bin/anyenv/asciidoc.sh
+	bash ~/.dotfiles/.bin/anyenv/plantuml.sh
+	bash ~/.dotfiles/.bin/anyenv/asciidoc.sh
 
 node: ## Install node
-	bash $PWD/.bin/anyenv/node.sh
+	bash ~/.dotfiles/.bin/anyenv/node.sh
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
