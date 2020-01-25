@@ -10,14 +10,14 @@ update: ## Update packages
 
 setup: ## Setup default config
 	bash ~/.dotfiles/.bin/setup/font.sh
-	ln -snfv "~/.dotfiles/.conf/git/.gitignore_global" "~/.gitignore_global"
-	ln -snfv "~/.dotfiles/.conf/git/.gitconfig" "~/.gitconfig"
-	ln -snfv "~/.dotfiles/.conf/fish/alias.fish" "~/.config/fish/alias.fish"
-	ln -snfv "~/.dotfiles/.conf/fish/config.fish" "~/.config/fish/config.fish"
+	ln -snfv ~/.dotfiles/.config/git/.gitignore_global ~/.gitignore_global
+	ln -snfv ~/.dotfiles/.config/git/.gitconfig ~/.gitconfig
+	ln -snfv ~/.dotfiles/.config/fish/alias.fish ~/.config/fish/alias.fish
+	ln -snfv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
 
 wsl: ## For wsl configulations
 	bash ~/.dotfiles/.bin/setup/wsl.sh
-	ln -snfv "~/.dotfiles/.conf/wsl/wsl.conf" "/etc/wsl.conf"
+	ln -snfv ~/.dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
 
 dev-install: ## Install development applications
 	make anyenv
