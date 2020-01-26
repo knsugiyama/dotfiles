@@ -8,8 +8,14 @@ update: ## Update packages
 	sudo apt autoremove
 	brew update
 
-setup: ## Setup default config
+setup-fish: ## Setup fish shell plugins
+	bash ~/.dotfiles/.bin/setup/fish-plugins.sh
+
+setup-font: ## Setup font
 	bash ~/.dotfiles/.bin/setup/font.sh
+
+link: ## Create symbolic links
+	ln -snfv ~/.dotfiles/.bashrc ~/.bashrc
 	ln -snfv ~/.dotfiles/.config/git/.gitignore_global ~/.gitignore_global
 	ln -snfv ~/.dotfiles/.config/git/.gitconfig ~/.gitconfig
 	ln -snfv ~/.dotfiles/.config/fish/alias.fish ~/.config/fish/alias.fish

@@ -20,6 +20,3 @@ sudo locale-gen ja_JP.UTF-8
 
 # linuxbrewの導入
 bash $CURRENTPATH/install/linuxbrew.sh
-
-# fish plugins
-bash $CURRENTPATH/setup/fish-plugins.sh
