@@ -1,4 +1,4 @@
-#!/bin/bash
+!/bin/bash
 
 set -ue
 
@@ -27,6 +27,7 @@ do
     [ "$f" = ".git" ] && continue
     [ "$f" = ".bin" ] && continue
     [ "$f" = ".config" ] && continue
+    [ "$f" = ".gitignore" ] && continue
 
     ln -snfv "$DOTFILESPATH"/"$f" "$HOME"/"$f"
 done

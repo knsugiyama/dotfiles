@@ -8,6 +8,7 @@
 !/.config/
 !/.config/**
 !/.bashrc
+!/.bash_profile
 !/.gitignore
 !/init.sh
 !/LICNSE

@@ -23,5 +23,3 @@ brew install hub
 brew install rg
 brew install ghq
 brew install fish
-
-exec $SHELL -l

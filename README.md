@@ -1,5 +1,7 @@
 # dotfiles
 
+まだまだ欠陥だらけ
+
 ## install
 
 ```bash

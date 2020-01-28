@@ -12,6 +12,8 @@ if (type "fish" > /dev/null 2>&1); then
     echo 'set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths' >> ~/.config/fish/config.fish
 fi
 
+echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
+
 ## plugin
 mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update

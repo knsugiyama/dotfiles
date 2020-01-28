@@ -2,15 +2,18 @@
 
 set -ue
 
-brew install asciidoc
-
-# ruby が使えるかチェック
+# rbenv が使えるかチェック
+if !(type "rbenv" > /dev/null 2>&1); then
+    echo 'rbenvをインストールしてください。'
+    exit 1
+fi
+# ruby が無いならインストールする
 if !(type "ruby" > /dev/null 2>&1); then
-    # 使えない場合は ruby をインストールする
-    anyenv install rbenv
     rbenv install 2.7.0
     rbenv global 2.7.0
 fi
+
+brew install asciidoc
 
 sudo gem install bundler
 sudo gem install asciidoctor

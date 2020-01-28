@@ -1,5 +1,6 @@
 install: ## Install base packages
 	bash ~/.dotfiles/.bin/install.sh
+	exec $$SHELL -l
 
 update: ## Update packages
 	git pull origin master
@@ -10,9 +11,11 @@ update: ## Update packages
 
 setup-fish: ## Setup fish shell plugins
 	bash ~/.dotfiles/.bin/setup/fish-plugins.sh
+	exec $$SHELL -l
 
 setup-font: ## Setup font
 	bash ~/.dotfiles/.bin/setup/font.sh
+	exec $$SHELL -l
 
 link: ## Create symbolic links
 	ln -snfv ~/.dotfiles/.bashrc ~/.bashrc
@@ -25,20 +28,22 @@ wsl: ## For wsl configulations
 	bash ~/.dotfiles/.bin/setup/wsl.sh
 	ln -snfv ~/.dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
 
-dev-install: ## Install development applications
-	make anyenv
-	make node
-	make doc-creation
-
 anyenv: ## Install anyenv
 	bash ~/.dotfiles/.bin/anyenv/anyenv.sh
+	exec $$SHELL -l
+nodenv: ## Install nodenv
+	bash ~/.dotfiles/.bin/anyenv/nodenv.sh
+	exec $$SHELL -l
+jenv: ## Install jenv
+	bash ~/.dotfiles/.bin/anyenv/jenv.sh
+	exec $$SHELL -l
+rbenv: ## Install rbenv
+	bash ~/.dotfiles/.bin/anyenv/rbenv.sh
+	exec $$SHELL -l
 
 doc-creation: ## Install plantuml & asciidoc
-	bash ~/.dotfiles/.bin/anyenv/plantuml.sh
-	bash ~/.dotfiles/.bin/anyenv/asciidoc.sh
-
-node: ## Install node
-	bash ~/.dotfiles/.bin/anyenv/node.sh
+	bash ~/.dotfiles/.bin/install/plantuml.sh
+	bash ~/.dotfiles/.bin/install/asciidoc.sh
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
