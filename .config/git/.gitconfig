@@ -33,7 +33,7 @@
   default = simple
 
 [credential]
-  helper = cache --timeout 30000
+  helper = store --file ~/.git-credentials
   canFallBackToInsecureStore = true
 
 [ghq "CODECOMMIT-URL"]
