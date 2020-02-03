@@ -48,6 +48,17 @@ doc-creation: ## Install plantuml & asciidoc
 	bash ~/.dotfiles/.bin/install/plantuml.sh
 	bash ~/.dotfiles/.bin/install/asciidoc.sh
 
+gcloud: ## Install gcloud
+	export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
+	echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
+	curl https://packages.cloud.google.com/apt/doc/apt-key.gpg | sudo apt-key add -
+	sudo apt-get update && sudo apt-get install google-cloud-sdk
+
+intellij: ## Install intellij
+	wget https://download.jetbrains.com/idea/ideaIC-2019.3.2-no-jbr.tar.gz
+	mkdir -p ~/opt/ideaIC && sudo tar -zxvf ideaIC-2019.*.tar.gz -C ~/opt/ideaIC --strip-components 1
+	sudo ln -s ~/opt/ideaIC/bin/idea.sh /usr/bin/idea
+
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 	| sort \

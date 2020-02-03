@@ -12,6 +12,7 @@ if !(type "java" > /dev/null 2>&1); then
     # 使えない場合は java をインストールする
     sudo apt -y install openjdk-8-jdk
     jenv add /usr/lib/jvm/java-8-openjdk-amd64
+    jenv global openjdk64-1.8.0.242
     jenv enable-plugin export
 fi
 
