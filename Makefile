@@ -23,6 +23,9 @@ link: ## Create symbolic links
 	ln -snfv ~/.dotfiles/.config/git/.gitconfig ~/.gitconfig
 	ln -snfv ~/.dotfiles/.config/fish/alias.fish ~/.config/fish/alias.fish
 	ln -snfv ~/.dotfiles/.config/fish/config.fish ~/.config/fish/config.fish
+	git update-index --assume-unchanged ~/.dotfiles/.bash_profile
+	git update-index --assume-unchanged ~/.dotfiles/.bashrc
+	git update-index --assume-unchanged ~/.dotfiles/.config/fish/config.fish
 
 wsl: ## For wsl configulations
 	bash ~/.dotfiles/.bin/setup/wsl.sh
