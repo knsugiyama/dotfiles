@@ -15,11 +15,13 @@ fi
 
 brew install asciidoc
 
-sudo gem install bundler
-sudo gem install asciidoctor
-sudo gem install asciidoctor-pdf --pre
-sudo gem install asciidoctor-pdf-cjk
-sudo gem install asciidoctor-diagram
-sudo gem install coderay
-sudo gem install rouge
-sudo gem install concurrent-ruby
+echo 'export XML_CATALOG_FILES=/home/linuxbrew/.linuxbrew/etc/xml/catalog' >> ~/.bashrc
+
+gem install bundler
+gem install asciidoctor
+gem install asciidoctor-pdf --pre
+gem install asciidoctor-pdf-cjk
+gem install asciidoctor-diagram
+gem install coderay
+gem install rouge
+gem install concurrent-ruby

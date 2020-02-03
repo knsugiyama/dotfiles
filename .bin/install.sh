@@ -10,7 +10,7 @@ sudo apt -y upgrade
 
 # 基本の設定
 ## 最低限必要なものをinstall
-sudo apt -y install build-essential unzip
+sudo apt -y install build-essential unzip zlib1g-dev
 
 ## japanease lang setting
 sudo apt -y install language-pack-ja-base language-pack-ja

@@ -3,7 +3,7 @@
 set -ue
 
 # jenv が使えるかチェック
-if type !("jenv" > /dev/null 2>&1); then
+if !(type "jenv" > /dev/null 2>&1); then
     echo 'jenvをインストールしてください'
     exit 1
 fi
