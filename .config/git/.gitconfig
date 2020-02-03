@@ -24,11 +24,6 @@
   name = knsugiyama
   email = knsugiyama15@gmail.com
 
-[pager]
-  log  = diff-highlight | less -RX
-  show = diff-highlight | less -RX
-  diff = diff-highlight | less -RX
-
 [push]
   default = simple
 
