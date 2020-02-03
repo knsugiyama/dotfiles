@@ -29,7 +29,7 @@ link: ## Create symbolic links
 
 wsl: ## For wsl configulations
 	bash ~/.dotfiles/.bin/setup/wsl.sh
-	ln -snfv ~/.dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
+	sudo ln -snfv ~/.dotfiles/.config/wsl/wsl.conf /etc/wsl.conf
 
 anyenv: ## Install anyenv
 	bash ~/.dotfiles/.bin/anyenv/anyenv.sh
