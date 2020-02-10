@@ -3,10 +3,8 @@
   excludesfile = ~/.gitignore_global
   preloadindex = true
 	autocrlf = false
-
 [color]
   ui = auto
-
 [alias]
   st = status
   co = checkout
@@ -17,25 +15,19 @@
   review = diff origin/master...
   commit-log = log origin/master..
   delete-merged-branches = !git branch --merged | grep -v \\* | xargs -I % git branch -d %
-
 [help]
   autocorrect = 1
-
 [user]
   name = knsugiyama
   email = knsugiyama15@gmail.com
-
 [push]
   default = simple
-
 [credential]
 	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
-
+	UseHttpPath = true
 [ghq "CODECOMMIT-URL"]
   vcs = git
-
 [fetch]
   prune = true
-
 [ghq]
   root = ~/src

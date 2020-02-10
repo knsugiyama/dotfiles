@@ -13,4 +13,3 @@ jenv add /usr/lib/jvm/java-8-openjdk-amd64
 jenv global openjdk64-1.8.0.242
 jenv enable-plugin export
 
-echo 'export PATH="$PATH:$JAVA_HOME/bin"' >> ~/.bash_profile
