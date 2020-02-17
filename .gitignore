@@ -3,14 +3,14 @@
 /.**
 
 ### not ignore ###
-!/.bin/
-!/.bin/**
+!/bin/
+!/bin/**
 !/.config/
 !/.config/**
 !/.bashrc
 !/.bash_profile
 !/.gitignore
-!/init.sh
+!/download.sh
 !/LICNSE
 !/Makefile
 !/README.md

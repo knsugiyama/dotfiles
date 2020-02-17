@@ -23,7 +23,7 @@
 [push]
   default = simple
 [credential]
-	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
+#	helper = /usr/share/doc/git/contrib/credential/libsecret/git-credential-libsecret
 	UseHttpPath = true
 [ghq "CODECOMMIT-URL"]
   vcs = git

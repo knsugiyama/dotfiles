@@ -1,0 +1,9 @@
+build-essential
+unzip
+zlib1g-dev
+libsecret-1-0
+libsecret-1-dev
+language-pack-ja-base
+language-pack-ja
+manpages-ja
+manpages-ja-dev
