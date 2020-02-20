@@ -9,3 +9,6 @@ if [ ${OS} == 'osx' ]; then
 elif [ ${OS} == 'linux' ]; then
     sudo -S sh ${CURRENTPATH}/linux/init.sh
 fi
+
+sudo -S sh ${CURRENTPATH}/font.sh
+sudo -S sh ${CURRENTPATH}/fish-plugins.sh
