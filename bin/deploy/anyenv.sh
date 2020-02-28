@@ -18,4 +18,22 @@ echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
 mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
 
-anyenv install --init
+# init
+fish -c "echo y | anyenv install --init"
+
+# install jenv
+sudo apt -y install openjdk-8-jdk
+fish -c "anyenv install -s jenv"
+fish -c "jenv add /usr/lib/jvm/java-8-openjdk-amd64"
+fish -c "jenv global openjdk64-1.8.0.242"
+fish -c "jenv enable-plugin export"
+
+# install node
+fish -c "anyenv install nodenv"
+fish -c "nodenv install 12.6.0"
+fish -c "nodenv global 12.6.0"
+
+# install ruby
+fish -c "anyenv install rbenv"
+fish -c "rbenv install 2.7.0"
+fish -c "rbenv global 2.7.0"

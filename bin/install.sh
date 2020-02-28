@@ -21,4 +21,4 @@ sudo locale-gen ja_JP.UTF-8
 sudo make --directory=/usr/share/doc/git/contrib/credential/libsecret/
 
 # linuxbrewの導入
-bash $CURRENTPATH/install/linuxbrew.sh
+sh $CURRENTPATH/install/linuxbrew.sh

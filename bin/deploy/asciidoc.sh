@@ -2,11 +2,6 @@
 
 set -ue
 
-if !(type "ruby" > /dev/null 2>&1); then
-    echo 'rbenvをインストールしてください。'
-    exit 1
-fi
-
 brew install asciidoc
 
 echo 'export XML_CATALOG_FILES=/home/linuxbrew/.linuxbrew/etc/xml/catalog' >> ~/.bashrc

@@ -3,10 +3,10 @@
 /.**
 
 ### not ignore ###
+!/.files/
+!/.files/**
 !/bin/
 !/bin/**
-!/.config/
-!/.config/**
 !/.bashrc
 !/.bash_profile
 !/.gitignore
