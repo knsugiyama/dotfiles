@@ -1,6 +1,6 @@
 #!/bin/sh
 
-. ${DOTPATH}/etc/lib/os_detect.sh
+. ${DOTPATH}/bin/lib/os_detect.sh
 
 CURRENTPATH=$(dirname $0)
 OS=$(os_detect)

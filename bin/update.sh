@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ${DOTPATH}/etc/lib/os_detect.sh
+. ${DOTPATH}/bin/lib/os_detect.sh
 
 set -ue
 
