@@ -15,11 +15,11 @@ deploy: ## Create symlink for dotfile and install plugin
 	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(subst .files/,,$(val));)
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/deploy.sh
 
+install: init deploy ## Run initial setup commands
+	@echo 'Set default shell by "chsh -s $$(which fish)"'
+
 update: ## Fetch changes for this repository
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/update.sh
-
-install: update init deploy ## Run initial setup commands
-	@echo 'Set default shell by "chsh -s $$(which fish)"'
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
