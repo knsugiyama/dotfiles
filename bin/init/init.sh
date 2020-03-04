@@ -8,5 +8,5 @@ OS=$(os_detect)
 if [ ${OS} == 'osx' ]; then
     sh ${CURRENTPATH}/mac/init.sh
 elif [ ${OS} == 'linux' ]; then
-    sudo -S sh ${CURRENTPATH}/linux/init.sh
+    sh ${CURRENTPATH}/linux/init.sh
 fi
