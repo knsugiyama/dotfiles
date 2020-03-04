@@ -1,13 +1,15 @@
 #!/bin/bash
 
+. ${DOTPATH}/etc/lib/os_detect.sh
+
 set -ue
 
 OS=`os_detect`
 
+git pull origin master
 if [ ${OS} == 'osx' ]; then
     brew update
 elif [ ${OS} == 'linux' ]; then
-    git pull origin master
     sudo apt -y update
     sudo apt -y upgrade
     sudo apt autoremove

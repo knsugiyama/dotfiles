@@ -1,11 +1,12 @@
 #!/bin/sh
 
+. ${DOTPATH}/etc/lib/os_detect.sh
+
 CURRENTPATH=$(dirname $0)
 OS=$(os_detect)
 
 if [ ${OS} == 'osx' ]; then
-    echo 'not implemented'
-    exit 1
+    sh ${CURRENTPATH}/mac/init.sh
 elif [ ${OS} == 'linux' ]; then
     sudo -S sh ${CURRENTPATH}/linux/init.sh
 fi
