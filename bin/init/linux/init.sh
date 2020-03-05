@@ -15,7 +15,7 @@ SCRIPTPATH=$(dirname $0)
 
 sudo apt update
 sudo apt upgrade
-sudo apt install -y software-properties-common unzip zlib1g-dev libsecret-1-0 libsecret-1-dev
+sudo apt install -y software-properties-common unzip zlib1g-dev libsecret-1-0 libsecret-1-dev fontconfig
 
 ## japanease lang setting
 sudo apt -y install language-pack-ja-base language-pack-ja

@@ -10,6 +10,7 @@ brew "jq"
 brew "tig"
 brew "fish"
 brew "fzf"
+brew "fontconfig"
 brew "anyenv"
 
 cask "google-chrome"
