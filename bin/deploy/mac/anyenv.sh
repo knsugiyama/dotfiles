@@ -21,7 +21,8 @@ fish -c "echo y | anyenv install --init"
 
 # install jenv
 fish -c "anyenv install -s jenv"
-fish -c "jenv add /usr/lib/jvm/java-8-openjdk-amd64"
+# /usr/libexec/java_home -V でわかる
+fish -c "jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
 fish -c "jenv global 1.8.0.242"
 fish -c "jenv enable-plugin export"
 
