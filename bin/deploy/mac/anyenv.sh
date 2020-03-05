@@ -2,8 +2,6 @@
 
 set -ue
 
-brew install anyenv
-
 # anyenvの初期化
 echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
 
@@ -22,10 +20,9 @@ git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv
 fish -c "echo y | anyenv install --init"
 
 # install jenv
-sudo apt -y install openjdk-8-jdk
 fish -c "anyenv install -s jenv"
 fish -c "jenv add /usr/lib/jvm/java-8-openjdk-amd64"
-fish -c "jenv global openjdk64-1.8.0.242"
+fish -c "jenv global 1.8.0.242"
 fish -c "jenv enable-plugin export"
 
 # install node
