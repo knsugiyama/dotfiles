@@ -4,6 +4,3 @@ umask 022
 
 ## for WSL2
 export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '{print $2}'):0
-
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-PATH="$HOME/.anyenv/bin:$PATH"
