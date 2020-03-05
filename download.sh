@@ -26,7 +26,7 @@ download() {
     exit 1;
   fi
 
-  local tarball=${GITHUB_URL}/archive/master.tar.gz
+  local tarball="${GITHUB_URL}/archive/master.tar.gz"
   if is_exists "curl"; then
     curl -L "$tarball"
   elif is_exists "wget"; then
