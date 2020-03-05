@@ -5,14 +5,15 @@ set -ue
 brew install anyenv
 
 # anyenvの初期化
-echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bashrc
+echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
 
 # fish shell が導入されていればそちらにも
 if (type "fish" > /dev/null 2>&1); then
     echo 'set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths' >> ~/.config/fish/config.fish
+    echo 'eval (anyenv init - | source)' >> ~/.config/fish/config.fish
 fi
 
-echo 'eval "$(anyenv init -)"' >> ~/.bashrc
+echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
 
 ## plugin
 mkdir -p $(anyenv root)/plugins
