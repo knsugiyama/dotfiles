@@ -8,11 +8,12 @@ all:
 list: ## Show dot files in this repo
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
-init: ## Setup
+init: ## Setup & Create symlink for dotfile.
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/init/init.sh
-
-deploy: ## Create symlink for dotfile and install plugin
 	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(subst .files/,,$(val));)
+	@source ~/.bashrc
+
+deploy: ##  install plugin
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/deploy.sh
 
 install: init deploy ## Run initial setup commands
