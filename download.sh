@@ -26,18 +26,18 @@ download() {
     exit 1;
   fi
 
-  local tarball="https://github.com/thalathalaylah/env_constructions/archive/master.tar.gz"
+  local tarball=${GITHUB_URL}/archive/master.tar.gz
   if is_exists "curl"; then
     curl -L "$tarball"
   elif is_exists "wget"; then
     wget -O - "$tarball"
   fi | tar xvz
 
-  if [ ! -d env_constructions-master ]; then
-    logging "env_constructions-master: not found"
+  if [ ! -d dotfiles-master ]; then
+    logging "dotfiles-master: not found"
     exit 1
   fi
-  command mv -f env_constructions-master "$ENV_CONSTRUCTIONS_PATH"
+  command mv -f dotfiles-master "$DOTFILES"
 }
 
 install_build_tool() {
@@ -50,6 +50,6 @@ install_build_tool() {
     fi
 }
 
-ENV_CONSTRUCTIONS_PATH=~/.env_constructions;
+DOTFILES=~/.dotfiles;
 
 download
