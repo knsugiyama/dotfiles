@@ -14,7 +14,8 @@ echo 'Ubuntu package install'
 SCRIPTPATH=$(dirname $0)
 
 sudo apt update
-sudo apt install -y software-properties-common build-essential unzip zlib1g-dev libsecret-1-0 libsecret-1-dev
+sudo apt upgrade
+sudo apt install -y software-properties-common unzip zlib1g-dev libsecret-1-0 libsecret-1-dev
 
 ## japanease lang setting
 sudo apt -y install language-pack-ja-base language-pack-ja
