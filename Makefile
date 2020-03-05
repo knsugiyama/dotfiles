@@ -10,9 +10,10 @@ list: ## Show dot files in this repo
 
 init: ## Setup
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/init/init.sh
+	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(subst .files/,,$(val));)
+	@source ~/.bashrc
 
 deploy: ## Create symlink for dotfile and install plugin
-	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(subst .files/,,$(val));)
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/deploy.sh
 
 install: init deploy ## Run initial setup commands
