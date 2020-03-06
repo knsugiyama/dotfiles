@@ -16,7 +16,12 @@ init: ## Setup and Create symlink for dotfile.
 deploy: ## install plugin
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/deploy.sh
 
-install: init deploy ## Run initial setup commands
+skipFiles: ## git skip-worktree
+	@git update-index --skip-worktree .files/.config/fish/config.fish
+	@git update-index --skip-worktree .files/.bash_profile
+	@git update-index --skip-worktree .files/.bashrc
+
+install: init deploy skipFiles ## Run initial setup commands
 	@echo 'Set default shell by "chsh -s $$(which fish)"'
 
 update: ## Fetch changes for this repository

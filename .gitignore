@@ -4,11 +4,17 @@
 
 ### not ignore ###
 !/.files/
-!/.files/**
+!/.files/.bash_profile
+!/.files/.bashrc
+!/.files/.Brewfile
+!/.files/.gitconfig
+!/.files/.gitignore_global
+!/.files/wsl.conf
+!/.files/.config/fish/config.fish
+!/.files/.config/fish/fishfile
+!/.files/.config/fish/alias.fish
 !/bin/
 !/bin/**
-!/.bashrc
-!/.bash_profile
 !/.gitignore
 !/download.sh
 !/LICNSE
