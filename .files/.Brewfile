@@ -25,6 +25,7 @@ cask "postman"
 cask "slack"
 cask "font-cica"
 cask "adoptopenjdk8"
+cask "karabiner-elements"
 
 brew "gradle"
 brew "maven"
