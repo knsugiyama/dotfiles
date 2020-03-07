@@ -8,6 +8,7 @@ OS=$(os_detect)
 
 if [ ${OS} == 'osx' ]; then
     sh ${CURRENTPATH}/mac/brewfile.sh
+    sh ${CURRENTPATH}/mac/default-shell.sh
     sh ${CURRENTPATH}/mac/anyenv.sh
 elif [ ${OS} == 'linux' ]; then
     sh ${CURRENTPATH}/linux/font.sh
