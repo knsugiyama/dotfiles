@@ -8,15 +8,20 @@ all:
 list: ## Show dot files in this repo
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
-init: ## Setup & Create symlink for dotfile.
+init: ## Setup and Create symlink for dotfile.
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/init/init.sh
 	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(subst .files/,,$(val));)
 	@source ~/.bashrc
 
-deploy: ##  install plugin
+deploy: ## install plugin
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/deploy.sh
 
-install: init deploy ## Run initial setup commands
+skipFiles: ## git skip-worktree
+	@git update-index --skip-worktree .files/.config/fish/config.fish
+	@git update-index --skip-worktree .files/.bash_profile
+	@git update-index --skip-worktree .files/.bashrc
+
+install: init deploy skipFiles ## Run initial setup commands
 	@echo 'Set default shell by "chsh -s $$(which fish)"'
 
 update: ## Fetch changes for this repository

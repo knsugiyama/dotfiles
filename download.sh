@@ -20,22 +20,36 @@ is_exists() {
 DOTFILESPATH=~/.dotfiles
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
 
-sudo apt update
-sudo apt upgrade
+download() {
+  if ! is_exists "curl" && ! is_exists "wget"; then
+    logging "curl or wget required"
+    exit 1;
+  fi
 
-# git が使えるかチェック
-if !(type "git" > /dev/null 2>&1); then
-    # 使えない場合は git をインストールする
-    sudo apt install git
-fi
+  local tarball="https://github.com/knsugiyama/dotfiles/archive/master.tar.gz"
+  if is_exists "curl"; then
+    curl -L "$tarball"
+  elif is_exists "wget"; then
+    wget -O - "$tarball"
+  fi | tar xvz
 
-git clone --recursive "$GITHUB_URL" "$DOTFILESPATH"
-
-cd ~/.dotfiles
-if [ $? -ne 0 ]; then
-    logging "not found: $DOTFILESPATH"
+  if [ ! -d dotfiles-master ]; then
+    logging "dotfiles-master: not found"
     exit 1
-fi
+  fi
+  command mv -f dotfiles-master "$DOTFILES"
+}
 
-# 以降のインストールおよびセットアップ作業にはmakeコマンドが必要なので、install
-sudo apt install -y make
+install_build_tool() {
+    . ${DOTFILESPATH}/bin/lib/os_detect.sh
+    OS=$(os_detect)
+
+    # makeが存在しないと後続が続かないので
+    if [ ${OS} == 'linux' ]; then
+        sudo apt install -y build-essential
+    fi
+}
+
+DOTFILES=~/.dotfiles;
+
+download

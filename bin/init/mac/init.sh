@@ -5,9 +5,3 @@ echo "install homebrew"
 
 echo "update homebrew"
 brew update --verbose
-
-echo ".Brewfile"
-brew bundle --global --verbose
-
-## git credential
-git config --global credential.helper osxkeychain

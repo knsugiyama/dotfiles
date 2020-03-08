@@ -2,14 +2,13 @@
 
 set -ue
 
-brew install anyenv
-
 # anyenvの初期化
 echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
 
 # fish shell が導入されていればそちらにも
 if (type "fish" > /dev/null 2>&1); then
-    echo 'set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths' >> ~/.config/fish/config.fish
+    echo 'set -x PATH $HOME/.anyenv/bin $PATH' >> ~/.config/fish/config.fish
+    echo 'eval (anyenv init - | source)' >> ~/.config/fish/config.fish
 fi
 
 echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
@@ -22,10 +21,10 @@ git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv
 fish -c "echo y | anyenv install --init"
 
 # install jenv
-sudo apt -y install openjdk-8-jdk
 fish -c "anyenv install -s jenv"
-fish -c "jenv add /usr/lib/jvm/java-8-openjdk-amd64"
-fish -c "jenv global openjdk64-1.8.0.242"
+# /usr/libexec/java_home -V でわかる
+fish -c "jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
+fish -c "jenv global 1.8.0.242"
 fish -c "jenv enable-plugin export"
 
 # install node

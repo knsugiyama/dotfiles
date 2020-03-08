@@ -14,6 +14,7 @@ sudo im-config -n fcitx
 ## /usr/lib/mozc/mozc_tool --mode=config_dialog # Mozc自体の設定
 
 {
+    echo 'export umask 022'
     echo 'export DISPLAY=$(cat /etc/resolv.conf | grep nameserver | awk '\''{print $2}'\''):0'
     echo 'export TZ="Asia/Tokyo"'
     echo 'export LANG="ja_JP.UTF-8"'
