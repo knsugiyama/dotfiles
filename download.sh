@@ -47,9 +47,9 @@ install_build_tool() {
     OS=$(os_detect)
 
     # makeが存在しないと後続が続かないので
-    logging ${OS}
     if [ ${OS} == 'linux' ]; then
-        logging "install build-essential"
+        sudo apt update
+        sudo apt upgrade
         sudo apt install -y build-essential
     fi
 }
