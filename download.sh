@@ -38,6 +38,8 @@ download() {
     exit 1
   fi
   command mv -f dotfiles-master "$DOTFILES"
+
+  install_build_tool
 }
 
 install_build_tool() {
@@ -45,7 +47,9 @@ install_build_tool() {
     OS=$(os_detect)
 
     # makeが存在しないと後続が続かないので
+    logging ${OS}
     if [ ${OS} == 'linux' ]; then
+        logging "install build-essential"
         sudo apt install -y build-essential
     fi
 }
@@ -53,4 +57,3 @@ install_build_tool() {
 DOTFILES=~/.dotfiles;
 
 download
-install_build_tool
