@@ -11,6 +11,7 @@ if [ ${OS} == 'osx' ]; then
     sh ${CURRENTPATH}/mac/default-shell.sh
     sh ${CURRENTPATH}/mac/anyenv.sh
 elif [ ${OS} == 'linux' ]; then
+    sh ${CURRENTPATH}/linux/linuxbrew.sh
     sh ${CURRENTPATH}/linux/font.sh
     sh ${CURRENTPATH}/linux/anyenv.sh
 fi
