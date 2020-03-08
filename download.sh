@@ -53,3 +53,4 @@ install_build_tool() {
 DOTFILES=~/.dotfiles;
 
 download
+install_build_tool
