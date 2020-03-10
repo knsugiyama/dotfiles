@@ -18,6 +18,8 @@ fi
 
 if [ ${OS} == 'osx' ]; then
     brew update
+    brew upgrade
+    brew cask upgrade
 elif [ ${OS} == 'linux' ]; then
     sudo apt -y update
     sudo apt -y upgrade
