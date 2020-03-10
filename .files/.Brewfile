@@ -26,6 +26,7 @@ cask "slack"
 cask "font-cica"
 cask "adoptopenjdk8"
 cask "karabiner-elements"
+cask "clipy"
 
 brew "gradle"
 brew "maven"
