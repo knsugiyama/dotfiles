@@ -29,6 +29,9 @@ fish -c "jenv add /usr/lib/jvm/java-8-openjdk-amd64"
 fish -c "jenv global 1.8.0.242"
 fish -c "jenv enable-plugin export"
 
+fish -c "cp .anyenv/envs/jenv/fish/jenv.fish ~/.config/fish/functions/"
+fish -c "cp .anyenv/envs/jenv/fish/export.fish ~/.config/fish/functions/"
+
 # install node
 fish -c "anyenv install nodenv"
 fish -c "nodenv install 12.6.0"

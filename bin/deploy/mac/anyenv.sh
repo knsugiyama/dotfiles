@@ -27,6 +27,9 @@ fish -c "jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/
 fish -c "jenv global 1.8.0.242"
 fish -c "jenv enable-plugin export"
 
+fish -c "cp .anyenv/envs/jenv/fish/jenv.fish ~/.config/fish/functions/"
+fish -c "cp .anyenv/envs/jenv/fish/export.fish ~/.config/fish/functions/"
+
 # install node
 fish -c "anyenv install nodenv"
 fish -c "nodenv install 12.6.0"

@@ -8,6 +8,7 @@
 !/.files/.bashrc
 !/.files/.Brewfile
 !/.files/.gitconfig
+!/.files/.ideavimrc
 !/.files/.gitignore_global
 !/.files/wsl.conf
 !/.files/.config/fish/config.fish
