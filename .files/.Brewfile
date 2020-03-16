@@ -28,6 +28,7 @@ cask "adoptopenjdk8"
 cask "karabiner-elements"
 cask "clipy"
 cask "clickup"
+cask "appcleaner"
 
 brew "gradle"
 brew "maven"
