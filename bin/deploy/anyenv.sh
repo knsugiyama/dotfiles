@@ -7,7 +7,7 @@ echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
 
 # fish shell が導入されていればそちらにも
 if (type "fish" > /dev/null 2>&1); then
-    echo 'set -x PATH $HOME/.anyenv/bin $PATH' >> ~/.config/fish/config.fish
+    echo 'set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths' >> ~/.config/fish/config.fish
     echo 'eval (anyenv init - | source)' >> ~/.config/fish/config.fish
 fi
 
@@ -20,16 +20,11 @@ git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv
 # init
 fish -c "echo y | anyenv install --init"
 
-# install jenv
-fish -c "anyenv install -s jenv"
-# /usr/libexec/java_home -V でわかる
-fish -c "jenv add /Library/Java/JavaVirtualMachines/adoptopenjdk-8.jdk/Contents/Home"
-fish -c "jenv global 1.8.0.242"
-echo 'set -x JAVA_HOME (jenv prefix)' >> ~/.config/fish/config.fish
-echo 'export JAVA_HOME="$(jenv prefix)"' >> .bash_profile
-
 # install node
 fish -c "anyenv install nodenv"
+touch $(nodenv root)/default-packages
+mkdir -p (nodenv root)"/plugins"
+git clone https://github.com/pine/nodenv-yarn-install.git (nodenv root)"/plugins/nodenv-yarn-install"
 fish -c "nodenv install 12.6.0"
 fish -c "nodenv global 12.6.0"
 

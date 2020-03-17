@@ -12,8 +12,8 @@ if [ ! -d ".git" ]; then
   git fetch origin
   git checkout --force origin/master
 else
-  git fetch origin
-  git checkout origin/master
+  git checkout master
+  git pull
 fi
 
 if [ ${OS} == 'osx' ]; then
