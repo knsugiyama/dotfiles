@@ -26,3 +26,6 @@ elif [ ${OS} == 'linux' ]; then
     sudo apt autoremove
     brew update
 fi
+
+anyenv update
+
