@@ -1,7 +1,11 @@
 #!/bin/sh
 
-echo "install homebrew"
+. ${DOTPATH}/bin/lib/logging.sh
+
+set -ue
+
+echo $(log_echo "install homebrew")
 /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
 
-echo "update homebrew"
+echo $(log_echo "update homebrew")
 brew update --verbose

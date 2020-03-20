@@ -11,7 +11,6 @@ brew "ghq"
 brew "jq"
 brew "tig"
 brew "fish"
-brew "fzf"
 brew "fontconfig"
 brew "anyenv"
 

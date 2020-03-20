@@ -1,10 +1,14 @@
 #!/bin/sh
 
-
+. ${DOTPATH}/bin/lib/logging.sh
 . ${DOTPATH}/bin/lib/os_detect.sh
 
 CURRENTPATH=$(dirname $0)
 OS=$(os_detect)
+
+set -ue
+
+echo $(log_echo "start deploy.")
 
 if [ ${OS} == 'osx' ]; then
     sh ${CURRENTPATH}/mac/brewfile.sh

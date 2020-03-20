@@ -1,6 +1,5 @@
-fzf
-tmux
 peco
+ghq
 jq
 shellcheck
 tree
@@ -9,6 +8,5 @@ direnv
 tig
 hub
 rg
-ghq
 fish
 anyenv

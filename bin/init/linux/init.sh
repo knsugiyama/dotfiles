@@ -1,15 +1,20 @@
 #!/bin/sh
 
+. ${DOTPATH}/bin/lib/logging.sh
+
+set -ue
+
 install() {
   cat ${SCRIPTPATH}/packages | while read package_name;
   do
     if [ line != '' ]; then
+      echo $(log_info "package name: $package_name")
       sudo apt install -y ${package_name}
     fi
   done
 }
 
-echo 'Ubuntu package install'
+echo $(log_echo "Ubuntu package install.")
 
 SCRIPTPATH=$(dirname $0)
 

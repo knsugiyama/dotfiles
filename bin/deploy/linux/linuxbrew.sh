@@ -1,11 +1,14 @@
 #!/bin/bash
 
+. ${DOTPATH}/bin/lib/logging.sh
+
 set -ue
 
 install() {
   cat ${SCRIPTPATH}/brew-packages | while read brew_package_name;
   do
     if [ line != '' ]; then
+      echo $(log_info "brew package name: $brew_package_name")
       brew install ${brew_package_name}
     fi
   done

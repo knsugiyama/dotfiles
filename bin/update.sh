@@ -1,11 +1,14 @@
 #!/bin/bash
 
+. ${DOTPATH}/bin/lib/logging.sh
 . ${DOTPATH}/bin/lib/os_detect.sh
 
 set -ue
 
-OS=`os_detect`
+OS=$(os_detect)
 
+echo $(log_echo "start update.")
+echo $(log_info "###### update git. ######")
 if [ ! -d ".git" ]; then
   git init
   git remote add origin https://github.com/knsugiyama/dotfiles.git
@@ -16,6 +19,7 @@ else
   git pull
 fi
 
+echo $(log_info "###### packages update. ######")
 if [ ${OS} == 'osx' ]; then
     brew update
     brew upgrade
@@ -27,5 +31,5 @@ elif [ ${OS} == 'linux' ]; then
     brew update
 fi
 
+echo $(log_info "###### anyenv update. ######")
 anyenv update
-
