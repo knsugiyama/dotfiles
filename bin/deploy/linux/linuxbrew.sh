@@ -9,7 +9,7 @@ install() {
   do
     if [ line != '' ]; then
       echo $(log_info "brew package name: $brew_package_name")
-      brew install ${brew_package_name}
+      sh -c "brew install ${brew_package_name}"
     fi
   done
 }
@@ -26,3 +26,6 @@ test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>
 echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
 install
+
+# fishが入るので、設定
+echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/config.fish

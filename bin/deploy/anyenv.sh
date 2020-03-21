@@ -7,7 +7,7 @@ echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
 
 # fish shell が導入されていればそちらにも
 if (type "fish" > /dev/null 2>&1); then
-    echo 'set -Ux fish_user_paths $HOME/.anyenv/bin $fish_user_paths' >> ~/.config/fish/config.fish
+    echo 'set -x PATH $HOME/.anyenv/bin $PATH' >> ~/.config/fish/config.fish
     echo 'eval (anyenv init - | source)' >> ~/.config/fish/config.fish
 fi
 
