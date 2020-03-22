@@ -1,16 +1,15 @@
-# base action
-alias l 'ls'
-alias ll 'ls -ltr'
-alias la 'ls -la'
-alias ls 'ls -G -F'
-alias ltr 'ls -ltr'
+alias ls 'ls --color=auto'
+alias ll 'ls -alF'
 
-# config.fishをvimで開く
-alias ef 'vim ~/.config/fish/config.fish'
+alias cd.. 'cd ..'
+alias .. 'cd ..'
+alias ... 'cd ../..'
+alias .... 'cd ../../..'
+alias ..... 'cd ../../../..'
 
 # -n 行数表示, -I バイナリファイル無視
 alias grep 'grep --color -n -I'
-# tree
+
 alias tree "tree -NC" # N: 文字化け対策, C:色をつける
 
 alias mkdir 'mkdir -p'
@@ -24,14 +23,10 @@ alias h 'history'
 alias cx 'chmod +x'
 alias 'c-x' 'chmod -x'
 
-alias cd.. 'cd ..'
-alias .. 'cd ..'
-alias ... 'cd ../..'
-alias .... 'cd ../../..'
-alias ..... 'cd ../../../..'
-
+############
 # git alias
-alias ga 'git add '
+############
+alias ga 'git add'
 alias gaa 'git add --all'
 
 alias gb 'git branch'
@@ -42,10 +37,10 @@ alias gc 'git commit -v'
 alias gcmsg 'git commit -m'
 alias gc! 'git commit -v --amend'
 
+alias gco 'git checkout'
 alias gcb 'git checkout -b'
 alias gcm 'git checkout master'
 alias gcd 'git checkout develop'
-alias gco 'git checkout'
 
 alias gd 'git diff'
 alias gdca 'git diff --cached'
@@ -60,11 +55,12 @@ alias gfo 'git fetch origin'
 alias ggpull 'git pull origin (git_current_branch)'
 alias ggpush 'git push origin (git_current_branch)'
 
-alias gl 'git pull'
+alias gps 'git push'
+alias gpl 'git pull'
+
 alias glg 'git log --stat'
 alias glgp 'git log --stat -p'
-alias glgg 'git log --graph'
-alias glgga 'git log --graph --decorate --all'
+alias glgg 'git log --graph --decorate --all'
 alias glgm 'git log --graph --max-count=10'
 alias glo 'git log --oneline --decorate'
 alias glol "git log --graph --pretty='%Cred%h%Creset -%C(yellow)%d%Creset %s %Cgreen(%cr) %C(bold blue)<%an>%Creset' --abbrev-commit"
@@ -78,6 +74,7 @@ alias grhh 'git reset HEAD --hard'
 
 alias gs 'git status'
 alias gss 'git status -s'
+
 alias gsta 'git stash save'
 alias gstaa 'git stash apply'
 alias gstc 'git stash clear'
@@ -86,13 +83,28 @@ alias gstl 'git stash list'
 alias gstp 'git stash pop'
 alias gsts 'git stash show --text'
 
-# simple repository move
-alias g 'cd (ghq root)/(ghq list | peco)'
+############
+# top
+############
+alias top 'htop'
+alias mem 'top -o rsize'
+alias cpu 'top -o cpu'
 
+############
+# simple repository move
+############
+alias g 'cd (ghq root)/(ghq list | peco)'
+alias gh 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
+
+############
 # tmux alias
+############
 alias tk 'tmux kill-session -t'
 alias tl 'tmux ls'
 
+############
+# functions
+############
 # config.fishを読み込む
 function reload
   source ~/.config/fish/config.fish
