@@ -29,3 +29,6 @@ install
 
 # fishが入るので、設定
 echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/config.fish
+
+# ここまでの有効化
+. ~/.bash_profile
