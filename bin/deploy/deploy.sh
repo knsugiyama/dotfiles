@@ -11,17 +11,17 @@ set -ue
 echo $(log_echo "start deploy.")
 
 if [ ${OS} == 'osx' ]; then
-    sh ${CURRENTPATH}/mac/brewfile.sh
-    sh ${CURRENTPATH}/mac/default-shell.sh
-    sh ${CURRENTPATH}/anyenv.sh
-    sh ${CURRENTPATH}/mac/jenv.sh
+    ${CURRENTPATH}/mac/brewfile.sh
+    ${CURRENTPATH}/mac/default-shell.sh
+    ${CURRENTPATH}/anyenv.sh
+    ${CURRENTPATH}/mac/jenv.sh
 elif [ ${OS} == 'linux' ]; then
-    sh ${CURRENTPATH}/linux/linuxbrew.sh
-    sh ${CURRENTPATH}/linux/font.sh
-    sh ${CURRENTPATH}/anyenv.sh
-    sh ${CURRENTPATH}/linux/jenv.sh
+    ${CURRENTPATH}/linux/linuxbrew.sh
+    ${CURRENTPATH}/linux/font.sh
+    ${CURRENTPATH}/anyenv.sh
+    ${CURRENTPATH}/linux/jenv.sh
 fi
 
-sh ${CURRENTPATH}/fisher.sh
-sh ${CURRENTPATH}/plantuml.sh
-sh ${CURRENTPATH}/asciidoc.sh
+${CURRENTPATH}/fisher.sh
+${CURRENTPATH}/plantuml.sh
+${CURRENTPATH}/asciidoc.sh
