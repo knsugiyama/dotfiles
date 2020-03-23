@@ -1,4 +1,4 @@
-alias ls 'ls --color=auto'
+alias ls 'ls -l'
 alias ll 'ls -alF'
 
 alias cd.. 'cd ..'
