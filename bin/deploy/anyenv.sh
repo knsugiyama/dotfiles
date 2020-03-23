@@ -4,14 +4,11 @@ set -ue
 
 # anyenvの初期化
 echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
-
-# fish shell が導入されていればそちらにも
-if (type "fish" > /dev/null 2>&1); then
-    echo 'set -x PATH $HOME/.anyenv/bin $PATH' >> ~/.config/fish/config.fish
-    echo 'eval (anyenv init - | source)' >> ~/.config/fish/config.fish
-fi
-
 echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
+
+# fish shell にも
+echo 'set -x PATH $HOME/.anyenv/bin $PATH' >> ~/.config/fish/config.fish
+echo 'eval (anyenv init - | source)' >> ~/.config/fish/config.fish
 
 ## plugin
 mkdir -p $(anyenv root)/plugins
@@ -22,8 +19,8 @@ fish -c "echo y | anyenv install --init"
 
 # install node
 fish -c "anyenv install nodenv"
-touch $(nodenv root)/default-packages
-mkdir -p (nodenv root)"/plugins"
+fish -c "touch (nodenv root)/default-packages"
+fish -c "mkdir -p (nodenv root)"/plugins""
 git clone https://github.com/pine/nodenv-yarn-install.git (nodenv root)"/plugins/nodenv-yarn-install"
 fish -c "nodenv install 12.6.0"
 fish -c "nodenv global 12.6.0"
