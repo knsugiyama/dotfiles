@@ -16,5 +16,5 @@ gem install coderay
 gem install rouge
 gem install concurrent-ruby
 
-echo 'set -x PATH "/usr/local/opt/icu4c/bin" $PATH' >> ~/.config/fish/config.fish
-echo 'set -x PATH "/usr/local/opt/icu4c/sbin" $PATH' >> ~/.config/fish/config.fish
+echo 'set -x PATH "/usr/local/opt/icu4c/bin" $PATH' >> ~/.config/fish/env.fish
+echo 'set -x PATH "/usr/local/opt/icu4c/sbin" $PATH' >> ~/.config/fish/env.fish

@@ -52,11 +52,11 @@ alias gf 'git fetch'
 alias gfa 'git fetch --all --prune'
 alias gfo 'git fetch origin'
 
+alias gpl 'git pull'
 alias ggpull 'git pull origin (git_current_branch)'
-alias ggpush 'git push origin (git_current_branch)'
 
 alias gps 'git push'
-alias gpl 'git pull'
+alias ggpush 'git push origin (git_current_branch)'
 
 alias glg 'git log --stat'
 alias glgp 'git log --stat -p'

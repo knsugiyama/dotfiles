@@ -11,9 +11,12 @@
 !/.files/.ideavimrc
 !/.files/.gitignore_global
 !/.files/wsl.conf
+!/.files/.config/
+!/.files/.config/fish/
 !/.files/.config/fish/config.fish
 !/.files/.config/fish/fishfile
 !/.files/.config/fish/alias.fish
+!/.files/.config/fish/env.fish
 !/bin/
 !/bin/**
 !/.gitignore

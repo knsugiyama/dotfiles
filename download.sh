@@ -58,9 +58,7 @@ DOTFILES=~/.dotfiles;
 
 download
 
-
 # ディレクトリの削除
 if [ -d ~/.config ]; then
     rm -rf ~/.config
 fi
-

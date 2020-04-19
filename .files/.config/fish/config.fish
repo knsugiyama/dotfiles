@@ -1,4 +1,5 @@
-source ~/.config/fish/alias.fish
+. ~/.config/fish/alias.fish
+. ~/.config/fish/env.fish
 
 # fzf .git ignore setting
 set --export FZF_DEFAULT_COMMAND 'ag --hidden --ignore .git -g ""'

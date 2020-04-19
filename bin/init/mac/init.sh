@@ -9,3 +9,6 @@ echo $(log_echo "install homebrew")
 
 echo $(log_echo "update homebrew")
 brew update --verbose
+
+## git credential
+git config --global credential.helper osxkeychain

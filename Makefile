@@ -17,9 +17,10 @@ deploy: ## install plugin
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/deploy.sh
 
 skipFiles: ## git skip-worktree
-	@git update-index --skip-worktree .files/.config/fish/config.fish
+	@git update-index --skip-worktree .files/.config/fish/env.fish
 	@git update-index --skip-worktree .files/.bash_profile
 	@git update-index --skip-worktree .files/.bashrc
+	@git update-index --skip-worktree .files/.gitconfig
 
 install: init deploy skipFiles ## Run initial setup commands
 	@echo 'Set default shell by "chsh -s $$(which fish)"'
