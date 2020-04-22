@@ -17,6 +17,20 @@ is_exists() {
     return $?
 }
 
+install_build_tool() {
+    . ${DOTFILESPATH}/bin/lib/os_detect.sh
+    OS=$(os_detect)
+
+    # makeが存在しないと後続が続かないので
+    if [ ${OS} == 'linux' ]; then
+        sudo apt update
+        sudo apt upgrade
+        sudo apt install -y build-essential
+    fi
+}
+
+# ==============================
+
 DOTFILESPATH=~/.dotfiles
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
 
@@ -40,18 +54,6 @@ download() {
   command mv -f dotfiles-master "$DOTFILES"
 
   install_build_tool
-}
-
-install_build_tool() {
-    . ${DOTFILESPATH}/bin/lib/os_detect.sh
-    OS=$(os_detect)
-
-    # makeが存在しないと後続が続かないので
-    if [ ${OS} == 'linux' ]; then
-        sudo apt update
-        sudo apt upgrade
-        sudo apt install -y build-essential
-    fi
 }
 
 DOTFILES=~/.dotfiles;

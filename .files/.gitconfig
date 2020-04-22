@@ -17,3 +17,5 @@
   prune = true
 [ghq]
   root = ~/src
+[user]
+	useConfigOnly = true
