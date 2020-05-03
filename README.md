@@ -1,4 +1,5 @@
 # dotfiles
+※動作未検証※
 
 ## install
 
