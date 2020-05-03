@@ -14,7 +14,10 @@ init: ## Setup and Create symlink for dotfile.
 	@. ~/.bash_profile
 
 deploy: ## install plugin
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/deploy.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/brew.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/font.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/fisher.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/anyenv.sh
 
 skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .files/.config/fish/env.fish
@@ -27,6 +30,21 @@ install: init deploy skipFiles ## Run initial setup commands
 
 update: ## Fetch changes for this repository
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/update.sh
+
+gcloud: ## install gcloud sdk
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/tools/gcloud.sh
+
+intellij: ## install intellij-ce
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/tools/intellij.sh
+
+asciidoc: ## install asciidoc
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/tools/asciidoc.sh
+
+plantuml: ## install plantuml
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/tools/plantuml.sh
+
+wsl2-gui: ## install wsl2-gui
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/tools/wsl2-gui.sh
 
 help:
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \

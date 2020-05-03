@@ -17,6 +17,8 @@
 !/.files/.config/fish/fishfile
 !/.files/.config/fish/alias.fish
 !/.files/.config/fish/env.fish
+!/.files/.config/karabiner/
+!/.files/.config/karabiner/karabiner.json
 !/bin/
 !/bin/**
 !/.gitignore

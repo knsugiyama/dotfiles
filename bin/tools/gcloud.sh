@@ -16,6 +16,7 @@ if [ ${OS} == 'osx' ]; then
     if (type "fish" > /dev/null 2>&1); then
         echo "source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc"  >> ~/.config/fish/env.fish
     fi
+
 elif [ ${OS} == 'linux' ]; then
     export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
     echo "deb http://packages.cloud.google.com/apt $CLOUD_SDK_REPO main" | sudo tee -a /etc/apt/sources.list.d/google-cloud-sdk.list
