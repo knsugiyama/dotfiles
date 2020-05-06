@@ -1,8 +1,11 @@
 #!/bin/bash
 
 . ${DOTPATH}/bin/lib/logging.sh
+. ${DOTPATH}/bin/lib/os_detect.sh
 
 set -ue
+
+OS=$(os_detect)
 
 echo 'brew package install'
 
