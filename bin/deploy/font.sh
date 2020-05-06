@@ -1,6 +1,10 @@
 #!/bin/bash
 
+. ${DOTPATH}/bin/lib/os_detect.sh
+
 set -ue
+
+OS=$(os_detect)
 
 if [ ${OS} == 'osx' ]; then
     brew cask install font-cica
