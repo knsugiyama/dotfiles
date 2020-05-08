@@ -24,6 +24,7 @@ if [ ${OS} == 'osx' ]; then
     brew update
     brew upgrade
     brew cask upgrade
+    brew cleanup
 elif [ ${OS} == 'linux' ]; then
     sudo apt -y update
     sudo apt -y upgrade
