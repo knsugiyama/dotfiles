@@ -10,6 +10,7 @@
 !/.files/.gitconfig
 !/.files/.ideavimrc
 !/.files/.gitignore_global
+!/.files/.tigrc
 !/.files/wsl.conf
 !/.files/.config/
 !/.files/.config/fish/
