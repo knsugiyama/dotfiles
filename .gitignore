@@ -20,6 +20,11 @@
 !/.files/.config/fish/env.fish
 !/.files/.config/karabiner/
 !/.files/.config/karabiner/karabiner.json
+!/.files/.config/karabiner/assets/
+!/.files/.config/karabiner/assets/
+!/.files/.config/karabiner/assets/complex_modifications/
+!/.files/.config/karabiner/assets/complex_modifications/
+!/.files/.config/karabiner/assets/complex_modifications/1589175770.json
 !/bin/
 !/bin/**
 !/.gitignore
