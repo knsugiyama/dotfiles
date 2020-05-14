@@ -9,9 +9,7 @@
           "from": {
             "key_code": "left_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -39,9 +37,7 @@
           "from": {
             "key_code": "right_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -74,9 +70,7 @@
           "from": {
             "key_code": "left_control",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -104,9 +98,7 @@
           "from": {
             "key_code": "right_control",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -149,9 +141,7 @@
           "from": {
             "key_code": "left_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -189,9 +179,7 @@
           "from": {
             "key_code": "left_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -229,9 +217,7 @@
           "from": {
             "key_code": "right_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -269,9 +255,7 @@
           "from": {
             "key_code": "right_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -314,9 +298,7 @@
           "from": {
             "key_code": "right_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -354,9 +336,7 @@
           "from": {
             "key_code": "right_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -389,9 +369,7 @@
           "from": {
             "key_code": "japanese_eisuu",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -419,9 +397,7 @@
           "from": {
             "key_code": "japanese_kana",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -473,17 +449,13 @@
           "from": {
             "key_code": "open_bracket",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ]
+              "mandatory": ["control"]
             }
           },
           "to": [
             {
               "key_code": "open_bracket",
-              "modifiers": [
-                "control"
-              ]
+              "modifiers": ["control"]
             },
             {
               "key_code": "japanese_eisuu"
@@ -492,10 +464,7 @@
           "conditions": [
             {
               "type": "keyboard_type_if",
-              "keyboard_types": [
-                "ansi",
-                "iso"
-              ]
+              "keyboard_types": ["ansi", "iso"]
             }
           ]
         },
@@ -504,17 +473,13 @@
           "from": {
             "key_code": "close_bracket",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ]
+              "mandatory": ["control"]
             }
           },
           "to": [
             {
               "key_code": "close_bracket",
-              "modifiers": [
-                "control"
-              ]
+              "modifiers": ["control"]
             },
             {
               "key_code": "japanese_eisuu"
@@ -523,9 +488,7 @@
           "conditions": [
             {
               "type": "keyboard_type_if",
-              "keyboard_types": [
-                "jis"
-              ]
+              "keyboard_types": ["jis"]
             }
           ]
         }
@@ -539,9 +502,7 @@
           "from": {
             "key_code": "open_bracket",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ]
+              "mandatory": ["control"]
             }
           },
           "to": [
@@ -555,10 +516,7 @@
           "conditions": [
             {
               "type": "keyboard_type_if",
-              "keyboard_types": [
-                "ansi",
-                "iso"
-              ]
+              "keyboard_types": ["ansi", "iso"]
             }
           ]
         },
@@ -567,9 +525,7 @@
           "from": {
             "key_code": "close_bracket",
             "modifiers": {
-              "mandatory": [
-                "control"
-              ]
+              "mandatory": ["control"]
             }
           },
           "to": [
@@ -583,9 +539,7 @@
           "conditions": [
             {
               "type": "keyboard_type_if",
-              "keyboard_types": [
-                "jis"
-              ]
+              "keyboard_types": ["jis"]
             }
           ]
         }
@@ -646,9 +600,7 @@
           "from": {
             "key_code": "left_control",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
@@ -676,9 +628,7 @@
           "from": {
             "key_code": "right_command",
             "modifiers": {
-              "optional": [
-                "any"
-              ]
+              "optional": ["any"]
             }
           },
           "parameters": {
