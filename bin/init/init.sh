@@ -1,4 +1,4 @@
-#!/bin/
+#!/bin/bash
 
 . ${DOTPATH}/bin/lib/logging.sh
 . ${DOTPATH}/bin/lib/os_detect.sh
