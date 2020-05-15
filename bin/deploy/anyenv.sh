@@ -13,18 +13,19 @@ echo 'eval (anyenv init - | source)' >> ~/.config/fish/env.fish
 ## plugin
 mkdir -p $(anyenv root)/plugins
 git clone https://github.com/znz/anyenv-update.git $(anyenv root)/plugins/anyenv-update
+git clone https://github.com/znz/anyenv-git.git $(anyenv root)/plugins/anyenv-git
 
 # init
-fish -c "echo y | anyenv install --init"
+echo y | anyenv install --init
 
 # install jenv
-fish -c "anyenv install jenv"
+anyenv install jenv
 # install node
-fish -c "anyenv install nodenv"
-fish -c "touch (nodenv root)/default-packages"
-fish -c "mkdir -p (nodenv root)"/plugins""
-git clone https://github.com/pine/nodenv-yarn-install.git (nodenv root)"/plugins/nodenv-yarn-install"
+anyenv install nodenv
+touch $(nodenv root)/default-packages
+mkdir -p $(nodenv root)/plugins
+git clone https://github.com/pine/nodenv-yarn-install.git $(nodenv root)/plugins/nodenv-yarn-install
 # install ruby
-fish -c "anyenv install rbenv"
+anyenv install rbenv
 # install go
-fish -c "anyenv install goenv"
+anyenv install goenv
