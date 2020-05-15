@@ -14,10 +14,12 @@ init: ## Setup and Create symlink for dotfile.
 	@. ~/.bash_profile
 
 deploy: ## install plugin
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/brew.sh
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/font.sh
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/fisher.sh
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/anyenv.sh
+	@. ~/.bash_profile && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/brew.sh && \
+	. ~/.bash_profile && \
+	bash $(DOTPATH)/bin/deploy/font.sh && \
+	bash $(DOTPATH)/bin/deploy/fisher.sh && \
+	bash $(DOTPATH)/bin/deploy/anyenv.sh
 
 skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .files/.config/fish/env.fish
