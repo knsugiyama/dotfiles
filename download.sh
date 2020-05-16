@@ -64,3 +64,9 @@ download
 if [ -d ~/.config ]; then
     rm -rf ~/.config
 fi
+
+# git管理できるように
+git init
+git remote add origin https://github.com/knsugiyama/dotfiles.git
+git fetch origin
+git checkout --force origin/master
