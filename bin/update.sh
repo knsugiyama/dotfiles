@@ -34,3 +34,4 @@ fi
 
 echo $(log_info "###### anyenv update. ######")
 anyenv update
+anyenv git pull
