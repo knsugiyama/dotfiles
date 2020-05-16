@@ -23,7 +23,4 @@ elif [ ${OS} == 'linux' ]; then
       sh -c "brew install ${brew_package_name}"
     fi
   done
-
-  # fishが入るので、設定
-  echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
 fi
