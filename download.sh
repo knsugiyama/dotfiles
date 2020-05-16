@@ -33,6 +33,7 @@ install_build_tool() {
 
 DOTFILESPATH=~/.dotfiles
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
+DOTFILES=~/.dotfiles;
 
 download() {
   if ! is_exists "curl" && ! is_exists "wget"; then
@@ -56,8 +57,6 @@ download() {
   install_build_tool
 }
 
-DOTFILES=~/.dotfiles;
-
 download
 
 # ディレクトリの削除
@@ -66,7 +65,8 @@ if [ -d ~/.config ]; then
 fi
 
 # git管理できるように
+cd "$DOTFILES"
 git init
-git remote add origin https://github.com/knsugiyama/dotfiles.git
+git remote add origin "$GITHUB_URL"
 git fetch origin
 git checkout --force origin/master
