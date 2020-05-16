@@ -11,14 +11,14 @@ list: ## Show dot files in this repo
 init: ## Setup and Create symlink for dotfile.
 	@$(foreach val, $(DOTFILES), ln -snfv $(abspath $(val)) $(HOME)/$(subst .files/,,$(val));)
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/init/init.sh
-	@. ~/.bash_profile
 
 deploy: ## install plugin
 	@. ~/.bash_profile && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/brew.sh && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/font.sh && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/fisher.sh && \
-	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/anyenv.sh
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/anyenv.sh && \
+	. ~/.bash_profile
 
 skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .files/.config/fish/env.fish
@@ -26,7 +26,7 @@ skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .files/.bashrc
 	@git update-index --skip-worktree .files/.gitconfig
 
-install: init deploy ## Run initial setup commands
+install: init deploy update ## Run initial setup commands
 	@echo 'Set default shell by "chsh -s $$(which fish)"'
 
 update: ## Fetch changes for this repository
