@@ -26,7 +26,7 @@ skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .files/.bashrc
 	@git update-index --skip-worktree .files/.gitconfig
 
-install: init deploy skipFiles ## Run initial setup commands
+install: init deploy ## Run initial setup commands
 	@echo 'Set default shell by "chsh -s $$(which fish)"'
 
 update: ## Fetch changes for this repository
