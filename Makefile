@@ -27,7 +27,8 @@ skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .files/.gitconfig
 
 update: ## Fetch changes for this repository
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/update.sh
+	@. ~/.bash_profile && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/update.sh
 
 install: init deploy update skipFiles ## Run initial setup commands
 	@echo 'Set default shell by "chsh -s $$(which fish)"'
