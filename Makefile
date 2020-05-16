@@ -16,7 +16,6 @@ init: ## Setup and Create symlink for dotfile.
 deploy: ## install plugin
 	@. ~/.bash_profile && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/brew.sh && \
-	. ~/.bash_profile && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/font.sh && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/fisher.sh && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/bin/deploy/anyenv.sh
