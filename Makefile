@@ -1,5 +1,6 @@
 DOTPATH := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 DOTFILES := $(wildcard .files/.??*)
+SHELL=/bin/bash
 
 .DEFAULT_GOAL := help
 

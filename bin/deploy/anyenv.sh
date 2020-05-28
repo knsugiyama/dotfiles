@@ -3,10 +3,6 @@
 set -ue
 
 # anyenvの初期化
-echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >> ~/.bash_profile
-echo 'eval "$(anyenv init -)"' >> ~/.bash_profile	
-
-# fish shell にも
 echo 'set -x PATH $HOME/.anyenv/bin $PATH' >> ~/.config/fish/env.fish
 
 ## plugin
