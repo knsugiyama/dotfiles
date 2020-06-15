@@ -21,10 +21,8 @@ fi
 
 echo $(log_info "###### packages update. ######")
 if [ ${OS} == 'osx' ]; then
-    brew update
     brew upgrade
     brew cask upgrade
-    brew cleanup
 elif [ ${OS} == 'linux' ]; then
     sudo apt -y update
     sudo apt -y upgrade
@@ -34,4 +32,3 @@ fi
 
 echo $(log_info "###### anyenv update. ######")
 anyenv update
-anyenv git pull

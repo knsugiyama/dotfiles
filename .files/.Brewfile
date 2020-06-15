@@ -14,6 +14,7 @@ brew "hub"
 brew "jq"
 brew "peco"
 brew "tig"
+brew "tree"
 
 cask "appcleaner"
 cask "adoptopenjdk8"
