@@ -45,3 +45,22 @@ set whichwrap=b,s,h,l,<,>,[,],~
 "x キー削除でデフォルトレジスタに入れない
 nnoremap x "_x
 vnoremap x "_x
+
+set easymotion
+" sで開始
+nmap s <Plug>(easymotion-s2)
+
+set surround
+
+set multiple-cursors
+" Ctrl+kで発動
+map <C-k> <A-n>
+
+set commentary
+
+set argtextobj
+
+set textobj-entire
+
+set argtextobj
+
