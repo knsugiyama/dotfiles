@@ -83,7 +83,7 @@ initialize() {
   cat ${path}/installation-order | while read install_shell; do
     if [ line != '' ]; then
       logging "shell name: ${path}/${install_shell}"
-      chmod 777 "${path}/${install_shell}"
+      chmod +x "${path}/${install_shell}"
       bash "${path}/${install_shell}"
       . ~/.bash_profile
     fi
