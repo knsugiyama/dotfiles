@@ -6,7 +6,7 @@ set -ue
 
 SCRIPTPATH=${DOTPATH}/etc/init/linux
 
-cat ${SCRIPTPATH}/files/brew-packages | while read brew_package_name; do
+cat ${SCRIPTPATH}/files/linux-brew-packages | while read brew_package_name; do
     if [ line != '' ]; then
         echo $(log_info "brew package name: $brew_package_name")
         sh -c "brew install ${brew_package_name}"
