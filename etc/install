@@ -67,7 +67,6 @@ deploy() {
   fi
   cd "$DOTPATH"
   make deploy
-  make skipFiles
 }
 
 initialize() {
@@ -110,3 +109,5 @@ git init
 git remote add origin "$GITHUB_URL"
 git fetch origin
 git checkout --force origin/master
+
+make skipFiles
