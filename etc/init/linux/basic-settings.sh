@@ -22,6 +22,3 @@ done
 ## japanease lang setting
 sudo update-locale LANG=ja_JP.UTF-8
 sudo locale-gen ja_JP.UTF-8
-
-sudo apt update
-sudo apt upgrade

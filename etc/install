@@ -67,6 +67,7 @@ deploy() {
   fi
   cd "$DOTPATH"
   make deploy
+  make skipFiles
 }
 
 initialize() {
@@ -84,7 +85,7 @@ initialize() {
     if [ line != '' ]; then
       logging "shell name: ${path}/${install_shell}"
       chmod +x "${path}/${install_shell}"
-      sh -c "${path}/${install_shell}"
+      bash "${path}/${install_shell}"
       . ~/.bash_profile
     fi
   done
