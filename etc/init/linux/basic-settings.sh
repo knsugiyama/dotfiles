@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ${DOTPATH}/etc/scripts/logging.sh
+. ${DOTPATH}/etc/scripts/lib/logging.sh
 
 set -ue
 
@@ -12,11 +12,10 @@ sudo apt update
 sudo apt upgrade
 
 ## basic pakages install
-cat ${SCRIPTPATH}/files/linux-packages | while read package_name;
-do
+cat ${SCRIPTPATH}/files/linux-packages | while read package_name; do
     if [ line != '' ]; then
-    echo $(log_info "package name: $package_name")
-    sudo apt install -y ${package_name}
+        echo $(log_info "package name: $package_name")
+        sudo apt install -y ${package_name}
     fi
 done
 

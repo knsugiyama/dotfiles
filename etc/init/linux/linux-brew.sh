@@ -1,6 +1,6 @@
 #!/bin/bash
 
-. ${DOTPATH}/etc/scripts/logging.sh
+. ${DOTPATH}/etc/scripts/lib/logging.sh
 
 set -ue
 
