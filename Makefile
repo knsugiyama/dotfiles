@@ -17,6 +17,11 @@ deploy: ## Create symlink to home directory
 update: ## Fetch changes for this repository
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update.sh
 
+skipFiles: ## git skip-worktree
+	@git update-index --skip-worktree .bash_profile
+	@git update-index --skip-worktree .bashrc
+	@git update-index --skip-worktree .gitconfig
+
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
