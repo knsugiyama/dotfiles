@@ -3,43 +3,45 @@
 set -ue
 
 logging() {
-    if [ "$#" -eq 0 -o "$#" -gt 1 ]; then
-        echo "Usage: <msg>"
-        return 1
-    fi
+  if [ "$#" -eq 0 -o "$#" -gt 1 ]; then
+    echo "Usage: <msg>"
+    return 1
+  fi
 
-    local text="$1"
-    printf "[$(date +%H:%M:%S)] $text"
+  local text="$1"
+  printf "[$(date +%H:%M:%S)] $text"
 }
 
 is_exists() {
-    which "$1" >/dev/null 2>&1
-    return $?
+  which "$1" >/dev/null 2>&1
+  return $?
 }
 
 install_build_tool() {
-    . ${DOTFILES}/etc/scripts/lib/os_detect.sh
-    OS=$(os_detect)
+  . ${DOTFILES}/etc/scripts/lib/os_detect.sh
+  OS=$(os_detect)
 
-    # makeが存在しないと後続が続かないので
-    if [ ${OS} == 'linux' ]; then
-      if ! is_exists "make"; then
-        sudo apt update
-        sudo apt upgrade
-        sudo apt install -y build-essential
-      fi
+  # makeが存在しないと後続が続かないので
+  if [ ${OS} == 'linux' ]; then
+    if ! is_exists "make"; then
+      sudo apt update
+      sudo apt upgrade
+      sudo apt install -y build-essential
     fi
+  fi
 }
 
 # ==============================
 
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
-DOTFILES=~/.dotfiles; export DOTPATH
+DOTFILES=~/.dotfiles
+export DOTPATH
 
 download() {
+  logging "install: start download..."
   if ! is_exists "curl" && ! is_exists "wget"; then
     logging "curl or wget required"
-    exit 1;
+    exit 1
   fi
 
   local tarball="https://github.com/knsugiyama/dotfiles/archive/master.tar.gz"
@@ -59,14 +61,16 @@ download() {
 }
 
 deploy() {
-    if [ ! -d $DOTFILES ]; then
-        exit 1
-    fi
-    cd "$DOTFILES"
-    make deploy
+  logging "install: start deploy..."
+  if [ ! -d $DOTFILES ]; then
+    exit 1
+  fi
+  cd "$DOTFILES"
+  make deploy
 }
 
 initialize() {
+  logging "install: start initialize..."
   local path install_shell
   if [ ${OS} == 'linux' ]; then
     path=${DOTFILES}/etc/init/linux
@@ -76,26 +80,25 @@ initialize() {
     exit 1
   fi
 
-  cat ${path}/installation-order | while read install_shell;
-  do
-  if [ line != '' ]; then
-      sh -c "${install_shell}"
+  cat ${path}/installation-order | while read install_shell; do
+    if [ line != '' ]; then
+      sh -c "${path}/${install_shell}"
       . ~/.bash_profile
-  fi
+    fi
   done
 }
 
 install() {
   download &&
-  deploy &&
-  initialize
+    deploy &&
+    initialize
 }
 
 install
 
 # ディレクトリの削除
 if [ -d ~/.config ]; then
-    rm -rf ~/.config
+  rm -rf ~/.config
 fi
 
 # git管理できるようにする
