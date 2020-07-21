@@ -18,7 +18,7 @@ is_exists() {
 }
 
 install_build_tool() {
-  . ${DOTFILES}/etc/scripts/lib/os_detect.sh
+  . ${DOTPATH}/etc/scripts/lib/os_detect.sh
   OS=$(os_detect)
 
   # makeが存在しないと後続が続かないので
@@ -34,7 +34,7 @@ install_build_tool() {
 # ==============================
 
 GITHUB_URL=https://github.com/knsugiyama/dotfiles.git
-DOTFILES=~/.dotfiles
+DOTPATH=~/.dotfiles
 export DOTPATH
 
 download() {
@@ -55,17 +55,17 @@ download() {
     logging "dotfiles-master: not found"
     exit 1
   fi
-  command mv -f dotfiles-master "$DOTFILES"
+  command mv -f dotfiles-master "$DOTPATH"
 
   install_build_tool
 }
 
 deploy() {
   logging "install: start deploy..."
-  if [ ! -d $DOTFILES ]; then
+  if [ ! -d $DOTPATH ]; then
     exit 1
   fi
-  cd "$DOTFILES"
+  cd "$DOTPATH"
   make deploy
 }
 
@@ -73,9 +73,9 @@ initialize() {
   logging "install: start initialize..."
   local path install_shell
   if [ ${OS} == 'linux' ]; then
-    path=${DOTFILES}/etc/init/linux
+    path=${DOTPATH}/etc/init/linux
   elif [ ${OS} == 'osx']; then
-    path=${DOTFILES}/etc/init/mac
+    path=${DOTPATH}/etc/init/mac
   else
     exit 1
   fi
@@ -104,7 +104,7 @@ if [ -d ~/.config ]; then
 fi
 
 # git管理できるようにする
-cd "$DOTFILES"
+cd "$DOTPATH"
 git init
 git remote add origin "$GITHUB_URL"
 git fetch origin
