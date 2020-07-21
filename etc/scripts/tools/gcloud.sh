@@ -2,7 +2,7 @@
 
 set -ue
 
-. ${DOTPATH}/bin/lib/os_detect.sh
+. ${DOTPATH}/etc/scripts/os_detect.sh
 
 CURRENTPATH=$(dirname $0)
 OS=$(os_detect)

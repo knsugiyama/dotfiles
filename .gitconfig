@@ -1,0 +1,25 @@
+[core]
+  quotepath = false
+  excludesfile = ~/.gitignore_global
+  preloadindex = true
+  autocrlf = false
+[color]
+  ui = auto
+[help]
+  autocorrect = 1
+[push]
+  default = simple
+[credential]
+  UseHttpPath = true
+[ghq "CODECOMMIT-URL"]
+  vcs = git
+[fetch]
+  prune = true
+[ghq]
+  root = ~/src
+[user]
+	useConfigOnly = true
+[pull]
+	rebase = false
+[hub]
+	protocol = https

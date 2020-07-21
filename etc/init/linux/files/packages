@@ -1,4 +1,4 @@
-build-essential
+software-properties-common
 unzip
 zlib1g-dev
 libsecret-1-0
@@ -7,3 +7,4 @@ language-pack-ja-base
 language-pack-ja
 manpages-ja
 manpages-ja-dev
+fontconfig
