@@ -60,7 +60,6 @@ download() {
 
 deploy() {
     if [ ! -d $DOTFILES ]; then
-        log_fail "$DOTFILES: not found"
         exit 1
     fi
     cd "$DOTFILES"
@@ -74,14 +73,12 @@ initialize() {
   elif [ ${OS} == 'osx']; then
     path=${DOTFILES}/etc/init/mac
   else
-    log_fail "Out of support OS"
     exit 1
   fi
 
   cat ${path}/installation-order | while read install_shell;
   do
   if [ line != '' ]; then
-      echo $(log_info "runnning shell name: $install_shell")
       sh -c "${install_shell}"
       . ~/.bash_profile
   fi
