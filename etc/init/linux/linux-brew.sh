@@ -1,7 +1,5 @@
 #!/bin/bash
 
-. ${DOTPATH}/etc/scripts/lib/logging.sh
-
 set -ue
 
 # linuxbrew の導入

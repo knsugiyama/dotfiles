@@ -17,6 +17,7 @@ brew "tig"
 brew "tree"
 brew "gradle"
 brew "maven"
+brew "nvim"
 
 cask "appcleaner"
 cask "adoptopenjdk8"

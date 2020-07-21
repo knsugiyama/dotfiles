@@ -1,3 +1,0 @@
-#!/bin/sh
-
-DOTFILES=~/.dotfiles; export DOTFILES
