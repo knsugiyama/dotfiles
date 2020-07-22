@@ -111,3 +111,5 @@ git fetch origin
 git checkout --force origin/master
 
 make skipFiles
+
+exec $SHELL -l

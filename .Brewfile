@@ -18,6 +18,8 @@ brew "tree"
 brew "gradle"
 brew "maven"
 brew "nvim"
+brew "asciidoc"
+brew "plantuml"
 
 cask "appcleaner"
 cask "adoptopenjdk8"

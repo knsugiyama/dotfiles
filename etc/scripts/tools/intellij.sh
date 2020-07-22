@@ -2,7 +2,6 @@
 
 . ${DOTPATH}/etc/scripts/lib/os_detect.sh
 
-CURRENTPATH=$(dirname $0)
 OS=$(os_detect)
 
 if [ ${OS} == 'osx' ]; then
