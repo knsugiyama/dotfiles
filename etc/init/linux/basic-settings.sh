@@ -1,15 +1,15 @@
 #!/bin/bash
 
-. ${DOTPATH}/etc/scripts/lib/logging.sh
+set -eu
 
-set -ue
+. ${DOTPATH}/etc/scripts/lib/logging.sh
 
 echo $(log_echo "Ubuntu package install.")
 
 SCRIPTPATH=${DOTPATH}/etc/init/linux
 
-sudo apt update
-sudo apt upgrade
+echo y | sudo apt update
+echo y | sudo apt upgrade
 
 ## basic pakages install
 cat ${SCRIPTPATH}/files/packages | while read package_name; do

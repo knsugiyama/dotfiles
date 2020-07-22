@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -ue
+set -eu
 
 logging() {
   if [ "$#" -eq 0 -o "$#" -gt 1 ]; then

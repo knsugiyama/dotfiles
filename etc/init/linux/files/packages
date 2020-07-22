@@ -9,3 +9,15 @@ language-pack-ja
 manpages-ja
 manpages-ja-dev
 fontconfig
+direnv
+fish
+hub
+jq
+peco
+shellcheck
+tig
+tree
+golang-1.14-go
+neovim
+python-neovim
+python3-neovim

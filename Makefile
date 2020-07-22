@@ -21,6 +21,7 @@ skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .bash_profile
 	@git update-index --skip-worktree .bashrc
 	@git update-index --skip-worktree .gitconfig
+	@git update-index --skip-worktree .config/fish/env.fish
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \

@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ue
-
 # xserver tools
 sudo apt install -y xauth x11-apps
 sudo apt install -y fcitx-mozc fonts-noto-cjk fonts-noto-color-emoji dbus-x11
@@ -24,4 +22,4 @@ sudo im-config -n fcitx
     echo 'export XMODIFIERS="@im=fcitx"'
     echo 'export DefaultIMModule=fcitx'
     echo 'fcitx-autostart'
-} >> ~/.bashrc
+} >>~/.bashrc

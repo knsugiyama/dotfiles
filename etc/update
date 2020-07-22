@@ -3,8 +3,6 @@
 . ${DOTPATH}/bin/lib/logging.sh
 . ${DOTPATH}/bin/lib/os_detect.sh
 
-set -ue
-
 OS=$(os_detect)
 
 echo $(log_echo "start update.")
@@ -21,13 +19,12 @@ fi
 
 echo $(log_info "###### packages update. ######")
 if [ ${OS} == 'osx' ]; then
-    brew upgrade
-    brew cask upgrade
+  brew upgrade
+  brew cask upgrade
 elif [ ${OS} == 'linux' ]; then
-    sudo apt -y update
-    sudo apt -y upgrade
-    sudo apt autoremove
-    brew update
+  sudo apt -y update
+  sudo apt -y upgrade
+  sudo apt autoremove
 fi
 
 echo $(log_info "###### anyenv update. ######")

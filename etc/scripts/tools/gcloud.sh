@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ue
-
 . ${DOTPATH}/etc/scripts/lib/os_detect.sh
 
 CURRENTPATH=$(dirname $0)

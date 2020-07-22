@@ -1,7 +1,5 @@
 #!/bin/bash
 
-set -ue
-
 # cica
 sudo mkdir -p /usr/share/fonts/cica
 CICA_RELEASES_URL="https://api.github.com/repos/miiton/Cica/releases/latest"
