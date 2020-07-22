@@ -6,6 +6,8 @@ echo 'export PATH="$HOME/.anyenv/bin:$PATH"' >>~/.bash_profile
 # for fish
 echo 'set -x PATH $HOME/.anyenv/bin $PATH' >>~/.config/fish/env.fish
 
+. ~/.bash_profile
+
 ~/.anyenv/bin/anyenv init
 
 ## plugin
