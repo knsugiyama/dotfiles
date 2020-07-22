@@ -23,6 +23,16 @@ skipFiles: ## git skip-worktree
 	@git update-index --skip-worktree .gitconfig
 	@git update-index --skip-worktree .config/fish/env.fish
 
+anyenv: ## install anyenv
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/anyenv.sh
+
+setup-envs: ## setup env modules
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/anyenv/jenv-setup.sh  && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/anyenv/nodenv-setup.sh
+
+gcloud: ## install gcloud
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/gcloud.sh
+
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
