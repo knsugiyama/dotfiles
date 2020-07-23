@@ -17,7 +17,7 @@ elif [ ${OS} == 'linux' ]; then
     sudo add-apt-repository --yes https://adoptopenjdk.jfrog.io/adoptopenjdk/deb/
     sudo apt update
     sudo apt install adoptopenjdk-8-hotspot
-    jenv add /usr/lib/jvm/java-8-openjdk-amd64
+    jenv add /usr/lib/jvm/adoptopenjdk-8-hotspot-amd64
 fi
 
 jenv global 1.8
