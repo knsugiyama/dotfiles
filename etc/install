@@ -108,7 +108,7 @@ cd "$DOTPATH"
 git init
 git remote add origin "$GITHUB_URL"
 git fetch origin
-git checkout --force origin/master
+git checkout -b master
 
 make skipFiles
 
