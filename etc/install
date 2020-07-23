@@ -71,12 +71,12 @@ deploy() {
   cd "$DOTPATH"
 
   # git管理できるようにする
-  git init
-  git remote add origin "$GITHUB_URL"
-  git fetch origin
-  git checkout -b master
+#   git init
+#   git remote add origin "$GITHUB_URL"
+#   git fetch origin
+#   git checkout -b master
 
-  make skipFiles
+#   make skipFiles
 
   make deploy
 }
