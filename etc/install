@@ -66,6 +66,15 @@ deploy() {
     exit 1
   fi
   cd "$DOTPATH"
+
+  # git管理できるようにする
+  git init
+  git remote add origin "$GITHUB_URL"
+  git fetch origin
+  git checkout -b master
+
+  make skipFiles
+
   make deploy
 }
 
@@ -97,19 +106,5 @@ install() {
 }
 
 install
-
-# ディレクトリの削除
-if [ -d ~/.config ]; then
-  rm -rf ~/.config
-fi
-
-# git管理できるようにする
-cd "$DOTPATH"
-git init
-git remote add origin "$GITHUB_URL"
-git fetch origin
-git checkout -b master
-
-make skipFiles
 
 exec $SHELL -l
