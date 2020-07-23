@@ -110,4 +110,6 @@ install() {
 
 install
 
+chsh -s $(which fish)
+
 exec $SHELL -l
