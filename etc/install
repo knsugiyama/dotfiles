@@ -21,11 +21,14 @@ install_build_tool() {
   . ${DOTPATH}/etc/scripts/lib/os_detect.sh
   OS=$(os_detect)
 
+  if ! is_exists "git"; then
+    sudo apt install -y git
+  fi
   # makeが存在しないと後続が続かないので
   if [ ${OS} == 'linux' ]; then
     if ! is_exists "make"; then
-      sudo apt update
-      sudo apt upgrade
+      echo y | sudo apt update
+      echo y | sudo apt upgrade
       sudo apt install -y build-essential
     fi
   fi
