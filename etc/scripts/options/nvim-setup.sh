@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # python
-pyenv virtualenv 3.8.4 neovim3
+pyenv virtualenv 3.8.5 neovim3
 pyenv virtualenv 2.7.18 neovim2
 pyenv shell neovim3
 pip install pynvim
