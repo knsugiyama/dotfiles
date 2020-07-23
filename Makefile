@@ -17,21 +17,26 @@ deploy: ## Create symlink to home directory
 update: ## Fetch changes for this repository
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update.sh
 
-skipFiles: ## git skip-worktree
+skipfiles: ## git skip-worktree
 	@git update-index --skip-worktree .bash_profile
 	@git update-index --skip-worktree .bashrc
 	@git update-index --skip-worktree .gitconfig
 	@git update-index --skip-worktree .config/fish/env.fish
 
-anyenv: ## install anyenv
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/anyenv.sh
+options-anyenv: ## install anyenv
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv.sh
 
-setup-envs: ## setup env modules
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/anyenv/jenv-setup.sh  && \
-	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/anyenv/nodenv-setup.sh
+option-setup-anyenvs: ## setup anyenv modules
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/jenv-setup.sh  && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/nodenv-setup.sh && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/pyenv-setup.sh && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/rbenv-setup.sh
 
-gcloud: ## install gcloud
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/tools/gcloud.sh
+option-gcloud: ## install gcloud
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/gcloud.sh
+
+option-nvim: ## install nvim
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/nvim-setup.sh
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
