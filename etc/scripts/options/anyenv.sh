@@ -3,11 +3,6 @@
 anyenv init
 echo y | anyenv install --init
 
-# bash
-echo 'eval (anyenv init - | source)' >> ~/.config/fish/env.fish
-# fish
-echo 'eval "$(anyenv init -)"' >> ~/.bash_profile
-
 anyenv install rbenv
 anyenv install pyenv
 anyenv install nodenv
