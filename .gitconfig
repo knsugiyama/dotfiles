@@ -3,6 +3,7 @@
   excludesfile = ~/.gitignore_global
   preloadindex = true
   autocrlf = false
+  filemode = false
 [color]
   ui = auto
 [help]
