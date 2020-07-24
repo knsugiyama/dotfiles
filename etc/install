@@ -17,12 +17,39 @@ is_exists() {
   return $?
 }
 
-install_build_tool() {
-  . ${DOTPATH}/etc/scripts/lib/os_detect.sh
-  OS=$(os_detect)
+lower() {
+  if [ $# -eq 0 ]; then
+    cat <&0
+  elif [ $# -eq 1 ]; then
+    if [ -f "$1" -a -r "$1" ]; then
+      cat "$1"
+    else
+      echo "$1"
+    fi
+  else
+    return 1
+  fi | tr "[:upper:]" "[:lower:]"
+}
 
+ostype() {
+  # shellcheck disable=SC2119
+  uname | lower
+}
+
+os_detect() {
+  export PLATFORM
+  case "$(ostype)" in
+  *'linux'*) PLATFORM='linux' ;;
+  *'darwin'*) PLATFORM='osx' ;;
+  *'bsd'*) PLATFORM='bsd' ;;
+  *) PLATFORM='unknown' ;;
+  esac
+}
+
+install_build_tool() {
+  os_detect
   # makeが存在しないと後続が続かない
-  if [ ${OS} == 'linux' ]; then
+  if [ "$PLATFORM" == 'linux' ]; then
     if ! is_exists "make"; then
       echo y | sudo apt update
       echo y | sudo apt upgrade
@@ -40,7 +67,8 @@ export DOTPATH
 download() {
   logging "install: start download..."
 
-  if [ ${OS} == 'linux' ]; then
+  os_detect
+  if [ "$PLATFORM" == 'linux' ]; then
     if ! is_exists "git"; then
       sudo apt install -y git
     fi
@@ -83,9 +111,11 @@ deploy() {
 initialize() {
   logging "install: start initialize..."
   local path install_shell
-  if [ ${OS} == 'linux' ]; then
+
+  os_detect
+  if [ "$PLATFORM" == 'linux' ]; then
     path=${DOTPATH}/etc/init/linux
-  elif [ ${OS} == 'osx']; then
+  elif [ "$PLATFORM" == 'osx']; then
     path=${DOTPATH}/etc/init/mac
   else
     exit 1
