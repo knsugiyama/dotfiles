@@ -21,10 +21,7 @@ install_build_tool() {
   . ${DOTPATH}/etc/scripts/lib/os_detect.sh
   OS=$(os_detect)
 
-  if ! is_exists "git"; then
-    sudo apt install -y git
-  fi
-  # makeが存在しないと後続が続かないので
+  # makeが存在しないと後続が続かない
   if [ ${OS} == 'linux' ]; then
     if ! is_exists "make"; then
       echo y | sudo apt update
@@ -42,23 +39,32 @@ export DOTPATH
 
 download() {
   logging "install: start download..."
-  if ! is_exists "curl" && ! is_exists "wget"; then
-    logging "curl or wget required"
-    exit 1
+
+  if [ ${OS} == 'linux' ]; then
+    if ! is_exists "git"; then
+      sudo apt install -y git
+    fi
   fi
 
-  local tarball="https://github.com/knsugiyama/dotfiles/archive/master.tar.gz"
-  if is_exists "curl"; then
-    curl -L "$tarball"
-  elif is_exists "wget"; then
-    wget -O - "$tarball"
-  fi | tar xvz
+  git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
-  if [ ! -d dotfiles-master ]; then
-    logging "dotfiles-master: not found"
-    exit 1
-  fi
-  command mv -f dotfiles-master "$DOTPATH"
+  # if ! is_exists "curl" && ! is_exists "wget"; then
+  #   logging "curl or wget required"
+  #   exit 1
+  # fi
+
+  # local tarball="https://github.com/knsugiyama/dotfiles/archive/master.tar.gz"
+  # if is_exists "curl"; then
+  #   curl -L "$tarball"
+  # elif is_exists "wget"; then
+  #   wget -O - "$tarball"
+  # fi | tar xvz
+
+  # if [ ! -d dotfiles-master ]; then
+  #   logging "dotfiles-master: not found"
+  #   exit 1
+  # fi
+  # command mv -f dotfiles-master "$DOTPATH"
 
   install_build_tool
 }
@@ -70,14 +76,7 @@ deploy() {
   fi
   cd "$DOTPATH"
 
-  # git管理できるようにする
-  #   git init
-  #   git remote add origin "$GITHUB_URL"
-  #   git fetch origin
-  #   git checkout -b master
-
-  #   make skipfiles
-
+  make skipfiles
   make deploy
 }
 
