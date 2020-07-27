@@ -13,10 +13,8 @@
 !/wsl.conf
 !/.config/
 !/.config/fish/
-!/.config/fish/config.fish
+!/.config/fish/*.fish
 !/.config/fish/fishfile
-!/.config/fish/alias.fish
-!/.config/fish/env.fish
 !/.config/karabiner/
 !/.config/karabiner/karabiner.json
 !/.config/karabiner/assets/
@@ -24,9 +22,10 @@
 !/.config/nvim/
 !/.config/nvim/**
 !/.gitignore
+!/bin/
+!/bin/**
 !/etc/
 !/etc/**
-!/download.sh
 !/LICNSE
 !/Makefile
 !/README.md
