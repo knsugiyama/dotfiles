@@ -1,0 +1,21 @@
+# ------------------------------------
+# toml syntax
+# ------------------------------------
+[[plugins]]
+repo = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]] # 補完
+repo = 'Shougo/neocomplete.vim'
+
+[[plugins]] # スニペット
+repo = 'Shougo/neosnippet'
+
+[[plugins]] # スニペット
+repo = 'Shougo/neosnippet-snippets'
+
+[[plugins]] # メソッドの定義元にジャンプ
+repo = 'szw/vim-tags'
+
+[[plugins]] # ローカル変数ハイライト
+repo = 'todesking/ruby_hl_lvar.vim'

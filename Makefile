@@ -23,6 +23,12 @@ skipfiles: ## git skip-worktree
 	@git update-index --skip-worktree .gitconfig
 	@git update-index --skip-worktree .config/fish/env.fish
 
+noSkipfiles: ## git no-skip-worktree
+	@git update-index --no-skip-worktree .bash_profile
+	@git update-index --no-skip-worktree .bashrc
+	@git update-index --no-skip-worktree .gitconfig
+	@git update-index --no-skip-worktree .config/fish/env.fish
+
 option-anyenv: ## install anyenv
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv.sh
 
