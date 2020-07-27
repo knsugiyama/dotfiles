@@ -14,18 +14,18 @@ if !isdirectory(s:dein_repo_dir)
   call system('git clone https://github.com/Shougo/dein.vim ' . shellescape(s:dein_repo_dir))
 endif
 
-" toml
-let s:toml_dir = expand('~/.config/nvim')
-
 " Required:
 execute 'set runtimepath^=' . s:dein_repo_dir
+
+" toml
+let s:toml_dir = expand('~/.config/nvim/toml')
 
 " Required:
 if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
-  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': -1})
-  call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 0})
+  call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
+  call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
 
   " Required:
   call dein#end()
