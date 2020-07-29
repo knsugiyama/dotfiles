@@ -46,14 +46,8 @@ set ignorecase
 set smartcase
 " 下まで行ったら上に戻る
 set wrapscan
-" Esc連打でハイライト解除
-nmap <Esc><Esc> :nohlsearch<CR><Esc>
-
 " 行頭行末間移動(backspace, space, カーソルキー)
 set whichwrap=b,s,<,>,[,]
-
-" close quickfix
-nnoremap <Leader>c :cclose<CR>
 
 " 常にタブラインを表示
 set showtabline=2
@@ -62,3 +56,6 @@ set noshowmode
 
 "ヤンクした内容が消えないようにする
 inoremap PP "0p
+
+" 透過率
+set pumblend=10

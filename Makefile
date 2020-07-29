@@ -15,7 +15,7 @@ deploy: ## Create symlink to home directory
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
 update: ## Fetch changes for this repository
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update
 
 skipfiles: ## git skip-worktree
 	@git update-index --skip-worktree .bash_profile
