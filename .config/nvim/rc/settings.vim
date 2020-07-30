@@ -51,8 +51,6 @@ set whichwrap=b,s,<,>,[,]
 
 " 常にタブラインを表示
 set showtabline=2
-" 現在のモードを表示しない
-set noshowmode
 
 "ヤンクした内容が消えないようにする
 inoremap PP "0p

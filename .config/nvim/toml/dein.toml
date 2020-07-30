@@ -29,18 +29,22 @@ source ~/.config/nvim/plugins/coc.vim
 """
 
 # ------------------------------------
-# Theme
+# Markdown 
 # ------------------------------------
 [[plugins]]
-repo = 'jacoborus/tender.vim'
+repo = "plasticboy/vim-markdown"
+
+[[plugins]]
+repo = "iamcco/markdown-preview.nvim"
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app & yarn install"'
 hook_add = """
-    colorscheme tender
-    set background=dark
-    syntax on
-    set t_Co=256
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+source ~/.config/nvim/plugins/markdown-preview.vim
 """
 
+# ------------------------------------
+# Dork powered plugins
+# ------------------------------------
 [[plugins]]
 repo ="kristijanhusak/defx-git"
 hook_add = """
@@ -69,8 +73,12 @@ hook_add = """
 source ~/.config/nvim/plugins/deol.vim
 """
 
+# ------------------------------------
+# Theme
+# ------------------------------------
 [[plugins]]
-repo = 'Shougo/deoplete.nvim'
+repo = 'morhetz/gruvbox'
 hook_add = """
-source ~/.config/nvim/plugins/deoplete.vim
+colorscheme gruvbox
+set t_Co=256
 """

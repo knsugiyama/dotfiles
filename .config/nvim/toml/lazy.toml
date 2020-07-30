@@ -2,5 +2,3 @@
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-[[plugins]] # ローカル変数ハイライト
-repo = 'todesking/ruby_hl_lvar.vim'

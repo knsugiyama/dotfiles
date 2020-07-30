@@ -1,1 +1,2 @@
-let g:lightline = { 'colorscheme': 'tender' }
+let g:lightline = { 'colorscheme': 'gruvbox' }
+

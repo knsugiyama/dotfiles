@@ -10,9 +10,7 @@ if [ ${OS} == 'osx' ]; then
     echo "source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.bash.inc'" >>~/.bashrc
     echo "source '/usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/completion.bash.inc'" >>~/.bashrc
 
-    if ! is_exists "fish"; then
-        echo "source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc" >>~/.config/fish/env.fish
-    fi
+    echo "source /usr/local/Caskroom/google-cloud-sdk/latest/google-cloud-sdk/path.fish.inc" >>~/.config/fish/env.fish
 
 elif [ ${OS} == 'linux' ]; then
     export CLOUD_SDK_REPO="cloud-sdk-$(lsb_release -c -s)"
