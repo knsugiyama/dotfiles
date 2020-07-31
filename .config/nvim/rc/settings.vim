@@ -3,10 +3,13 @@ if has('mouse')
   set mouse=a
 endif
 
+if has('termguicolors')
+  " 端末上でTrue Colorを使用
+  set termguicolors
+endif
+
 " 改行コードを指定
 set fileformats=unix,dos,mac
-" 端末上でTrue Colorを使用
-set termguicolors
 " 読み込み時に試みるエンコーディング(左から順に試す)
 set fileencodings=ucs-bombs,utf-8,euc-jp,cp932
 " 全角文字をちゃんと表示する
