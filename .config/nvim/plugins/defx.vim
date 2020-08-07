@@ -2,12 +2,9 @@
 nnoremap <silent><C-f> :<C-u>Defx<CR>
 
 call defx#custom#option('_', {
-      \ 'columns': 'indent:git:icons:filename',
+      \ 'columns': 'indent:git:icons:filename:mark',
       \ 'show_ignored_files': 1,
       \ })
-
-let g:defx_icons_enable_syntax_highlight = 1
-let g:defx_icons_column_length = 2
 
 " 現在開いているファイルがあるディレクトリから起動
 nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>

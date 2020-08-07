@@ -20,9 +20,12 @@ set noswapfile
 set hidden
 " クリップボードとNeovimの無名レジスタを一体化
 set clipboard+=unnamedplus
+"
+" 編集中のファイルが変更されたら自動で読み直す
+set autoread
 
 " 行番号を表示する
-set number
+" set number
 " 空白文字等、不可視な文字の可視化
 set list
 set listchars=tab:>-,trail:*,nbsp:+
@@ -35,9 +38,14 @@ set softtabstop=2
 set shiftwidth=2
 " タブを入力したときスペース×Nに置き換える
 set expandtab
+" 行末の1文字先までカーソルを移動できるように
+set virtualedit=onemore
 " C系の文法に従って自動インデント、{}とかに反応する
 set smartindent
+" ビープ音を可視化
 set visualbell
+" コマンドラインの補完
+set wildmode=list:longest
 
 " ヘルプの日本語化
 set helplang=ja,en
@@ -51,6 +59,8 @@ set smartcase
 set wrapscan
 " 行頭行末間移動(backspace, space, カーソルキー)
 set whichwrap=b,s,<,>,[,]
+" 行末の1文字先までカーソルを移動できるように
+set virtualedit=onemore
 
 " 常にタブラインを表示
 set showtabline=2
