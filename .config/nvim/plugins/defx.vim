@@ -1,8 +1,24 @@
 " 【Ctrl + f】 defx.nvimを起動
 nnoremap <silent><C-f> :<C-u>Defx<CR>
 
+call defx#custom#column('icon', {
+        \ 'directory_icon': '▸',
+        \ 'opened_icon': '▾',
+        \ 'root_icon': ' ',
+        \ })
+
+call defx#custom#column('filename', {
+        \ 'min_width': 40,
+        \ 'max_width': 40,
+        \ })
+
+call defx#custom#column('mark', {
+        \ 'readonly_icon': '✗',
+        \ 'selected_icon': '✓',
+        \ })
+
 call defx#custom#option('_', {
-      \ 'columns': 'indent:git:icons:filename:mark',
+      \ 'columns': 'mark:indent:git:icon:filename:type:size:time',
       \ 'show_ignored_files': 1,
       \ })
 
