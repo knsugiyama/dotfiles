@@ -16,6 +16,10 @@ set fileencodings=ucs-bombs,utf-8,euc-jp,cp932
 set ambiwidth=double
 " スワップファイルを作らない
 set noswapfile
+" ファイル上書き前にバックアップつくらない
+set nobackup
+" ファイル上書き前にバックアップファイルつくらない
+set nowritebackup
 " closeしたバッファを(実際にはcloseせず)hiddenにする
 set hidden
 " クリップボードとNeovimの無名レジスタを一体化
@@ -28,27 +32,31 @@ set autoread
 " set number
 " 空白文字等、不可視な文字の可視化
 set list
-set listchars=tab:>-,trail:*,nbsp:+
-
+set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
 " タブはスペース2つ分
 set tabstop=2
 " 空白部分でtabキーやbackspaceを押したときにカーソル移動する幅
-set softtabstop=2
+set softtabstop=0
 " 自動インデントの幅
 set shiftwidth=2
+" 改行時、前のインデントを継続
+set autoindent
+" 改行時、入力された行の末尾に合わせて次の行のインデントを増幅
+set smartindent
 " タブを入力したときスペース×Nに置き換える
 set expandtab
 " 行末の1文字先までカーソルを移動できるように
 set virtualedit=onemore
-" C系の文法に従って自動インデント、{}とかに反応する
-set smartindent
-" ビープ音を可視化
-set visualbell
-" コマンドラインの補完
-set wildmode=list:longest
-
-" ヘルプの日本語化
-set helplang=ja,en
+" 対応するカッコの表示
+set showmatch
+" 対応するカッコが表示されるまでの秒数
+set matchtime=1
+" 対応付けるカッコの種類を追加
+set matchpairs& matchpairs+=<:>,【:】,（:）,「:」
+" スクロール時、下に余白をもたせる
+set scrolloff=5
+" backspaceで消せる項目追加
+set backspace=indent,eol,start
 
 " 検索関連
 " 大文字と小文字を区別しない
@@ -67,6 +75,14 @@ set showtabline=2
 
 "ヤンクした内容が消えないようにする
 inoremap PP "0p
+
+" ビープ音を可視化
+set visualbell
+" コマンドラインの補完
+set wildmode=list:longest
+
+" ヘルプの日本語化
+set helplang=ja,en
 
 " 透過率
 set pumblend=10
