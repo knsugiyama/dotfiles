@@ -90,20 +90,6 @@ depends = 'coc.nvim'
 build = 'yarn install --frozen-lockfile'
 
 [[plugins]]
-name = 'coc-dictionary'
-repo = 'neoclide/coc-sources'
-rtp = 'packages/dictionary'
-depends = 'coc.nvim'
-build = 'yarn install --frozen-lockfile'
-
-[[plugins]]
-name = 'coc-emoji'
-repo = 'neoclide/coc-sources'
-rtp = 'packages/emoji'
-depends = 'coc.nvim'
-build = 'yarn install --frozen-lockfile'
-
-[[plugins]]
 repo = 'neoclide/coc-git'
 depends = 'coc.nvim'
 build = 'yarn install --frozen-lockfile'
