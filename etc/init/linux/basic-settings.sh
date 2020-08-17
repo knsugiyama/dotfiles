@@ -24,6 +24,6 @@ sudo update-locale LANG=ja_JP.UTF-8
 sudo locale-gen ja_JP.UTF-8
 
 # for bash
-echo 'export EDITOR=vim"' >>~/.bash_profile
+echo 'export EDITOR=vim' >>~/.bash_profile
 # for fish
 echo 'set -U EDITOR vim' >>~/.config/fish/env.fish

@@ -4,14 +4,13 @@
   preloadindex = true
   autocrlf = false
   filemode = false
+	editor = vim -c \"set fenc=utf-8\"
 [color]
   ui = auto
 [help]
   autocorrect = 1
 [push]
   default = simple
-[credential]
-  UseHttpPath = true
 [ghq "CODECOMMIT-URL"]
   vcs = git
 [fetch]
@@ -23,4 +22,6 @@
 [pull]
 	rebase = false
 [hub]
-	protocol = https
+  protocol = https
+[include]
+  path = .gitconfig.credential
