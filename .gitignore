@@ -11,6 +11,7 @@
 !/.ideavimrc
 !/.gitignore_global
 !/.tigrc
+!/.tmux.conf
 !/wsl.conf
 !/.config/
 !/.config/fish/
