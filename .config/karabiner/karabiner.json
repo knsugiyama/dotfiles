@@ -545,7 +545,7 @@
                                             "^com.googlecode.iterm2",
                                             "^com.microsoft.VSCode",
                                             "^com.microsoft.rdc.macos",
-                                            "^jetbrains.idea.*"
+                                            "^com.jetbrains.intellij"
                                         ],
                                         "type": "frontmost_application_if"
                                     }
@@ -575,7 +575,7 @@
                                             "^com.googlecode.iterm2",
                                             "^com.microsoft.VSCode",
                                             "^com.microsoft.rdc.macos",
-                                            "^jetbrains.idea.*"
+                                            "^com.jetbrains.intellij"
                                         ],
                                         "type": "frontmost_application_if"
                                     }

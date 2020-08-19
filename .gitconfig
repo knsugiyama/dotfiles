@@ -24,4 +24,4 @@
 [hub]
   protocol = https
 [include]
-  path = .gitconfig.credential
+  path = ~/.gitconfig.credential
