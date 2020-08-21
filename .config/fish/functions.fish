@@ -21,3 +21,24 @@ function git_current_branch
   end
   string replace 'refs/heads/' "" $ref
 end
+
+function git_diff_archive
+  set -l d (date '+%y%m%d_%H%M')
+  set -l p (basename $PWD)
+  set -l h "HEAD"
+  set -l diff ""
+  set -l length (count $argv)
+
+  if test $length -ge 2
+    set diff $argv[1] $argv[2]
+    set h $argv[1]
+  else if test $length -eq 1
+    if expr "$argv[1]" : '[0-9]*$' > /dev/null
+      set diff HEAD~$argv[1] HEAD
+    else
+      set diff $argv[1] HEAD
+    end
+  end
+
+  command git archive --format=zip $h (git diff --name-only --diff-filter=d $diff) -o $p-$d.zip
+end
