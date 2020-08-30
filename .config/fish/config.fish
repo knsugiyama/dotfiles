@@ -1,5 +1,5 @@
 . ~/.config/fish/alias.fish
-. ~/.config/fish/functions.fish
+. ~/.config/fish/myfunctions.fish
 . ~/.config/fish/env.fish
 
 # theme-bobthefish settings
