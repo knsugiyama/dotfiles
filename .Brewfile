@@ -17,7 +17,6 @@ brew "tig"
 brew "tree"
 brew "gradle"
 brew "maven"
-brew "nvim"
 brew "asciidoc"
 brew "plantuml"
 

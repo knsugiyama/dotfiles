@@ -17,7 +17,6 @@ peco
 shellcheck
 tig
 tree
-neovim
 asciidoc
 graphviz
 plantuml
