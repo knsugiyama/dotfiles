@@ -18,15 +18,15 @@ elif [ ${OS} == 'linux' ]; then
 fi
 
 # python
-# pyenv virtualenv 3.8.5 neovim3
-# pyenv virtualenv 2.7.18 neovim2
-# pyenv shell neovim3
-# pip install pynvim
-# pyenv shell neovim2
-# pip install pynvim
+pyenv virtualenv 3.8.5 neovim3
+pyenv virtualenv 2.7.18 neovim2
+pyenv shell neovim3
+pip install pynvim
+pyenv shell neovim2
+pip install pynvim
 
 # ruby
-# gem install neovim
+gem install neovim
 
 # node
-# npm install -g neovim
+npm install -g neovim
