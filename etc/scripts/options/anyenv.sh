@@ -11,7 +11,7 @@ echo 'status --is-interactive; and source (anyenv init -|psub)' >>~/.config/fish
 anyenv install rbenv
 anyenv install pyenv
 anyenv install nodenv
-# anyenv install goenv
+anyenv install goenv
 # anyenv install jenv
 
 ## plugin
