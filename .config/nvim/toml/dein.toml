@@ -67,3 +67,22 @@ repo = "shougo/deol.nvim"
 hook_add = """
 source ~/.config/nvim/plugins/deol.vim
 """
+
+[[plugins]]
+repo = "Shougo/deoplete.nvim"
+hook_add = """
+source ~/.config/nvim/plugins/deoplete.vim
+"""
+
+# ------------------------------------
+# LSP plugin
+# ------------------------------------
+[[plugins]]
+repo = "neovim/nvim-lsp"
+hook_add = """
+source ~/.config/nvim/plugins/nvim-lsp.vim
+"""
+
+[[plugins]]
+repo = "Shougo/deoplete-lsp"
+
