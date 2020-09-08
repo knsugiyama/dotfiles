@@ -43,8 +43,8 @@ nnoremap <Esc><Esc> :nohlsearch<CR><ESC>
 set whichwrap=b,s,h,l,<,>,[,],~
 
 "x キー削除でデフォルトレジスタに入れない
-nnoremap x "_x
-vnoremap x "_x
+"nnoremap x "_x
+"vnoremap x "_x
 
 set easymotion
 " sで開始

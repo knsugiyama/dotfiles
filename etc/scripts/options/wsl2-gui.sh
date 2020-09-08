@@ -23,3 +23,5 @@ sudo im-config -n fcitx
     echo 'set -x DefaultIMModule fcitx'
     echo 'fcitx-autostart'
 } >>~/.config/fish/env.fish
+
+sudo ln -sfnv ${DOTPATH}/wsl.conf /etc/wsl.conf
