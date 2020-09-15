@@ -85,6 +85,7 @@ alias gsts 'git stash show --text'
 
 alias vim 'nvim'
 alias vimcf 'vim ~/.config/nvim'
+
 ############
 # top
 ############
@@ -101,5 +102,6 @@ alias gh 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
 ############
 # tmux alias
 ############
+alias t 'tmux'
 alias tk 'tmux kill-session -t'
 alias tl 'tmux ls'

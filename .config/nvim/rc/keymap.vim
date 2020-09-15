@@ -5,10 +5,14 @@ nnoremap <Leader>c :cclose<CR>
 
 " vを二回で行末まで選択
 vnoremap v $h
+
 " Y -> 行末までヤンク
 nnoremap Y y$
-" Dでヤンクしない
+
+" Dまたはxで削除したときはヤンクしない
 nnoremap D "_D
+vnoremap x "_x
+nnoremap x "_x
 
 " 分割
 nmap <C-w>s :split<CR>
@@ -35,6 +39,8 @@ inoremap <silent> jjq <ESC>:wq!<CR>
 
 " 終了
 nnoremap sq :q<CR>
+" 現在のバッファ削除
+nnoremap bd :bd<CR>
 
 "insert mode での移動
 inoremap <C-d> <DELETE>
@@ -42,7 +48,16 @@ inoremap <C-j> <DOWN>
 inoremap <C-k> <UP>
 inoremap <C-h> <LEFT>
 inoremap <C-l> <RIGHT>
-"
+
 " コマンドモードでctrl+kjで履歴
 cnoremap <C-k> <UP>
 cnoremap <C-j> <DOWN>
+
+" 括弧の補完
+inoremap {<Enter> {}<Left><CR><ESC><S-o>
+inoremap [<Enter> []<Left><CR><ESC><S-o>
+inoremap (<Enter> ()<Left><CR><ESC><S-o>
+
+" クオーテーションの補完
+inoremap ' ''<LEFT>
+inoremap " ""<LEFT>

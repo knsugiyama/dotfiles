@@ -4,21 +4,11 @@ hook_add = """
 source ~/.config/nvim/plugins/iceberg.vim
 """
 
-[[plugins]] # アイコン
-repo = 'ryanoasis/vim-devicons'
-
-[[plugins]] # 非同期処理
-repo = 'Shougo/vimproc.vim'
+# [[plugins]] # 非同期処理
+# repo = 'Shougo/vimproc.vim'
 
 [[plugins]] # インデントを見やすくする
 repo = 'Yggdroot/indentLine'
-
-[[plugins]] # カーソル位置のコンテキストに合わせてftを切り替える
-repo = 'osyo-manga/vim-precious'
-depends = ['context_filetype.vim']
-
-[[plugins]] # カーソル位置のコンテキストのftを判定するライブラリ
-repo = 'Shougo/context_filetype.vim'
 
 [[plugins]] # Status Line
 repo = "itchyny/lightline.vim"
@@ -32,28 +22,8 @@ hook_add = """
 source ~/.config/nvim/plugins/vim-cheatsheet.vim
 """
 
-[[plugins]] # git 操作
-repo = "tpope/vim-fugitive"
-
-[[plugins]]
-repo = "thinca/vim-quickrun"
-hook_add = """
-source ~/.config/nvim/plugins/vim-quickrun.vim
-"""
-
-# ------------------------------------
-# Markdown
-# ------------------------------------
-[[plugins]]
-repo = "plasticboy/vim-markdown"
-
-[[plugins]]
-repo = "iamcco/markdown-preview.nvim"
-on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-build = 'sh -c "cd app & yarn install"'
-hook_add = """
-source ~/.config/nvim/plugins/markdown-preview.vim
-"""
+[[plugins]] # 画面リサイズ
+repo = 'simeji/winresizer'
 
 # ------------------------------------
 # Dark powered plugins
@@ -88,16 +58,3 @@ repo = "Shougo/deoplete.nvim"
 hook_add = """
 source ~/.config/nvim/plugins/deoplete.vim
 """
-
-# ------------------------------------
-# LSP plugin
-# ------------------------------------
-[[plugins]]
-repo = "neovim/nvim-lsp"
-hook_add = """
-source ~/.config/nvim/plugins/nvim-lsp.vim
-"""
-
-[[plugins]]
-repo = "Shougo/deoplete-lsp"
-

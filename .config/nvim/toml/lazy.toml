@@ -1,9 +1,26 @@
+# ------------------------------------
+# Markdown
+# ------------------------------------
+[[plugins]]
+repo = "plasticboy/vim-markdown"
+
+[[plugins]]
+repo = "iamcco/markdown-preview.nvim"
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app & yarn install"'
+hook_add = '''
+source ~/.config/nvim/plugins/markdown-preview.vim
+'''
+
 [[plugins]] # toml syntax
 repo = 'cespare/vim-toml'
 on_ft = 'toml'
 
-[[plugins]]
+[[plugins]] # git操作
 repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
 
 [[plugins]]
 repo = 'tpope/vim-surround'
@@ -12,7 +29,42 @@ repo = 'tpope/vim-surround'
 repo = 'tpope/vim-repeat'
 
 [[plugins]]
-repo = 'airblade/vim-gitgutter'
+repo = 'w0rp/ale'
 
 [[plugins]]
-repo = 'w0rp/ale'
+repo = 'tomtom/tcomment_vim'
+hook_add = '''
+vnoremap ? :'<,'>TComment<CR>
+'''
+
+[[plugins]] # カラフル括弧
+repo = 'luochen1990/rainbow'
+hook_add = '''
+let g:rainbow_active = 1
+'''
+
+[[plugins]] # 閉じタグを自動で補完
+repo = 'alvan/vim-closetag'
+on_ft = ['html', 'xhtml', 'javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
+hook_add = '''
+source ~/.config/nvim/plugins/vim-closetag.vim
+'''
+
+[[plugins]]
+repo = "thinca/vim-quickrun"
+hook_add = '''
+source ~/.config/nvim/plugins/vim-quickrun.vim
+'''
+
+# ------------------------------------
+# LSP
+# ------------------------------------
+[[plugins]]
+repo = 'neoclide/coc.nvim'
+rev = 'release'
+build = '''
+git checkout release
+'''
+hook_add = '''
+source ~/.config/nvim/plugins/coc.vim
+'''

@@ -55,3 +55,8 @@ color  diff-chunk        black   white
 # 各種 Git コマンド割り当て
 ######
 # 外部コマンドを指定するには、外部コマンドの前に !, ?, @ のいずれかを付ける。! は外部コマンドの即時実行、? は実行前にコマンド内容の確認が出る、@ はバックグラウンド実行して出力を捨てる
+
+# Pで現在のブランチへpush
+bind generic P ?@!git push origin %(repo:head)
+# Dでstatus viewのuntracked fileを削除できるようにする
+bind status D ?@rm %(file)
