@@ -8,20 +8,29 @@ function fish_user_key_bindings
   bind \cx\ck peco_kill # control + X からの control + K
 end
 
+# cdの拡張
 function cd
   builtin cd $argv; and ls
 end
 
+# 現在のブランチ名を表示
 function git_current_branch
   set -l ref (git symbolic-ref --quiet HEAD 2> /dev/null)
   set -l ret $status
+
   if [ $ret != 0 ]
-    [ $ret == 128 ]; and return  # no git repo.
+    if [ $ret = 128 ]
+      echo "no git repo."
+      return 0
+    end
+
     set -l ref (git rev-parse --short HEAD 2> /dev/null); or return
   end
+
   string replace 'refs/heads/' "" $ref
 end
 
+# gitの差分ファイルをzip化
 function git_diff_archive
   set -l d (date '+%y%m%d_%H%M')
   set -l p (basename $PWD)
@@ -41,4 +50,32 @@ function git_diff_archive
   end
 
   command git archive --format=zip $h (git diff --name-only --diff-filter=d $diff) -o $p-$d.zip
+end
+
+# see https://blog.abekoh.dev/post/prj-command/
+# prj.fish
+function prj -d "start project"
+  # 引数が設定されていれば、それをpecoにわたす
+  if test (count $argv) -gt 0
+    set prjflag --query "$argv"
+  end
+  set PRJ_PATH (ghq root)/(ghq list | peco $prjflag)
+  # プロジェクトが選択されなければ終了
+  if test -z $PRJ_PATH
+    return
+  end
+  # プロジェクト名は 所有者/リポジトリ名 の形式。その名前に`.`を含む場合は`_`に置換
+  set PRJ_NAME (echo (basename (dirname $PRJ_PATH))/(basename $PRJ_PATH) | sed -e 's/\./_/g')
+  # プロジェクトのtmuxセッションが存在しなければ作成
+  if not tmux has-session -t $PRJ_NAME
+    tmux new-session -c $PRJ_PATH -s $PRJ_NAME -d
+    tmux setenv -t $PRJ_NAME TMUX_SESSION_PATH $PRJ_PATH
+  end
+  # tmuxセッション外であればattach
+  if test -z $TMUX
+    tmux attach -t $PRJ_NAME
+  # tmuxセッション内であればswitch
+  else
+    tmux switch-client -t $PRJ_NAME
+  end
 end
