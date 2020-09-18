@@ -47,7 +47,7 @@ option-nvim: ## install nvim
 option-wsl-gui: ## install wsl2 gui
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-gui.sh
 
-option-wsl-fobt: ## install wsl2 font
+option-wsl-font: ## install wsl2 font
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-font.sh
 
 help: ## Self-documented Makefile
