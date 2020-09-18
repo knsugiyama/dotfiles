@@ -1,9 +1,3 @@
-[[plugins]]
-repo = "cocopon/iceberg.vim"
-hook_add = """
-source ~/.config/nvim/plugins/iceberg.vim
-"""
-
 # [[plugins]] # 非同期処理
 # repo = 'Shougo/vimproc.vim'
 
