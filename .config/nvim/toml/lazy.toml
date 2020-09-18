@@ -1,15 +1,3 @@
-[[plugins]]
-repo = "cocopon/iceberg.vim"
-hook_add = """
-source ~/.config/nvim/plugins/iceberg.vim
-"""
-
-[[plugins]] # Status Line
-repo = "itchyny/lightline.vim"
-hook_add = """
-source ~/.config/nvim/plugins/lightline.vim
-"""
-
 # ------------------------------------
 # Markdown
 # ------------------------------------
