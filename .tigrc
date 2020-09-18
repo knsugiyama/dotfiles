@@ -34,9 +34,10 @@ set mouse = true
 set editor-line-number = yes
 # リフレッシュするタイミング
 set refresh-mode = auto
-###
+
+######
 # カラー設定
-###
+######
 # diff-view で境界が見やすくなるように変更
 color  diff-header       default magenta
 color  diff-chunk        black   white
@@ -48,9 +49,22 @@ color  diff-chunk        black   white
 
 # Pで現在のブランチへpush
 bind generic P ?@!git push origin %(repo:head)
+# Lで現在のブランチからpull
+bind generic L ?@!git pull origin %(repo:head)
+
+bind main F ?git fetch
+bind main S ?git stash save "%(prompt Enter stash comment: )"
+bind main ! ?git reset --soft HEAD^
+# bind main x @bash -c "echo -n '%(commit)' | clip"
+# ! で revert
+bind main ! ?git revert %(commit)
+
+# Cで、指定ブランチをもとに新規ブランチを作成
+bind refs C ?git checkout -b "%(prompt Enter new branch name: )" %(branch)
+# Mで、指定ブランチの内容をマージ
+bind refs M ?git merge %(branch)
+# Hで、指定ブランチをWebで表示
+bind refs H !git-browse-remote %(branch)
 
 # Dでstatus viewのuntracked fileを削除できるようにする
 bind status D ?@rm %(file)
-
-# ! で revert
-bind main ! ?git revert %(commit)

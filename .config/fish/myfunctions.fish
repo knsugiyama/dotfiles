@@ -8,11 +8,6 @@ function fish_user_key_bindings
   bind \cx\ck peco_kill # control + X からの control + K
 end
 
-# cdの拡張
-function cd
-  builtin cd $argv; and ls
-end
-
 # 現在のブランチ名を表示
 function git_current_branch
   set -l ref (git symbolic-ref --quiet HEAD 2> /dev/null)
@@ -52,7 +47,7 @@ function git_diff_archive
   command git archive --format=zip $h (git diff --name-only --diff-filter=d $diff) -o $p-$d.zip
 end
 
-# see https://blog.abekoh.dev/post/prj-command/
+# https://blog.abekoh.dev/post/prj-command/
 # prj.fish
 function prj -d "start project"
   # 引数が設定されていれば、それをpecoにわたす
@@ -78,4 +73,24 @@ function prj -d "start project"
   else
     tmux switch-client -t $PRJ_NAME
   end
+end
+
+# https://blog.abekoh.dev/post/prj-command/
+# cdの拡張
+function cd -d "プロジェクトのルートに移動"
+  if test -n "$TMUX" -a -z "$argv"
+    set session_path (tmux show-environment | grep TMUX_SESSION_PATH | string replace "TMUX_SESSION_PATH=" "")
+    if test $session_path
+      builtin cd $session_path; and ls
+      return $status
+    end
+  end
+  # tmuxセッション内でない場合は、通常のcd + ls
+  builtin cd $argv; and ls
+end
+
+function ide -d "tmux を画面分割"
+  tmux split-window -v -p 30
+  tmux split-window -h -p 66
+  tmux split-window -h -p 50
 end
