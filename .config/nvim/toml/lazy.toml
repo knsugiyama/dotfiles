@@ -1,3 +1,9 @@
+[[plugins]]
+repo = "cocopon/iceberg.vim"
+hook_add = """
+source ~/.config/nvim/plugins/iceberg.vim
+"""
+
 # ------------------------------------
 # Markdown
 # ------------------------------------
