@@ -28,11 +28,11 @@ virtualenv -p python ~/nvim-python2
 pyenv global system
 
 source ~/nvim-python3/bin/activate
-pip install pyenv
+pip install pynvim
 deactivate
 
 source ~/nvim-python2/bin/activate
-pip install pyenv
+pip install pynvim
 deactivate
 
 # ruby
