@@ -1,5 +1,17 @@
-# [[plugins]] # 非同期処理
-# repo = 'Shougo/vimproc.vim'
+[[plugins]] # 非同期処理
+repo = 'Shougo/vimproc.vim'
+
+[[plugins]]
+repo = "cocopon/iceberg.vim"
+hook_add = """
+source ~/.config/nvim/plugins/iceberg.vim
+"""
+
+[[plugins]] # Status Line
+repo = "itchyny/lightline.vim"
+hook_add = """
+source ~/.config/nvim/plugins/lightline.vim
+"""
 
 [[plugins]] # インデントを見やすくする
 repo = 'Yggdroot/indentLine'
