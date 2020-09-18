@@ -1,5 +1,8 @@
-let g:python_host_prog = $HOME . '/.anyenv/envs/pyenv/versions/neovim2/bin/python'
-let g:python3_host_prog = $HOME . '/.anyenv/envs/pyenv/versions/neovim3/bin/python'
+let g:python3_host_prog = expand('~/nvim-python3/bin/python3')
+let g:python_host_prog = expand('~/nvim-python2/bin/python2')
+
+" let g:python_host_prog = $HOME . '/.anyenv/envs/pyenv/versions/neovim2/bin/python'
+" let g:python3_host_prog = $HOME . '/.anyenv/envs/pyenv/versions/neovim3/bin/python'
 
 " reset augroup
 augroup MyAutoCmd

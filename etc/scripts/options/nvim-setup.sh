@@ -19,13 +19,21 @@ elif [ ${OS} == 'linux' ]; then
 fi
 
 # python
-pyenv virtualenv 3.8.5 neovim3
-pyenv shell neovim3
-pip install pynvim
+pyenv global 3.8.5
+pip install virtualenv
+virtualenv -p python3 ~/nvim-python3
 
-pyenv virtualenv 2.7.18 neovim2
-pyenv shell neovim2
-pip install pynvim
+pyenv global 2.7.15
+virtualenv -p python ~/nvim-python2
+pyenv global system
+
+source ~/nvim-python3/bin/activate
+pip install pyenv
+deactivate
+
+source ~/nvim-python2/bin/activate
+pip install pyenv
+deactivate
 
 # ruby
 gem install neovim

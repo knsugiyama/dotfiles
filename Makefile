@@ -35,7 +35,8 @@ option-anyenv: ## install anyenv
 option-setup-anyenvs: ## setup anyenv modules
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/nodenv-setup.sh && \
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/pyenv-setup.sh && \
-	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/rbenv-setup.sh
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/rbenv-setup.sh && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/goenv-setup.sh
 
 option-gcloud: ## install gcloud
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/gcloud.sh
@@ -43,8 +44,11 @@ option-gcloud: ## install gcloud
 option-nvim: ## install nvim
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/nvim-setup.sh
 
-option-wsl: ## install wsl2 config
+option-wsl-gui: ## install wsl2 gui
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-gui.sh
+
+option-wsl-fobt: ## install wsl2 font
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-font.sh
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
