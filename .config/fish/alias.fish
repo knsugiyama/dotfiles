@@ -23,9 +23,6 @@ alias h 'history'
 alias cx 'chmod +x'
 alias 'c-x' 'chmod -x'
 
-alias vim 'nvim'
-alias vimcf 'vim ~/.config/nvim'
-
 ############
 # top
 ############
