@@ -1,3 +1,4 @@
+syntax enable
 au MyAutoCmd VimEnter * nested colorscheme iceberg
 colorscheme iceberg
 
