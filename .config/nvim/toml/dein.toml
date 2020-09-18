@@ -4,12 +4,6 @@
 [[plugins]] # インデントを見やすくする
 repo = 'Yggdroot/indentLine'
 
-[[plugins]] # Status Line
-repo = "itchyny/lightline.vim"
-hook_add = """
-source ~/.config/nvim/plugins/lightline.vim
-"""
-
 [[plugins]] # Cheatsheet
 repo = "reireias/vim-cheatsheet"
 hook_add = """
