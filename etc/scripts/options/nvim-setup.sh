@@ -23,7 +23,7 @@ pyenv global 3.8.5
 pip install virtualenv
 virtualenv -p python3 ~/nvim-python3
 
-pyenv global 2.7.15
+pyenv global 2.7.18
 virtualenv -p python ~/nvim-python2
 pyenv global system
 
