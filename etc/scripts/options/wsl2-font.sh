@@ -1,6 +1,7 @@
 #!/bin/bash
 
-sudo apt install -y fcitx-mozc fonts-noto-cjk fonts-noto-color-emoji
+sudo apt install -y fcitx-mozc fonts-noto-cjk fonts-noto-color-emoji dbus-x11
+sudo sh -c "dbus-uuidgen > /var/lib/dbus/machine-id"
 
 sudo im-config -n fcitx
 

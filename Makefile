@@ -44,8 +44,8 @@ option-gcloud: ## install gcloud
 option-nvim: ## install nvim
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/nvim-setup.sh
 
-option-wsl-gui: ## install wsl2 gui
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-gui.sh
+option-wsl: ## install wsl2 basic setting
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2.sh
 
 option-wsl-font: ## install wsl2 font
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-font.sh
