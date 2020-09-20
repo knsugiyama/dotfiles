@@ -1,7 +1,9 @@
 #!/bin/bash
 
 # xserver tools
-sudo apt install -y xauth x11-apps
+sudo apt install -y xauth x11-apps dbus-x11
+
+sudo sh -c "dbus-uuidgen > /var/lib/dbus/machine-id"
 
 {
     echo 'umask 022'
