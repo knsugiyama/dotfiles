@@ -1,8 +1,7 @@
 #!/bin/bash
 
-sudo apt install -y fcitx-mozc fonts-noto-cjk fonts-noto-color-emoji dbus-x11
+sudo apt install -y fcitx-mozc fonts-noto-cjk fonts-noto-color-emoji
 
-sudo sh -c "dbus-uuidgen > /var/lib/dbus/machine-id"
 sudo im-config -n fcitx
 
 ## Mozcの設定を開くコマンド
