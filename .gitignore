@@ -13,7 +13,6 @@
 !/.gitignore_global
 !/.tigrc
 !/.tmux.conf
-!/wsl.conf
 !/.config/
 !/.config/fish/
 !/.config/fish/*.fish
@@ -24,6 +23,7 @@
 !/.config/karabiner/assets/**
 !/.config/nvim/
 !/.config/nvim/**
+!/.git_commit_template
 !/.gitignore
 !/bin/
 !/bin/**
@@ -33,3 +33,4 @@
 !/Makefile
 !/Profiles.json
 !/README.md
+!/wsl.conf

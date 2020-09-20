@@ -1,7 +1,5 @@
 # dotfiles
 
-※動作未保証※
-
 ## install
 
 ```bash

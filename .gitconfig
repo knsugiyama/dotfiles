@@ -23,5 +23,7 @@
 	rebase = false
 [hub]
   protocol = https
+[commit]
+  template = ~/.git_commit_template
 [include]
   path = ~/.gitconfig.credential

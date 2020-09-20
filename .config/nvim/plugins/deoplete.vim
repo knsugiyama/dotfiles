@@ -12,10 +12,3 @@ call deoplete#custom#option({
     \ 'smart_case': v:true,
     \ 'camel_case': v:true,
     \ })
-
-let s:use_lsp_sources = ['lsp', 'dictionary', 'file']
-call deoplete#custom#option('sources', {
-    \ 'go': s:use_lsp_sources,
-    \ 'python': s:use_lsp_sources,
-    \ 'vim': ['vim', 'buffer', 'dictionary', 'file'],
-    \})
