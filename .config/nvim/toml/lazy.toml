@@ -12,30 +12,11 @@ hook_add = '''
 source ~/.config/nvim/plugins/markdown-preview.vim
 '''
 
-[[plugins]] # toml syntax
-repo = 'cespare/vim-toml'
-on_ft = 'toml'
-
 [[plugins]] # git操作
 repo = 'tpope/vim-fugitive'
 
 [[plugins]]
 repo = 'airblade/vim-gitgutter'
-
-[[plugins]]
-repo = 'tpope/vim-surround'
-
-[[plugins]]
-repo = 'tpope/vim-repeat'
-
-[[plugins]]
-repo = 'w0rp/ale'
-
-[[plugins]]
-repo = 'tomtom/tcomment_vim'
-hook_add = '''
-vnoremap ? :'<,'>TComment<CR>
-'''
 
 [[plugins]] # カラフル括弧
 repo = 'luochen1990/rainbow'

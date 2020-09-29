@@ -8,7 +8,8 @@ alias .... 'cd ../../..'
 alias ..... 'cd ../../../..'
 
 # -n 行数表示, -I バイナリファイル無視
-alias grep 'grep --color -n -I'
+# alias grep 'grep --color -n -I'
+alias grep 'grep --color -I'
 
 alias tree "tree -NC" # N: 文字化け対策, C:色をつける
 
