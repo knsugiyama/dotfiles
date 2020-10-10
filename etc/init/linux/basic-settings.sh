@@ -11,6 +11,10 @@ SCRIPTPATH=${DOTPATH}/etc/init/linux
 echo y | sudo apt update
 echo y | sudo apt upgrade
 
+# git latest
+sudo add-apt-repository -y ppa:git-core/ppa
+echo y | sudo apt update
+
 ## basic pakages install
 cat ${SCRIPTPATH}/files/packages | while read package_name; do
     if [ line != '' ]; then
