@@ -47,8 +47,9 @@ option-nvim: ## install nvim
 option-wsl: ## install wsl2 basic setting
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2.sh
 
-option-wsl-font: ## install wsl2 font
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-font.sh
+option-wsl-display: ## install wsl2 display & font settigns
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-display.sh && \
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-font.sh
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
