@@ -13,9 +13,6 @@ hook_add = """
 source ~/.config/nvim/plugins/lightline.vim
 """
 
-[[plugins]] # インデントを見やすくする
-repo = 'Yggdroot/indentLine'
-
 [[plugins]] # Cheatsheet
 repo = "reireias/vim-cheatsheet"
 hook_add = """
