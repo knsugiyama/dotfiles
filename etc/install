@@ -41,7 +41,6 @@ os_detect() {
   case "$(ostype)" in
   *'linux'*) PLATFORM='linux' ;;
   *'darwin'*) PLATFORM='osx' ;;
-  *'bsd'*) PLATFORM='bsd' ;;
   *) PLATFORM='unknown' ;;
   esac
 }
@@ -75,24 +74,6 @@ download() {
   fi
 
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
-
-  # if ! is_exists "curl" && ! is_exists "wget"; then
-  #   logging "curl or wget required"
-  #   exit 1
-  # fi
-
-  # local tarball="https://github.com/knsugiyama/dotfiles/archive/master.tar.gz"
-  # if is_exists "curl"; then
-  #   curl -L "$tarball"
-  # elif is_exists "wget"; then
-  #   wget -O - "$tarball"
-  # fi | tar xvz
-
-  # if [ ! -d dotfiles-master ]; then
-  #   logging "dotfiles-master: not found"
-  #   exit 1
-  # fi
-  # command mv -f dotfiles-master "$DOTPATH"
 
   install_build_tool
 }

@@ -24,7 +24,6 @@ os_detect() {
     case "$(ostype)" in
         *'linux'*)  echo 'linux'   ;;
         *'darwin'*) echo 'osx'     ;;
-        *'bsd'*)    echo 'bsd'     ;;
         *)          echo 'unknown' ;;
     esac
 }
