@@ -5,9 +5,8 @@
 
 OS=$(os_detect)
 
-if ! is_exists "java"; then
-    echo "java is not installed."
-    exit 1
+if ! is_exists "jenv"; then
+    anyenv install jenv
 fi
 
 if [ ${OS} == 'osx' ]; then
