@@ -30,22 +30,3 @@ on_ft = ['html', 'xhtml', 'javascript', 'typescript', 'javascript.jsx', 'typescr
 hook_add = '''
 source ~/.config/nvim/plugins/vim-closetag.vim
 '''
-
-[[plugins]]
-repo = "thinca/vim-quickrun"
-hook_add = '''
-source ~/.config/nvim/plugins/vim-quickrun.vim
-'''
-
-# ------------------------------------
-# LSP
-# ------------------------------------
-[[plugins]]
-repo = 'neoclide/coc.nvim'
-rev = 'release'
-build = '''
-git checkout release
-'''
-hook_add = '''
-source ~/.config/nvim/plugins/coc.vim
-'''

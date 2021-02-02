@@ -34,16 +34,3 @@ depends = ['defx-git']
 hook_add = """
 source ~/.config/nvim/plugins/defx.vim
 """
-
-[[plugins]] # Neovimのインターフェースを統合
-repo = "Shougo/denite.nvim"
-hook_add = """
-source ~/.config/nvim/plugins/denite.vim
-"""
-
-[[plugins]] # Neovim上でターミナルを実行
-repo = "shougo/deol.nvim"
-hook_add = """
-source ~/.config/nvim/plugins/deol.vim
-"""
-

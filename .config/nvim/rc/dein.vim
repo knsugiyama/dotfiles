@@ -8,6 +8,7 @@ let s:cache_home = empty($XDG_CACHE_HOME) ? expand('~/.cache') : $XDG_CACHE_HOME
 
 " Plugin
 let s:dein_dir = s:cache_home . '/dein'
+
 " dein.vim
 let s:dein_repo_dir = s:dein_dir . '/repos/github.com/Shougo/dein.vim'
 if !isdirectory(s:dein_repo_dir)
@@ -25,7 +26,7 @@ if dein#load_state(s:dein_dir)
   call dein#begin(s:dein_dir)
 
   call dein#load_toml(s:toml_dir . '/dein.toml', {'lazy': 0})
-  call dein#load_toml(s:toml_dir . '/lazy.toml', {'lazy': 1})
+  call dein#load_toml(s:toml_dir . '/dein_lazy.toml', {'lazy': 1})
 
   " Required:
   call dein#end()

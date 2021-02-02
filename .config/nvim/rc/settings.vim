@@ -24,12 +24,13 @@ set nowritebackup
 set hidden
 " クリップボードとNeovimの無名レジスタを一体化
 set clipboard+=unnamedplus
-"
+
 " 編集中のファイルが変更されたら自動で読み直す
 set autoread
 
 " 行番号を表示する
 " set number
+
 " 空白文字等、不可視な文字の可視化
 set list
 set listchars=tab:»-,trail:-,extends:»,precedes:«,nbsp:%,eol:↲
