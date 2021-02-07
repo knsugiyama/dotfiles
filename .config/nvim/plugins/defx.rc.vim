@@ -1,26 +1,16 @@
 " 【Ctrl + f】 defx.nvimを起動
-nnoremap <silent><C-f> :<C-u>Defx<CR>
+" nnoremap <silent><C-f> :<C-u>Defx<CR>
 
-call defx#custom#column('icon', {
-        \ 'directory_icon': '▸',
-        \ 'opened_icon': '▾',
-        \ 'root_icon': ' ',
-        \ })
+"call defx#custom#option('_', {
+"      \ 'columns': 'mark:indent:git:icon:filename:type:size:time',
+"      \ 'show_ignored_files': 1,
+"      \ })
 
-call defx#custom#column('filename', {
-        \ 'min_width': 40,
-        \ 'max_width': 40,
-        \ })
-
-call defx#custom#column('mark', {
-        \ 'readonly_icon': '✗',
-        \ 'selected_icon': '✓',
-        \ })
-
-call defx#custom#option('_', {
-      \ 'columns': 'mark:indent:git:icon:filename:type:size:time',
-      \ 'show_ignored_files': 1,
-      \ })
+nnoremap <silent>sf :<C-u>Defx -listed -resume
+      \ -columns=indent:mark:icon:icons:filename:type:git:size:time
+      \ -show-ignored-files
+      \ -buffer-name=tab`tabpagenr()`
+      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
 " 現在開いているファイルがあるディレクトリから起動
 nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
@@ -60,4 +50,21 @@ autocmd FileType defx call s:defx_my_settings()
     " 【cd】 Neovim上のカレントディレクトリを変更する
     nnoremap <silent><buffer><expr> cd defx#do_action('change_vim_cwd')
   endfunction
+
+call defx#custom#column('icon', {
+      \ 'directory_icon': '▸',
+      \ 'opened_icon': '▾',
+      \ 'root_icon': ' ',
+      \ })
+
+call defx#custom#column('git', 'indicators', {
+  \ 'Modified'  : 'M',
+  \ 'Staged'    : '✚',
+  \ 'Untracked' : '✭',
+  \ 'Renamed'   : '➜',
+  \ 'Unmerged'  : '═',
+  \ 'Ignored'   : '☒',
+  \ 'Deleted'   : '✖',
+  \ 'Unknown'   : '?'
+  \ })
 

@@ -1,17 +1,3 @@
-# ------------------------------------
-# Markdown
-# ------------------------------------
-[[plugins]]
-repo = "plasticboy/vim-markdown"
-
-[[plugins]]
-repo = "iamcco/markdown-preview.nvim"
-on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-build = 'sh -c "cd app & yarn install"'
-hook_add = '''
-source ~/.config/nvim/plugins/markdown-preview.vim
-'''
-
 [[plugins]] # git操作
 repo = 'tpope/vim-fugitive'
 
@@ -28,5 +14,24 @@ let g:rainbow_active = 1
 repo = 'alvan/vim-closetag'
 on_ft = ['html', 'xhtml', 'javascript', 'typescript', 'javascript.jsx', 'typescript.tsx']
 hook_add = '''
-source ~/.config/nvim/plugins/vim-closetag.vim
+source ~/.config/nvim/plugins/vim-closetag.rc.vim
 '''
+
+[[plugins]]
+repo = "plasticboy/vim-markdown"
+
+[[plugins]]
+repo = "iamcco/markdown-preview.nvim"
+on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+build = 'sh -c "cd app & yarn install"'
+hook_add = '''
+source ~/.config/nvim/plugins/markdown-preview.rc.vim
+'''
+
+[[plugins]] 
+repo  = 'cespare/vim-toml'
+on_ft = 'toml'
+
+[[plugins]]
+repo = 'dag/vim-fish'
+on_ft = ['fish']'

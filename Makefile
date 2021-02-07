@@ -32,10 +32,10 @@ noSkipfiles: ## git no-skip-worktree
 option-anyenv: ## install anyenv
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv.sh
 
-option-setup-anyenvs: ## setup anyenv modules
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/nodenv-setup.sh && \
-	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/pyenv-setup.sh && \
-	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/rbenv-setup.sh && \
+option-node:
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/nodenv-setup.sh
+
+option-go:
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/goenv-setup.sh
 
 option-gcloud: ## install gcloud

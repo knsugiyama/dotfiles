@@ -4,33 +4,47 @@ repo = 'Shougo/dein.vim'
 [[plugins]]
 repo = "cocopon/iceberg.vim"
 hook_add = """
-source ~/.config/nvim/plugins/iceberg.vim
+source ~/.config/nvim/plugins/iceberg.rc.vim
 """
 
 [[plugins]] # Status Line
 repo = "itchyny/lightline.vim"
 hook_add = """
-source ~/.config/nvim/plugins/lightline.vim
+source ~/.config/nvim/plugins/lightline.rc.vim
 """
 
 [[plugins]] # Cheatsheet
 repo = "reireias/vim-cheatsheet"
 hook_add = """
-source ~/.config/nvim/plugins/vim-cheatsheet.vim
+source ~/.config/nvim/plugins/vim-cheatsheet.rc.vim
 """
 
-# ------------------------------------
-# Dark powered plugins
-# ------------------------------------
 [[plugins]]
 repo ="kristijanhusak/defx-git"
-hook_add = """
-source ~/.config/nvim/plugins/defx-git.vim
-"""
+
+[[plugins]]
+repo = 'kristijanhusak/defx-icons'
 
 [[plugins]] # ファイルエクスプローラー
 repo = 'Shougo/defx.nvim'
-depends = ['defx-git']
+depends = ['defx-git','defx-icon']
 hook_add = """
-source ~/.config/nvim/plugins/defx.vim
+source ~/.config/nvim/plugins/defx.rc.vim
+"""
+
+[[plugins]]
+repo = 'jlanzarotta/bufexplorer'
+
+[[plugins]]
+repo = 'ryanoasis/vim-devicons'
+
+[[plugins]]
+repo = 'jiangmiao/auto-pairs'
+
+[[plugins]]
+repo = "neoclide/coc.nvim"
+merged = 0
+rev = "release"
+hook_add = """
+source ~/.config/nvim/plugins/coc.rc.vim
 """
