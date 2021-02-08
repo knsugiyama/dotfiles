@@ -7,7 +7,7 @@
 "      \ })
 
 nnoremap <silent>sf :<C-u>Defx -listed -resume
-      \ -columns=indent:mark:icon:icons:filename:type:git:size:time
+      \ -columns=indent:mark:icon:filename:type:git:size:time
       \ -show-ignored-files
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
