@@ -61,8 +61,8 @@ install_brew() {
   os_detect
   if [ "$PLATFORM" == 'linux' ]; then
   
-    if [! -f ./.bash_profile ] ;then
-      touch .bash_profile
+    if [ ! -e ./.bash_profile ]; then
+      touch ./.bash_profile
     fi
     
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
