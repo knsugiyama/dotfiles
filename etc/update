@@ -25,6 +25,8 @@ elif [ ${OS} == 'linux' ]; then
   sudo apt -y update
   sudo apt -y upgrade
   sudo apt autoremove
+  
+  brew update
   brew upgrade
 fi
 
