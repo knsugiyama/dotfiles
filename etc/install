@@ -141,6 +141,7 @@ install() {
 
 install
 
+. ~/.bash_profile
 chsh -s $(which fish)
 
 exec $SHELL -l
