@@ -14,7 +14,6 @@ brew "git-lfs"
 brew "hub"
 brew "jq"
 brew "peco"
-brew "plantuml"
 brew "tig"
 brew "tree"
 
