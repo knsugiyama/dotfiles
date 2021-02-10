@@ -1,5 +1,5 @@
 basic-settings.sh
-git-clone-packages.sh
+brew.sh
 git-config.sh
 fisher.sh
 font.sh

@@ -25,6 +25,7 @@ elif [ ${OS} == 'linux' ]; then
   sudo apt -y update
   sudo apt -y upgrade
   sudo apt autoremove
+  brew upgrade
 fi
 
 echo $(log_info "###### anyenv update. ######")

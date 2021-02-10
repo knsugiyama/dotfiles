@@ -18,18 +18,14 @@ update: ## Fetch changes for this repository
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update
 
 skipfiles: ## git skip-worktree
-	@git update-index --skip-worktree .bash_profile
-	@git update-index --skip-worktree .bashrc
 	@git update-index --skip-worktree .gitconfig.credential
 	@git update-index --skip-worktree .config/fish/env.fish
 
 noSkipfiles: ## git no-skip-worktree
-	@git update-index --no-skip-worktree .bash_profile
-	@git update-index --no-skip-worktree .bashrc
 	@git update-index --no-skip-worktree .gitconfig.credential
 	@git update-index --no-skip-worktree .config/fish/env.fish
 
-option-anyenv: ## install anyenv
+option-anyenv:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv.sh
 
 option-node:
@@ -40,9 +36,6 @@ option-go:
 
 option-gcloud: ## install gcloud
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/gcloud.sh
-
-option-nvim: ## install nvim
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/nvim-setup.sh
 
 option-wsl: ## install wsl2 basic setting
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2.sh

@@ -52,9 +52,25 @@ install_build_tool() {
     if ! is_exists "make"; then
       echo y | sudo apt update
       echo y | sudo apt upgrade
-      sudo apt install -y build-essential
+      sudo apt install -y build-essential curl file git
     fi
   fi
+}
+
+install_brew() {
+  os_detect
+  if [ "$PLATFORM" == 'linux' ]; then
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
+    test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+    test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
+    echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile 
+  elif [ "$PLATFORM" == 'osx']; then
+    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+  else
+    exit 1
+  fi
+
 }
 
 # ==============================
@@ -76,6 +92,7 @@ download() {
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
   install_build_tool
+  install_brew
 }
 
 deploy() {

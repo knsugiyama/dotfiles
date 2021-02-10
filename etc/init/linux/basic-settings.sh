@@ -15,7 +15,7 @@ echo y | sudo apt upgrade
 sudo add-apt-repository -y ppa:git-core/ppa
 echo y | sudo apt update
 
-## basic pakages install
+## pakages install
 cat ${SCRIPTPATH}/files/packages | while read package_name; do
     if [ line != '' ]; then
         echo $(log_info "package name: $package_name")
