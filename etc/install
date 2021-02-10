@@ -131,6 +131,12 @@ initialize() {
       . ~/.bash_profile
     fi
   done
+
+  if [ "$PLATFORM" == 'linux' ]; then
+    echo `which fish` | sudo tee -a /etc/shells
+  fi
+  chsh -s $(which fish)
+  
 }
 
 install() {
@@ -140,8 +146,5 @@ install() {
 }
 
 install
-
-. ~/.bash_profile
-chsh -s $(which fish)
 
 exec $SHELL -l
