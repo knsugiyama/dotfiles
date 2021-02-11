@@ -2,22 +2,37 @@
 repo = 'Shougo/dein.vim'
 
 [[plugins]]
+repo = 'Shougo/context_filetype.vim'
+
+[[plugins]]
 repo = "cocopon/iceberg.vim"
 hook_add = """
 source ~/.config/nvim/plugins/iceberg.rc.vim
 """
 
-[[plugins]] # Status Line
+[[plugins]]
 repo = "itchyny/lightline.vim"
 hook_add = """
 source ~/.config/nvim/plugins/lightline.rc.vim
 """
 
-[[plugins]] # Cheatsheet
+[[plugins]]
 repo = "reireias/vim-cheatsheet"
 hook_add = """
 source ~/.config/nvim/plugins/vim-cheatsheet.rc.vim
 """
+
+[[plugins]]
+repo = 'tpope/vim-fugitive'
+
+[[plugins]]
+repo = 'airblade/vim-gitgutter'
+
+[[plugins]]
+repo = 'luochen1990/rainbow'
+hook_add = '''
+let g:rainbow_active = 1
+'''
 
 [[plugins]]
 repo ="kristijanhusak/defx-git"
@@ -25,9 +40,9 @@ repo ="kristijanhusak/defx-git"
 [[plugins]]
 repo = 'kristijanhusak/defx-icons'
 
-[[plugins]] # ファイルエクスプローラー
+[[plugins]]
 repo = 'Shougo/defx.nvim'
-depends = ['defx-git','defx-icon']
+depends = ['defx-git','defx-icons']
 hook_add = """
 source ~/.config/nvim/plugins/defx.rc.vim
 """

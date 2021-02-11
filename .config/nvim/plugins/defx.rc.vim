@@ -1,10 +1,5 @@
 " 【Ctrl + f】 defx.nvimを起動
-" nnoremap <silent><C-f> :<C-u>Defx<CR>
-
-"call defx#custom#option('_', {
-"      \ 'columns': 'mark:indent:git:icon:filename:type:size:time',
-"      \ 'show_ignored_files': 1,
-"      \ })
+nnoremap <silent><C-f> :<C-u>Defx<CR>
 
 nnoremap <silent>sf :<C-u>Defx -listed -resume
       \ -columns=indent:mark:icon:icons:filename:type:git:size:time
@@ -52,8 +47,8 @@ autocmd FileType defx call s:defx_my_settings()
   endfunction
 
 call defx#custom#column('icon', {
-      \ 'directory_icon': '▸',
-      \ 'opened_icon': '▾',
+      \ 'directory_icon': '+',
+      \ 'opened_icon': '-',
       \ 'root_icon': ' ',
       \ })
 
