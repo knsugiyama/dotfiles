@@ -12,6 +12,3 @@ set -g theme_display_date no
 set -g theme_display_cmd_duration no
 
 eval (hub alias -s)
-
-set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"
-powerline-setup
