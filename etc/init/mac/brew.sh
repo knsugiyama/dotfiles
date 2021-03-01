@@ -8,5 +8,7 @@ echo $(log_echo "install homebrew")
 echo 'eval $(/opt/homebrew/bin/brew shellenv)' >> /Users/user/.zprofile
 
 echo $(log_echo "update homebrew")
+ln -s ${DOTPATH}/Brewfile ./Brewfile
+
 brew update --verbose
 brew bundle
