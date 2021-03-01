@@ -31,6 +31,6 @@
 !/etc/**
 !/LICNSE
 !/Makefile
-!/Profiles.json
+!/MyProfiles.json
 !/README.md
 !/wsl.conf

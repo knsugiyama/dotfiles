@@ -75,6 +75,8 @@ install_brew() {
     echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
   elif [ "$PLATFORM" == 'osx' ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # fish
+    echo 'eval (/opt/homebrew/bin/brew shellenv)' >> ~/.config/fish/env.fis
   else
     exit 1
   fi
@@ -137,6 +139,8 @@ initialize() {
 
   if [ "$PLATFORM" == 'linux' ]; then
     echo `which fish` | sudo tee -a /etc/shells
+  elif [ "$PLATFORM == 'osx' ]; then
+    sudo sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
   fi
   chsh -s $(which fish)
   
