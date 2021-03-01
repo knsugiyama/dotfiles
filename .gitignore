@@ -5,7 +5,6 @@
 ### not ignore ###
 !/.bash_profile
 !/.bashrc
-!/.Brewfile
 !/.cheatsheet.md
 !/.gitconfig
 !/.gitconfig.credential
@@ -16,7 +15,7 @@
 !/.config/
 !/.config/fish/
 !/.config/fish/*.fish
-!/.config/fish/fishfile
+!/.config/fish/fish_plugins
 !/.config/karabiner/
 !/.config/karabiner/karabiner.json
 !/.config/karabiner/assets/
@@ -27,6 +26,7 @@
 !/.gitignore
 !/bin/
 !/bin/**
+!/Brewfile
 !/etc/
 !/etc/**
 !/LICNSE

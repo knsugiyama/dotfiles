@@ -19,6 +19,8 @@
   root = ~/src
 [user]
 	useConfigOnly = true
+	email = knsugiyama15@gmail.com
+	name = knsugiyama15
 [pull]
 	rebase = false
 [hub]
