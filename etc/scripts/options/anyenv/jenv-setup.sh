@@ -20,4 +20,4 @@ elif [ ${OS} == 'linux' ]; then
 fi
 
 jenv global 1.8
-# sjenv enable-plugin export
+jenv enable-plugin export

@@ -13,6 +13,7 @@ list: ## Show dot files in this repo
 
 deploy: ## Create symlink to home directory
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+	@ln -sfnv $(DOTFILES)/Brewfile $(HOME)/Brewfile
 
 update: ## Fetch changes for this repository
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update
@@ -33,6 +34,9 @@ option-node:
 
 option-go:
 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/goenv-setup.sh
+
+option-python:
+	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/pyenv-setup.sh
 
 option-gcloud: ## install gcloud
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/gcloud.sh
