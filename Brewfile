@@ -17,6 +17,7 @@ brew "jq"
 brew "neovim"
 brew "peco"
 brew "tig"
+brew "tmux"
 brew "tree"
 
 cask "appcleaner"
