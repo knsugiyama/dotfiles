@@ -1,6 +1,7 @@
 ###
 # 外観設定
 ###
+
 # main view の左端にコミットIDを表示する
 set main-view = id date author:email-user commit-title:graph=yes,refs=yes
 
@@ -47,6 +48,9 @@ color  diff-chunk        black   white
 ######
 # 外部コマンドを指定するには、外部コマンドの前に !, ?, @ のいずれかを付ける。! は外部コマンドの即時実行、? は実行前にコマンド内容の確認が出る、@ はバックグラウンド実行して出力を捨てる
 
+# reflogをpagerで表示
+bind generic W :!git reflog
+
 # Pで現在のブランチへpush
 bind generic P ?@!git push origin %(repo:head)
 # Lで現在のブランチからpull
@@ -59,8 +63,8 @@ bind main ! ?git reset --soft HEAD^
 # ! で revert
 bind main ! ?git revert %(commit)
 
-# Cで、指定ブランチをもとに新規ブランチを作成
-bind refs C ?git checkout -b "%(prompt Enter new branch name: )" %(branch)
+# Nで、指定ブランチをもとに新規ブランチを作成
+bind refs N ?git checkout -b "%(prompt Enter new branch name: )" %(branch)
 # Mで、指定ブランチの内容をマージ
 bind refs M ?git merge %(branch)
 # Hで、指定ブランチをWebで表示
@@ -68,3 +72,9 @@ bind refs H !git-browse-remote %(branch)
 
 # Dでstatus viewのuntracked fileを削除できるようにする
 bind status D ?@rm %(file)
+
+# リポジトリのGitHubを表示
+bind generic ^ @hub browse
+
+# 選択したbranchのcompare画面
+bind branch [ @hub compare %(branch)
