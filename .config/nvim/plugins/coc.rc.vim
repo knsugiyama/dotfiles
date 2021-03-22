@@ -127,12 +127,12 @@ set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 "nnoremap <silent> ;p  :<C-u>CocListResume<CR>
 
 " Extensions
-" let g:coc_global_extensions = [
-"   \ 'coc-json',
-"  \ 'coc-tsserver',
-"  \ 'coc-prettier',
-"  \ 'coc-eslint',
-"  \ ]
+let g:coc_global_extensions = [
+  \ 'coc-json',
+  \ 'coc-tsserver',
+  \ 'coc-prettier',
+  \ 'coc-eslint',
+  \ ]
 
 " Prettier
-" command! -nargs=0 Prettier :CocCommand prettier.formatFile
+command! -nargs=0 Prettier :CocCommand prettier.formatFile
