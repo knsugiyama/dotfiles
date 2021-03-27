@@ -38,20 +38,20 @@ let g:rainbow_active = 1
 repo ="kristijanhusak/defx-git"
 
 [[plugins]]
-repo = 'kristijanhusak/defx-icons'
-
-[[plugins]]
 repo = 'Shougo/defx.nvim'
-depends = ['defx-git','defx-icons']
+depends = ['defx-git']
 hook_add = """
 source ~/.config/nvim/plugins/defx.rc.vim
 """
 
 [[plugins]]
-repo = 'jlanzarotta/bufexplorer'
+repo = 'Shougo/denite.nvim'
+hook_add = """
+source ~/.config/nvim/plugins/denite.rc.vim
+"""
 
 [[plugins]]
-repo = 'ryanoasis/vim-devicons'
+repo = 'jlanzarotta/bufexplorer'
 
 [[plugins]]
 repo = 'jiangmiao/auto-pairs'

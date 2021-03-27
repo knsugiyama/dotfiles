@@ -31,6 +31,7 @@
 !/etc/**
 !/LICNSE
 !/Makefile
+!/MyEclipse.epf
 !/MyProfiles.json
 !/README.md
 !/wsl.conf

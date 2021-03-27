@@ -1,66 +1,13 @@
 {
   "title": "my rule",
   "rules": [
-    {
-      "description": "command -> control, caps -> command, control -> caps(caps <-> control in item2 etc.)",
+        {
+      "description": "left_command -> left_control, left_control -> left_command in item2 etc.",
       "manipulators": [
         {
           "type": "basic",
           "from": {
             "key_code": "left_command",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "left_command",
-              "lazy": true
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2",
-                "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
-                "^com.jetbrains.intellij"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_command",
-              "lazy": true
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2",
-                "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
-                "^org.eclipse.platform.ide",
-                "^com.jetbrains.intellij"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "caps_lock",
             "modifiers": {
               "optional": ["any"]
             }
@@ -93,117 +40,13 @@
           },
           "to": [
             {
-              "key_code": "caps_lock",
+              "key_code": "left_command",
               "lazy": true
             }
           ],
           "conditions": [
             {
               "type": "frontmost_application_if",
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2",
-                "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
-                "^com.jetbrains.intellij"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_command",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_control",
-              "lazy": true
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2",
-                "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
-                "^com.jetbrains.intellij"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "right_command",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_control",
-              "lazy": true
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2",
-                "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
-                "^com.jetbrains.intellij"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "caps_lock",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "right_command",
-              "lazy": true
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
-              "bundle_identifiers": [
-                "^com.googlecode.iterm2",
-                "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
-                "^com.jetbrains.intellij"
-              ]
-            }
-          ]
-        },
-        {
-          "type": "basic",
-          "from": {
-            "key_code": "left_control",
-            "modifiers": {
-              "optional": ["any"]
-            }
-          },
-          "to": [
-            {
-              "key_code": "caps_lock",
-              "lazy": true
-            }
-          ],
-          "conditions": [
-            {
-              "type": "frontmost_application_unless",
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
                 "^com.microsoft.VSCode",

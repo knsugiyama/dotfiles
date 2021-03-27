@@ -18,7 +18,7 @@
 [ghq]
   root = ~/src
 [user]
-	useConfigOnly = true
+#	useConfigOnly = true
 	email = knsugiyama15@gmail.com
 	name = knsugiyama15
 [pull]

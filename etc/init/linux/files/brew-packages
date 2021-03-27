@@ -9,6 +9,7 @@ jq
 neovim
 peco
 shellcheck
+ripgrep
 tig
 tree
 unzip
