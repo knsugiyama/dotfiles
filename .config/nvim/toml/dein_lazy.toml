@@ -8,11 +8,14 @@ source ~/.config/nvim/plugins/vim-closetag.rc.vim
 [[plugins]]
 repo = "plasticboy/vim-markdown"
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
+hook_add = '''
+source ~/.config/nvim/plugins/vim-markdown.rc.vim
+'''
 
 [[plugins]]
 repo = "iamcco/markdown-preview.nvim"
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
-build = 'sh -c "cd app & yarn install"'
+build = 'sh -c "cd app && yarn install"'
 hook_add = '''
 source ~/.config/nvim/plugins/markdown-preview.rc.vim
 '''

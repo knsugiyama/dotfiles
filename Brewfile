@@ -20,6 +20,7 @@ brew "ripgrep"
 brew "tig"
 brew "tmux"
 brew "tree"
+brew "unar"
 
 cask "appcleaner"
 cask "authy"
