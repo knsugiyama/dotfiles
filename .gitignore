@@ -29,6 +29,8 @@
 !/Brewfile
 !/etc/
 !/etc/**
+!/.github/
+!/.github/**
 !/LICNSE
 !/Makefile
 !/MyEclipse.epf

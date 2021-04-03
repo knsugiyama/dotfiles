@@ -20,7 +20,7 @@ fi
 echo $(log_info "###### packages update. ######")
 if [ ${OS} == 'osx' ]; then
   brew upgrade
-  brew upgrade --cask
+  brew upgrade --cask --greedy
 elif [ ${OS} == 'linux' ]; then
   sudo apt -y update
   sudo apt -y upgrade
