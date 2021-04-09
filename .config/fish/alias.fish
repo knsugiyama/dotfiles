@@ -32,14 +32,20 @@ alias mem 'top -o rsize'
 alias cpu 'top -o cpu'
 
 ############
-# simple repository move
-############
-# alias g 'cd (ghq root)/(ghq list | peco)'
-# alias gh 'hub browse (ghq list | peco | cut -d "/" -f 2,3)'
-
-############
 # tmux alias
 ############
 alias t 'tmux'
 alias tk 'tmux kill-session -t'
 alias tl 'tmux ls'
+
+############
+# nvim alias
+############
+alias vi 'nvim'
+alias vim 'nvim'
+
+############
+# Docker alias
+############
+alias dcirms 'docker ps -aq | xargs docker rm -f && docker images -aq | xargs docker rmi -f'
+

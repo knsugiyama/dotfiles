@@ -3,11 +3,16 @@ function reload
   source ~/.config/fish/config.fish
 end
 
-function fish_user_key_bindings
-  bind \cr 'peco_select_history (commandline -b)'
-  bind \cx\ck peco_kill # control + X からの control + K
+# configディレクトリをnvimで開く
+function open_config
+  cd ~/.config
+  nvim
 end
 
+
+#######
+# git
+#######
 # 現在のブランチ名を表示
 function git_current_branch
   set -l ref (git symbolic-ref --quiet HEAD 2> /dev/null)
@@ -47,6 +52,9 @@ function git_diff_archive
   command git archive --format=zip $h (git diff --name-only --diff-filter=d $diff) -o $p-$d.zip
 end
 
+#######
+# tmux
+#######
 # https://blog.abekoh.dev/post/prj-command/
 # prj.fish
 function prj -d "start project"
