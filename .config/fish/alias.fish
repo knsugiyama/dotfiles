@@ -24,12 +24,9 @@ alias h 'history'
 alias cx 'chmod +x'
 alias 'c-x' 'chmod -x'
 
-############
-# top
-############
 alias top 'htop'
-alias mem 'top -o rsize'
-alias cpu 'top -o cpu'
+
+alias 'listen-ports' 'sudo lsof -i -P | grep LISTEN'
 
 ############
 # tmux alias
