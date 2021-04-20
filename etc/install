@@ -70,8 +70,13 @@ install_brew() {
     test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
     echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+    # fish
+    echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
+    
   elif [ "$PLATFORM" == 'osx' ]; then
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+    # fish
+    echo 'eval (/opt/homebrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
   else
     exit 1
   fi
@@ -97,6 +102,10 @@ download() {
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
   install_build_tool
+}
+
+brew() {
+  logging "install: setup brew..."
   install_brew
 }
 
@@ -144,6 +153,7 @@ initialize() {
 install() {
   download &&
     deploy &&
+    brew &&
     initialize
 }
 
