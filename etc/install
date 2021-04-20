@@ -104,11 +104,6 @@ download() {
   install_build_tool
 }
 
-brew() {
-  logging "install: setup brew..."
-  install_brew
-}
-
 deploy() {
   logging "install: start deploy..."
   if [ ! -d $DOTPATH ]; then
@@ -118,6 +113,11 @@ deploy() {
 
   make skipfiles
   make deploy
+}
+
+setup_brew() {
+  logging "install: setup brew..."
+  install_brew
 }
 
 initialize() {
@@ -153,7 +153,7 @@ initialize() {
 install() {
   download &&
     deploy &&
-    brew &&
+    setup_brew &&
     initialize
 }
 
