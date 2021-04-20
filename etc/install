@@ -52,7 +52,7 @@ install_build_tool() {
     if ! is_exists "make"; then
       echo y | sudo apt update
       echo y | sudo apt upgrade
-      sudo apt install -y build-essential curl file git
+      sudo apt install -y build-essential procps curl file git
     fi
   fi
 }
@@ -61,15 +61,12 @@ install_brew() {
   os_detect
   if [ "$PLATFORM" == 'linux' ]; then
   
-    if [ ! -e ./.bash_profile ]; then
-      touch ./.bash_profile
-    fi
-    
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
     test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
     echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+
     # fish
     echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
     
