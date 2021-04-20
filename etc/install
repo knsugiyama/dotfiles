@@ -139,7 +139,7 @@ initialize() {
 
   if [ "$PLATFORM" == 'linux' ]; then
     echo `which fish` | sudo tee -a /etc/shells
-  elif [ "$PLATFORM == 'osx' ]; then
+  elif [ "$PLATFORM" == 'osx' ]; then
     sudo sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
   fi
   chsh -s $(which fish)
