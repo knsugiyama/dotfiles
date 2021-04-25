@@ -60,6 +60,7 @@ install_build_tool() {
 install_brew() {
   os_detect
   if [ "$PLATFORM" == 'linux' ]; then
+    logging "install_brew: linux"
   
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
@@ -71,6 +72,7 @@ install_brew() {
     echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
     
   elif [ "$PLATFORM" == 'osx' ]; then
+    logging "install_brew: osx"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
     # fish
     echo 'eval (/opt/homebrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
@@ -99,6 +101,7 @@ download() {
   git clone --recursive "$GITHUB_URL" "$DOTPATH"
 
   install_build_tool
+  logging "install: end download..."
 }
 
 deploy() {
@@ -110,11 +113,13 @@ deploy() {
 
   make skipfiles
   make deploy
+  logging "install: end deploy..."
 }
 
 setup_brew() {
-  logging "install: setup brew..."
+  logging "install: start setup brew..."
   install_brew
+  logging "install: end setup brew..."
 }
 
 initialize() {
