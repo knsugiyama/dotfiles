@@ -131,6 +131,8 @@ let g:coc_global_extensions = [
   \ 'coc-tsserver',
   \ 'coc-prettier',
   \ 'coc-eslint',
+  \ 'coc-styled-components',
+  \ 'coc-react-refactor',
   \ 'coc-json',
   \ 'coc-yaml',
   \ 'coc-docker',

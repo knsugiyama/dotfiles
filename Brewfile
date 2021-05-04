@@ -7,6 +7,7 @@ tap "homebrew/core"
 
 brew "anyenv"
 brew "asciidoc"
+brew "direnv"
 brew "fish"
 brew "fontconfig"
 brew "ghq"

@@ -9,6 +9,6 @@ fi
 
 OS=$(os_detect)
 
-goenv install 1.15.2
-goenv global 1.15.2
+# goenv install 1.15.2
+# goenv global 1.15.2
 
