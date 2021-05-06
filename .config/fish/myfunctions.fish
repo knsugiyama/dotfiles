@@ -9,7 +9,6 @@ function open_config
   nvim
 end
 
-
 #######
 # git
 #######
@@ -81,6 +80,11 @@ function prj -d "start project"
   else
     tmux switch-client -t $PRJ_NAME
   end
+end
+
+function jenv
+  # https://www.reddit.com/r/fishshell/comments/hs4dh3/anyone_using_jenv_under_fish_shell_im_getting_a/
+  bash -c "jenv $argv"
 end
 
 # https://blog.abekoh.dev/post/prj-command/
