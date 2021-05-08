@@ -7,6 +7,7 @@ OS=$(os_detect)
 
 if ! is_exists "jenv"; then
     anyenv install jenv
+    jenv enable-plugin export
 fi
 
 # if [ ${OS} == 'osx' ]; then
