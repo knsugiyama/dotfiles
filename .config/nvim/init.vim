@@ -4,7 +4,7 @@ augroup MyAutoCmd
 augroup END
 
 " キーマップリーダーを最初に定義
-let mapleader = ','
+let mapleader = " "
 
 " ENV
 let $CACHE = empty($XDG_CACHE_HOME) ? expand('$HOME/.cache') : $XDG_CACHE_HOME

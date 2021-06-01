@@ -33,9 +33,9 @@ nmap <C-t>p :tabprevious<CR>
 nnoremap j gj
 nnoremap k gk
 
-inoremap <silent> jj <ESC>
-inoremap <silent> jjw <ESC>:w!<CR>
-inoremap <silent> jjq <ESC>:wq!<CR>
+inoremap <silent> jk <ESC>
+inoremap <silent> jkw <ESC>:w!<CR>
+inoremap <silent> jkq <ESC>:wq!<CR>
 
 " 終了
 nnoremap sq :q<CR>
