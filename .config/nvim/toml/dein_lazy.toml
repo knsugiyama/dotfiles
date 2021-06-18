@@ -27,3 +27,19 @@ on_ft = ['toml']
 [[plugins]]
 repo = 'dag/vim-fish'
 on_ft = ['fish']
+
+[[plugins]]
+repo = 'elzr/vim-json'
+on_ft = ['json']
+
+[[plugins]]
+repo = 'pangloss/vim-javascript'
+on_ft = ['javascript', 'javascript.jsx', 'typescript']
+
+[[plugins]]
+repo = 'leafgarland/typescript-vim'
+on_ft = ['javascript', 'javascript.jsx', 'typescript']
+
+[[plugins]]
+repo = 'maxmellon/vim-jsx-pretty'
+on_ft = ['javascript', 'javascript.jsx', 'typescript']

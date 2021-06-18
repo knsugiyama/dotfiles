@@ -1,9 +1,13 @@
 anyenv
+asdf
 asciidoc
+curl
 direnv
+dirmngr
 fish
 fontconfig
 ghq
+gpg
 hub
 jq
 neovim

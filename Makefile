@@ -26,33 +26,23 @@ noSkipfiles: ## git no-skip-worktree
 	@git update-index --no-skip-worktree .gitconfig.credential
 	@git update-index --no-skip-worktree .config/fish/env.fish
 
-option-anyenv:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv.sh
+option-asdf:
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf.sh
 
 option-java:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/jenv-setup.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf/java.sh
 
 option-node:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/nodenv-setup.sh
-
-option-go:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/goenv-setup.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf/node.sh
 
 option-python:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/anyenv/pyenv-setup.sh
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf/python.sh
 
 option-intellijce:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/intellij.sh
 
-# option-gcloud: ## install gcloud
-#	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/gcloud.sh
-
 option-wsl: ## install wsl2 basic setting
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2.sh
-
-# option-wsl-display: ## install wsl2 display & font settigns
-#	 @DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-display.sh && \
-# 	DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2-font.sh
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \

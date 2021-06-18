@@ -3,6 +3,7 @@
 /.**
 
 ### not ignore ###
+!/.asdfrc
 !/.bash_profile
 !/.bashrc
 !/.cheatsheet.md

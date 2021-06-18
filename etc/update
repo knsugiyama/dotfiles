@@ -6,7 +6,7 @@
 OS=$(os_detect)
 
 echo $(log_echo "start update.")
-echo $(log_info "###### update git. ######")
+echo $(log_info "###### update repository. ######")
 if [ ! -d ".git" ]; then
   git init
   git remote add origin https://github.com/knsugiyama/dotfiles.git
@@ -25,10 +25,7 @@ elif [ ${OS} == 'linux' ]; then
   sudo apt -y update
   sudo apt -y upgrade
   sudo apt autoremove
-  
+
   brew update
   brew upgrade
 fi
-
-echo $(log_info "###### anyenv update. ######")
-anyenv update
