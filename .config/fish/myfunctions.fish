@@ -82,11 +82,6 @@ function prj -d "start project"
   end
 end
 
-function jenv
-  # https://www.reddit.com/r/fishshell/comments/hs4dh3/anyone_using_jenv_under_fish_shell_im_getting_a/
-  bash -c "jenv $argv"
-end
-
 # https://blog.abekoh.dev/post/prj-command/
 # cdの拡張
 function cd -d "プロジェクトのルートに移動"
@@ -106,3 +101,4 @@ function ide -d "tmux を画面分割"
   tmux split-window -h -p 66
   tmux split-window -h -p 50
 end
+

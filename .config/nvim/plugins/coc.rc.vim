@@ -1,9 +1,6 @@
 " if hidden is not set, TextEdit might fail.
 set hidden
 
-" jsonc syntax highlighting
-autocmd FileType json syntax match Comment +\/\/.\+$+
-
 " You will have bad experience for diagnostic messages when it's default 4000.
 set updatetime=300
 
