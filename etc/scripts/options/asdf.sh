@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo -e "\nsource "(brew --prefix asdf)"/asdf.fish" >> ~/.config/fish/config.fish
+echo -e "\nsource "$(brew --prefix asdf)"/asdf.fish" >> ~/.config/fish/env.fish
 
 exec $SHELL -l

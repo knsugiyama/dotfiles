@@ -1,9 +1,9 @@
 #!/bin/bash
 
-. ${DOTPATH}/etc/scripts/lib/is_exists.sh
+asdf plugin add java
 
-asdf plugin install java
-. ~/.asdf/plugins/java/set-java-home.fish
+# set java home
+# . ~/.asdf/plugins/java/set-java-home.fish
 
 # asdf-java管理外のjvmを追加する方法(mac)
 # 以下のような形で、シンボリックリンクをリンク元のディレクトリ、ファイル全てに対して実行する

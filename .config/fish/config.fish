@@ -2,8 +2,6 @@
 . ~/.config/fish/myfunctions.fish
 . ~/.config/fish/env.fish
 
-set fish_greeting ""
-
 set -gx TERM xterm-256color
 
 set -g theme_color_scheme terminal-dark
@@ -17,4 +15,3 @@ set -g theme_display_cmd_duration no
 
 eval (hub alias -s)
 direnv hook fish | source
-

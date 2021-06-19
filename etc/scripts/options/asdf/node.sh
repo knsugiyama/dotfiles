@@ -1,8 +1,6 @@
 #!/bin/bash
 
-. ${DOTPATH}/etc/scripts/lib/is_exists.sh
-
-asdf plugin install nodejs
+asdf plugin add nodejs
 
 # もしyarnなど npm -i g したものを入れたい場合
 # npm i -g yarn
