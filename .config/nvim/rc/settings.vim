@@ -13,6 +13,9 @@ endif
 
 " 行番号を表示する
 set number
+
+set title
+
 " 常にタブラインを表示
 set showtabline=2
 "ヤンクした内容が消えないようにする
