@@ -28,6 +28,7 @@
 !/bin/
 !/bin/**
 !/Brewfile
+!/elly.itermcolors
 !/etc/
 !/etc/**
 !/.github/

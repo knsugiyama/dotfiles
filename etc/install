@@ -61,7 +61,7 @@ install_brew() {
   os_detect
   if [ "$PLATFORM" == 'linux' ]; then
     logging "install_brew: linux"
-  
+
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
     test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -70,7 +70,7 @@ install_brew() {
 
     # fish
     echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
-    
+
   elif [ "$PLATFORM" == 'osx' ]; then
     logging "install_brew: osx"
     /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
@@ -122,6 +122,12 @@ setup_brew() {
   logging "install: end setup brew..."
 }
 
+setup_tmp() {
+  logging "install: start setup tmp..."
+  git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
+  logging "install: end setup tmp..."
+}
+
 initialize() {
   logging "install: start initialize..."
   local path install_shell
@@ -157,6 +163,7 @@ install() {
   download &&
     deploy &&
     setup_brew &&
+    setup_tmp &&
     initialize
 }
 
