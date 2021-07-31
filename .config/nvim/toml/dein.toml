@@ -70,11 +70,11 @@ hook_add = """
 source ~/.config/nvim/plugins/vim/completion-nvim.rc.vim
 """
 
-[[plugins]]
-repo = 'glepnir/lspsaga.nvim'
-hook_add = """
-source ~/.config/nvim/plugins/lua/lspsaga.rc.lua
-"""
+# [[plugins]]
+# repo = 'glepnir/lspsaga.nvim'
+# hook_add = """
+# source ~/.config/nvim/plugins/lua/lspsaga.rc.lua
+# """
 
 [[plugins]]
 repo = 'folke/lsp-colors.nvim'
