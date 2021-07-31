@@ -1,12 +1,17 @@
 " 【Ctrl + f】 defx.nvimを起動
 nnoremap <silent><C-f> :<C-u>Defx<CR>
 
+"nnoremap <silent>sf :<C-u>Defx -listed -resume
+"      \ -columns=indent:mark:icon:filename:type:git:size:time
+"      \ -show-ignored-files
+"      \ -buffer-name=tab`tabpagenr()`
+"      \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
+
 nnoremap <silent>sf :<C-u>Defx -listed -resume
-      \ -columns=indent:mark:icon:filename:type:git:size:time
-      \ -show-ignored-files
+      \ -columns=indent:mark:icon:icons:filename:git:size
       \ -buffer-name=tab`tabpagenr()`
       \ `expand('%:p:h')` -search=`expand('%:p')`<CR>
-
+      
 " 現在開いているファイルがあるディレクトリから起動
 nnoremap <silent>fi :<C-u>Defx -new `expand('%:p:h')` -search=`expand('%:p')`<CR>
 
@@ -62,4 +67,3 @@ call defx#custom#column('git', 'indicators', {
   \ 'Deleted'   : '✖',
   \ 'Unknown'   : '?'
   \ })
-

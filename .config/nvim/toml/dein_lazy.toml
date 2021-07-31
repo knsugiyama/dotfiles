@@ -2,7 +2,7 @@
 repo = "plasticboy/vim-markdown"
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 hook_add = '''
-source ~/.config/nvim/plugins/vim-markdown.rc.vim
+let g:vim_markdown_folding_disabled = 1
 '''
 
 [[plugins]]
@@ -10,10 +10,10 @@ repo = "iamcco/markdown-preview.nvim"
 on_ft = ['markdown', 'pandoc.markdown', 'rmd']
 build = 'sh -c "cd app && yarn install"'
 hook_add = '''
-source ~/.config/nvim/plugins/markdown-preview.rc.vim
+source ~/.config/nvim/plugins/vim/markdown-preview.rc.vim
 '''
 
-[[plugins]] 
+[[plugins]]
 repo  = 'cespare/vim-toml'
 on_ft = ['toml']
 
