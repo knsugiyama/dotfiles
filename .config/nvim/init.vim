@@ -17,4 +17,3 @@ let $DATA = empty($XDG_DATA_HOME) ? expand('$HOME/.local/share') : $XDG_DATA_HOM
 " Load rc file
 runtime! rc/settings.vim
 runtime! rc/keymap.vim
-runtime! rc/dein.vim

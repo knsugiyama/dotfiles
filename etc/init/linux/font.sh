@@ -8,5 +8,5 @@ sudo curl -sfL "$HACK_GEN_RELEASES_URL" | grep "browser_download_url" | cut -d :
 
 sudo fc-cache -vf
 
-echo 'set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"' >>~/.config/fish/env.fish
-echo 'powerline-setup' >>~/.config/fish/env.fish
+# echo 'set fish_function_path $fish_function_path "/usr/share/powerline/bindings/fish"' >>~/.config/fish/env.fish
+# echo 'powerline-setup' >>~/.config/fish/env.fish

@@ -18,6 +18,5 @@ tk-dev
 libffi-dev
 liblzma-dev
 python-openssl
-powerline
 dirmngr
 gpg
