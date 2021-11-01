@@ -68,7 +68,7 @@ install_brew() {
     test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
     echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
-    source ~/.bash_profile
+    source ~/.profile
 
     # fish
     echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
@@ -148,11 +148,11 @@ initialize() {
       logging "shell name: ${path}/${install_shell}"
       bash "${path}/${install_shell}"
     fi
-    source ~/.bash_profile
   done
 
   # shell
   if [ "$PLATFORM" == 'linux' ]; then
+    source ~/.profile
     echo `which fish` | sudo tee -a /etc/shells
   elif [ "$PLATFORM" == 'osx' ]; then
     sudo sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
