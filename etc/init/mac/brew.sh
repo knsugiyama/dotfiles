@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 . ${DOTPATH}/etc/scripts/lib/logging.sh
 

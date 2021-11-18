@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ## git credential
 sudo make --directory=/usr/share/doc/git/contrib/credential/libsecret/

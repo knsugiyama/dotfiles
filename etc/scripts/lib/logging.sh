@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ink() {
     if [ "$#" -eq 0 -o "$#" -gt 2 ]; then

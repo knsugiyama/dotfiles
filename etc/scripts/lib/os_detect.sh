@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 lower() {
     if [ $# -eq 0 ]; then

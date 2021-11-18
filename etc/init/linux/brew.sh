@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 set -eu
 
@@ -15,4 +15,3 @@ cat ${SCRIPTPATH}/files/brew-packages | while read package_name; do
         brew install ${package_name}
     fi
 done
-

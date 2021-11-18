@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 ## git credential
 git config --global credential.helper osxkeychain

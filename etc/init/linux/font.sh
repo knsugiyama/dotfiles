@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # HackGen
 sudo mkdir -p /usr/share/fonts/HackGen

@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 sudo ln -sfnv ${DOTPATH}/wsl.conf /etc/wsl.conf
 
