@@ -124,10 +124,10 @@ setup_brew() {
   logging "install: end setup brew..."
 }
 
-setup_tmp() {
-  logging "install: start setup tmp..."
+setup_tpm() {
+  logging "install: start setup tpm..."
   git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
-  logging "install: end setup tmp..."
+  logging "install: end setup tpm..."
 }
 
 initialize() {
@@ -165,7 +165,7 @@ install() {
   download &&
     deploy &&
     setup_brew &&
-    setup_tmp &&
+    setup_tpm &&
     initialize
 }
 

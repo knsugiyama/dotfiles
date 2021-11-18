@@ -4,6 +4,7 @@ EXCLUSIONS := .DS_Store .git .gitignore
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 SHELL=/bin/bash
 
+.PHONY := all list deploy update clean help
 .DEFAULT_GOAL := help
 
 all:
@@ -18,13 +19,14 @@ deploy: ## Create symlink to home directory
 update: ## Fetch changes for this repository
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update
 
+clean: ## Remobe the dot files and this repo
+	@echo 'Remove dot files in your home direfctory.'
+	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
+	-rm -rf $(DOTPATH)
+
 skipfiles: ## git skip-worktree
 	@git update-index --skip-worktree .gitconfig.credential
 	@git update-index --skip-worktree .config/fish/env.fish
-
-noSkipfiles: ## git no-skip-worktree
-	@git update-index --no-skip-worktree .gitconfig.credential
-	@git update-index --no-skip-worktree .config/fish/env.fish
 
 option-asdf:
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf.sh
