@@ -1,4 +1,3 @@
 brew.sh
-brew-packages.sh
-git-config.sh
-fisher.sh
+fish.sh
+asdf.sh

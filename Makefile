@@ -17,7 +17,7 @@ deploy: ## Create symlink to home directory
 	@ln -sfnv $(HOME)/.dotfiles/Brewfile $(HOME)/Brewfile
 
 update: ## Fetch changes for this repository
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update
+	@DOTPATH=$(DOTPATH) $(DOTPATH)/etc/update
 
 clean: ## Remobe the dot files and this repo
 	@echo 'Remove dot files in your home direfctory.'
@@ -27,24 +27,6 @@ clean: ## Remobe the dot files and this repo
 skipfiles: ## git skip-worktree
 	@git update-index --skip-worktree .gitconfig.credential
 	@git update-index --skip-worktree .config/fish/env.fish
-
-option-asdf:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf.sh
-
-option-java:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf/java.sh
-
-option-node:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf/node.sh
-
-option-python:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/asdf/python.sh
-
-option-intellijce:
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/intellij.sh
-
-option-wsl: ## install wsl2 basic setting
-	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/scripts/options/wsl2.sh
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \

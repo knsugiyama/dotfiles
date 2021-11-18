@@ -101,4 +101,3 @@ function ide -d "tmux を画面分割"
   tmux split-window -h -p 66
   tmux split-window -h -p 50
 end
-

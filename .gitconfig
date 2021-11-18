@@ -18,7 +18,6 @@
 [ghq]
   root = ~/src
 [user]
-#	useConfigOnly = true
   email = knsugiyama15@gmail.com
   name = knsugiyama15
 [pull]
@@ -27,5 +26,3 @@
   protocol = https
 [commit]
   template = ~/.git_commit_template
-[include]
-  path = ~/.gitconfig.credential

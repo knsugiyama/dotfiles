@@ -1,5 +1,3 @@
-basic-settings.sh
 brew.sh
-git-config.sh
-fisher.sh
-font.sh
+fish.sh
+asdf.sh

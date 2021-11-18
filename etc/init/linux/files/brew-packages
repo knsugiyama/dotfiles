@@ -5,6 +5,7 @@ curl
 direnv
 fish
 fontconfig
+gh
 ghq
 gpg
 hub
