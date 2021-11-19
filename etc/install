@@ -122,14 +122,7 @@ initialize() {
   logging "install: start initialize..."
   local path init_shell
 
-  os_detect
-  if [ "$PLATFORM" == 'linux' ]; then
-    path=${DOTPATH}/etc/init/linux
-  elif [ "$PLATFORM" == 'osx' ]; then
-    path=${DOTPATH}/etc/init/mac
-  else
-    exit 1
-  fi
+  path=${DOTPATH}/etc/init
 
   cat ${path}/init-list | while read init_shell; do
     if [ line != '' ]; then
