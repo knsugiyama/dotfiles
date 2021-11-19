@@ -58,11 +58,12 @@ install_build_tool() {
 }
 
 install_brew() {
+  logging "install brew."
   /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 
   os_detect
   if [ "$PLATFORM" == 'linux' ]; then
-    logging "install_brew: linux"
+    logging "for linux."
 
     test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
     test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
@@ -75,7 +76,8 @@ install_brew() {
   fi
 
   # fish
-  echo 'eval (echo (brew --prefix)/bin/brew shellenv)' >> ~/.config/fish/env.fish
+  logging "update fish config."
+  echo "eval ($(brew --prefix)/bin/brew shellenv)" >> ~/.config/fish/env.fish
 }
 
 # ==============================
