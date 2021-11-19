@@ -58,30 +58,24 @@ install_build_tool() {
 }
 
 install_brew() {
+  /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+
   os_detect
   if [ "$PLATFORM" == 'linux' ]; then
     logging "install_brew: linux"
 
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     test -d ~/.linuxbrew && eval $(~/.linuxbrew/bin/brew shellenv)
     test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
     echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
 
     source ~/.profile
-
-    # fish
-    echo 'eval (/home/linuxbrew/.linuxbrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
-
-  elif [ "$PLATFORM" == 'osx' ]; then
-    logging "install_brew: osx"
-    /usr/bin/ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
-    # fish
-    echo 'eval (/opt/homebrew/bin/brew shellenv)' >> ~/.config/fish/env.fish
   else
     exit 1
   fi
 
+  # fish
+  echo 'eval (echo (brew --prefix)/bin/brew shellenv)' >> ~/.config/fish/env.fish
 }
 
 # ==============================
@@ -126,7 +120,7 @@ setup_brew() {
 
 initialize() {
   logging "install: start initialize..."
-  local path install_shell
+  local path init_shell
 
   os_detect
   if [ "$PLATFORM" == 'linux' ]; then
@@ -137,14 +131,14 @@ initialize() {
     exit 1
   fi
 
-  cat ${path}/installation-order | while read install_shell; do
+  cat ${path}/init-list | while read init_shell; do
     if [ line != '' ]; then
-      logging "shell name: ${path}/${install_shell}"
-      "${path}/${install_shell}"
+      logging "shell name: ${path}/${init_shell}"
+      "${path}/${init_shell}"
     fi
   done
 
-  # shell
+  # default shell
   if [ "$PLATFORM" == 'linux' ]; then
     source ~/.profile
     echo `which fish` | sudo tee -a /etc/shells
@@ -152,7 +146,6 @@ initialize() {
     sudo sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
   fi
   chsh -s $(which fish)
-
 }
 
 install() {
