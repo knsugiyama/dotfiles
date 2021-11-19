@@ -126,18 +126,16 @@ initialize() {
 
   cat ${path}/init-list | while read init_shell; do
     if [ line != '' ]; then
-      logging "shell name: ${path}/${init_shell}"
-      sudo sh "${path}/${init_shell}"
+      logging "shell name: ${init_shell}"
+      sudo sh "${init_shell}"
     fi
   done
 
   # default shell
   if [ "$PLATFORM" == 'linux' ]; then
     source ~/.profile
-    echo `which fish` | sudo tee -a /etc/shells
-  elif [ "$PLATFORM" == 'osx' ]; then
-    sudo sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
   fi
+  sudo sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
   chsh -s $(which fish)
 }
 
