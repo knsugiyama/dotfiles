@@ -1,0 +1,14 @@
+name: dotfiles CI
+
+on: [push]
+
+jobs:
+  ubuntu:
+    runs-on: ubuntu-latest
+    container: ubuntu:latest
+    steps:
+      - uses: actions/checkout@v1
+      - name: Install required packages
+        run: apt update && apt install -y build-essential procps curl file git
+      - name: dotfiles
+        run: etc/install
