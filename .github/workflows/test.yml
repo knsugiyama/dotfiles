@@ -11,4 +11,4 @@ jobs:
       - name: Install required packages
         run: apt update && apt install -y build-essential procps curl file git
       - name: dotfiles
-        run: bash ~/.dotfiles/etc/install
+        run: bash etc/install
