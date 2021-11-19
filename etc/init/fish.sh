@@ -1,4 +1,4 @@
-#!/bin/sh
+#!/usr/bin/env bash
 
 ## fisher
 if [ ! -e ~/.config/fish/functions/fisher.fish ]; then
