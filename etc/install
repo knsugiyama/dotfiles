@@ -126,8 +126,8 @@ initialize() {
 
   cat ${path}/init-list | while read init_shell; do
     if [ line != '' ]; then
-      logging "shell name: ${init_shell}"
-      sudo sh "${init_shell}"
+      logging "shell name: ${path}/${init_shell}"
+      sudo sh "${path}/${init_shell}"
     fi
   done
 
