@@ -1,5 +1,5 @@
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
-CANDIDATES := $(wildcard .??*) bin
+CANDIDATES := $(wildcard .??*)
 EXCLUSIONS := .DS_Store .git .gitignore
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 SHELL=/bin/bash
@@ -10,13 +10,15 @@ SHELL=/bin/bash
 all:
 
 list: ## Show dot files in this repo
+	@echo 'Show dot files in this repo.'
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
 deploy: ## Create symlink to home directory
+	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	@ln -sfnv $(HOME)/.dotfiles/Brewfile $(HOME)/Brewfile
 
 update: ## Fetch changes for this repository
+	@echo 'Fetch changes for this repository.'
 	@DOTPATH=$(DOTPATH) $(DOTPATH)/etc/update
 
 clean: ## Remobe the dot files and this repo
