@@ -128,7 +128,7 @@ initialize() {
 
   cat ${path}/init-list | while read init_shell; do
     if [ line != '' ]; then
-      logging "shell name: ${path}/${init_shell}"
+      logging "file name: ${path}/${init_shell}"
       bash "${path}/${init_shell}"
     fi
   done
@@ -137,7 +137,7 @@ initialize() {
   if [ "$PLATFORM" == 'linux' ]; then
     source ~/.profile
   fi
-  sh -c "echo '/opt/homebrew/bin/fish' >> /etc/shells"
+  sh -c "echo $(which fish) >> /etc/shells"
   chsh -s $(which fish)
 }
 

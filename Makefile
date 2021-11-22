@@ -19,7 +19,7 @@ deploy: ## Create symlink to home directory
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
-	@DOTPATH=$(DOTPATH) $(DOTPATH)/etc/update
+	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/etc/update
 
 clean: ## Remobe the dot files and this repo
 	@echo 'Remove dot files in your home direfctory.'
