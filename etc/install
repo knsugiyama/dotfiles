@@ -137,7 +137,7 @@ initialize() {
   if [ "$PLATFORM" == 'linux' ]; then
     source ~/.profile
   fi
-  sh -c "echo $(which fish) >> /etc/shells"
+  sudo sh -c "echo $(which fish) >> /etc/shells"
   chsh -s $(which fish)
 }
 
