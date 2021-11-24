@@ -101,3 +101,13 @@ function ide -d "tmux を画面分割"
   tmux split-window -h -p 66
   tmux split-window -h -p 50
 end
+
+function install_compressed_file -d "指定したURLのファイルを解答してインストールする"
+  if test (count $argv) -eq 0
+    echo "URL is required."
+    return 0
+  end
+
+  set -l file_name (string split -rm1 / $argv)
+  curl --create-dirs $argv -o ~/temp/$file_name[2]
+end
