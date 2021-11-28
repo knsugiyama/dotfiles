@@ -1,0 +1,31 @@
+DOTPATH   := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
+DOTFILES := $(shell /bin/ls | sed -e "s/Makefile//")
+SHELL=/bin/bash
+
+.PHONY := all deploy list init uninstall clean help
+.DEFAULT_GOAL := help
+
+all:
+
+list: ## Show dot files in this repository
+	@echo '[XXX] ==> list up dotfile.'
+	@$(foreach val, $(DOTFILES), echo " * $(val)";)
+
+deploy: ## Create symlink to home directory
+	@echo '[XXX] ==> Start to deploy dotfiles to home directory.'
+	-$(foreach val, $(DOTFILES), ln -sfnv $(DOTPATH)/$(val) $(HOME)/.$(val);)
+
+init: ## Setup environment settings
+	@echo "[XXX] Initialize dotfiles..."
+
+uninstall: ## Remove deployed dotfile.
+	-@$(foreach val, $(DOTFILES), ../../script/removelink $(DOTPATH)/$(val) $(HOME)/.$(val);)
+
+clean: ## Remove the dotfiles and this repo
+	@echo 'Remove dot files in your home directory...'
+	-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/.$(val);)
+
+help: ## Self-documented Makefile
+	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
+		| sort \
+		| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'

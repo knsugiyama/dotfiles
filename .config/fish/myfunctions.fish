@@ -109,5 +109,5 @@ function install_compressed_file -d "指定したURLのファイルを解答し�
   end
 
   set -l file_name (string split -rm1 / $argv)
-  curl --create-dirs $argv -o ~/temp/$file_name[2]
+  curl --location --create-dirs $argv -o ~/temp/$file_name[2]
 end

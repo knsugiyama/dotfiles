@@ -4,7 +4,7 @@ EXCLUSIONS := .DS_Store .git .gitignore
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 SHELL=/bin/bash
 
-.PHONY := all list deploy update clean help
+.PHONY := all list deploy update clean skipfiles help
 .DEFAULT_GOAL := help
 
 all:

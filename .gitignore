@@ -30,6 +30,8 @@
 !/bin/
 !/bin/**
 !/Brewfile
+!/dist/
+!/dist/**
 !/etc/
 !/etc/**
 !/LICNSE
