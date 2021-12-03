@@ -1,0 +1,17 @@
+#!/usr/bin/env bash
+
+set -eu
+
+. ${HOME}/.dotfiles/etc/scripts/lib/os_detect.sh
+
+OS=$(os_detect)
+
+if [ ${OS} == 'osx' ]; then
+  brew tap cloudfoundry/tap
+
+elif [ ${OS} == 'linux' ]; then
+  wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add -
+  echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+
+  sudo apt update
+fi

@@ -6,13 +6,14 @@ SHELL=/bin/bash
 all:
 
 init: ## Init btp cli
-	@echo "[btp] Init..."
+	@echo "[btp-cli] Init..."
 	@curl --remote-name --location --url "https://raw.githubusercontent.com/SAP-samples/sap-tech-bytes/2021-09-01-btp-cli/getbtpcli" && chmod +x getbtpcli
 
-install: ## Install btp cli.
-	@echo "[btp] Install..."
-	@echo -e "\n" | ./getbtpcli
-	@echo "set PATH $HOME/bin $PATH" >> ~/.config/fish/env.fish
+install: ## Install btp cli, and update fish config.
+	@echo "[btp-cli] Install..."
+	@./getbtpcli
+	@echo "set PATH \$$HOME/bin \$$PATH" >> ~/.config/fish/env.fish
+	@exec fish
 
 clean: ## Remove getbtpcli
 	@test -f ./getbtpcli && rm -f ./getbtpcli

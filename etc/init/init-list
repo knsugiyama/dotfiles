@@ -1,4 +1,5 @@
-brew.sh
-fish.sh
-asdf.sh
-tpm.sh
+brew
+fish
+asdf
+tpm
+grep

@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+set -eu
+
+. ${HOME}/.dotfiles/etc/scripts/lib/os_detect.sh
+
+OS=$(os_detect)
+
+if [ ${OS} == 'osx' ]; then
+  brew install cf-cli@8
+
+elif [ ${OS} == 'linux' ]; then
+  sudo apt install cf8-cli
+fi

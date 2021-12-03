@@ -1,7 +1,7 @@
 # dotfiles
 
 一応動くところまで作成
-mac or ubuntu(wsl2含む)が対象です。
+macos or ubuntu(wsl2含む)が対象です。
 
 ## install
 
