@@ -39,6 +39,7 @@ alias tl 'tmux ls'
 # nvim alias
 ############
 alias vi 'nvim'
+alias vim 'nvim'
 
 ############
 # Docker alias
