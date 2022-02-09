@@ -24,7 +24,6 @@
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
                 "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
                 "^com.jetbrains.intellij"
               ]
             }
@@ -50,7 +49,6 @@
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
                 "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
                 "^com.jetbrains.intellij"
               ]
             }
@@ -80,7 +78,6 @@
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
                 "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
                 "^com.jetbrains.intellij"
               ]
             }
@@ -114,7 +111,6 @@
               "bundle_identifiers": [
                 "^com.googlecode.iterm2",
                 "^com.microsoft.VSCode",
-                "^com.microsoft.rdc.macos",
                 "^com.jetbrains.intellij"
               ]
             }
@@ -292,6 +288,83 @@
           "to": [
             {
               "shell_command": "open -a Obsidian"
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "description": "Splashtop Business用",
+      "manipulators": [
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "left_command"
+          },
+          "to": [
+            {
+              "key_code": "left_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.splashtop.stb.macosx"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_command"
+          },
+          "to": [
+            {
+              "key_code": "right_control"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.splashtop.stb.macosx"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_eisuu"
+          },
+          "to":[
+            {
+              "key_code": "japanese_kana",
+              "modifiers": ["left_option"]
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.splashtop.stb.macosx"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "japanese_kana"
+          },
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.splashtop.stb.macosx"
+              ]
             }
           ]
         }
