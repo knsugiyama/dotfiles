@@ -1,0 +1,1 @@
+require("installer").setup {}
