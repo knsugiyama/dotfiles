@@ -1,25 +1,40 @@
 local luasnip = require "luasnip"
+local cmp = require "cmp"
 
 local t = function(str)
-  return vim.api.nvim_replace_termcodes(str, true, true, true)
+    return vim.api.nvim_replace_termcodes(str, true, true, true)
 end
 
-luasnip.config.set_config {
-  history = true,
-  -- Update more often, :h events for more info.
-  updateevents = "TextChanged,TextChangedI",
-}
-
-require("luasnip/loaders/from_vscode").load()
-
---- <tab> to jump to next snippet's placeholder
-local function on_tab()
-  return luasnip.jump(1) and "" or t "<Tab>"
+local check_back_space = function()
+    local col = vim.fn.col('.') - 1
+    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+        return true
+    else
+        return false
+    end
 end
 
---- <s-tab> to jump to next snippet's placeholder
-local function on_s_tab()
-  return luasnip.jump(-1) and "" or t "<S-Tab>"
+_G.tab_complete = function()
+    if cmp and cmp.visible() then
+        cmp.select_next_item()
+    elseif luasnip and luasnip.expand_or_jumpable() then
+        return t("<Plug>luasnip-expand-or-jump")
+    elseif check_back_space() then
+        return t "<Tab>"
+    else
+        cmp.complete()
+    end
+    return ""
+end
+_G.s_tab_complete = function()
+    if cmp and cmp.visible() then
+        cmp.select_prev_item()
+    elseif luasnip and luasnip.jumpable(-1) then
+        return t("<Plug>luasnip-jump-prev")
+    else
+        return t "<S-Tab>"
+    end
+    return ""
 end
 
 vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})

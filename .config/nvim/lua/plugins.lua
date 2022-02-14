@@ -190,6 +190,13 @@ packer.startup {
       end,
     }
 
+    -- Markdown
+    use { "ellisonleao/glow.nvim",
+      config = function()
+        require("glow")
+      end,
+    }
+
     -----------
     -- Utils --
     -----------

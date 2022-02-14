@@ -66,9 +66,6 @@ opt.pumblend = 15
 -- 絵文字
 opt.emoji = true
 
--- 全角文字をちゃんと表示する
-opt.ambiwidth= 'double'
-
 -- 空白文字等、不可視な文字の可視化
 opt.list=true
 opt.listchars={ tab = '»-', trail = '-', extends = '»', precedes = '«', nbsp = '%', eol = '↵' }
