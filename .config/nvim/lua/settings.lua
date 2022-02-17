@@ -1,6 +1,6 @@
 local opt = vim.opt
 
--- キーマップリーダーを最初に定義
+-- キーマップリーダー
 vim.g.mapleader = " "
 
 ------------
@@ -68,4 +68,4 @@ opt.emoji = true
 
 -- 空白文字等、不可視な文字の可視化
 opt.list=true
-opt.listchars={ tab = '»-', trail = '-', extends = '»', precedes = '«', nbsp = '%', eol = '↵' }
+opt.listchars={ tab = '»-', extends = '»', precedes = '«', nbsp = '%', eol = '↵' }

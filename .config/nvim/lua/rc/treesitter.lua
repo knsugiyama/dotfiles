@@ -15,7 +15,7 @@ treesitter.setup {
   refactor = {
     smart_rename = { enable = true, keymaps = { smart_rename = 'grr' } },
     highlight_definitions = { enable = true },
-    -- highlight_current_scope = { enable = true }
+    righlight_current_scope = { enable = true }
   },
   textsubjects = {
     enable = true,

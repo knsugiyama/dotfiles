@@ -318,6 +318,44 @@
         {
           "type": "basic",
           "from": {
+            "key_code": "left_control"
+          },
+          "to": [
+            {
+              "key_code": "left_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.splashtop.stb.macosx"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
+            "key_code": "right_control"
+          },
+          "to": [
+            {
+              "key_code": "right_command"
+            }
+          ],
+          "conditions": [
+            {
+              "type": "frontmost_application_if",
+              "bundle_identifiers": [
+                "^com.splashtop.stb.macosx"
+              ]
+            }
+          ]
+        },
+        {
+          "type": "basic",
+          "from": {
             "key_code": "right_command"
           },
           "to": [

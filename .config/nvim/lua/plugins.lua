@@ -29,7 +29,27 @@ packer.startup {
     }
 
     --------------------------------
-    -- Code
+    -- LSP Setup
+    --------------------------------
+    use { "neovim/nvim-lspconfig", module = "lspconfig" }
+    use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
+    use { "onsails/lspkind-nvim", module = "lspkind" }
+    use { "tami5/lspsaga.nvim", module = "lspsaga", cmd = "Lspsaga" }
+    use { "folke/lua-dev.nvim", module = "lua-dev" }
+    use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
+    use { "b0o/schemastore.nvim", module = "schemastore" }
+    use { "j-hui/fidget.nvim", module = "fidget" }
+    use {
+      "williamboman/nvim-lsp-installer",
+      config = function()
+        require "rc.lsp.setup"
+      end,
+      cmd = "LspInstall*",
+      event = { "BufRead" },
+    }
+    --
+    --------------------------------
+    -- Editor
     --------------------------------
     -- Highlights
     use {
@@ -47,38 +67,23 @@ packer.startup {
       requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
       module = "null-ls",
     }
+
     use {
       "weilbith/nvim-code-action-menu",
       cmd = "CodeActionMenu",
     }
 
-    use { "neovim/nvim-lspconfig", module = "lspconfig" }
-    use { "ray-x/lsp_signature.nvim", module = "lsp_signature" }
-    use { "onsails/lspkind-nvim", module = "lspkind" }
-    use { "tami5/lspsaga.nvim", module = "lspsaga", cmd = "Lspsaga" }
-    use { "folke/lua-dev.nvim", module = "lua-dev" }
-    use { "jose-elias-alvarez/nvim-lsp-ts-utils", module = "nvim-lsp-ts-utils" }
-    use { "b0o/schemastore.nvim", module = "schemastore" }
-    use { "j-hui/fidget.nvim", module = "fidget" }
-
-    use "williamboman/nvim-lsp-installer"
-
-    use {
-      "nazo6/installer.nvim",
-      module = "installer",
-      cmd = { "Install", "Uninstall", "Update" },
-      config = function()
-        require "rc.installer"
-      end,
-    }
-
     use {
       "L3MON4D3/LuaSnip",
+      requires = {
+        { "rafamadriz/friendly-snippets" },
+      },
       config = function()
         require "rc.luasnip"
       end,
       event = "InsertEnter",
     }
+
     use {
       -- auto complete
       "hrsh7th/nvim-cmp",
@@ -140,7 +145,7 @@ packer.startup {
     }
 
     -------------
-    -- Coading --
+    -- Coding --
     -------------
     -- debugger
     use {
@@ -272,22 +277,22 @@ packer.startup {
       end,
     }
 
+    use {
+      "nazo6/installer.nvim",
+      module = "installer",
+      cmd = { "Install", "Uninstall", "Update" },
+      config = function()
+        require "rc.installer"
+      end,
+    }
+
     -------------------------------
     -- Language specific plugins --
     -------------------------------
-    use { "teal-language/vim-teal", ft = { "teal" } }
     use { "chrisbra/csv.vim", ft = { "csv" } }
     use { "dag/vim-fish", ft = { "fish" } }
     use { "kevinoid/vim-jsonc", ft = { "json" } }
 
-    use {
-      "Saecki/crates.nvim",
-      event = { "BufRead Cargo.toml" },
-      requires = { { "nvim-lua/plenary.nvim", module = "plenary" } },
-      config = function()
-        require("crates").setup()
-      end,
-    }
     use {
       "vuki656/package-info.nvim",
       event = { "BufRead package.json" },

@@ -28,7 +28,8 @@
 !/.github/
 !/.github/**
 !/bin/
-!/bin/**
+!/bin/btp/**
+!/bin/cf/**
 !/Brewfile
 !/dist/
 !/dist/**
