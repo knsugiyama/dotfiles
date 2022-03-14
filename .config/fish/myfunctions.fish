@@ -3,7 +3,7 @@ function reload
   source ~/.config/fish/config.fish
 end
 
-# configディレクトリをnvimで開く
+
 function open_config
   cd ~/.config
   nvim

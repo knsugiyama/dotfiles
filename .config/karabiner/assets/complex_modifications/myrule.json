@@ -275,26 +275,26 @@
       ]
     },
     {
-      "description": "ctrl-8 to Obsidian",
+      "description": "ctrl-0 karabinerのprofileを変更する",
       "manipulators": [
         {
           "type": "basic",
           "from": {
-            "key_code": "8",
+            "key_code": "0",
             "modifiers": {
               "mandatory": ["control"]
             }
           },
           "to": [
             {
-              "shell_command": "open -a Obsidian"
+             "shell_command": "sh $HOME/.dotfiles/dist/karabiner/cycle_profile.sh"
             }
           ]
         }
       ]
     },
     {
-      "description": "Splashtop Business用",
+      "description": "Splashtop Business用 キー設定",
       "manipulators": [
         {
           "type": "basic",

@@ -1,53 +1,251 @@
-local function prequire(...)
-local status, lib = pcall(require, ...)
-if (status) then return lib end
-    return nil
+local ls = require "luasnip"
+
+local snip = ls.snippet
+local node = ls.snippet_node
+local inode = ls.indent_snippet_node
+local text = ls.text_node
+local insert = ls.insert_node
+local func = ls.function_node
+local choice = ls.choice_node
+local dynamicn = ls.dynamic_node
+local restore = ls.restore_node
+local events = require'luasnip.util.events'
+local absolute = require'luasnip.nodes.absolute_indexer'
+
+ls.config.set_config {
+  history = true,
+  -- treesitter-hl has 100, use something higher (default is 200).
+  ext_base_prio = 200,
+  -- minimal increase in priority.
+  ext_prio_increase = 1,
+  enable_autosnippets = false,
+  store_selection_keys = "<c-s>",
+}
+
+local date = function()
+  return { os.date "%Y-%m-%d" }
 end
 
-local luasnip = prequire('luasnip')
-local cmp = prequire("cmp")
-
-local t = function(str)
-    return vim.api.nvim_replace_termcodes(str, true, true, true)
-end
-
-require("luasnip.loaders.from_vscode").load()
-
-local check_back_space = function()
-    local col = vim.fn.col('.') - 1
-    if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
-        return true
-    else
-        return false
-    end
-end
-
-_G.tab_complete = function()
-    if cmp and cmp.visible() then
-        cmp.select_next_item()
-    elseif luasnip and luasnip.expand_or_jumpable() then
-        return t("<Plug>luasnip-expand-or-jump")
-    elseif check_back_space() then
-        return t "<Tab>"
-    else
-        cmp.complete()
-    end
-    return ""
-end
-_G.s_tab_complete = function()
-    if cmp and cmp.visible() then
-        cmp.select_prev_item()
-    elseif luasnip and luasnip.jumpable(-1) then
-        return t("<Plug>luasnip-jump-prev")
-    else
-        return t "<S-Tab>"
-    end
-    return ""
-end
-
-vim.api.nvim_set_keymap("i", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<Tab>", "v:lua.tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("s", "<S-Tab>", "v:lua.s_tab_complete()", {expr = true})
-vim.api.nvim_set_keymap("i", "<C-E>", "<Plug>luasnip-next-choice", {})
-vim.api.nvim_set_keymap("s", "<C-E>", "<Plug>luasnip-next-choice", {})
+ls.snippets = {
+  all = {
+    snip({
+      trig = "date",
+      namr = "Date",
+      dscr = "Date in the form of YYYY-MM-DD",
+    }, {
+      func(date, {}),
+    }),
+    snip({
+      trig = "signature",
+      namr = "Signature",
+      dscr = "Name and Surname",
+    }, {
+      text "kesugiyama",
+      insert(0),
+    }),
+  },
+  sh = {
+    snip("shebang", {
+      text { "#!/bin/sh", "" },
+      insert(0),
+    }),
+  },
+  bash = {
+    snip("shebang", {
+      text { "#!/bin/bash", "" },
+      insert(0),
+    }),
+  },
+  lua = {
+    snip("shebang", {
+      text { "#!/usr/bin/lua", "", "" },
+      insert(0),
+    }),
+    snip("req", {
+      text "require('",
+      insert(1, "Module-name"),
+      text "')",
+      insert(0),
+    }),
+    snip("func", {
+      text "function(",
+      insert(1, "Arguments"),
+      text { ")", "\t" },
+      insert(2),
+      text { "", "end", "" },
+      insert(0),
+    }),
+    snip("forp", {
+      text "for ",
+      insert(1, "k"),
+      text ", ",
+      insert(2, "v"),
+      text " in pairs(",
+      insert(3, "table"),
+      text { ") do", "\t" },
+      insert(4),
+      text { "", "end", "" },
+      insert(0),
+    }),
+    snip("fori", {
+      text "for ",
+      insert(1, "k"),
+      text ", ",
+      insert(2, "v"),
+      text " in ipairs(",
+      insert(3, "table"),
+      text { ") do", "\t" },
+      insert(4),
+      text { "", "end", "" },
+      insert(0),
+    }),
+    snip("if", {
+      text "if ",
+      insert(1),
+      text { " then", "\t" },
+      insert(2),
+      text { "", "end", "" },
+      insert(0),
+    }),
+    snip("M", {
+      text { "local M = {}", "", "" },
+      insert(0),
+      text { "", "", "return M" },
+    }),
+  },
+  markdown = {
+    -- Select link, press C-s, enter link to receive snippet
+    snip({
+      trig = "link",
+      namr = "markdown_link",
+      dscr = "Create markdown link [txt](url)",
+    }, {
+      text "[",
+      insert(1),
+      text "](",
+      func(function(_, snip)
+        return snip.env.TM_SELECTED_TEXT[1] or {}
+      end, {}),
+      text ")",
+      insert(0),
+    }),
+    snip({
+      trig = "codewrap",
+      namr = "markdown_code_wrap",
+      dscr = "Create markdown code block from existing text",
+    }, {
+      text "``` ",
+      insert(1, "Language"),
+      text { "", "" },
+      func(function(_, snip)
+        local tmp = {}
+        tmp = snip.env.TM_SELECTED_TEXT
+        tmp[0] = nil
+        return tmp or {}
+      end, {}),
+      text { "", "```", "" },
+      insert(0),
+    }),
+    snip({
+      trig = "codeempty",
+      namr = "markdown_code_empty",
+      dscr = "Create empty markdown code block",
+    }, {
+      text "``` ",
+      insert(1, "Language"),
+      text { "", "" },
+      insert(2, "Content"),
+      text { "", "```", "" },
+      insert(0),
+    }),
+    snip({
+      trig = "meta",
+      namr = "Metadata",
+      dscr = "Yaml metadata format for markdown",
+    }, {
+      text { "---", "title: " },
+      insert(1, "note_title"),
+      text { "", "author: " },
+      insert(2, "author"),
+      text { "", "date: " },
+      func(date, {}),
+      text { "", "cathegories: [" },
+      insert(3, ""),
+      text { "]", "lastmod: " },
+      func(date, {}),
+      text { "", "tags: [" },
+      insert(4),
+      text { "]", "comments: true", "---", "" },
+      insert(0),
+    }),
+  },
+  go = {
+    snip("test", {
+      text "func ",
+      insert(1, "Name"),
+      text "(t *testing.T)",
+      text { " {", "" },
+      text "\t",
+      insert(0),
+      text { "", "}" },
+    }),
+    snip("typei", {
+      text "type ",
+      insert(1, "Name"),
+      text { " interface {", "" },
+      text "\t",
+      insert(0),
+      text { "", "}" },
+    }),
+    snip("types", {
+      text "type ",
+      insert(1, "Name"),
+      text { " struct {", "" },
+      text "\t",
+      insert(0),
+      text { "", "}" },
+    }),
+    snip("func", {
+      text "func ",
+      insert(1, "Name"),
+      text "(",
+      insert(2),
+      text ")",
+      insert(3),
+      text { " {", "" },
+      text "\t",
+      insert(0),
+      text { "", "}" },
+    }),
+    snip("if", {
+      text "if ",
+      insert(1, "true"),
+      text { " {", "" },
+      text "\t",
+      insert(0),
+      text { "", "}" },
+    }),
+    snip("fori", {
+      text "for ",
+      insert(1, "i := 0"),
+      text ";",
+      insert(2, "i < 10"),
+      text ";",
+      insert(3, "i++"),
+      text { " {", "" },
+      text "\t",
+      insert(0),
+      text { "", "}" },
+    }),
+    snip("forr", {
+      text "for ",
+      insert(1, "k, v"),
+      text " := range ",
+      insert(2, "expr"),
+      text { " {", "" },
+      text "\t",
+      insert(0),
+      text { "", "}" },
+    }),
+  },
+}
