@@ -1,19 +1,26 @@
 local nullls = require "null-ls"
 local common_config = require "rc.lsp.configs.common"
 
-require("installer.integrations.null_ls").setup {
-  with = {
-    prettier = {
-      filetypes = {
-        "yaml",
-        "markdown",
-      },
+null_ls.setup {
+  sources = {
+    null_ls.builtins.formatting.deno_fmt.with {
+      condition = function(utils)
+        return not (utils.has_file { ".prettierrc", ".prettier.js" })
+      end,
+      filetypes = { "javascript", "javascriptreact", "typescript", "typescriptreact", "json", "jsonc", "markdown" },
+    },
+    null_ls.builtins.formatting.prettier.with {
+      condition = function(utils)
+        return utils.has_file { ".prettierrc", ".prettier.js" }
+      end,
+      prefer_local = "node_modules/.bin",
     },
   },
-  configs = {
-    default_timeout = 10000,
-    capabilities = common_config.capabilities,
-    on_attach = common_config.on_attach,
-  },
+  default_timeout = 10000,
+  capabilities = common_config.capabilities,
+  on_attach = common_config.on_attach,
+}
+
+require("installer.integrations.null_ls").register {
   enable_hook = true,
 }

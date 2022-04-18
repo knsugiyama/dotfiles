@@ -16,4 +16,8 @@ return {
     settings = { json = { schemas = require("schemastore").json.schemas() } },
   },
   sumneko_lua = require "rc.lsp.configs.sumneko_lua",
+  dockerls = create_setup {
+    on_attach = no_formatting ,
+    filetypes = { "Dockerfile", "dockerfile" },
+  },
 }
