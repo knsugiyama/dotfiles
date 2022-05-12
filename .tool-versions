@@ -1,3 +1,4 @@
 java sapmachine-11.jdk
-nodejs 14.17.3
+nodejs 17.9.0
 python 3.9.5
+yarn 1.22.18
