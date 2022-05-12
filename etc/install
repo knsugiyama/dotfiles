@@ -75,9 +75,6 @@ install_brew() {
     exit 1
   fi
 
-  # fish
-  logging "update fish config."
-  echo "eval ($(brew --prefix)/bin/brew shellenv)" >> ~/.config/fish/env.fish
 }
 
 # ==============================
@@ -137,8 +134,8 @@ initialize() {
   if [ "$PLATFORM" == 'linux' ]; then
     source ~/.profile
   fi
-  sudo sh -c "echo $(which fish) >> /etc/shells"
-  chsh -s $(which fish)
+  sudo sh -c "echo $(which zsh) >> /etc/shells"
+  chsh -s $(which zsh)
 }
 
 install() {

@@ -24,10 +24,14 @@
 !/.config/karabiner/assets/**
 !/.config/nvim/
 !/.config/nvim/**
+!/.config/zsh/
+!/.config/zsh/.zimrc
+!/.config/zsh/.zshrc
 !/.git_commit_template
 !/.gitignore
 !/.github/
 !/.github/**
+!/.zshenv
 !/bin/
 !/bin/btp/**
 !/bin/cf/**

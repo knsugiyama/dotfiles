@@ -1,17 +1,14 @@
-anyenv
 asdf
 asciidoc
 curl
 direnv
-fish
 fontconfig
+fzf
 gh
 ghq
 gpg
 hub
 jq
-neovim
-peco
 shellcheck
 ripgrep
 stylua
@@ -19,3 +16,4 @@ tig
 tree
 unzip
 zip
+zsh
