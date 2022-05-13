@@ -7,38 +7,39 @@ set -eu
 OS=$(os_detect)
 
 if [ ${OS} == 'osx' ]; then
-  # uuidgen は メールアドレスでも良い
-  ssh-keygen -t rsa -b 4096 -C "$(uuidgen)" -f ~/.ssh/multipass_docker
-  chmod 600 ~/.ssh/multipass_docker
-  chmod 600 ~/.ssh/multipass_docker.pub
 
-  AUTHORIZED_KEYS=$(cat ~/.ssh/multipass_docker.pub )
-  cat << EOF > ./multipass_docker.yaml
-  ---
-  locale: en_US.UTF8
-  timezone: Asia/Tokyo
-  package_upgrade: true
-  users:
-    - name: ubuntu
-      sudo: ALL=(ALL) NOPASSWD:ALL
-      ssh-authorized-keys:
-        - ${AUTHORIZED_KEYS}
+# uuidgen は メールアドレスでも良い
+ssh-keygen -t rsa -b 4096 -C "$(uuidgen)" -f ~/.ssh/multipass_docker
+chmod 600 ~/.ssh/multipass_docker
+chmod 600 ~/.ssh/multipass_docker.pub
 
-  packages:
-    - docker
-    - avahi-daemon
-    - apt-transport-https
-    - ca-certificates
-    - curl
-    - gnupg
-    - lsb-release
+AUTHORIZED_KEYS=$(cat ~/.ssh/multipass_docker.pub )
+cat << EOF > ./multipass_docker.yaml
+---
+locale: en_US.UTF8
+timezone: Asia/Tokyo
+package_upgrade: true
+users:
+  - name: ubuntu
+    sudo: ALL=(ALL) NOPASSWD:ALL
+    ssh-authorized-keys:
+      - ${AUTHORIZED_KEYS}
 
-  runcmd:
-    - sudo curl -fsSL https://get.docker.com | sudo bash
-    - sudo systemctl enable docker
-    - sudo systemctl enable -s HUP ssh
-    - sudo groupadd docker
-    - sudo usermod -aG docker ubuntu
-  EOF
+packages:
+  - docker
+  - avahi-daemon
+  - apt-transport-https
+  - ca-certificates
+  - curl
+  - gnupg
+  - lsb-release
+
+runcmd:
+  - sudo curl -fsSL https://get.docker.com | sudo bash
+  - sudo systemctl enable docker
+  - sudo systemctl enable -s HUP ssh
+  - sudo groupadd docker
+  - sudo usermod -aG docker ubuntu
+EOF
 
 fi
