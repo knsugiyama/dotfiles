@@ -28,7 +28,7 @@ clean: ## Remobe the dot files and this repo
 
 skipfiles: ## git skip-worktree
 	@git update-index --skip-worktree .gitconfig.credential
-	@git update-index --skip-worktree .config/fish/env.fish
+	@git update-index --skip-worktree .zshenv
 
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \

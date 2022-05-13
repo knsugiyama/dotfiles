@@ -69,12 +69,12 @@ install_brew() {
     test -d /home/linuxbrew/.linuxbrew && eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
     test -r ~/.bash_profile && echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.bash_profile
     echo "eval \$($(brew --prefix)/bin/brew shellenv)" >>~/.profile
+    echo "eval \$($(brew --prefix)/bin/brew shellenv)" >> ~/.zshenv
 
     source ~/.profile
   else
     exit 1
   fi
-
 }
 
 # ==============================
