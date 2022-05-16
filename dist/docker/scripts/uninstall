@@ -7,9 +7,9 @@ set -eu
 OS=$(os_detect)
 
 if [ ${OS} == 'osx' ]; then
-  brew uninstall cf-cli@8
+  brew uninstall multipass docker docker-compose
 
 elif [ ${OS} == 'linux' ]; then
-  sudo apt remove cf8-cli
+  sudo apt remove docker-ce docker-ce-cli containerd.io docker-compose-plugin
 
 fi
