@@ -8,4 +8,4 @@ prj() {
   zle clear-screen
 }
 zle -N prj
-bindkey '^[s' prj
+bindkey '^p' prj
