@@ -26,6 +26,9 @@
 !/.config/zsh/
 !/.config/zsh/.zimrc
 !/.config/zsh/.zshrc
+!/.config/zsh/abbreviations
+!/.config/zsh/.zsh.d
+!/.config/zsh/.zsh.d/**
 !/.git_commit_template
 !/.gitignore
 !/.github/
