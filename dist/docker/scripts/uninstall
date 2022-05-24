@@ -7,7 +7,7 @@ set -eu
 OS=$(os_detect)
 
 if [ ${OS} == 'osx' ]; then
-  brew uninstall multipass
+  brew uninstall --cask multipass
 
 elif [ ${OS} == 'linux' ]; then
   sudo apt remove docker-ce docker-ce-cli containerd.io docker-compose-plugin
