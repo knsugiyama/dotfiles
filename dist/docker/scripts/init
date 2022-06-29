@@ -36,7 +36,6 @@ runcmd:
       's/ExecStart=\/usr\/bin\/dockerd -H fd:\/\//ExecStart=\/usr\/bin\/dockerd -H tcp:\/\/0.0.0.0:2375 -H fd:\/\//',
       /lib/systemd/system/docker.service,
     ]
-  # Workaround: [docker: Error response from daemon: failed to create OCI runtime console socket: listen unix /tmp/pty833253340/pty.sock: bind: operation not permitted: unknown.] error occurred if /tmp mounted.
   - [
       sed,
       -ie,
