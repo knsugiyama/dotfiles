@@ -33,6 +33,7 @@
 !/.gitignore
 !/.github/
 !/.github/**
+!/.vimrc
 !/.zshenv
 !/bin/
 !/bin/btp/**
