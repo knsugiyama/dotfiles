@@ -25,3 +25,6 @@ CLOUD_CONFIG_BTP=$(eval "echo \"$(cat ${HOME}/.dotfiles/dist/Common/multipass/cl
 cat << EOF > ~/multipass_btp.yaml
 ${CLOUD_CONFIG_BTP}
 EOF
+
+sudo sh -c "echo $(which zsh) >> /etc/shells"
+chsh -s $(which zsh)

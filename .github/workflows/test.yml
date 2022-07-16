@@ -11,10 +11,19 @@ jobs:
       - name: Install required packages
         run: apt update && apt install -y build-essential procps curl file git
       - name: dotfiles
-        run: bash etc/install
+        run: bash dist/Ubuntu/setup.sh
+
   mac:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v2
       - name: dotfiles
-        run: bash etc/install
+        run: bash dist/Darwin/setup.sh
+
+  windows:
+    runs-on: windows-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: dotfiles
+        run: |
+          dist/Windows/setup.ps1
