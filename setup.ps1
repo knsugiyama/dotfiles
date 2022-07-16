@@ -8,7 +8,7 @@ Write-Host "#####"
 Write-Host "git clone"
 Write-Host "#####"
 
-git clone https://github.com/knsugiyama/win-dotfiles.git $env:USERPROFILE\.dotfiles
+git clone https://github.com/knsugiyama/dotfiles.git $env:USERPROFILE\.dotfiles
 
 Write-Host "#####"
 Write-Host "run setup script"
