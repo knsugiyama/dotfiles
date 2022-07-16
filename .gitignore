@@ -35,7 +35,6 @@
 !/etc/
 !/etc/**
 !/LICNSE
-!/Makefile
 !/README.md
 !/setup.sh
 !/setup.ps1
