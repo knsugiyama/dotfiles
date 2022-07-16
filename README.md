@@ -10,6 +10,7 @@ bash <(curl -sL https://github.com/knsugiyama/dotfiles/raw/master/setup.sh)
 ```
 
 ## install(windows)
-```bash
-bash <(curl -sL https://github.com/knsugiyama/dotfiles/raw/master/setup.ps1)
+```ps1
+Invoke-WebRequest -Uri https://raw.githubusercontent.com/knsugiyama/dotfiles/master/install.ps1 -OutFile install.ps1
+.\install.ps1
 ```
