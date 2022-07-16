@@ -2,7 +2,7 @@ Write-Host "#####"
 Write-Host "Set-ExecutionPolicy を RemoteSigned に変更"
 Write-Host "#####"
 
-Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
 Write-Host "#####"
 Write-Host "git clone"
