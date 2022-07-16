@@ -3,24 +3,16 @@
 /.**
 
 ### not ignore ###
-!/.asdfrc
 !/.bash_profile
 !/.bashrc
-!/.cheatsheet.md
 !/.gitconfig
-!/.gitconfig.credential
-!/.ideavimrc
 !/.gitignore_global
 !/.tigrc
-!/.tmux.conf
-!/.tool-versions
 !/.config/
 !/.config/karabiner/
 !/.config/karabiner/karabiner.json
 !/.config/karabiner/assets/
 !/.config/karabiner/assets/**
-!/.config/nvim/
-!/.config/nvim/**
 !/.config/tmux/
 !/.config/tmux/.tmux.conf
 !/.config/zsh/
@@ -44,7 +36,6 @@
 !/etc/**
 !/LICNSE
 !/Makefile
-!/misc/
-!/misc/**
 !/README.md
-!/wsl.conf
+!/setup.sh
+!/setup.ps1
