@@ -1,3 +1,5 @@
+Set-ExecutionPolicy -ExecutionPolicy RemoteSigned
+
 Write-Host "#####"
 Write-Host "wingetをインストール"
 Write-Host "#####"
