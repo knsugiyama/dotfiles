@@ -8,6 +8,7 @@
 !/.gitconfig
 !/.gitignore_global
 !/.tigrc
+!/.vimrc
 !/.config/
 !/.config/karabiner/
 !/.config/karabiner/karabiner.json
