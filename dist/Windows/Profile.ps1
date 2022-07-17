@@ -1,4 +1,5 @@
-# Import-Module oh-my-posh
+# oh-my-posh init pwsh | Invoke-Expression
+oh-my-posh init pwsh --config $env:USERPROFILE\.dotfiles\dist\Windows\config\.mytheme.omp.json | Invoke-Expression
 Import-Module PSReadLine
 Import-Module -Name Terminal-Icons
 
