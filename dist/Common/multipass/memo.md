@@ -1,7 +1,7 @@
 ## ~/.ssh/config への記載例
 Host docker.local
   Hostname docker.local
-  IdentityFile ~/.ssh/multipass_docker
+  IdentityFile ~/.ssh/multipass
   User ubuntu
   Port 22
 
