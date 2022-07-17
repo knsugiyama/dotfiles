@@ -7,8 +7,6 @@ Write-Host "#####"
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.gitconfig -Value $env:USERPROFILE\.dotfiles\.gitconfig -Force
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.tigrc -Value $env:USERPROFILE\.dotfiles\.tigrc -Force
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.vimrc -Value $env:USERPROFILE\.dotfiles\.vimrc -Force
-New-Item -Type SymbolicLink -Path $env:USERPROFILE\.wslconfig -Value $env:USERPROFILE\.dotfiles\.wslconfig -Force
-New-Item -Type SymbolicLink -Path $env:USERPROFILE\.mytheme.omp.json -Value $env:USERPROFILE\.dotfiles\dist\Windows\config\.mytheme.omp.json -Force
 
 Write-Host "#####"
 Write-Host "Profile.ps1"

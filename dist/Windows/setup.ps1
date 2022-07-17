@@ -72,9 +72,9 @@ foreach ($l in $f) {
 Write-Host "############"
 Write-Host "font settings"
 Write-Host "############"
-.\$env:USERPROFILE\.dotfiles\dist\Windows\init\font.ps1
+.$env:USERPROFILE\.dotfiles\dist\Windows\init\font.ps1
 
 Write-Host "############"
 Write-Host "install powershell modules"
 Write-Host "############"
-.\$env:USERPROFILE\.dotfiles\dist\Windows\init\modules.ps1
+.$env:USERPROFILE\.dotfiles\dist\Windows\init\modules.ps1

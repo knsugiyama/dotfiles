@@ -1,6 +1,4 @@
-Import-Module oh-my-posh
-# Set-PoshPrompt Parabox
-Set-PoshPrompt $HOME\.mytheme.omp.json
+# Import-Module oh-my-posh
 Import-Module PSReadLine
 Import-Module -Name Terminal-Icons
 
