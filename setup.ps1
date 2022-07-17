@@ -14,4 +14,4 @@ Write-Host "#####"
 Write-Host "run setup script"
 Write-Host "#####"
 
-.\$env:USERPROFILE\.dotfiles\dist\Windows\setup.ps1
+.$env:USERPROFILE\.dotfiles\dist\Windows\setup.ps1
