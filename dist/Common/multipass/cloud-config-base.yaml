@@ -18,6 +18,7 @@ packages:
   - gnupg
   - lsb-release
   - build-essential
+  - zsh
 
 runcmd:
   # ユーザー作成

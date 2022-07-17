@@ -19,6 +19,8 @@ packages:
   - lsb-release
   - build-essential
   - unzip
+  - zsh
+
 runcmd:
   # ユーザー作成
   - sudo curl -fsSL https://get.docker.com | sudo bash
