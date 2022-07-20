@@ -24,19 +24,18 @@ packages:
   - unzip
 
 runcmd:
+  # docker
   - sudo curl -fsSL https://get.docker.com | sudo bash
   - sudo systemctl enable docker
   - sudo systemctl enable -s HUP ssh
   - sudo groupadd docker
   - sudo usermod -aG docker ubuntu
-  # CF Cli 追加
-  # - wget -q -O - https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo apt-key add
-  # - echo "deb https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+  # CF Cli
   - curl -fsSL https://packages.cloudfoundry.org/debian/cli.cloudfoundry.org.key | sudo gpg --dearmor -o /etc/apt/keyrings/cli.cloudfoundry.org.key
-  - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/cli.cloudfoundry.org.key] https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
+  - echo "deb [signed-by=/etc/apt/keyrings/cli.cloudfoundry.org.key] https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
   - sudo apt-get update
   - sudo apt-get install cf8-cli
-  # AWS Cli 追加
+  # AWS Cli
   - curl "https://awscli.amazonaws.com/awscli-exe-linux-$(arch).zip" -o "awscliv2.zip"
   - unzip awscliv2.zip
   - sudo ./aws/install

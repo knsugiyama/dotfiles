@@ -18,12 +18,41 @@ function prj {
 function make_deploy() {
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
     powershell $env:USERPROFILE\.dotfiles\dist\Windows\deploy.ps1
+
+    $AUTHORIZED_KEYS = Get-Content $env:USERPROFILE\.ssh\multipass.pub
+
+    # 基本の定義
+    $MLTP_BASE = Get-Content $env:USERPROFILE\.dotfiles\dist\Common\multipass\cloud-config-base.yaml -Raw | ForEach-Object { $_ -replace '\$AUTHORIZED_KEYS', $AUTHORIZED_KEYS }
+    Set-Content -Path "$env:USERPROFILE\multipass_base.yaml" -Force -Value @"
+$MLTP_BASE
+"@
+
+    # BTP向け
+    $MLTP_BTP = Get-Content $env:USERPROFILE\.dotfiles\dist\Common\multipass\cloud-config-btp.yaml -Raw | ForEach-Object { $_ -replace '\$AUTHORIZED_KEYS', $AUTHORIZED_KEYS }
+    Set-Content -Path "$env:USERPROFILE\multipass_btp.yaml" -Force -Value @"
+$MLTP_BTP
+"@
+
 }
 
 function make_update() {
     Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
     powershell $env:USERPROFILE\.dotfiles\dist\Windows\update.ps1
     make_deploy
+}
+
+function launch_multipass {
+    param (
+        [Parameter(Mandatory=$true)][string]$ProfileName,
+        [int]$CpuSize = 2,
+        [int]$MemSize = 4,
+        [int]$DiskSize = 20
+    )
+    multipass launch --name ${ProfileName}-vm --cpus ${CpuSize} --mem ${MemSize}G --disk ${DiskSize}G --cloud-init .\multipass_${ProfileName}.yaml 22.04
+}
+
+function reload {
+    . $env:USERPROFILE\.dotfiles\dist\Windows\Profile.ps1
 }
 
 # psreadline
