@@ -80,19 +80,6 @@ Write-Host "############"
 .$env:USERPROFILE\.dotfiles\dist\Windows\init\modules.ps1
 
 Write-Host "############"
-Write-Host "create multipass config"
+Write-Host "generate ssh key for multipass"
 Write-Host "############"
 ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f $HOME/.ssh/multipass
-$AUTHORIZED_KEYS = Get-Content $env:USERPROFILE\.ssh\multipass.pub
-
-# 基本の定義
-$MLTP_BASE = Get-Content $env:USERPROFILE\.dotfiles\dist\Common\multipass\cloud-config-base.yaml -Raw | ForEach-Object { $_ -replace '\$AUTHORIZED_KEYS', $AUTHORIZED_KEYS }
-Set-Content -Path "$env:USERPROFILE\multipass.yaml" -Force -Value @"
-$MLTP_BASE
-"@
-
-# BTP向け
-$MLTP_BTP = Get-Content $env:USERPROFILE\.dotfiles\dist\Common\multipass\cloud-config-btp.yaml -Raw | ForEach-Object { $_ -replace '\$AUTHORIZED_KEYS', $AUTHORIZED_KEYS }
-Set-Content -Path "$env:USERPROFILE\multipass_btp.yaml" -Force -Value @"
-$MLTP_BTP
-"@
