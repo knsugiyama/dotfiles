@@ -12,7 +12,12 @@ Set-Alias mltp multipass
 
 # Functions
 function prj {
-    ghq.exe look $(ghq list | fzf.exe)
+    cd $(ghq list -p | fzf)
+}
+
+function gch {
+    # git checkout $(git for-each-ref --format='%(refname:short)' refs/heads/* | fzf)
+    git checkout $(git for-each-ref --format='%(refname:short)' | fzf)
 }
 
 function make_deploy() {
@@ -52,7 +57,7 @@ function launch_multipass {
 }
 
 function reload {
-    . $env:USERPROFILE\.dotfiles\dist\Windows\Profile.ps1
+    . $PROFILE.CurrentUserAllHosts
 }
 
 # psreadline
