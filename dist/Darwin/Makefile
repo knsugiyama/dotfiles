@@ -13,9 +13,10 @@ list: ## Show dot files in this repo
 	@echo 'Show dot files in this repo.'
 	@$(foreach val, $(DOTFILES), /bin/ls -dF $(val);)
 
-deploy: ## Create symlink to home directory
+deploy: ## Create symlink to home directory & create files of cloud-config
 	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+	@bash $(DOTPATH)/dist/Darwin/cloud-config.sh
 
 install: ## Install apps.
 	@brew bundle --verbose --file=$(DOTFILES)/dist/Darwin/Brewfile

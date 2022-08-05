@@ -59,9 +59,13 @@ zle -N _zsh_command_find
 # <<
 
 function launch_multipass() {
-    local profileName = $1
-    local cpuSize = $2
-    local memSize = $3
-    local diskSize = $4
-    # multipass launch --name ${profileName}-vm --cpus ${cpuSize} --mem ${memSize}G --disk ${diskSize}G --cloud-init .\multipass_${profileName}.yaml 22.04
+    local profileName=$1
+    local cpuSize=${2:-2}
+    local memSize=${3:-4}
+    local diskSize=${4:-40}
+    if [ -z $profileName ]; then
+        echo "missing arg 1 for name"
+    else
+        multipass launch --name ${profileName}-vm --cpus ${cpuSize} --mem ${memSize}G --disk ${diskSize}G --cloud-init "$HOME"/multipass_${profileName}.yaml 22.04
+    fi
 }

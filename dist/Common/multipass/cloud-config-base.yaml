@@ -10,7 +10,7 @@ users:
   - name: ubuntu
     sudo: ALL=(ALL) NOPASSWD:ALL
     ssh-authorized-keys:
-      - $AUTHORIZED_KEYS
+      - AUTHORIZED_KEYS
 
 packages:
   - docker
