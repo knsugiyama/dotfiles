@@ -38,6 +38,12 @@ $MLTP_BASE
 $MLTP_BTP
 "@
 
+    # ZENN向け
+    $MLTP_ZENN = Get-Content $env:USERPROFILE\.dotfiles\dist\Common\multipass\cloud-config-zenn.yaml -Raw | ForEach-Object { $_ -replace '\$AUTHORIZED_KEYS', $AUTHORIZED_KEYS }
+    Set-Content -Path "$env:USERPROFILE\multipass_zenn.yaml" -Force -Value @"
+$MLTP_ZENN
+"@
+
 }
 
 function make_update() {
