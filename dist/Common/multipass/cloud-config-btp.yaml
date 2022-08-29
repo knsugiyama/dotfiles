@@ -35,6 +35,10 @@ runcmd:
   - echo "deb [signed-by=/etc/apt/keyrings/cli.cloudfoundry.org.key] https://packages.cloudfoundry.org/debian stable main" | sudo tee /etc/apt/sources.list.d/cloudfoundry-cli.list
   - sudo apt-get update
   - sudo apt-get install cf8-cli
+  # BTP Cli
+  - curl -b eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt "https://tools.hana.ondemand.com/additional/btp-cli-linux-amd64-2.24.0.tar.gz" -o "btp-cli.tar.gz"
+  - mkdir btp-cli && tar -vxzf btp-cli.tar.gz --strip-components 1 -C btp-cli
+  - sudo ln -f -s btp-cli/btp /usr/local/bin/
   # AWS Cli
   - curl "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -o "awscliv2.zip"
   - unzip awscliv2.zip
