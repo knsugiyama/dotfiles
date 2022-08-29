@@ -12,6 +12,10 @@ multipass launch --name docker-vm --cpus 4 --mem 8G --disk 20G --cloud-init mult
 multipass mount ${HOME} docker:${HOME}
 とか
 multipass mount ./src docker:/home/ubuntu/src
+windows なら
+multipass mount .\src btp-vm:/home/ubuntu/src
+
+なお、windows の場合は `multipass set local.privileged-mounts=true` と設定する必要あり
 
 ## ディレクトリ アンマウント
 multipass unmount docker:${HOME}

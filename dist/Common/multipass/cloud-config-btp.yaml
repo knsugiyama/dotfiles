@@ -37,8 +37,11 @@ runcmd:
   - sudo apt-get install cf8-cli
   # BTP Cli
   - curl -b eula_3_1_agreed=tools.hana.ondemand.com/developer-license-3_1.txt "https://tools.hana.ondemand.com/additional/btp-cli-linux-amd64-2.24.0.tar.gz" -o "btp-cli.tar.gz"
-  - mkdir btp-cli && tar -vxzf btp-cli.tar.gz --strip-components 1 -C btp-cli
-  - sudo ln -f -s btp-cli/btp /usr/local/bin/
+  - mkdir $HOME/bin && tar -vxzf btp-cli.tar.gz --strip-components 1 -C $HOME/bin
+  - mv $HOME/bin/btp $HOME/bin/btp-2.24.0
+  - sudo ln -f -s $HOME/bin/btp-2.24.0 $HOME/bin/btp
+  - echo 'export PATH="$PATH:$HOME/bin"' >> ~/.bashrc
+  - rm -f btp-cli.tar.gz
   # AWS Cli
   - curl "https://awscli.amazonaws.com/awscli-exe-linux-$(uname -m).zip" -o "awscliv2.zip"
   - unzip awscliv2.zip
