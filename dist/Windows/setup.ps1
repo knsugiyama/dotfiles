@@ -26,21 +26,12 @@ else {
 }
 
 Write-Host "#####"
-Write-Host "profile.ps1を追加"
+Write-Host "Microsoft.PowerShell_profile.ps1を追加"
 Write-Host "#####"
 
-$PS1PROFILE_DIR = "$env:USERPROFILE\Documents\PowerShell"
-
-if (Test-Path ("$PS1PROFILE_DIR")) {
-    Remove-Item $PS1PROFILE_DIR\Profile.ps1 -Recurse -Force
-}
-else {
-    mkdir $PS1PROFILE_DIR
-}
-
-New-Item -Type SymbolicLink -Path $PS1PROFILE_DIR\Profile.ps1 -Value $env:USERPROFILE\.dotfiles\dist\Windows\Profile.ps1
+New-Item -Type SymbolicLink -Path $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Value $env:USERPROFILE\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
 # プロファイルを読み込み
-. $env:USERPROFILE\.dotfiles\dist\Windows\Profile.ps1
+. $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
 Write-Host "############"
 Write-Host "scoopによるアプリインストールを実施"

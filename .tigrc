@@ -57,7 +57,7 @@ bind generic P ?@!git push origin %(repo:head)
 # Lで現在のブランチからpull
 bind generic L ?@!git pull origin %(repo:head)
 
-bind main F ?git fetch
+bind main F ?git fetch -p
 bind main S ?git stash save "%(prompt Enter stash comment: )"
 bind main ! ?git reset --soft HEAD^
 # bind main x @bash -c "echo -n '%(commit)' | clip"

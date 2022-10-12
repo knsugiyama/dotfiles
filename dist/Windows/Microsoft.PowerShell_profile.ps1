@@ -21,7 +21,7 @@ function gch {
 }
 
 function make_deploy() {
-    Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
+#    Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
     powershell $env:USERPROFILE\.dotfiles\dist\Windows\deploy.ps1
 
     $AUTHORIZED_KEYS = Get-Content $env:USERPROFILE\.ssh\multipass.pub
@@ -47,7 +47,7 @@ $MLTP_ZENN
 }
 
 function make_update() {
-    Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
+#    Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
     powershell $env:USERPROFILE\.dotfiles\dist\Windows\update.ps1
     make_deploy
 }
@@ -63,7 +63,7 @@ function launch_multipass {
 }
 
 function reload {
-    . $PROFILE.CurrentUserAllHosts
+    . $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 }
 
 # psreadline

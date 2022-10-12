@@ -9,10 +9,6 @@ New-Item -Type SymbolicLink -Path $env:USERPROFILE\.tigrc -Value $env:USERPROFIL
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.vimrc -Value $env:USERPROFILE\.dotfiles\.vimrc -Force
 
 Write-Host "#####"
-Write-Host "Profile.ps1"
+Write-Host "Microsoft.PowerShell_profile.ps1"
 Write-Host "#####"
-$PS1PROFILE_DIR = "$env:USERPROFILE\Documents\PowerShell"
-if (-not (Test-Path ("$PS1PROFILE_DIR"))) {
-    mkdir $PS1PROFILE_DIR
-}
-New-Item -Type SymbolicLink -Path $PS1PROFILE_DIR\Profile.ps1 -Value $env:USERPROFILE\.dotfiles\dist\Windows\Profile.ps1 -Force
+New-Item -Type SymbolicLink -Path $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Value $env:USERPROFILE\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
