@@ -14,6 +14,8 @@
 !/.config/karabiner/karabiner.json
 !/.config/karabiner/assets/
 !/.config/karabiner/assets/**
+!/.config/hammerspoon/
+!/.config/hammerspoon/init.lua
 !/.config/tmux/
 !/.config/tmux/.tmux.conf
 !/.config/zsh/
@@ -38,3 +40,8 @@
 !/README.md
 !/setup.sh
 !/setup.ps1
+
+### OSX ###
+*.DS_Store
+.AppleDouble
+.LSOverride
