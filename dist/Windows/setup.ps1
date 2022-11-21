@@ -69,8 +69,3 @@ Write-Host "############"
 Write-Host "install powershell modules"
 Write-Host "############"
 .$env:USERPROFILE\.dotfiles\dist\Windows\init\modules.ps1
-
-Write-Host "############"
-Write-Host "generate ssh key for multipass"
-Write-Host "############"
-ssh-keygen -t rsa -b 4096 -C "your_email@example.com" -f $HOME/.ssh/multipass
