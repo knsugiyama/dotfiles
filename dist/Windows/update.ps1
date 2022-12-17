@@ -25,3 +25,20 @@ scoop update *
 scoop cleanup *
 winget upgrade --all -e --accept-package-agreements --accept-source-agreements
 Update-Module
+
+# replace wsl.conf
+Write-Host "#####"
+Write-Host 'replace wsl.conf.'
+Write-Host "#####"
+
+$wslConf = @'
+[boot]
+systemd=true
+[automount]
+enabled = true
+options = "metadata,umask=22"
+mountFsTab = false
+'@
+
+wsl.exe -d Ubuntu --user root --exec bash -c "rm -f /etc/wsl.conf || true && echo '$wslConf' >/etc/wsl.conf"
+wsl.exe --shutdown

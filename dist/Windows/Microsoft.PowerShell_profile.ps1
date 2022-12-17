@@ -19,14 +19,12 @@ function gch {
     git checkout $(git for-each-ref --format='%(refname:short)' | fzf)
 }
 
-function make_deploy() {
-#    Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
+function make_deploy {
     powershell $env:USERPROFILE\.dotfiles\dist\Windows\deploy.ps1
 
 }
 
-function make_update() {
-#    Set-ExecutionPolicy -Scope Process -ExecutionPolicy RemoteSigned -Force
+function make_update {
     powershell $env:USERPROFILE\.dotfiles\dist\Windows\update.ps1
     make_deploy
 }
