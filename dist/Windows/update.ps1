@@ -20,9 +20,6 @@ else {
 
 Set-Location $CURRENTPATH
 
-scoop update
-scoop update *
-scoop cleanup *
 winget upgrade --all -e --accept-package-agreements --accept-source-agreements
 Update-Module
 

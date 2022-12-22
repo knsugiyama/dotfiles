@@ -8,23 +8,6 @@ Invoke-WebRequest -Uri https://github.com/microsoft/winget-cli/releases/latest/d
 Add-AppxPackage -Path winget.msixbundle
 Remove-Item winget.msixbundle
 
-winget install -e -id Git.Git
-
-Write-Host "#####"
-Write-Host "scoopのインストールチェック"
-Write-Host "#####"
-
-$scoopdir = $HOME + "\scoop"
-if (Test-Path $scoopdir) {
-    Write-Host "すでにインストールされています。"
-}
-else {
-    Write-Host "scoop をインストールします。"
-    Invoke-Expression (new-object net.webclient).downloadstring('https://get.scoop.sh')
-    set-executionpolicy unrestricted -s cu
-    Write-Host "インストールが完了しました。"
-}
-
 Write-Host "#####"
 Write-Host "Microsoft.PowerShell_profile.ps1を追加"
 Write-Host "#####"
@@ -32,21 +15,6 @@ Write-Host "#####"
 New-Item -Type SymbolicLink -Path $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Value $env:USERPROFILE\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
 # プロファイルを読み込み
 . $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
-
-Write-Host "############"
-Write-Host "scoopによるアプリインストールを実施"
-Write-Host "############"
-
-scoop bucket add extras
-scoop bucket add versions
-
-$f = (Get-Content $env:USERPROFILE\.dotfiles\dist\Windows\init\scoop-packages) -as [string[]]
-$i=1
-
-foreach ($l in $f) {
-    scoop install $l
-    $i++
-}
 
 Write-Host "############"
 Write-Host "wingetによるアプリインストールを実施"
