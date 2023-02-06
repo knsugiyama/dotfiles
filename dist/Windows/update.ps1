@@ -20,7 +20,7 @@ else {
 
 Set-Location $CURRENTPATH
 
-winget upgrade --all -e --accept-package-agreements --accept-source-agreements
+winget upgrade --all --accept-source-agreements
 Update-Module
 
 # replace wsl.conf
