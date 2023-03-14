@@ -121,8 +121,7 @@ LAlt Up::
     if (A_PriorHotkey == "*~LAlt")
     {
         ; PostMessage 0x0050, 0, 0x4090409, , "A" ; 0x50 is WM_INPUTLANGCHANGEREQUEST
-        ; Send "{vkF2sc070B}{vkF3sc029}"
-        Send "{vkF3sc029}"
+        Send "{vkF2sc070B}{vkF3sc029}"
     }
 }
 
