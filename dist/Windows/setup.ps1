@@ -28,6 +28,9 @@ foreach ($l in $f) {
     $i++
 }
 
+# AutoHotkeyのみ、インストール先の指定が必要なので、単独で実行
+echo $HOME\.dotfiles\dist\Windows\config\ahk | winget install AutoHotkey.AutoHotkey
+
 Write-Host "############"
 Write-Host "font settings"
 Write-Host "############"

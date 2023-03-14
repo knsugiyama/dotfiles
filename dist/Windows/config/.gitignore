@@ -1,0 +1,8 @@
+### ignore ###
+/ahk/*
+
+### not ignore ###
+!/.gitignore
+!/ahk/scripts
+
+echo $HOME\.dotfiles\dist\Windows\config\ahk
