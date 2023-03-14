@@ -1,12 +1,9 @@
 ﻿/*
-    左右 Alt キーの空打ちで キーボードレイアウト を切り替える
+    左右 Alt キーの空打ちで 入力方式 を切り替える
 
     左 Alt キーの空打ちで IME を「英語」に切り替え
     右 Alt キーの空打ちで IME を「日本語」に切り替え
     Alt キーを押している間に他のキーを打つと通常の Alt キーとして動作
-
-    よって、英語と日本語のキーボードレイアウトが設定されていることが前提となる
-    推奨: USキーボード利用
 */
 #UseHook
 Persistent
@@ -124,7 +121,8 @@ LAlt Up::
     if (A_PriorHotkey == "*~LAlt")
     {
         ; PostMessage 0x0050, 0, 0x4090409, , "A" ; 0x50 is WM_INPUTLANGCHANGEREQUEST
-        Send "{vkF2sc070B}{vkF3sc029}"
+        ; Send "{vkF2sc070B}{vkF3sc029}"
+        Send "{vkF3sc029}"
     }
 }
 
