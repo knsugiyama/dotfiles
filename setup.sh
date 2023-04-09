@@ -18,7 +18,7 @@ function is_exists() {
 }
 
 function os_distribution() {
-  if uname -v | grep -q "Ubuntu"; then  # 0 ... ubuntu / 1 ... other
+  if cat /etc/lsb-release | grep -q "Ubuntu$"; then  # 0 ... ubuntu / 1 ... other
     echo 'Ubuntu'
     return
   fi
