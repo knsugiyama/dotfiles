@@ -18,7 +18,7 @@ function is_exists() {
 }
 
 function os_distribution() {
-  if cat /etc/lsb-release | grep -q "Ubuntu$"; then  # 0 ... ubuntu / 1 ... other
+  if uname -v | grep -q "Ubuntu"; then  # 0 ... ubuntu / 1 ... other
     echo 'Ubuntu'
     return
   fi
@@ -37,6 +37,8 @@ if [ "$OS" = Darwin ]; then
   source "$HOME/.dotfiles/dist/Darwin/setup.sh"
 elif [ "$OS" = Linux ] && [ "$DIST" = Ubuntu ]; then
   # shellcheck disable=SC1090
+  source "$HOME/.dotfiles/dist/Ubuntu/setup.sh"
+elif [[ "$(uname -r)" == *microsoft* ]]; then
   source "$HOME/.dotfiles/dist/Ubuntu/setup.sh"
 else
   logging "setup script is not found..."
