@@ -38,6 +38,8 @@ if [ "$OS" = Darwin ]; then
 elif [ "$OS" = Linux ] && [ "$DIST" = Ubuntu ]; then
   # shellcheck disable=SC1090
   source "$HOME/.dotfiles/dist/Ubuntu/setup.sh"
+elif [[ "$(uname -r)" == *microsoft* ]]; then
+  source "$HOME/.dotfiles/dist/Ubuntu/setup.sh"
 else
   logging "setup script is not found..."
 fi

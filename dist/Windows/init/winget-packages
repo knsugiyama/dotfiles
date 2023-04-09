@@ -1,7 +1,7 @@
 Anki.Anki
 Bitwarden.Bitwarden
 devtoys
-Mozilla.Firefox
+Fly-io.flyctl
 Git.Git
 GnuWin32.Wget
 JanDeDobbeleer.OhMyPosh
@@ -10,6 +10,7 @@ Microsoft.PowerShell
 Microsoft.PowerToys
 Microsoft.VisualStudioCode-User-x64
 Microsoft.WindowsTerminal
+Mozilla.Firefox
 Obsidian.Obsidian
 stedolan.jq
 Valve.Steam
