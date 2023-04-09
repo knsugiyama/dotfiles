@@ -13,3 +13,5 @@ fi
 sudo apt -y update
 sudo apt -y upgrade
 sudo apt autoremove
+
+brew upgrade

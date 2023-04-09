@@ -4,7 +4,7 @@ EXCLUSIONS := .DS_Store .git .gitignore .github .vscode
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 SHELL=/bin/bash
 
-.PHONY := all list deploy clean help
+.PHONY := all list deploy install clean help
 .DEFAULT_GOAL := help
 
 all:
@@ -17,6 +17,12 @@ deploy: ## Create symlink to home directory
 	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
 
+install: ## Install apps.
+	@brew bundle --file=${HOME}/.dotfiles/dist/Ubuntu/Brewfile
+	@brew upgrade
+	@sudo sh -c "echo $(which zsh) >> /etc/shells"
+	@source ~/.profile
+
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/dist/Ubuntu/update.sh
@@ -25,6 +31,7 @@ clean: ## Remobe the dot files and this repo
 	@echo 'Remove dot files in your home direfctory.'
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
 	-rm -rf $(DOTPATH)
+
 help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
