@@ -16,12 +16,14 @@ list: ## Show dot files in this repo
 deploy: ## Create symlink to home directory
 	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
+	ifeq ($(shell which zsh),)
+		@sudo sh -c "echo $(which zsh) >> /etc/shells"
+		@chsh -s $(which zsh)
+	endif
 
 install: ## Install apps.
 	@brew bundle --file=${HOME}/.dotfiles/dist/Ubuntu/Brewfile
 	@brew upgrade
-	@sudo sh -c "echo $(which zsh) >> /etc/shells"
-	@source ~/.profile
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
