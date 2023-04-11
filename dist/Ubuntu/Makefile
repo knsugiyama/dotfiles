@@ -29,8 +29,10 @@ update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/dist/Ubuntu/update.sh
 
-clean: ## Remobe the dot files and this repo
-	@echo 'Remove dot files in your home direfctory.'
+clean: ## Remove the dot files and this repo
+	@echo 'Remove the dot files and this repo.'
+	@/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
+	@bash <(curl -sL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
 	-rm -rf $(DOTPATH)
 
