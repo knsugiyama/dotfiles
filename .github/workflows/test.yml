@@ -7,23 +7,34 @@ jobs:
     runs-on: ubuntu-latest
     container: ubuntu:latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: Install required packages
         run: apt update && apt install -y build-essential procps curl file git
+
       - name: dotfiles
-        run: bash dist/Ubuntu/setup.sh
+        run: |
+          chmod +x dist/Ubuntu/setup.sh
+          bash dist/Ubuntu/setup.sh
 
   mac:
     runs-on: macos-latest
     steps:
-      - uses: actions/checkout@v2
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
       - name: dotfiles
-        run: bash dist/Darwin/setup.sh
+        run: |
+          chmod +x dist/Darwin/setup.sh
+          bash dist/Darwin/setup.sh
 
   windows:
     runs-on: windows-latest
     steps:
-      - uses: actions/checkout@v2
-      - name: dotfiles
+      - name: Checkout repository
+        uses: actions/checkout@v2
+
+      - name: Run PowerShell script
         run: |
-          dist/Windows/setup.ps1
+          Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force .\dist\Windows\setup.ps1
