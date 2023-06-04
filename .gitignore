@@ -16,6 +16,8 @@
 !/.config/karabiner/assets/**
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
+!/.config/nvim/
+!/.config/nvim/**
 !/.config/tmux/
 !/.config/tmux/.tmux.conf
 !/.config/zsh/

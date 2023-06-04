@@ -3,11 +3,15 @@ oh-my-posh init pwsh --config $env:USERPROFILE\.dotfiles\dist\Windows\config\.my
 Import-Module PSReadLine
 Import-Module -Name Terminal-Icons
 
+# 環境変数のデフォルト設定
+$env:XDG_CONFIG_HOME=$env:USERPROFILE +'\.config'
+
 # Alias
 Set-Alias ll ls
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
+Set-Alias v nvim
 
 # Functions
 function prj {
@@ -15,7 +19,6 @@ function prj {
 }
 
 function gch {
-    # git checkout $(git for-each-ref --format='%(refname:short)' refs/heads/* | fzf)
     git checkout $(git for-each-ref --format='%(refname:short)' | fzf)
 }
 

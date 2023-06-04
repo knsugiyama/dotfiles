@@ -31,6 +31,11 @@ foreach ($l in $f) {
 # AutoHotkeyのみ、インストール先の指定が必要なので、単独で実行
 echo $HOME\.dotfiles\dist\Windows\config\ahk | winget install AutoHotkey.AutoHotkey
 
+# .configフォルダを作成する
+if(!(Test-Path $env:USERPROFILE\.config)){
+  mkdir $env:USERPROFILE\.config
+}
+
 Write-Host "############"
 Write-Host "font settings"
 Write-Host "############"
