@@ -6,6 +6,7 @@ Write-Host "#####"
 
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.gitconfig -Value $env:USERPROFILE\.dotfiles\.gitconfig -Force
 New-Item -Type SymbolicLink -Path $env:USERPROFILE\.tigrc -Value $env:USERPROFILE\.dotfiles\.tigrc -Force
+New-Item -Type SymbolicLink -Path $env:USERPROFILE\.config\wezterm -Value $env:USERPROFILE\.dotfiles\wezterm -Force
 
 Write-Host "#####"
 Write-Host "Microsoft.PowerShell_profile.ps1"
