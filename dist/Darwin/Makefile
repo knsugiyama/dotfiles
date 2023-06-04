@@ -1,6 +1,6 @@
 DOTPATH    := $(realpath $(dir $(lastword $(MAKEFILE_LIST))))
 CANDIDATES := $(wildcard .??*)
-EXCLUSIONS := .DS_Store .git .gitignore .github .vscode
+EXCLUSIONS := .DS_Store .git .gitignore .github .vscode .fleet
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 SHELL=/bin/bash
 
@@ -16,7 +16,6 @@ list: ## Show dot files in this repo
 deploy: ## Create symlink to home directory & create files of cloud-config
 	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	@bash $(DOTPATH)/dist/Darwin/cloud-config.sh
 
 install: ## Install apps.
 	@brew bundle --verbose --file=$(DOTFILES)/dist/Darwin/Brewfile
