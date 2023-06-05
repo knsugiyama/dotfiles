@@ -1,5 +1,7 @@
 -- lazy_nvim で インストールする plugin
 return {
+  -- lib
+  { 'nvim-lua/popup.nvim' },
   -- colorscheme
   -- https://github.com/Mofiqul/dracula.nvim
   {
@@ -40,14 +42,28 @@ return {
 
   -- File Explorer
   -- https://github.com/nvim-tree/nvim-tree.lua
+  -- {
+  --   'nvim-tree/nvim-tree.lua',
+  --   dependencies = {
+  --     'nvim-tree/nvim-web-devicons',
+  --   },
+  --   config = function()
+  --     require('plugin_configs/nvim-tree')
+  --   end
+  -- },
+
   {
-    'nvim-tree/nvim-tree.lua',
+    "nvim-neo-tree/neo-tree.nvim",
     dependencies = {
-      'nvim-tree/nvim-web-devicons',
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
     },
+    event = "VimEnter",
+    branch = "main",
     config = function()
-      require('plugin_configs/nvim-tree')
-    end
+      require('plugin_configs/neo-tree')
+    end,
   },
 
   -- displays a popup with possible key bindings
