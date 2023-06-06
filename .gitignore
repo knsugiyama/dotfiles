@@ -49,3 +49,4 @@
 *.DS_Store
 .AppleDouble
 .LSOverride
+*lock.json
