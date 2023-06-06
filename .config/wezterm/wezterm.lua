@@ -20,7 +20,7 @@ end
 -- Changing the color scheme and font:
 config.color_scheme = 'Dracula (Official)'
 config.font = wezterm.font 'HackGen35 Console NF'
-config.font_size = 11.0
+config.font_size = 14.0
 
 config.leader = { key = "Space", mods = "CTRL|SHIFT" }
 

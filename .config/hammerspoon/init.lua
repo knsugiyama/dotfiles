@@ -25,3 +25,4 @@ end
 
 eikana = hs.eventtap.new({hs.eventtap.event.types.keyDown, hs.eventtap.event.types.flagsChanged}, eikanaEvent)
 eikana:start()
+
