@@ -1,6 +1,7 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
+-- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
 vim.o.mouce = 'a'
@@ -11,8 +12,7 @@ vim.o.ambiwidth = 'double'
 
 -- 相対的な行番号表示
 vim.o.relativenumber = true
-vim.o.termguicolors = true
---
+
 -- カーソル行のハイライト
 vim.o.cursorline = true
 
@@ -51,3 +51,17 @@ vim.wo.signcolumn = 'yes'
 vim.o.updatetime = 250
 vim.o.timeout = true
 vim.o.timeoutlen = 300
+
+-- Set completeopt to have a better completion experience
+vim.o.completeopt = 'menuone,noselect'
+
+-- [[ Highlight on yank ]]
+-- See `:help vim.highlight.on_yank()`
+local highlight_group = vim.api.nvim_create_augroup('YankHighlight', { clear = true })
+vim.api.nvim_create_autocmd('TextYankPost', {
+  callback = function()
+    vim.highlight.on_yank()
+  end,
+  group = highlight_group,
+  pattern = '*',
+})

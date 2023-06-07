@@ -5,17 +5,26 @@ return {
   'tpope/vim-rhubarb',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-  
+
   -- lib
   { 'nvim-lua/popup.nvim' },
+
   -- colorscheme
   -- https://github.com/Mofiqul/dracula.nvim
+  -- {
+  --   'Mofiqul/dracula.nvim',
+  --   config = function()
+  --     vim.cmd[[colorscheme dracula]]
+  --   end
+  -- },
+
   {
-    'Mofiqul/dracula.nvim',
+    -- Theme inspired by Atom
+    'navarasu/onedark.nvim',
+    priority = 1000,
     config = function()
-      vim.cmd[[colorscheme dracula]]
-    --   vim.cmd[[colorscheme dracula-soft]]
-    end
+      vim.cmd.colorscheme 'onedark'
+    end,
   },
 
   -- Neovim statusline
@@ -38,7 +47,7 @@ return {
       show_trailing_blankline_indent = false,
     },
   },
-  
+
   -- git decorations
   -- https://github.com/lewis6991/gitsigns.nvim
   {
@@ -51,7 +60,7 @@ return {
   -- File Explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
-    version = "*",    
+    version = "*",
     dependencies = {
       "nvim-lua/plenary.nvim",
       "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
@@ -61,7 +70,7 @@ return {
       require('plugin_configs/neo-tree')
     end,
   },
-  
+
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
@@ -96,7 +105,7 @@ return {
       'rafamadriz/friendly-snippets',
     },
   },
-  
+
   -- displays a popup with possible key bindings
   -- https://github.com/folke/which-key.nvim
   {
@@ -118,7 +127,13 @@ return {
   },
 
     -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
+  { 'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function()
+      require('plugin_configs/telescope')
+    end,
+  },
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built.
   -- Only load if `make` is available. Make sure you have the system
@@ -127,9 +142,9 @@ return {
     'nvim-telescope/telescope-fzf-native.nvim',
     -- NOTE: If you are having trouble with this installation,
     --       refer to the README for telescope-fzf-native for more instructions.
-    build = 'make',
+    build = 'cmake',
     cond = function()
-      return vim.fn.executable 'make' == 1
+      return vim.fn.executable 'cmake' == 1
     end,
   },
 
@@ -140,5 +155,8 @@ return {
       'nvim-treesitter/nvim-treesitter-textobjects',
     },
     build = ':TSUpdate',
+    config = function()
+      require('plugin_configs/nvim-treesitter')
+    end,
   },
 }
