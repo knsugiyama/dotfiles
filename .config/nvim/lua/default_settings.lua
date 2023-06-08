@@ -45,7 +45,7 @@ vim.o.ignorecase = true
 vim.o.smartcase = true
 
 -- Keep signcolumn on by default
-vim.wo.signcolumn = 'yes'
+vim.wo.signcolumn = 'yes' --行数表示の横に余白を追加
 
 -- Decrease update time
 vim.o.updatetime = 250
@@ -65,3 +65,5 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   group = highlight_group,
   pattern = '*',
 })
+
+vim.opt.helplang = 'ja'

@@ -9,21 +9,13 @@ return {
   -- lib
   { 'nvim-lua/popup.nvim' },
 
-  -- colorscheme
-  -- https://github.com/Mofiqul/dracula.nvim
-  -- {
-  --   'Mofiqul/dracula.nvim',
-  --   config = function()
-  --     vim.cmd[[colorscheme dracula]]
-  --   end
-  -- },
-
   {
-    -- Theme inspired by Atom
-    'navarasu/onedark.nvim',
+    'folke/tokyonight.nvim',
+    lazy = false,
     priority = 1000,
+    opts = {},
     config = function()
-      vim.cmd.colorscheme 'onedark'
+      vim.cmd[[colorscheme tokyonight]]
     end,
   },
 

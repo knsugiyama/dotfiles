@@ -4,5 +4,5 @@ require ('keymaps')
 -- load plugin manager
 require('lazy_nvim')
 
-require('lsp')
-require('nvim-cmp')
+require('plugin_configs/lsp')
+require('plugin_configs/nvim-cmp')

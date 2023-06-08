@@ -39,7 +39,7 @@ require("neo-tree").setup({
     {
       event = "file_added",
       handler = function(file_path)
-        require("neo-tree.utils").open_file({}, file_path)
+        require("neo-tree.utils").open_file({}, file_path, "")
       end,
     },
   },
@@ -76,7 +76,6 @@ require("neo-tree").setup({
         ["C"] = "close_node",
         ["h"] = "close_node",
         ["<bs>"] = "navigate_up",
-        ["."] = "set_root",
         ["."] = "set_root",
         ["H"] = "toggle_hidden",
         ["I"] = "toggle_gitignore",
