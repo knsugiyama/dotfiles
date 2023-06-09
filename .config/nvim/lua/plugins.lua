@@ -151,4 +151,43 @@ return {
       require('plugin_configs/nvim-treesitter')
     end,
   },
+
+  -- 
+  -- https://github.com/dinhhuy258/git.nvim
+  {
+    'dinhhuy258/git.nvim',
+    config = function ()
+      require('plugin_configs/git')
+    end,
+  },
+
+  -- Surround selections
+  {
+    'kylechui/nvim-surround',
+    version = "*", -- Use for stability; omit to use `main` branch for the latest features
+    event = "VeryLazy",
+    config = function()
+        require('plugin_configs/nvim-surround')
+    end
+  },
+
+  -- Tabs, as understood by any other editor.
+  {
+    'romgrk/barbar.nvim',
+    dependencies = {
+      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
+      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
+    },
+    init = function() vim.g.barbar_auto_setup = false end,
+    opts = {
+      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
+      -- animation = true,
+      -- insert_at_start = true,
+      -- …etc.
+    },
+    config = function()
+      require('plugin_configs/barbar')
+    end,
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  },
 }

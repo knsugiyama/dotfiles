@@ -39,7 +39,7 @@ require("neo-tree").setup({
     {
       event = "file_added",
       handler = function(file_path)
-        require("neo-tree.utils").open_file({}, file_path, "")
+        require("neo-tree.utils").open_file({}, file_path)
       end,
     },
   },
@@ -66,7 +66,7 @@ require("neo-tree").setup({
     -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
     window = {
       position = "left",
-      width = 40,
+      width = 50,
       mappings = {
         ["<2-LeftMouse>"] = "open",
         ["<cr>"] = "open",

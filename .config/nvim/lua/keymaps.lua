@@ -43,3 +43,8 @@ vim.keymap.set('i', 'jkq', '<ESC>:wq!<CR>', { silent = true })
 vim.keymap.set('n', 'sq', ':q<CR>')
 -- 現在のバッファ削除
 vim.keymap.set('n', 'bd', ':bd<CR>')
+
+-- jjでEscする
+vim.keymap.set('i', 'jj', '<Esc>')
+-- 設定ファイルを開く
+vim.keymap.set('n', '<F1>', ':edit $MYVIMRC<CR>')
