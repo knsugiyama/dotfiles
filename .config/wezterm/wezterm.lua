@@ -18,11 +18,56 @@ end
 
 -- This is where you actually apply your config choices
 -- Changing the color scheme and font:
-config.color_scheme = 'Dracula (Official)'
-config.font = wezterm.font 'HackGen35 Console NF'
-config.font_size = 12.0
+-- config.color_scheme = 'Dracula (Official)'
+config.color_scheme = 'MaterialDesignColors'
+
+-- config.font = wezterm.font 'HackGen35 Console NF'
+config.font = wezterm.font("HackGen35 Console NF", {weight="Medium", stretch="Normal", style="Normal"})
+config.font_size = 16.0
 
 config.leader = { key = "Space", mods = "CTRL|SHIFT" }
+
+-- 背景透過
+config.window_background_opacity = 0.85
+
+-- 最初からフルスクリーンで起動
+local mux = wezterm.mux
+wezterm.on("gui-startup", function(cmd)
+    local tab, pane, window = mux.spawn_window(cmd or {})
+    window:gui_window():toggle_fullscreen()
+end)
+
+-- ショートカットキー設定
+local act = wezterm.action
+config.keys = {
+  -- Alt(Opt)+Shift+Fでフルスクリーン切り替え
+  {
+    key = 'f',
+    mods = 'SHIFT|META',
+    action = wezterm.action.ToggleFullScreen,
+  },
+  -- Ctrl+Shift+tで新しいタブを作成
+  {
+    key = 't',
+    mods = 'SHIFT|CTRL',
+    action = act.SpawnTab 'CurrentPaneDomain',
+  },
+  -- Ctrl+Shift+dで新しいペインを作成(画面を分割)
+  {
+    key = 'd',
+    mods = 'SHIFT|CTRL',
+    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+  },
+    -- Ctrl+Backspaceで前の単語を削除
+  {
+    key = "Backspace",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "w",
+      mods = "CTRL",
+    },
+  },
+}
 
 -- and finally, return the configuration to wezterm
 return config
