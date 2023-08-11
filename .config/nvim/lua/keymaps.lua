@@ -29,6 +29,7 @@ vim.keymap.set('n', '<C-h>', '<C-w>h')
 vim.keymap.set('n', '<C-t>n', ':tabnew<CR>')
 vim.keymap.set('n', '<C-t>N', ':tabNext<CR>')
 vim.keymap.set('n', '<C-t>p', ':tabprevious<CR>')
+vim.keymap.set('n', '<C-t>X', ':tabclose<CR>')
 
 -- j, k による移動を折り返されたテキストでも自然に振る舞うように変更
 vim.keymap.set('n', 'j', 'gj')

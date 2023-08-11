@@ -33,7 +33,7 @@ require("neo-tree").setup({
       ---@diagnostic disable-next-line: unused-function, unused-local
       handler = function(file_path)
         --auto close
-        require("neo-tree").close_all()
+        require("neo-tree.command").execute({ action = "close" })
       end,
     },
     {
@@ -55,7 +55,10 @@ require("neo-tree").setup({
       never_show = { -- remains hidden even if visible is toggled to true
       },
     },
-    follow_current_file = false, -- This will find and focus the file in the active buffer every
+    follow_current_file = {
+        enabled = false, -- This will find and focus the file in the active buffer every
+        leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+    },
     -- time the current file is changed while the tree is open.
     use_libuv_file_watcher = false, -- This will use the OS level file watchers
     -- to detect changes instead of relying on nvim autocmd events.
@@ -96,9 +99,14 @@ require("neo-tree").setup({
     },
   },
   buffers = {
+    follow_current_file = {
+        enabled = true, -- This will find and focus the file in the active buffer every time
+        --              -- the current file is changed while the tree is open.
+        leave_dirs_open = false, -- `false` closes auto expanded dirs, such as with `:Neotree reveal`
+    },
+    group_empty_dirs = true, -- when true, empty folders will be grouped together
     show_unloaded = true,
     window = {
-      position = "left",
       mappings = {
         ["<2-LeftMouse>"] = "open",
         ["<cr>"] = "open",
@@ -167,5 +175,4 @@ require("neo-tree").setup({
     },
   },
 })
-vim.keymap.set("n", "gx", "<Cmd>NeoTreeRevealToggle<CR>", { noremap = true, silent = true })
-vim.keymap.set("n", "G,", "<Cmd>NeoTreeFloatToggle git_status<CR>", { noremap = true, silent = true })
+vim.keymap.set("n", "ts", ":Neotree reveal=false<CR>", { noremap = true, silent = true, desc = '[T]oggle [S]ide menu'})

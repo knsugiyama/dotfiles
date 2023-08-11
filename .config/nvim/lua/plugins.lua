@@ -6,15 +6,12 @@ return {
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
 
-  -- lib
-  { 'nvim-lua/popup.nvim' },
-
   {
     "folke/tokyonight.nvim",
     lazy = false,
     priority = 1000,
     config = function()
-      vim.cmd([[colorscheme tokyonight]])
+      require('plugin_configs/tokyonight')
     end,
   },
 
@@ -151,7 +148,7 @@ return {
     end,
   },
 
-  -- 
+  --
   -- https://github.com/dinhhuy258/git.nvim
   {
     'dinhhuy258/git.nvim',

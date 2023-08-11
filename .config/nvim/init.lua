@@ -6,3 +6,4 @@ require('lazy_nvim')
 
 require('plugin_configs/lsp')
 require('plugin_configs/nvim-cmp')
+

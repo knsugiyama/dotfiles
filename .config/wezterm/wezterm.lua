@@ -11,9 +11,14 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- config.font = wezterm.font 'HackGen35 Console NF'
+config.font = wezterm.font("HackGen35 Console NF", {weight="Medium", stretch="Normal", style="Normal"})
+config.font_size = 16.0
+
 -- change default shell
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.default_prog = { 'pwsh.exe', '-l' }
+  config.font_size = 12.0
 end
 
 -- This is where you actually apply your config choices
@@ -21,14 +26,11 @@ end
 -- config.color_scheme = 'Dracula (Official)'
 config.color_scheme = 'MaterialDesignColors'
 
--- config.font = wezterm.font 'HackGen35 Console NF'
-config.font = wezterm.font("HackGen35 Console NF", {weight="Medium", stretch="Normal", style="Normal"})
-config.font_size = 16.0
 
 config.leader = { key = "Space", mods = "CTRL|SHIFT" }
 
 -- 背景透過
-config.window_background_opacity = 0.85
+config.window_background_opacity = 0.90
 
 -- 最初からフルスクリーンで起動
 local mux = wezterm.mux
