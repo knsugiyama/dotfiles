@@ -3,24 +3,38 @@ require("neo-tree").setup({
   popup_border_style = "rounded",
   enable_git_status = true,
   enable_diagnostics = true,
+  open_files_do_not_replace_types = { "terminal", "trouble", "qf" }, -- when opening files, do not use windows containing these filetypes or buftypes
   default_component_configs = {
+    container = {
+        enable_character_fade = true
+    },
     indent = {
-      indent_size = 2,
-      padding = 1, -- extra padding on left hand side
-      with_markers = true,
-      indent_marker = "│",
-      last_indent_marker = "└",
-      highlight = "NeoTreeIndentMarker",
+        indent_size = 2,
+        padding = 1, -- extra padding on left hand side
+        with_markers = true,
+        indent_marker = "│",
+        last_indent_marker = "└",
+        highlight = "NeoTreeIndentMarker",
+        with_expanders = nil, -- if nil and file nesting is enabled, will enable expanders
+        expander_collapsed = "",
+        expander_expanded = "",
+        expander_highlight = "NeoTreeExpander",
     },
     icon = {
       folder_closed = "",
       folder_open = "",
       folder_empty = "ﰊ",
       default = "*",
+      highlight = "NeoTreeFileIcon"
+    },
+    modified = {
+        symbol = "[+]",
+        highlight = "NeoTreeModified",
     },
     name = {
       trailing_slash = false,
       use_git_status_colors = true,
+      highlight = "NeoTreeFileName",
     },
     git_status = {
       highlight = "NeoTreeDimText", -- if you remove this the status will be colorful
@@ -42,6 +56,47 @@ require("neo-tree").setup({
         require("neo-tree.utils").open_file({}, file_path)
       end,
     },
+  },
+  window = {
+    position = "left",
+    width = 40,
+    mapping_options = {
+      noremap = true,
+      nowait = true,
+    },
+    mappings = {
+      ["<2-LeftMouse>"] = "open",
+      ["<cr>"] = "open",
+      ["<esc>"] = "cancel", -- close preview or floating neo-tree window
+      ["P"] = { "toggle_preview", config = { use_float = true } },
+      ["l"] = "focus_preview",
+      ["S"] = "open_split",
+      ["s"] = "open_vsplit",
+      ["t"] = "open_tabnew",
+      ["w"] = "open_with_window_picker",
+      ["C"] = "close_node",
+      ["z"] = "close_all_nodes",
+      ["a"] = {
+        "add",
+        config = {
+          show_path = "none" -- "none", "relative", "absolute"
+        }
+      },
+      ["A"] = "add_directory", -- also accepts the optional config.show_path option like "add". this also supports BASH style brace expansion.
+      ["d"] = "delete",
+      ["r"] = "rename",
+      ["y"] = "copy_to_clipboard",
+      ["x"] = "cut_to_clipboard",
+      ["p"] = "paste_from_clipboard",
+      ["c"] = "copy", -- takes text input for destination, also accepts the optional config.show_path option like "add":
+      ["m"] = "move", -- takes text input for destination, also accepts the optional config.show_path option like "add".
+      ["q"] = "close_window",
+      ["R"] = "refresh",
+      ["?"] = "show_help",
+      ["<"] = "prev_source",
+      [">"] = "next_source",
+      ["?"] = "show_help",
+    }
   },
   filesystem = {
     filtered_items = {
@@ -68,33 +123,23 @@ require("neo-tree").setup({
     -- window like netrw would, regardless of window.position
     -- "disabled",    -- netrw left alone, neo-tree does not handle opening dirs
     window = {
-      position = "left",
-      width = 50,
       mappings = {
-        ["<2-LeftMouse>"] = "open",
-        ["<cr>"] = "open",
-        ["l"] = "open",
-        ["S"] = "open_split",
-        ["s"] = "open_vsplit",
-        ["C"] = "close_node",
-        ["h"] = "close_node",
-        ["<bs>"] = "navigate_up",
-        ["."] = "set_root",
-        ["H"] = "toggle_hidden",
-        ["I"] = "toggle_gitignore",
-        ["R"] = "refresh",
-        ["/"] = "fuzzy_finder",
-        ["f"] = "filter_on_submit",
-        ["<c-x>"] = "clear_filter",
-        ["a"] = "add",
-        ["d"] = "delete",
-        ["r"] = "rename",
-        ["c"] = "copy_to_clipboard",
-        ["x"] = "cut_to_clipboard",
-        ["p"] = "paste_from_clipboard",
-        ["m"] = "move", -- takes text input for destination
-        ["q"] = "close_window",
-        ["?"] = "show_help",
+          ["<bs>"] = "navigate_up",
+          ["."] = "set_root",
+          ["H"] = "toggle_hidden",
+          ["/"] = "fuzzy_finder",
+          ["D"] = "fuzzy_finder_directory",
+          ["#"] = "fuzzy_sorter", -- fuzzy sorting using the fzy algorithm
+          ["f"] = "filter_on_submit",
+          ["<c-x>"] = "clear_filter",
+          ["[g"] = "prev_git_modified",
+          ["]g"] = "next_git_modified",
+      },
+      fuzzy_finder_mappings = { -- define keymaps for filter popup window in fuzzy_finder_mode
+          ["<down>"] = "move_cursor_down",
+          ["<C-n>"] = "move_cursor_down",
+          ["<up>"] = "move_cursor_up",
+          ["<C-p>"] = "move_cursor_up",
       },
     },
   },
@@ -108,20 +153,9 @@ require("neo-tree").setup({
     show_unloaded = true,
     window = {
       mappings = {
-        ["<2-LeftMouse>"] = "open",
-        ["<cr>"] = "open",
-        ["S"] = "open_split",
-        ["s"] = "open_vsplit",
+        ["bd"] = "buffer_delete",
         ["<bs>"] = "navigate_up",
         ["."] = "set_root",
-        ["R"] = "refresh",
-        ["a"] = "add",
-        ["d"] = "delete",
-        ["r"] = "rename",
-        ["c"] = "copy_to_clipboard",
-        ["x"] = "cut_to_clipboard",
-        ["p"] = "paste_from_clipboard",
-        ["bd"] = "buffer_delete",
       },
     },
   },
@@ -129,17 +163,6 @@ require("neo-tree").setup({
     window = {
       position = "float",
       mappings = {
-        ["<2-LeftMouse>"] = "open",
-        ["<cr>"] = "open",
-        ["S"] = "open_split",
-        ["s"] = "open_vsplit",
-        ["C"] = "close_node",
-        ["R"] = "refresh",
-        ["d"] = "delete",
-        ["r"] = "rename",
-        ["c"] = "copy_to_clipboard",
-        ["x"] = "cut_to_clipboard",
-        ["p"] = "paste_from_clipboard",
         ["A"] = "git_add_all",
         ["gu"] = "git_unstage_file",
         ["ga"] = "git_add_file",
