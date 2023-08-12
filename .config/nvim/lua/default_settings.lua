@@ -33,11 +33,12 @@ vim.opt.listchars = {
   extends = '»',
   precedes = '«',
   nbsp = '%',
+  space = '⋅',
   eol = '↵'
 }
 vim.opt.showcmd = true
 vim.opt.cursorline = true
-vim.opt.colorcolumn = { 120 }
+vim.opt.colorcolumn = { 150 }
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes' --行数表示の横に余白を追加
 -- }}}

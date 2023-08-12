@@ -1,40 +1,25 @@
 -- lazy_nvim で インストールする plugin
 return {
-    -- Git related plugins
+  -- Automatically install LSPs to stdpath for neovim
+  {
+    "williamboman/mason.nvim",
+    event = { "BufReadPre", "VimEnter" },
+    build = ":MasonUpdate",
+    config = function()
+      require("plugin_configs/mason")
+    end,
+	},
+
+  --#region
+  --{{{ libs 
+  { "nvim-lua/plenary.nvim" },
+  { "MunifTanjim/nui.nvim" },
+
+  -- Git related plugins
   'tpope/vim-fugitive',
   'tpope/vim-rhubarb',
   -- Detect tabstop and shiftwidth automatically
   'tpope/vim-sleuth',
-
-  {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    config = function()
-      require('plugin_configs/tokyonight')
-    end,
-  },
-
-  -- Neovim statusline
-  -- https://github.com/nvim-lualine/lualine.nvim
-  {
-    'nvim-lualine/lualine.nvim',
-    dependencies = { 'nvim-tree/nvim-web-devicons' },
-    config = function()
-      require('plugin_configs/lualine')
-    end
-  },
-
-  {
-    -- Add indentation guides even on blank lines
-    'lukas-reineke/indent-blankline.nvim',
-    -- Enable `lukas-reineke/indent-blankline.nvim`
-    -- See `:help indent_blankline.txt`
-    opts = {
-      char = '|',
-      show_trailing_blankline_indent = false,
-    },
-  },
 
   -- git decorations
   -- https://github.com/lewis6991/gitsigns.nvim
@@ -45,63 +30,166 @@ return {
     end
   },
 
+  --}}}
+  --#endregion
+
+  --#region
+  --{{{ UI 
+  -- notify
+  {
+    "rcarriga/nvim-notify",
+    event = "BufReadPre",
+    config = function()
+      require("plugin_configs/nvim-notify")
+    end,
+  },
+  -- color scheme
+  {
+    "folke/tokyonight.nvim",
+    lazy = false,
+    priority = 1000,
+    config = function()
+      require('plugin_configs/tokyonight')
+    end,
+  },
+  -- Neovim statusline
+  -- https://github.com/nvim-lualine/lualine.nvim
+  {
+    'nvim-lualine/lualine.nvim',
+    config = function()
+      require('plugin_configs/lualine')
+    end
+  },
+  { "nvim-tree/nvim-web-devicons" },
+  -- 全角記号が半角文字と重なってしまう問題の対処
+  {
+    "delphinus/cellwidths.nvim",
+    event = "BufEnter",
+    config = function()
+      require('plugin_configs/cellwidths')
+    end,
+  },
+
+  {
+    -- Add indentation guides even on blank lines
+    'lukas-reineke/indent-blankline.nvim',
+    -- Enable `lukas-reineke/indent-blankline.nvim`
+    -- See `:help indent_blankline.txt`
+    config = function()
+      require('plugin_configs/indent-blankline')
+    end
+  },
+
   -- File Explorer
   {
     "nvim-neo-tree/neo-tree.nvim",
     version = "*",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
-      "MunifTanjim/nui.nvim",
-    },
     config = function()
       require('plugin_configs/neo-tree')
     end,
   },
 
+  -- Tabs, as understood by any other editor.
+  {
+    'romgrk/barbar.nvim',
+    init = function() vim.g.barbar_auto_setup = false end,
+    config = function()
+      require('plugin_configs/barbar')
+    end,
+    version = '^1.0.0', -- optional: only update when a new 1.x version is released
+  },
+
+  --}}}
+  --#endregion
+
+  --#region
+  --{{{ LSP / completion 
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
   {
     -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      { 'williamboman/mason.nvim', config = true },
       'williamboman/mason-lspconfig.nvim',
 
       -- Useful status updates for LSP
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      { 'j-hui/fidget.nvim', opts = {} },
+      {
+        'j-hui/fidget.nvim',
+        event = "VimEnter",
+        config = function ()
+          require("plugin_configs/fidget")
+        end
+      },
 
       -- Additional lua configuration, makes nvim stuff amazing!
-      'folke/neodev.nvim',
+      {
+        'folke/neodev.nvim',
+        config = function ()
+          require("plugin_configs/neodev")
+        end
+      },
     },
   },
 
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
+    event = "VimEnter",
+    config = function()
+      require("plugin_configs/nvim-cmp")
+    end,
     dependencies = {
       -- Snippet Engine & its associated nvim-cmp source
-      'L3MON4D3/LuaSnip',
-      'saadparwaiz1/cmp_luasnip',
-
-      -- Adds LSP completion capabilities
-      'hrsh7th/cmp-nvim-lsp',
-
+      { "L3MON4D3/LuaSnip" },
       -- Adds a number of user-friendly snippets
-      'rafamadriz/friendly-snippets',
+      { "rafamadriz/friendly-snippets" },
+      { "hrsh7th/cmp-cmdline" },
+      { "hrsh7th/cmp-nvim-lsp" },
+      { "hrsh7th/cmp-nvim-lsp-document-symbol" },
+      { "hrsh7th/cmp-buffer" },
+      { "hrsh7th/cmp-path" },
+      { "hrsh7th/cmp-nvim-lua" },
+      {
+        "zbirenbaum/copilot-cmp",
+        config = true
+      },
+      { "hrsh7th/cmp-emoji" },
+      { "f3fora/cmp-spell" },
+      { "yutkat/cmp-mocword" },
+      -- Snippet Engine & its associated nvim-cmp source
+      { "saadparwaiz1/cmp_luasnip" },
+      { "ray-x/cmp-treesitter" },
+      {
+        "onsails/lspkind-nvim",
+        config = function()
+          require("plugin_configs/lspkind-nvim")
+        end,
+      },
     },
   },
+
+  -- AI completion
+  {
+    "zbirenbaum/copilot.lua",
+    event = "InsertEnter",
+    config = function()
+      vim.defer_fn(function()
+        require("plugin_configs/copilot-cmp")
+      end, 100)
+    end,
+  },
+
+  --}}}
+  --#endregion
 
   -- displays a popup with possible key bindings
   -- https://github.com/folke/which-key.nvim
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
-    init = function()
-      vim.o.timeout = true
-      vim.o.timeoutlen = 300
+    config = function()
+      require('plugin_configs/which-key')
     end
   },
 
@@ -165,33 +253,5 @@ return {
     config = function()
         require('plugin_configs/nvim-surround')
     end
-  },
-
-  -- Tabs, as understood by any other editor.
-  {
-    'romgrk/barbar.nvim',
-    dependencies = {
-      'lewis6991/gitsigns.nvim', -- OPTIONAL: for git status
-      'nvim-tree/nvim-web-devicons', -- OPTIONAL: for file icons
-    },
-    init = function() vim.g.barbar_auto_setup = false end,
-    opts = {
-      -- lazy.nvim will automatically call setup for you. put your options here, anything missing will use the default:
-      -- animation = true,
-      -- insert_at_start = true,
-      -- …etc.
-    },
-    config = function()
-      require('plugin_configs/barbar')
-    end,
-    version = '^1.0.0', -- optional: only update when a new 1.x version is released
-  },
-  -- 全角記号が半角文字と重なってしまう問題の対処
-  {
-    "delphinus/cellwidths.nvim",
-    event = "BufEnter",
-    config = function()
-      require('plugin_configs/cellwidths')
-    end,
   },
 }

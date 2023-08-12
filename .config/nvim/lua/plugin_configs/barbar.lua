@@ -1,5 +1,4 @@
 require('barbar').setup({
-  animation = false,
   icons = {
     -- Configure the base icons on the bufferline.
     button = '',
