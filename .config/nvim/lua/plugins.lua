@@ -186,4 +186,12 @@ return {
     end,
     version = '^1.0.0', -- optional: only update when a new 1.x version is released
   },
+  -- 全角記号が半角文字と重なってしまう問題の対処
+  {
+    "delphinus/cellwidths.nvim",
+    event = "BufEnter",
+    config = function()
+      require('plugin_configs/cellwidths')
+    end,
+  },
 }

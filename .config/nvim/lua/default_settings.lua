@@ -74,9 +74,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 
 vim.opt.helplang = 'ja'
 
--- 全角記号が半角文字と重なってしまう問題の対処
-vim.o.ambiwidth = 'double'
-
 -- Decrease update time
 vim.o.updatetime = 250
 vim.o.timeout = true
