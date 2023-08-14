@@ -8,10 +8,10 @@ return {
     config = function()
       require("plugin_configs/mason")
     end,
-	},
+  },
 
   --#region
-  --{{{ libs 
+  --{{{ libs
   { "nvim-lua/plenary.nvim" },
   { "MunifTanjim/nui.nvim" },
 
@@ -34,7 +34,7 @@ return {
   --#endregion
 
   --#region
-  --{{{ UI 
+  --{{{ UI
   -- notify
   {
     "rcarriga/nvim-notify",
@@ -60,6 +60,7 @@ return {
       require('plugin_configs/lualine')
     end
   },
+
   { "nvim-tree/nvim-web-devicons" },
   -- 全角記号が半角文字と重なってしまう問題の対処
   {
@@ -103,35 +104,9 @@ return {
   --#endregion
 
   --#region
-  --{{{ LSP / completion 
+  --{{{ LSP / completion
   -- NOTE: This is where your plugins related to LSP can be installed.
   --  The configuration is done below. Search for lspconfig to find it below.
-  {
-    -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
-      {
-        'j-hui/fidget.nvim',
-        event = "VimEnter",
-        config = function ()
-          require("plugin_configs/fidget")
-        end
-      },
-
-      -- Additional lua configuration, makes nvim stuff amazing!
-      {
-        'folke/neodev.nvim',
-        config = function ()
-          require("plugin_configs/neodev")
-        end
-      },
-    },
-  },
-
   {
     -- Autocompletion
     'hrsh7th/nvim-cmp',
@@ -169,17 +144,76 @@ return {
     },
   },
 
-  -- AI completion
   {
-    "zbirenbaum/copilot.lua",
-    event = "InsertEnter",
+    -- LSP Configuration & Plugins
+    'neovim/nvim-lspconfig',
     config = function()
-      vim.defer_fn(function()
-        require("plugin_configs/copilot-cmp")
-      end, 100)
+      require("plugin_configs/nvim-lspconfig")
+    end,
+  },
+  {
+    'williamboman/mason-lspconfig.nvim',
+    event = "BufReadPre",
+    config = function()
+      require("plugin_configs/mason-lspconfig")
+    end,
+    dependencies = {
+      -- Useful status updates for LSP
+      -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
+      {
+        'j-hui/fidget.nvim',
+        tag = "legacy",
+        event = "LspAttach",
+        config = function()
+          require("plugin_configs/fidget")
+        end
+      },
+
+      -- {
+      --   'folke/neoconf.nvim',
+      --   config = function()
+      --     require("plugin_configs/neoconf")
+      --   end
+      -- },
+      --
+      -- Additional lua configuration, makes nvim stuff amazing!
+      {
+        'folke/neodev.nvim',
+        config = function()
+          require("plugin_configs/neodev")
+        end
+      },
+    },
+  },
+
+  -- -- AI completion
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     vim.defer_fn(function()
+  --       require("plugin_configs/copilot-cmp")
+  --     end, 100)
+  --   end,
+  -- },
+  --
+  -- LSP UI
+  {
+    "nvimdev/lspsaga.nvim",
+    event = "VimEnter",
+    config = function()
+      require("plugin_configs/lspsaga")
     end,
   },
 
+  -- LSP Diagnostics UI
+  {
+    "folke/trouble.nvim",
+    event = "VimEnter",
+    config = function()
+      require("plugin_configs/trouble")
+    end,
+  },
   --}}}
   --#endregion
 
@@ -202,8 +236,9 @@ return {
     end
   },
 
-    -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim',
+  -- Fuzzy Finder (files, lsp, etc)
+  {
+    'nvim-telescope/telescope.nvim',
     branch = '0.1.x',
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
@@ -240,7 +275,7 @@ return {
   -- https://github.com/dinhhuy258/git.nvim
   {
     'dinhhuy258/git.nvim',
-    config = function ()
+    config = function()
       require('plugin_configs/git')
     end,
   },
@@ -251,7 +286,25 @@ return {
     version = "*", -- Use for stability; omit to use `main` branch for the latest features
     event = "VeryLazy",
     config = function()
-        require('plugin_configs/nvim-surround')
+      require('plugin_configs/nvim-surround')
     end
+  },
+
+  -- lint
+  {
+    "mfussenegger/nvim-lint",
+    event = "VimEnter",
+    config = function()
+      require("plugin_configs/nvim-lint")
+    end,
+  },
+
+  -- format-on-save
+  {
+    "elentok/format-on-save.nvim",
+    event = "VimEnter",
+    config = function()
+      require("plugin_configs/format-on-save")
+    end,
   },
 }
