@@ -18,5 +18,5 @@ require("neo-tree").setup({
     },
   },
 })
-vim.keymap.set("n", "gx", "<Cmd>Neotree toggle<CR>", { noremap = true, silent = true, desc='Neotree toggle'  })
-vim.keymap.set("n", "G,", "<Cmd>Neotree git_status<CR>", { noremap = true, silent = true, desc='Git Status' })
+vim.keymap.set("n", "gx", "<Cmd>Neotree toggle<CR>", { noremap = true, silent = true, desc = 'Neotree toggle' })
+vim.keymap.set("n", "G,", "<Cmd>Neotree git_status<CR>", { noremap = true, silent = true, desc = 'Git Status' })

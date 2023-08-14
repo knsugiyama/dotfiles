@@ -1,12 +1,12 @@
 -- See `:help cmp`
-local cmp = require ("cmp")
+local cmp = require("cmp")
 local types = require("cmp.types")
-local luasnip = require ("luasnip")
+local luasnip = require("luasnip")
 
 require("luasnip.loaders.from_vscode").lazy_load()
 luasnip.config.setup {}
 
-cmp.setup ({
+cmp.setup({
   formatting = {
     format = require("lspkind").cmp_format({
       with_text = true,
@@ -67,33 +67,33 @@ cmp.setup ({
     end, { 'i', 's' }),
   },
   sources = cmp.config.sources({
-    { name = "copilot", priority = 90 }, --For luasnip users.
-    { name = "nvim_lsp", priority = 100 },
-    { name = "luasnip", priority = 20 }, --For luasnip users.
-    { name = "path", priority = 100 },
-    { name = "emoji", insert = true, priority = 60 },
-    { name = "nvim_lua", priority = 50 },
+    { name = "copilot",                 priority = 90 }, --For luasnip users.
+    { name = "nvim_lsp",                priority = 100 },
+    { name = "luasnip",                 priority = 20 }, --For luasnip users.
+    { name = "path",                    priority = 100 },
+    { name = "emoji",                   insert = true, priority = 60 },
+    { name = "nvim_lua",                priority = 50 },
     { name = "nvim_lsp_signature_help", priority = 80 },
   }, {
-    { name = "buffer", priority = 50 },
-    { name = "spell", priority = 40 },
+    { name = "buffer",     priority = 50 },
+    { name = "spell",      priority = 40 },
     { name = "treesitter", priority = 30 },
   }),
 })
 
 cmp.setup.filetype({ "gitcommit", "markdown" }, {
   sources = cmp.config.sources({
-    { name = "copilot", priority = 90 }, -- For luasnip users.
+    { name = "copilot",  priority = 90 }, -- For luasnip users.
     { name = "nvim_lsp", priority = 100 },
-    { name = "luasnip", priority = 80 }, -- For luasnip users.
-    { name = "rg", priority = 70 },
-    { name = "path", priority = 100 },
-    { name = "emoji", insert = true, priority = 60 },
+    { name = "luasnip",  priority = 80 }, -- For luasnip users.
+    { name = "rg",       priority = 70 },
+    { name = "path",     priority = 100 },
+    { name = "emoji",    insert = true, priority = 60 },
   }, {
-    { name = "buffer", priority = 50 },
-    { name = "spell", priority = 40 },
+    { name = "buffer",     priority = 50 },
+    { name = "spell",      priority = 40 },
     { name = "treesitter", priority = 30 },
-    { name = "mocword", priority = 60 },
+    { name = "mocword",    priority = 60 },
   }),
 })
 
