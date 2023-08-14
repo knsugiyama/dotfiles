@@ -1,5 +1,6 @@
 local format_on_save = require("format-on-save")
 local formatters = require("format-on-save.formatters")
+local message_buffer = require("format-on-save.error-notifiers.message-buffer")
 
 format_on_save.setup({
   partial_update = true,
@@ -30,4 +31,6 @@ format_on_save.setup({
     formatters.remove_trailing_whitespace,
     formatters.prettierd,
   },
+
+  error_notifier = message_buffer,
 })

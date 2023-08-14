@@ -12,7 +12,7 @@ if wezterm.config_builder then
 end
 
 -- config.font = wezterm.font 'HackGen35 Console NF'
-config.font = wezterm.font("HackGen35 Console NF", {weight="Medium", stretch="Normal", style="Normal"})
+config.font = wezterm.font("HackGen35 Console NF", { weight = "Medium", stretch = "Normal", style = "Normal" })
 config.font_size = 16.0
 
 -- change default shell
@@ -35,8 +35,8 @@ config.window_background_opacity = 0.90
 -- 最初からフルスクリーンで起動
 local mux = wezterm.mux
 wezterm.on("gui-startup", function(cmd)
-    local tab, pane, window = mux.spawn_window(cmd or {})
-    window:gui_window():toggle_fullscreen()
+  local tab, pane, window = mux.spawn_window(cmd or {})
+  window:gui_window():toggle_fullscreen()
 end)
 
 -- ショートカットキー設定
@@ -60,7 +60,7 @@ config.keys = {
     mods = 'SHIFT|CTRL',
     action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
-    -- Ctrl+Backspaceで前の単語を削除
+  -- Ctrl+Backspaceで前の単語を削除
   {
     key = "Backspace",
     mods = "CTRL",

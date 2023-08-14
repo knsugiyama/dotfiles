@@ -1,10 +1,9 @@
-local log = hs.logger.new('mymodule','debug')
+local log = hs.logger.new('mymodule', 'debug')
 local map = hs.keycodes.map
 local keyDown = hs.eventtap.event.types.keyDown
 local keyUp = hs.eventtap.event.types.keyUp
 local flagsChanged = hs.eventtap.event.types.flagsChanged
 local eventtap = hs.eventtap
-local bit = require("libs/bit")
 
 --[[
 -- auto reload
@@ -39,13 +38,13 @@ local function eikanaEvent(event)
   end
 end
 
-eikana = eventtap.new({keyDown, flagsChanged}, eikanaEvent)
+eikana = eventtap.new({ keyDown, flagsChanged }, eikanaEvent)
 eikana:start()
 
 --[[
 -- esc キー押下でIME切り替えをする
 --]]
-switchToEisuOnEscape = eventtap.new({keyDown}, function(e)
+switchToEisuOnEscape = eventtap.new({ keyDown }, function(e)
   if hs.keycodes.map[e:getKeyCode()] == 'escape' then
     hs.keycodes.setMethod('Alphanumeric (Google)')
   end
@@ -54,18 +53,18 @@ end):start()
 --[[
 -- ControlとCommandキーの入れ替えをインターセプトで実現する
 --]]
-swapCtrlAndCmd = eventtap.new({keyDown, keyUp}, function(e)
-    -- Controlキーの場合、Commandキーに変換
-    local flags = e:getFlags()
-    -- log.i(flags)
-    if flags.ctrl and not flags.cmd then
-        flags.ctrl = false
-        flags.cmd = true
-        e:setFlags(flags)
+swapCtrlAndCmd = eventtap.new({ keyDown, keyUp }, function(e)
+  -- Controlキーの場合、Commandキーに変換
+  local flags = e:getFlags()
+  -- log.i(flags)
+  if flags.ctrl and not flags.cmd then
+    flags.ctrl = false
+    flags.cmd = true
+    e:setFlags(flags)
     -- Commandキーの場合、Controlキーに変換
-    elseif flags.cmd and not flags.ctrl then
-        flags.cmd = false
-        flags.ctrl = true
-        e:setFlags(flags)
-    end
+  elseif flags.cmd and not flags.ctrl then
+    flags.cmd = false
+    flags.ctrl = true
+    e:setFlags(flags)
+  end
 end):start()

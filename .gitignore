@@ -5,6 +5,7 @@
 ### not ignore ###
 !/.bash_profile
 !/.bashrc
+!/.editorconfig
 !/.gitconfig
 !/.gitignore_global
 !/.tigrc
