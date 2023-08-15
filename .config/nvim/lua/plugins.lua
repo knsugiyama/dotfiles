@@ -313,4 +313,13 @@ return {
       require("plugin_configs/format-on-save")
     end,
   },
+
+  -- terminal
+  {
+    'akinsho/toggleterm.nvim',
+    version = "*",
+    config = function()
+      require("plugin_configs/toggleterm")
+    end
+  }
 }
