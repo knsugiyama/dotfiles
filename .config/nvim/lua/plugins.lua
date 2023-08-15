@@ -37,11 +37,17 @@ return {
   --{{{ UI
   -- notify
   {
-    "rcarriga/nvim-notify",
-    event = "BufReadPre",
+    "folke/noice.nvim",
+    event = "VeryLazy",
     config = function()
-      require("plugin_configs/nvim-notify")
+      require("plugin_configs/noice")
     end,
+    dependencies = {
+      -- OPTIONAL:
+      --   `nvim-notify` is only needed, if you want to use the notification view.
+      --   If not available, we use `mini` as the fallback
+      "rcarriga/nvim-notify",
+    }
   },
   -- color scheme
   {
