@@ -1,3 +1,3 @@
 require("cellwidths").setup({
-  name = "cica",
+  name = "default",
 })

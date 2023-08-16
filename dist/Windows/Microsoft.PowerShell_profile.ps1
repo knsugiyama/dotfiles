@@ -4,6 +4,9 @@ Import-Module -Name Terminal-Icons
 
 # 環境変数のデフォルト設定
 $env:XDG_CONFIG_HOME=$env:USERPROFILE +'\.config'
+$env:XDG_DATA_HOME=$env:USERPROFILE +'\.local\share'
+$env:XDG_CACHE_HOME=$env:USERPROFILE +'\.local\cache'
+$env:XDG_STATE_HOME=$env:USERPROFILE +'\.local\state'
 
 # Alias
 Set-Alias ll ls
@@ -11,6 +14,7 @@ Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias v nvim
+Set-Alias lg lazygit
 
 # Functions
 function prj {
