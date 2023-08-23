@@ -4,8 +4,6 @@ local keyDown = hs.eventtap.event.types.keyDown
 local keyUp = hs.eventtap.event.types.keyUp
 local flagsChanged = hs.eventtap.event.types.flagsChanged
 local eventtap = hs.eventtap
--- 特定のアプリケーションの名前をチェック
-local focusedApp = hs.application.frontmostApplication()
 
 --[[
 -- auto reload
@@ -56,22 +54,23 @@ end):start()
 -- ControlとCommandキーの入れ替えをインターセプトで実現する
 --]]
 swapCtrlAndCmd = eventtap.new({ keyDown, keyUp }, function(e)
-  if focusedApp:name() == "Remote Desktop" then
-    return false -- イベントを無視
-  elseif focusedApp:name() == "nvim" then
-    return false -- イベントを無視
-  end
-  -- Controlキーの場合、Commandキーに変換
-  local flags = e:getFlags()
-  -- log.i(flags)
-  if flags.ctrl and not flags.cmd then
-    flags.ctrl = false
-    flags.cmd = true
-    e:setFlags(flags)
+  -- 特定のアプリケーションの名前をチェック
+  local focusedApp = hs.application.frontmostApplication()
+  log.i(focusedApp:title())
+
+  if focusedApp:name() == "Microsoft Remote Desktop"
+    or focusedApp:name() == "WezTerm" then
+    -- Controlキーの場合、Commandキーに変換
+    local flags = e:getFlags()
+    if flags.ctrl and not flags.cmd then
+        flags.ctrl = false
+        flags.cmd = true
+        e:setFlags(flags)
     -- Commandキーの場合、Controlキーに変換
-  elseif flags.cmd and not flags.ctrl then
-    flags.cmd = false
-    flags.ctrl = true
-    e:setFlags(flags)
+    elseif flags.cmd and not flags.ctrl then
+        flags.cmd = false
+        flags.ctrl = true
+        e:setFlags(flags)
+    end
   end
 end):start()
