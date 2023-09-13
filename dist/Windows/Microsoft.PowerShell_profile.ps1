@@ -14,6 +14,8 @@ Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
 Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias v nvim
+Set-Alias vi nvim
+Set-Alias vim nvim
 Set-Alias lg lazygit
 
 # Functions

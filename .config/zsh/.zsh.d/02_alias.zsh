@@ -10,4 +10,6 @@ alias mv='mv -i'
 alias rm='rm -i'
 
 alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
 
