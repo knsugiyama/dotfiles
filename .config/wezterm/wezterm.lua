@@ -26,18 +26,14 @@ end
 -- config.color_scheme = 'Dracula (Official)'
 config.color_scheme = 'MaterialDesignColors'
 
+config.initial_rows = 40
+config.initial_cols = 150
+config.default_cursor_style = 'BlinkingUnderline'
 
 config.leader = { key = "Space", mods = "CTRL|SHIFT" }
 
 -- 背景透過
 config.window_background_opacity = 0.90
-
--- 最初からフルスクリーンで起動
-local mux = wezterm.mux
-wezterm.on("gui-startup", function(cmd)
-  local tab, pane, window = mux.spawn_window(cmd or {})
-  window:gui_window():toggle_fullscreen()
-end)
 
 -- ショートカットキー設定
 local act = wezterm.action

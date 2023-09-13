@@ -59,18 +59,18 @@ swapCtrlAndCmd = eventtap.new({ keyDown, keyUp }, function(e)
   log.i(focusedApp:title())
 
   if focusedApp:name() == "Microsoft Remote Desktop"
-    or focusedApp:name() == "WezTerm" then
+      or focusedApp:name() == "WezTerm" then
     -- Controlキーの場合、Commandキーに変換
     local flags = e:getFlags()
     if flags.ctrl and not flags.cmd then
-        flags.ctrl = false
-        flags.cmd = true
-        e:setFlags(flags)
-    -- Commandキーの場合、Controlキーに変換
+      flags.ctrl = false
+      flags.cmd = true
+      e:setFlags(flags)
+      -- Commandキーの場合、Controlキーに変換
     elseif flags.cmd and not flags.ctrl then
-        flags.cmd = false
-        flags.ctrl = true
-        e:setFlags(flags)
+      flags.cmd = false
+      flags.ctrl = true
+      e:setFlags(flags)
     end
   end
 end):start()
