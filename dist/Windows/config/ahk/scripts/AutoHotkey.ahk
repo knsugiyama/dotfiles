@@ -1,9 +1,6 @@
 /*
-    左右 Shift キーの空打ちで 入力方式 を切り替える
-
-    左 Shift キーの空打ちで IME を「英語」に切り替え
-    右 Shift キーの空打ちで IME を「日本語」に切り替え
-    Shift キーを押している間に他のキーを打つと通常の Shift キーとして動作
+    左右 Alt キーの空打ちで 入力方式Google 日本語入力前提) を切り替える
+    Alt キーを押している間に他のキーを打つと通常の Alt キーとして動作
 */
 #UseHook
 Persistent
@@ -16,15 +13,15 @@ SetTitleMatchMode 2
 
 #HotIf !WinActive("ahk_exe msrdc.exe") ; remote desktop がアクティブな場合は無効にする。そうしないと ` が入力されてしまう。
 ; 上部メニューがアクティブになるのを抑制
-~LAlt:: Send "{Blind}{vk07}"
-~RAlt:: Send "{Blind}{vk07}"
+~LAlt:: Send "{Blind}{vkFF}"
+~RAlt:: Send "{Blind}{vkFF}"
 
 ; 直接入力
 LAlt Up::
 {
     if (A_PriorHotkey == "~LAlt")
     {
-        Send "{vkF2sc070B}{vkF3sc029}"
+        Send "{vk1Dsc07B}"
     }
 }
 
@@ -33,7 +30,7 @@ RAlt Up::
 {
     if (A_PriorHotkey == "~RAlt")
     {
-        Send "{vkF2sc070B}"
+        Send "{vk1Csc079}"
     }
 }
 
