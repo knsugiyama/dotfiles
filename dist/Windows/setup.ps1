@@ -1,12 +1,12 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
-Write-Host "#####"
-Write-Host "wingetをインストール"
-Write-Host "#####"
+# Write-Host "#####"
+# Write-Host "wingetをインストール"
+# Write-Host "#####"
 
-Invoke-WebRequest -Uri https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -OutFile winget.msixbundle -UseBasicParsing
-Add-AppxPackage -Path winget.msixbundle
-Remove-Item winget.msixbundle
+# Invoke-WebRequest -Uri https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -OutFile winget.msixbundle -UseBasicParsing
+# Add-AppxPackage -Path winget.msixbundle
+# Remove-Item winget.msixbundle
 
 Write-Host "#####"
 Write-Host "Microsoft.PowerShell_profile.ps1を追加"
