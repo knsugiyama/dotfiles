@@ -1,4 +1,4 @@
-$hkVer = "v2.2.3"
+$hkVer = "v2.9.0"
 $hk = "HackGenNerd" + $hkVer
 # ダウンロードするファイルのURL
 $target_url = "https://github.com/yuru7/HackGen/releases/download/$hkVer/$hk.zip"
