@@ -8,6 +8,7 @@ Write-Host "#####"
 Write-Host "git clone"
 Write-Host "#####"
 
+winget install Git.Git
 git clone https://github.com/knsugiyama/dotfiles.git $env:USERPROFILE\.dotfiles
 
 Write-Host "#####"
