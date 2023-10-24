@@ -10,4 +10,4 @@ New-Item -Type SymbolicLink -Path $env:USERPROFILE\.config -Value $env:USERPROFI
 Write-Host "#####"
 Write-Host "Microsoft.PowerShell_profile.ps1"
 Write-Host "#####"
-New-Item -Type SymbolicLink -Path $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Value $env:USERPROFILE\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
+New-Item -Type SymbolicLink -Path $PROFILE -Value $env:USERPROFILE\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
