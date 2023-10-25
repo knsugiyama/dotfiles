@@ -12,6 +12,13 @@ Invoke-WebRequest -Uri https://github.com/microsoft/winget-cli/releases/latest/d
 Add-AppxPackage -Path winget.msixbundle
 Remove-Item winget.msixbundle
 
+# Write-Host "#####"
+# Write-Host "scoop を install"
+# Write-Host "#####"
+
+irm get.scoop.sh | iex
+scoop bucket add extras
+
 Write-Host "#####"
 Write-Host "git clone"
 Write-Host "#####"
