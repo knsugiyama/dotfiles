@@ -1,53 +1,42 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
-# Write-Host "#####"
-# Write-Host "wingetをインストール"
-# Write-Host "#####"
-
-# Invoke-WebRequest -Uri https://github.com/microsoft/winget-cli/releases/latest/download/Microsoft.DesktopAppInstaller_8wekyb3d8bbwe.msixbundle -OutFile winget.msixbundle -UseBasicParsing
-# Add-AppxPackage -Path winget.msixbundle
-# Remove-Item winget.msixbundle
-
-Write-Host "#####"
-Write-Host "Microsoft.PowerShell_profile.ps1を追加"
-Write-Host "#####"
-
-# New-Item -Type SymbolicLink -Path $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Value $env:USERPROFILE\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
-New-Item -Type SymbolicLink -Path $PROFILE -Value $env:USERPROFILE\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
-# プロファイルを読み込み
-. $PROFILE
+$env:XDG_CONFIG_HOME = $HOME + '\.config'
+$env:XDG_DATA_HOME = $HOME + '\.local\share'
+$env:XDG_CACHE_HOME = $HOME + '\.local\cache'
+$env:XDG_STATE_HOME = $HOME + '\.local\state'
 
 Write-Host "############"
 Write-Host "wingetによるアプリインストールを実施"
 Write-Host "############"
 
-$f = (Get-Content $env:USERPROFILE\.dotfiles\dist\Windows\init\winget-packages) -as [string[]]
-$i=1
-
-foreach ($l in $f) {
-    winget install -e --id $l
-    $i++
-}
+winget import $HOME\.dotfiles\dist\Windows\init\winget-app-list.json
 
 # AutoHotkeyのみ、インストール先の指定が必要なので、単独で実行
-echo $HOME\.dotfiles\dist\Windows\config\ahk | winget install AutoHotkey.AutoHotkey
+Write-Output $HOME\.dotfiles\dist\Windows\config\ahk | winget install AutoHotkey.AutoHotkey
 
 # .configフォルダを作成する
-if(!(Test-Path $env:USERPROFILE\.config)){
-  mkdir $env:USERPROFILE\.config
+if(!(Test-Path $HOME\.config)){
+  mkdir $HOME\.config
 }
-
-Write-Host "############"
-Write-Host "font settings"
-Write-Host "############"
-.$env:USERPROFILE\.dotfiles\dist\Windows\init\font.ps1
 
 Write-Host "############"
 Write-Host "install powershell modules"
 Write-Host "############"
-.$env:USERPROFILE\.dotfiles\dist\Windows\init\modules.ps1
+.$HOME\.dotfiles\dist\Windows\init\modules.ps1
 
-# Write-Host "############"
-# Write-Host "install wsl(ubuntu)"
-# Write-Host "############"
-# wsl --install -d Ubuntu
+Write-Host "############"
+Write-Host "install wsl(ubuntu)"
+Write-Host "############"
+wsl --install -d Ubuntu
+
+Write-Host "############"
+Write-Host "deploy"
+Write-Host "############"
+Start-Process powershell.exe ("-noprofile -command Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process; " + $HOME + "\.dotfiles\dist\Windows\deploy.ps1") -Verb runas -wait
+. $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+
+Write-Host "#####"
+Write-Host "scoop install"
+Write-Host "#####"
+Invoke-RestMethod get.scoop.sh | Invoke-Expression
+scoop bucket add extras

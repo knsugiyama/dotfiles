@@ -1,14 +1,18 @@
-oh-my-posh init pwsh --config $env:USERPROFILE\.dotfiles\dist\Windows\config\.mytheme.omp.json | Invoke-Expression
+oh-my-posh init pwsh --config $HOME\.dotfiles\dist\Windows\config\.mytheme.omp.json | Invoke-Expression
 Import-Module PSReadLine
 Import-Module -Name Terminal-Icons
 
+############
 # 環境変数のデフォルト設定
-$env:XDG_CONFIG_HOME=$env:USERPROFILE +'\.config'
-$env:XDG_DATA_HOME=$env:USERPROFILE +'\.local\share'
-$env:XDG_CACHE_HOME=$env:USERPROFILE +'\.local\cache'
-$env:XDG_STATE_HOME=$env:USERPROFILE +'\.local\state'
+############
+$env:XDG_CONFIG_HOME = $HOME + '\.config'
+$env:XDG_DATA_HOME = $HOME + '\.local\share'
+$env:XDG_CACHE_HOME = $HOME + '\.local\cache'
+$env:XDG_STATE_HOME = $HOME + '\.local\state'
 
+############
 # Alias
+############
 Set-Alias ll ls
 Set-Alias grep findstr
 Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
@@ -18,23 +22,34 @@ Set-Alias vi nvim
 Set-Alias vim nvim
 Set-Alias lg lazygit
 
+############
 # Functions
+############
 function prj {
-    cd $(ghq list -p | fzf)
+    Set-Location $(ghq list -p | fzf)
 }
 
 function gch {
     git checkout $(git for-each-ref --format='%(refname:short)' | fzf)
 }
 
-function make_deploy {
-    powershell $env:USERPROFILE\.dotfiles\dist\Windows\deploy.ps1
-
+function make {
+    param ([string]$param)
+    if ($param -eq "deploy") {
+        deploy
+    } elseif ($param -eq "update") {
+        update
+    }
 }
 
-function make_update {
-    powershell $env:USERPROFILE\.dotfiles\dist\Windows\update.ps1
-    make_deploy
+function script:deploy {
+    Start-Process powershell.exe ("-noprofile -command Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process; " + $HOME + "\.dotfiles\dist\Windows\deploy.ps1") -Verb runas -wait
+    reload
+}
+
+function script:update {
+    powershell $HOME\.dotfiles\dist\Windows\update.ps1
+    deploy
 }
 
 function reload {

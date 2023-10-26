@@ -3,7 +3,7 @@ Write-Host "update"
 Write-Host "#####"
 
 $CURRENTPATH = Get-Location
-$DOTFILES = "$env:USERPROFILE\.dotfiles"
+$DOTFILES = "$HOME\.dotfiles"
 
 Set-Location $DOTFILES
 
