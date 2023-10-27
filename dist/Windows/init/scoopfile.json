@@ -1,0 +1,32 @@
+{
+    "buckets": [
+        {
+            "Name": "extras",
+            "Source": "https://github.com/ScoopInstaller/Extras",
+            "Updated": "2023-10-27T17:26:07+09:00",
+            "Manifests": 1889
+        },
+        {
+            "Name": "main",
+            "Source": "https://github.com/ScoopInstaller/Main.git",
+            "Updated": "2023-10-27T17:26:11+09:00",
+            "Manifests": 1262
+        }
+    ],
+    "apps": [
+        {
+            "Version": "1.4.2",
+            "Info": "",
+            "Name": "ghq",
+            "Source": "main",
+            "Updated": "2023-10-26T23:24:52.3311006+09:00"
+        },
+        {
+            "Version": "0.11.0",
+            "Info": "",
+            "Name": "zig",
+            "Source": "main",
+            "Updated": "2023-10-27T21:01:25.9900844+09:00"
+        }
+    ]
+}
