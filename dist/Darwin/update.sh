@@ -4,9 +4,9 @@ if [ ! -d ".git" ]; then
   git init
   git remote add origin https://github.com/knsugiyama/dotfiles.git
   git fetch origin
-  git checkout -b master
+  git checkout -b main
 else
-  git checkout master
+  git checkout main
   git pull
 fi
 
