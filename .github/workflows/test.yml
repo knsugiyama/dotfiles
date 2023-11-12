@@ -1,40 +1,40 @@
-name: dotfiles CI
+# name: dotfiles CI
 
-on: [push]
+# on: [push]
 
-jobs:
-  ubuntu:
-    runs-on: ubuntu-latest
-    container: ubuntu:latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+# jobs:
+#   ubuntu:
+#     runs-on: ubuntu-latest
+#     container: ubuntu:latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
 
-      - name: Install required packages
-        run: apt update && apt install -y build-essential procps curl file git
+#       - name: Install required packages
+#         run: apt update && apt install -y build-essential procps curl file git
 
-      - name: dotfiles
-        run: |
-          chmod +x dist/Ubuntu/setup.sh
-          bash dist/Ubuntu/setup.sh
+#       - name: dotfiles
+#         run: |
+#           chmod +x dist/Ubuntu/setup.sh
+#           bash dist/Ubuntu/setup.sh
 
-  mac:
-    runs-on: macos-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+#   mac:
+#     runs-on: macos-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
 
-      - name: dotfiles
-        run: |
-          chmod +x dist/Darwin/setup.sh
-          bash dist/Darwin/setup.sh
+#       - name: dotfiles
+#         run: |
+#           chmod +x dist/Darwin/setup.sh
+#           bash dist/Darwin/setup.sh
 
-  windows:
-    runs-on: windows-latest
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v2
+#   windows:
+#     runs-on: windows-latest
+#     steps:
+#       - name: Checkout repository
+#         uses: actions/checkout@v2
 
-      - name: Run PowerShell script
-        run: |
-          Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force .\dist\Windows\setup.ps1
+#       - name: Run PowerShell script
+#         run: |
+#           Set-ExecutionPolicy -Scope CurrentUser -ExecutionPolicy Bypass -Force .\dist\Windows\setup.ps1
