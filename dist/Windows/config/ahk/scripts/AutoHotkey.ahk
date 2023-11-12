@@ -44,47 +44,4 @@ RAlt Up::
     }
 }
 
-; 左Shiftキーが単独で押された場合、IMEをオフにする
-; ~LShift Up::
-; {
-;     if (A_PriorKey = "LShift") {
-;         Send "{vkF2sc070}{vkF3sc029}"
-;     }
-;     Return
-; }
-
-; 右Shiftキーが単独で押された場合、IMEをオンにする
-; ~RShift Up::
-; {
-;     if (A_PriorKey = "RShift") {
-;         Send "{vkF2sc070}"
-;     }
-;     Return
-; }
-
-; *":: send, @
-; *&:: send, { ^ }
-; *':: send, &
-;     *(:: send, *
-;     *):: send, (
-;         *+0:: send,)
-; *=:: send, _
-; *^:: send, =
-;     *~:: send, { + }
-; *@:: send, [
-;     *`:: send, { {
-;     }
-;     *[:: send,]
-;     *{:: send, {
-;     } }
-; *]:: send, \
-; *}:: send, |
-;     *+:: send, :
-;     +*:: send, "
-; *vkBA:: send, '
-; VKF4:: send, { `
-;     `
-; }
-; +VKF4:: send, { ~ }
-
 #HotIf
