@@ -43,8 +43,8 @@ SetTitleMatchMode 2
 #HotIf
 
 #HotIf WinActive("ahk_exe firefox.exe")
-    || WinActive("ahk_exe edge.exe")
-    || WinActive("ahk_exe notion.exe")
+    || WinActive("ahk_exe msedge.exe")
+    || WinActive("ahk_exe Notion.exe")
     ^h:: Send "{ Left }"
     ^j:: Send "{ Down }"
     ^k:: Send "{ Up }"
