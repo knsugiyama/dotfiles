@@ -5,6 +5,9 @@
     {
       "Packages": [
         {
+          "PackageIdentifier": "GoLang.Go"
+        },
+        {
           "PackageIdentifier": "JernejSimoncic.Wget"
         },
         {
@@ -33,6 +36,9 @@
         },
         {
           "PackageIdentifier": "DigitalScholar.Zotero"
+        },
+        {
+          "PackageIdentifier": "hugo.Hugo.Extended"
         },
         {
           "PackageIdentifier": "Obsidian.Obsidian"
