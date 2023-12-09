@@ -1,3 +1,4 @@
+
 /*
     左右 Alt キーの空打ちで 入力方式 を切り替える
     Alt キーを押している間に他のキーを打つと通常の Alt キーとして動作
@@ -19,60 +20,95 @@ SetWorkingDir A_ScriptDir ; 作業フォルダをAutoHotkey.ahkを含むフォ�
 SetTitleMatchMode 2
 
 #HotIf !WinActive("ahk_exe msrdc.exe") ; remote desktop がアクティブな場合は無効にする。そうしないと ` が入力されてしまう。
-    ; 上部メニューがアクティブになるのを抑制
-    ~LAlt:: Send "{Blind}{vkFF}"
-    ~RAlt:: Send "{Blind}{vkFF}"
+; 上部メニューがアクティブになるのを抑制
+~LAlt:: Send "{Blind}{vkFF}"
+~RAlt:: Send "{Blind}{vkFF}"
 
-    ; 直接入力
-    LAlt Up::
+; 直接入力
+LAlt Up::
+{
+    if (A_PriorHotkey == "~LAlt")
     {
-        if (A_PriorHotkey == "~LAlt")
-        {
-            ImeOff()
-        }
+        ImeOff()
     }
+}
 
-    ; 日本語入力
-    RAlt Up::
+; 日本語入力
+RAlt Up::
+{
+    if (A_PriorHotkey == "~RAlt")
     {
-        if (A_PriorHotkey == "~RAlt")
-        {
-            ImeOn()
-        }
+        ImeOn()
     }
+}
 #HotIf
 
 #HotIf WinActive("ahk_exe firefox.exe")
     || WinActive("ahk_exe msedge.exe")
     || WinActive("ahk_exe Notion.exe")
-    ^h:: Send "{ Left }"
-    ^j:: Send "{ Down }"
-    ^k:: Send "{ Up }"
-    ^l:: Send "{ Right }"
-    ^u:: Send "{ Home }" ;行頭へ
-    ^o:: Send "{ End }" ;行末へ
+^h:: Send "{ Left }"
+^j:: Send "{ Down }"
+^k:: Send "{ Up }"
+^l:: Send "{ Right }"
+^u:: Send "{ Home }" ;行頭へ
+^o:: Send "{ End }" ;行末へ
 #HotIf
 
 #HotIf WinActive("ahk_exe obsidian.exe")
     || WinActive("ahk_exe wezterm.exe")
+    || WinActive("ahk_exe Code.exe")
 
-    Esc::
-    {
-        ImeOff()
-        Send "{Esc}"
-    }
+Esc::
+{
+    ImeOff()
+    Send "{Esc}"
+}
 
-    ^c::
-    {
-        ImeOff()
-        Send "{Esc}"
-    }
+^c::
+{
+    ImeOff()
+    Send "{Esc}"
+}
 
-    ^[::
-    {
-        ImeOff()
-        Send "{Esc}"
-    }
+^[::
+{
+    ImeOff()
+    Send "{Esc}"
+}
+#HotIf
+
+;=============================================
+; 日本語キーボードレイアウト -> 英語キーボードレイアウトへの変換
+;=============================================
+; 日本語キーボードレイアウト判定 TODO 判定処理がこれで良いかは再考の余地あり
+if (GetKeyName("vkDEsc00D") == "^") {
+  ; 1キー段目
+  VKF4::Send "{``}"    ;         半角/全角      -> `
+  +VKF4::Send "{~}"    ; Shift + 半角/全角      -> ~
+  +2::Send "{@}"       ; Shift + 2         ["] -> @
+  +6::Send "{^}"       ; Shift + 6         [&] -> ^
+  +7::Send "{&}"       ; Shift + 7         ['] -> &
+  +8::Send "{*}"       ; Shift + 8         [(] -> *
+  +9::Send "{(}"       ; Shift + 9         [)] -> (
+  +0::Send "{)}"       ; Shift + 0         [ ] -> )
+  +-::Send "{_}"       ; Shift + -         [=] -> _
+  ^::Send "{=}"        ;                   [^] -> =
+  +^::Send "{+}"       ; Shift + ^         [~] -> +
+
+  ; Qキー段目
+  @::Send "{[}"        ;                   [@] -> [
+  +@::Send "{{}"       ; Shift + @         [`] -> {
+  [::Send "{]}"        ;                   [[] -> ]
+  +[::Send "{`}}"      ; Shift + [         [{] -> }
+
+  ; Aキー段目
+  +;::Send "{:}"       ; Shift + ;         [+] -> :
+  :::Send "{'}"        ;                   [:] -> '
+  *::Send "{`"}"       ; Shift + :         [*] -> "
+  +]::Send "{|}"       ; Shift + ]         [}] -> |
+  ]::Send "{\}"        ;                   []] -> \
+}
+
 #HotIf
 
 ;=============================================
