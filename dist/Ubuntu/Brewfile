@@ -2,6 +2,7 @@ tap "homebrew/bundle"
 tap "homebrew/core"
 
 brew "cmake"
+brew "dasel"
 brew "direnv"
 brew "fzf"
 brew "gh"
