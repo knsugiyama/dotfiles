@@ -60,6 +60,15 @@
         },
         {
           "PackageIdentifier": "wez.wezterm"
+        },
+        {
+          "PackageIdentifier": "9PGCV4V3BK4W"
+        },
+        {
+          "PackageIdentifier": "CrystalDewWorld.CrystalDiskInfo"
+        },
+        {
+          "PackageIdentifier": "Google.VPNByGoogleOne"
         }
       ],
       "SourceDetails": {
