@@ -10,6 +10,9 @@ vim.keymap.set('v', 'v', '$h')
 -- Y -> 行末までヤンク
 vim.keymap.set('n', 'Y', 'y$')
 
+vim.keymap.set('n', 'H', '^')
+vim.keymap.set('n', 'L', '$')
+
 -- Dまたはxで削除したときはヤンクしない
 vim.keymap.set('n', 'D', '"_D')
 vim.keymap.set('n', 'x', '"_x')
@@ -40,12 +43,21 @@ vim.keymap.set('i', 'jk', '<ESC>', { silent = true })
 vim.keymap.set('i', 'jkw', '<ESC>:w!<CR>', { silent = true })
 vim.keymap.set('i', 'jkq', '<ESC>:wq!<CR>', { silent = true })
 
+-- jkでEscする
+vim.keymap.set('i', 'jk', '<Esc>')
+
+-- スペルチェックの切り替え
+vim.keymap.set('n', '<Leader>s', ':set spell!<CR>')
+-- スペル修正
+vim.keymap.set('n', '<Leader>f', '1z=')
+
 -- 終了
 vim.keymap.set('n', 'sq', ':q<CR>')
+
 -- 現在のバッファ削除
 vim.keymap.set('n', 'bd', ':bd<CR>')
 
--- jjでEscする
-vim.keymap.set('i', 'jj', '<Esc>')
+-- スペルチェックの切り替え
+vim.keymap.set('n', '<Leader>s', ':set spell!')
 -- 設定ファイルを開く
 vim.keymap.set('n', '<F1>', ':edit $MYVIMRC<CR>')
