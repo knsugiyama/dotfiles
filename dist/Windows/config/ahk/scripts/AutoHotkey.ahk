@@ -1,7 +1,7 @@
 
 /*
-    左右 Alt キーの空打ちで 入力方式 を切り替える
-    Alt キーを押している間に他のキーを打つと通常の Alt キーとして動作
+    左右 Alt または Shift キーの空打ちで 入力方式 を切り替える
+    Alt または Shift キーを押している間に他のキーを打つと通常の Alt または Shift キーとして動作
 */
 
 ; + -> Shift
@@ -33,6 +33,14 @@ LAlt Up::
     }
 }
 
+~LShift Up::
+{
+    if (A_Priorkey == "LShift")
+    {
+        ImeOff()
+    }
+}
+
 ; 日本語入力
 RAlt Up::
 {
@@ -41,6 +49,15 @@ RAlt Up::
         ImeOn()
     }
 }
+
+~RShift Up::
+{
+    if (A_Priorkey == "RShift")
+    {
+        ImeOn()
+    }
+}
+
 #HotIf
 
 #HotIf WinActive("ahk_exe firefox.exe")

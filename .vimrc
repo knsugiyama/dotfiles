@@ -1,5 +1,5 @@
 " ヤンクでクリップボードにコピー
-set clipboard+=unnamed
+set clipboard=unnamed
 
 " 行をまたいで移動
 set whichwrap=b,s,h,l,<,>,[,],~
@@ -19,3 +19,9 @@ nmap k gk
 " I like using H and L for beginning/end of line
 nmap H ^
 nmap L $
+
+imap jk <Esc>
+
+vmap v $h
+
+vmap Y y$
