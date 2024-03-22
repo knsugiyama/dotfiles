@@ -7,8 +7,6 @@ set -eu
 # make ファイルのシンボリックリンクをrootに移動
 ln -sfnv ${HOME}/.dotfiles/dist/Darwin/Makefile ${HOME}/.dotfiles/Makefile
 # .zshenv ファイル のシンボリックリンクをrootに移動
-ln -sfnv ${HOME}/.dotfiles/dist/Darwin/.zshenv ${HOME}/.dotfiles/.zshenv
-
-# shell変更
-sudo sh -c "echo $(which zsh) >> /etc/shells"
-chsh -s $(which zsh)
+ln -sfnv ${HOME}/.dotfiles/dist/Darwin/.zshenv ${HOME}/.zshenv
+# Brewfile ファイル のシンボリックリンクをrootに移動
+ln -sfnv ${HOME}/.dotfiles/dist/Darwin/Brewfile ${HOME}/Brewfile

@@ -8,7 +8,6 @@ $DOTFILES = "$HOME\.dotfiles"
 Set-Location $DOTFILES
 
 if (Test-Path ("$DOTFILES\.git")) {
-    git checkout main
     git pull
 }
 else {

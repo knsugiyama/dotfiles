@@ -1,42 +1,37 @@
-cask_args appdir: "/Applications"
 tap "homebrew/bundle"
-tap "homebrew/cask"
 tap "homebrew/cask-fonts"
 tap "homebrew/cask-versions"
-tap "homebrew/core"
-
 brew "bash"
 brew "cmake"
 brew "dasel"
 brew "direnv"
-brew "exa"
 brew "fontconfig"
 brew "fzf"
 brew "gh"
 brew "ghq"
 brew "git"
 brew "git-lfs"
-brew "gpg"
+brew "gnupg"
 brew "grep"
-brew "hub"
 brew "htop"
+brew "hub"
 brew "jq"
 brew "lazygit"
 brew "lua"
+brew "neovim"
 brew "ripgrep"
 brew "stylua"
 brew "tree"
 brew "unar"
 brew "zsh"
-
-cask "appcleaner"
-cask "clipy"
-cask "font-hack-nerd-font"
-cask "google-japanese-ime"
-cask "hammerspoon"
-cask "slack"
-cask "syncthing"
-cask "visual-studio-code"
-cask "wezterm"
-cask "zoom"
-cask "zotero"
+cask "appcleaner", args: { appdir: "/Applications" }
+cask "clipy", args: { appdir: "/Applications" }
+cask "firefox"
+cask "font-hack-nerd-font", args: { appdir: "/Applications" }
+cask "hammerspoon", args: { appdir: "/Applications" }
+cask "slack", args: { appdir: "/Applications" }
+cask "syncthing", args: { appdir: "/Applications" }
+cask "visual-studio-code", args: { appdir: "/Applications" }
+cask "wezterm", args: { appdir: "/Applications" }
+cask "zoom", args: { appdir: "/Applications" }
+cask "zotero", args: { appdir: "/Applications" }

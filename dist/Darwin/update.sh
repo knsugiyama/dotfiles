@@ -6,7 +6,6 @@ if [ ! -d ".git" ]; then
   git fetch origin
   git checkout -b main
 else
-  git checkout main
   git pull
 fi
 

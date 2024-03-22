@@ -17,6 +17,7 @@ end):start()
 --]]
 local simpleAlt = false
 
+--[[
 local function eikanaEvent(event)
   local c = event:getKeyCode()
   local f = event:getFlags()
@@ -40,12 +41,15 @@ end
 
 eikana = eventtap.new({ keyDown, flagsChanged }, eikanaEvent)
 eikana:start()
+--]]
 
 --[[
 -- esc キー押下でIME切り替えをする
 --]]
+--[[
 switchToEisuOnEscape = eventtap.new({ keyDown }, function(e)
   if hs.keycodes.map[e:getKeyCode()] == 'escape' then
     hs.keycodes.setMethod('Alphanumeric (Google)')
   end
 end):start()
+--]]
