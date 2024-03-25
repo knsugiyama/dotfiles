@@ -14,3 +14,4 @@ sudo apt -y upgrade
 sudo apt autoremove
 
 brew upgrade
+brew bundle dump --force --file=~/Brewfile

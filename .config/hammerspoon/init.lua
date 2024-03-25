@@ -13,7 +13,7 @@ autoReload = hs.pathwatcher.new(os.getenv('HOME') .. '/.config/hammerspoon/init.
 end):start()
 
 --[[
--- 左右Altキーで英語、Google日本語入力を切り替える
+-- 左右Altキーで英語、日本語入力を切り替える
 --]]
 local simpleAlt = false
 
@@ -52,4 +52,24 @@ switchToEisuOnEscape = eventtap.new({ keyDown }, function(e)
     hs.keycodes.setMethod('Alphanumeric (Google)')
   end
 end):start()
+--]]
+
+--[[
+-- AquaSKK 向け
+local function terminalEvent(name, event, app)
+  if event == hs.application.watcher.activated then
+    -- log.i(name)
+    if name == 'WezTerm' then
+      hs.hotkey.bind({"ctrl"}, "j", function()
+        -- hs.eventtap.event.newKeyEvent({}, 'up', true):post(); return true;
+        -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', true):post()
+        -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', false):post()
+        hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, '0', true):post()
+      end)
+    end
+  end
+end
+
+terminalWatch = hs.application.watcher.new(terminalEvent)
+terminalWatch:start()
 --]]
