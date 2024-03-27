@@ -35,6 +35,8 @@
 !/.gitignore
 !/.github/
 !/.github/**
+!/archives/
+!/archives/**
 !/bin/
 !/bin/btp/**
 !/bin/cf/**
