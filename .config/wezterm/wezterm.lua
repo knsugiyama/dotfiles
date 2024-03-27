@@ -12,11 +12,11 @@ if wezterm.config_builder then
 end
 
 -- config.font = wezterm.font 'HackGen35 Console NF'
-config.font = wezterm.font("HackGen35 Console NF", { weight = "Medium", stretch = "Normal", style = "Normal" })
 config.font_size = 16.0
 
 config.font = wezterm.font_with_fallback {
-  'Monaspace Argon',
+  {family = 'Moralerspace Argon NF'},
+  {family = 'HackGen35 Console NF'}
 }
 
 -- change default shell

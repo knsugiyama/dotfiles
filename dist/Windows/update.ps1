@@ -19,6 +19,8 @@ else {
 
 Set-Location $CURRENTPATH
 
-winget upgrade --all --accept-source-agreements --accept-package-agreements --uninstall-previous
+winget upgrade --all --accept-source-agreements --accept-package-agreements
+winget upgrade --uninstall-previous
+
 scoop update --all
 Update-Module
