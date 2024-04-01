@@ -24,8 +24,10 @@ vim.o.completeopt = 'menuone,noselect'
 -- }}}
 
 -- Display {{{
+-- 行番号表示
+vim.o.number = true
 -- 相対的な行番号表示
-vim.o.relativenumber = true
+-- vim.o.relativenumber = true
 -- 空白文字等、不可視な文字の可視化
 vim.o.list = true
 vim.opt.listchars = {
@@ -38,7 +40,9 @@ vim.opt.listchars = {
 }
 vim.opt.showcmd = true
 vim.opt.cursorline = true
-vim.opt.colorcolumn = { 150 }
+vim.opt.colorcolumn = {
+  150
+}
 -- Keep signcolumn on by default
 vim.wo.signcolumn = 'yes' --行数表示の横に余白を追加
 -- }}}

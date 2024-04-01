@@ -19,6 +19,8 @@ config.font = wezterm.font_with_fallback {
   {family = 'HackGen35 Console NF'}
 }
 
+config.use_ime = true
+
 -- change default shell
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
   config.default_prog = { 'pwsh.exe', '-l' }
@@ -39,6 +41,8 @@ config.leader = { key = "Space", mods = "CTRL|SHIFT" }
 -- 背景透過
 config.window_background_opacity = 0.90
 
+config.window_close_confirmation = 'NeverPrompt'
+
 -- ショートカットキー設定
 local act = wezterm.action
 config.keys = {
@@ -46,7 +50,7 @@ config.keys = {
   {
     key = 'f',
     mods = 'SHIFT|META',
-    action = wezterm.action.ToggleFullScreen,
+    action = act.ToggleFullScreen,
   },
   -- Ctrl+Shift+tで新しいタブを作成
   {
@@ -58,7 +62,7 @@ config.keys = {
   {
     key = 'd',
     mods = 'SHIFT|CTRL',
-    action = wezterm.action.SplitHorizontal { domain = 'CurrentPaneDomain' },
+    action = act.SplitHorizontal { domain = 'CurrentPaneDomain' },
   },
   -- Ctrl+Backspaceで前の単語を削除
   {
@@ -66,6 +70,15 @@ config.keys = {
     mods = "CTRL",
     action = act.SendKey {
       key = "w",
+      mods = "CTRL",
+    },
+  },
+  -- Ctrl+j -> Ctrl + 0 for skk
+  {
+    key = "j",
+    mods = "CTRL",
+    action = act.SendKey {
+      key = "0",
       mods = "CTRL",
     },
   },

@@ -1,4 +1,4 @@
--- lazy_nvim で インストールする plugin
+-- lazy_nvim で インストールする plugin list
 return {
   --#region
   --{{{ lib

@@ -38,6 +38,7 @@ cask "slack", args: { appdir: "/Applications" }
 cask "syncthing", args: { appdir: "/Applications" }
 cask "tableau"
 cask "tableau-prep"
+cask "todoist"
 cask "visual-studio-code", args: { appdir: "/Applications" }
 cask "wezterm", args: { appdir: "/Applications" }
 cask "zoom", args: { appdir: "/Applications" }
