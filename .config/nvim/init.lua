@@ -1,5 +1,6 @@
-require('default_settings')
-require('keymaps')
+require('basic_settings')
+require('basic_keymaps')
+require('basic_autocommands')
 
 local osName = os.getenv("OS") or io.popen("uname -s"):read("*l")
 

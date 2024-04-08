@@ -23,4 +23,6 @@ winget upgrade --all --accept-source-agreements --accept-package-agreements
 winget upgrade --uninstall-previous
 
 scoop update --all
+scoop export > "$DOTFILES\dist\Windows\init\scoopfile.json"
+
 Update-Module
