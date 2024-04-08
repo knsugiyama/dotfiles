@@ -1,9 +1,6 @@
 -- lazy_nvim で インストールする plugin list
 return {
-  --#region
-  --{{{ lib
-  -- displays a popup with possible key bindings
-  -- https://github.com/folke/which-key.nvim
+  -- 入力を開始したコマンドの可能なキー バインドをポップアップで表示
   {
     "folke/which-key.nvim",
     event = "VeryLazy",
@@ -11,11 +8,7 @@ return {
       require('plugin_configs/which-key')
     end
   },
-  --}}}
-  --#endregion
 
-  --#region
-  --{{{ UI
   -- 全角記号が半角文字と重なってしまう問題の対処
   {
     "delphinus/cellwidths.nvim",
@@ -24,7 +17,5 @@ return {
       require('plugin_configs/cellwidths')
     end,
   },
-  --}}}
-  --#endregion
 
 }

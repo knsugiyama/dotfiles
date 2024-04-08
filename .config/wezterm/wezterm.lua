@@ -11,7 +11,6 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- config.font = wezterm.font 'HackGen35 Console NF'
 config.font_size = 16.0
 
 config.font = wezterm.font_with_fallback {
@@ -19,7 +18,7 @@ config.font = wezterm.font_with_fallback {
   {family = 'HackGen35 Console NF'}
 }
 
-config.use_ime = true
+config.macos_forward_to_ime_modifier_mask = "SHIFT|CTRL"
 
 -- change default shell
 if wezterm.target_triple == 'x86_64-pc-windows-msvc' then
@@ -29,7 +28,6 @@ end
 
 -- This is where you actually apply your config choices
 -- Changing the color scheme and font:
--- config.color_scheme = 'Dracula (Official)'
 config.color_scheme = 'MaterialDesignColors'
 
 config.initial_rows = 40
@@ -70,15 +68,6 @@ config.keys = {
     mods = "CTRL",
     action = act.SendKey {
       key = "w",
-      mods = "CTRL",
-    },
-  },
-  -- Ctrl+j -> Ctrl + 0 for skk
-  {
-    key = "j",
-    mods = "CTRL",
-    action = act.SendKey {
-      key = "0",
       mods = "CTRL",
     },
   },
