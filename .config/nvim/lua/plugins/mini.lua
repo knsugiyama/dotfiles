@@ -39,6 +39,7 @@ return {
       require('mini.pairs').setup()
 
       require('mini.files').setup()
+      vim.keymap.set('n', 'fo', ':lua MiniFiles.open()<CR>', { desc = '[F]iles [O]pen', silent = true })
       -- ... and there is more!
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
