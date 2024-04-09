@@ -19,8 +19,8 @@ return {
   opts = {
     workspaces = {
       {
-        name = "personal",
-        path = "~/vaults/personal",
+        name = "obsidian",
+        path = "~/vaults/obsidian",
       },
     },
 
@@ -65,7 +65,6 @@ return {
     return path:with_suffix(".md")
   end,
 
-
   -- Optional, customize how markdown links are formatted.
   markdown_link_func = function(opts)
     return require("obsidian.util").markdown_link(opts)
@@ -84,7 +83,6 @@ return {
   -- Optional, boolean or a function that takes a filename and returns a boolean.
   -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
   disable_frontmatter = false,
-
 
   -- Optional, alternatively you can customize the frontmatter data.
   ---@return table
@@ -107,12 +105,9 @@ return {
     return out
   end,
 
-
   -- Optional, for templates (see below).
   templates = {
-    subdir = "templates",
-    date_format = "%Y-%m-%d",
-    time_format = "%H:%M",
+    subdir = "91_Templates",
     -- A map for custom variables, the key should be the variable and the value a function
     substitutions = {},
   },
@@ -232,7 +227,7 @@ return {
     -- The default folder to place images in via `:ObsidianPasteImg`.
     -- If this is a relative path it will be interpreted as relative to the vault root.
     -- You can always override this per image by passing a full path to the command instead of just a filename.
-    img_folder = "assets/imgs",  -- This is the default
+    img_folder = "zz_Files",  -- This is the default
     -- A function that determines the text to insert in the note when pasting an image.
     -- It takes two arguments, the `obsidian.Client` and an `obsidian.Path` to the image file.
     -- This is the default implementation.
