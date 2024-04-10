@@ -63,5 +63,4 @@ vim.keymap.set('n', 'bd', ':bd<CR>')
 -- vim.keymap.set('n', '<F1>', ':edit $MYVIMRC<CR>')
 
 -- 現在編集中のファイルのディレクトリに移動
-vim.keymap.set('n', 'cd', '<CMD>cd %:h<CR>', {desc = '[C]hange [D]irectory'})
-
+vim.keymap.set('n', 'cd', '<CMD>cd %:h<CR>', { desc = '[C]hange [D]irectory' })
