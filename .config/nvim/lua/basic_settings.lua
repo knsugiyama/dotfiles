@@ -1,7 +1,11 @@
 -- Set <space> as the leader key
 -- See `:help mapleader`
-vim.g.mapleader = " "
-vim.g.maplocalleader = " "
+vim.g.mapleader = ' '
+vim.g.maplocalleader = ' '
+
+vim.scriptencoding = 'utf-8'
+vim.opt.encoding = 'utf-8'
+vim.opt.fileencoding = 'utf-8'
 
 -- 行番号表示
 vim.opt.number = true
@@ -27,7 +31,7 @@ vim.opt.swapfile = false
 vim.opt.ignorecase = true
 vim.opt.smartcase = true
 
- --行数表示の横に余白を追加
+--行数表示の横に余白を追加
 vim.opt.signcolumn = 'yes'
 
 -- Decrease update time
@@ -45,7 +49,7 @@ vim.opt.listchars = {
   precedes = '«',
   nbsp = '%',
   space = '⋅',
-  eol = '↵'
+  eol = '↵',
 }
 
 -- Preview substitutions live, as you type!
@@ -62,4 +66,3 @@ vim.opt.whichwrap = 'b,s,h,l'
 vim.opt.hlsearch = true
 
 vim.opt.helplang = 'ja'
-
