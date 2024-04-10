@@ -9,7 +9,7 @@ return {
       --  - yinq - [Y]ank [I]nside [N]ext [']quote
       --  - ci'  - [C]hange [I]nside [']quote
       require('mini.ai').setup {
-        n_lines = 500
+        n_lines = 500,
       }
 
       -- Add/delete/replace surroundings (brackets, quotes, etc.)
@@ -25,7 +25,7 @@ return {
       local statusline = require 'mini.statusline'
       -- set use_icons to true if you have a Nerd Font
       statusline.setup {
-        use_icons = vim.g.have_nerd_font
+        use_icons = vim.g.have_nerd_font,
       }
 
       -- You can configure sections in the statusline by overriding their
@@ -44,5 +44,4 @@ return {
       --  Check out: https://github.com/echasnovski/mini.nvim
     end,
   },
-
 }

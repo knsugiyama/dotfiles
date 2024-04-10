@@ -1,6 +1,17 @@
 return {
+  -- 全角記号が半角文字と重なってしまう問題の対処
   {
-    -- tab stopとシフト幅を自動的に検出
+    'delphinus/cellwidths.nvim',
+    event = 'BufEnter',
+    config = function()
+      require('cellwidths').setup {
+        name = 'default',
+      }
+    end,
+  },
+
+  -- tab stopとシフト幅を自動的に検出
+  {
     'tpope/vim-sleuth',
   },
 
@@ -22,5 +33,4 @@ return {
       },
     },
   },
-
 }
