@@ -16,7 +16,6 @@ $env:XDG_STATE_HOME = $HOME + '\.local\state'
 # asdf 用
 ############
 if((Test-Path $HOME\.asdf)){
-  $env:ASDF_CONFIG_FILE = $env:XDG_CONFIG_HOME + '\asdf\.asdfrc'
   . "$HOME/.asdf/asdf.ps1"
 }
 
