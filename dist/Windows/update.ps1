@@ -19,8 +19,8 @@ else {
 
 Set-Location $CURRENTPATH
 
-winget upgrade --all --accept-source-agreements --accept-package-agreements
-winget upgrade --uninstall-previous
+winget upgrade --unknown --include-pinned --all --accept-source-agreements --accept-package-agreements
+winget export -o "$DOTFILES\dist\Windows\init\winget-app-list.json -s winget --accept-source-agreements"
 
 scoop update --all
 scoop export > "$DOTFILES\dist\Windows\init\scoopfile.json"

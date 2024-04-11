@@ -1,86 +1,170 @@
 {
-  "$schema": "https://aka.ms/winget-packages.schema.2.0.json",
-  "CreationDate": "2023-10-25T17:49:31.845-00:00",
-  "Sources": [
-    {
-      "Packages": [
-        {
-          "PackageIdentifier": "GoLang.Go"
-        },
-        {
-          "PackageIdentifier": "JernejSimoncic.Wget"
-        },
-        {
-          "PackageIdentifier": "JesseDuffield.lazygit"
-        },
-        {
-          "PackageIdentifier": "junegunn.fzf"
-        },
-        {
-          "PackageIdentifier": "jqlang.jq"
-        },
-        {
-          "PackageIdentifier": "Valve.Steam"
-        },
-        {
-          "PackageIdentifier": "Neovim.Neovim"
-        },
-        {
-          "PackageIdentifier": "Notion.Notion"
-        },
-        {
-          "PackageIdentifier": "Mozilla.Firefox"
-        },
-        {
-          "PackageIdentifier": "JanDeDobbeleer.OhMyPosh"
-        },
-        {
-          "PackageIdentifier": "DigitalScholar.Zotero"
-        },
-        {
-          "PackageIdentifier": "hugo.Hugo.Extended"
-        },
-        {
-          "PackageIdentifier": "Obsidian.Obsidian"
-        },
-        {
-          "PackageIdentifier": "Microsoft.PowerShell"
-        },
-        {
-          "PackageIdentifier": "Google.JapaneseIME"
-        },
-        {
-          "PackageIdentifier": "Google.GoogleDrive"
-        },
-        {
-          "PackageIdentifier": "Microsoft.VisualStudioCode"
-        },
-        {
-          "PackageIdentifier": "Microsoft.PowerToys"
-        },
-        {
-          "PackageIdentifier": "wez.wezterm"
-        },
-        {
-          "PackageIdentifier": "9PGCV4V3BK4W"
-        },
-        {
-          "PackageIdentifier": "CrystalDewWorld.CrystalDiskInfo"
-        },
-        {
-          "PackageIdentifier": "Google.VPNByGoogleOne"
-        },
-        {
-          "PackageIdentifier": "BurntSushi.ripgrep.MSVC"
-        }
-      ],
-      "SourceDetails": {
-        "Argument": "https://cdn.winget.microsoft.com/cache",
-        "Identifier": "Microsoft.Winget.Source_8wekyb3d8bbwe",
-        "Name": "winget",
-        "Type": "Microsoft.PreIndexed.Package"
-      }
-    }
-  ],
-  "WinGetVersion": "1.6.2771"
+	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
+	"CreationDate" : "2024-04-11T09:37:34.890-00:00",
+	"Sources" : 
+	[
+		{
+			"Packages" : 
+			[
+				{
+					"PackageIdentifier" : "Doist.Todoist"
+				},
+				{
+					"PackageIdentifier" : "Notion.Notion"
+				},
+				{
+					"PackageIdentifier" : "Anki.Anki"
+				},
+				{
+					"PackageIdentifier" : "AutoHotkey.AutoHotkey"
+				},
+				{
+					"PackageIdentifier" : "BurntSushi.ripgrep.MSVC"
+				},
+				{
+					"PackageIdentifier" : "Canonical.Ubuntu.2204"
+				},
+				{
+					"PackageIdentifier" : "CrystalDewWorld.CrystalDiskInfo"
+				},
+				{
+					"PackageIdentifier" : "Git.Git"
+				},
+				{
+					"PackageIdentifier" : "Hugo.Hugo.Extended"
+				},
+				{
+					"PackageIdentifier" : "JernejSimoncic.Wget"
+				},
+				{
+					"PackageIdentifier" : "JesseDuffield.lazygit"
+				},
+				{
+					"PackageIdentifier" : "LINE.LINE"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.Edge"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.EdgeWebView2Runtime"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.AppInstaller"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.UI.Xaml.2.7"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.UI.Xaml.2.8"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DevHome"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.WindowsTerminal"
+				},
+				{
+					"PackageIdentifier" : "Mozilla.Firefox"
+				},
+				{
+					"PackageIdentifier" : "JanDeDobbeleer.OhMyPosh"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.OneDrive"
+				},
+				{
+					"PackageIdentifier" : "Postman.Postman"
+				},
+				{
+					"PackageIdentifier" : "Valve.Steam"
+				},
+				{
+					"PackageIdentifier" : "Syncthing.Syncthing"
+				},
+				{
+					"PackageIdentifier" : "Zoom.Zoom"
+				},
+				{
+					"PackageIdentifier" : "DigitalScholar.Zotero"
+				},
+				{
+					"PackageIdentifier" : "Obsidian.Obsidian"
+				},
+				{
+					"PackageIdentifier" : "jqlang.jq"
+				},
+				{
+					"PackageIdentifier" : "junegunn.fzf"
+				},
+				{
+					"PackageIdentifier" : "Google.JapaneseIME"
+				},
+				{
+					"PackageIdentifier" : "Kensington.KensingtonWorks"
+				},
+				{
+					"PackageIdentifier" : "Tableau.Desktop"
+				},
+				{
+					"PackageIdentifier" : "Tableau.PrepBuilder"
+				},
+				{
+					"PackageIdentifier" : "nathancorvussolis.corvusskk"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier" : "Neovim.Neovim"
+				},
+				{
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
+				},
+				{
+					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
+				},
+				{
+					"PackageIdentifier" : "Google.GoogleDrive"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VisualStudioCode"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
+				},
+				{
+					"PackageIdentifier" : "Google.VPNByGoogleOne"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
+					"PackageIdentifier" : "Nvidia.GeForceExperience"
+				},
+				{
+					"PackageIdentifier" : "Nvidia.PhysX"
+				},
+				{
+					"PackageIdentifier" : "wez.wezterm"
+				}
+			],
+			"SourceDetails" : 
+			{
+				"Argument" : "https://cdn.winget.microsoft.com/cache",
+				"Identifier" : "Microsoft.Winget.Source_8wekyb3d8bbwe",
+				"Name" : "winget",
+				"Type" : "Microsoft.PreIndexed.Package"
+			}
+		}
+	],
+	"WinGetVersion" : "1.7.10861"
 }

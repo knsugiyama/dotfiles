@@ -13,12 +13,18 @@ $env:XDG_CACHE_HOME = $HOME + '\.local\cache'
 $env:XDG_STATE_HOME = $HOME + '\.local\state'
 
 ############
+# asdf 用
+############
+if((Test-Path $HOME\.asdf)){
+  $env:ASDF_CONFIG_FILE = $env:XDG_CONFIG_HOME + '\asdf\.asdfrc'
+  . "$HOME/.asdf/asdf.ps1"
+}
+
+############
 # Alias
 ############
 Set-Alias ll ls
 Set-Alias grep findstr
-Set-Alias tig 'C:\Program Files\Git\usr\bin\tig.exe'
-Set-Alias less 'C:\Program Files\Git\usr\bin\less.exe'
 Set-Alias v nvim
 Set-Alias vi nvim
 Set-Alias vim nvim
