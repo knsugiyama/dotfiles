@@ -76,11 +76,12 @@ return {
     preferred_link_style = 'wiki',
     use_advanced_uri = true,
     finder = 'telescope.nvim',
-
     -- Sort search results by "path", "modified", "accessed", or "created".
     sort_by = 'modified',
     sort_reversed = true,
-
+    -- Optional, boolean or a function that takes a filename and returns a boolean.
+    -- `true` indicates that you don't want obsidian.nvim to manage frontmatter.
+    disable_frontmatter = false,
     -- Open note in current buffer
     open_notes_in = 'current',
     yaml_parser = 'native',
@@ -133,7 +134,8 @@ return {
     -- Default save location for newly daily notes
     daily_notes = {
       folder = '03_Personal Reports/01_Daily Notes',
-      -- date_format = '%Y年%m月%d日',
+      -- Optional, if you want to change the date format of the default alias of daily notes.
+      alias_format = '%B %-d, %Y',
       -- NOTE: Should without `templates` folder
       template = 'Daily Notes template.md',
     },
