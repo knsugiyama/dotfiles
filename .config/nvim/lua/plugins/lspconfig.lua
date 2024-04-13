@@ -10,13 +10,15 @@ return {
       -- Useful status updates for LSP.
       -- NOTE: `opts = {}` is the same as calling `require('fidget').setup({})`
       {
-        'j-hui/fidget.nvim', opts = {}
+        'j-hui/fidget.nvim',
+        opts = {},
       },
 
       -- `neodev` configures Lua LSP for your Neovim config, runtime and plugins
       -- used for completion, annotations and signatures of Neovim apis
       {
-        'folke/neodev.nvim', opts = {}
+        'folke/neodev.nvim',
+        opts = {},
       },
     },
     config = function()
@@ -76,7 +78,7 @@ return {
           -- The following two autocommands are used to highlight references of the
           -- word under your cursor when your cursor rests there for a little while.
           --    See `:help CursorHold` for information about when this is executed
-          
+
           -- When you move your cursor, the highlights will be cleared (the second autocommand).
           local client = vim.lsp.get_client_by_id(event.data.client_id)
           if client and client.server_capabilities.documentHighlightProvider then
@@ -145,11 +147,16 @@ return {
 
       -- You can add other tools here that you want Mason to install
       -- for you, so that they are available from within Neovim.
+      -- formatter や linter をここでインストールする
       local ensure_installed = vim.tbl_keys(servers or {})
       vim.list_extend(ensure_installed, {
-        'stylua', -- Used to format Lua code
+        'markdownlint',
+        'prettierd',
+        'stylua',
       })
-      require('mason-tool-installer').setup { ensure_installed = ensure_installed }
+      require('mason-tool-installer').setup {
+        ensure_installed = ensure_installed,
+      }
 
       require('mason-lspconfig').setup {
         handlers = {
