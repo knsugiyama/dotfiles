@@ -21,5 +21,9 @@ if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
   source ${ZIM_HOME}/zimfw.zsh init -q
 fi
 
+if [[ -d "$HOME/.asdf" ]]; then
+    . "$HOME/.asdf/asdf.sh"
+fi
+
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
