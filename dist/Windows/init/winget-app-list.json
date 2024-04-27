@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-04-11T09:37:34.890-00:00",
+	"CreationDate" : "2024-04-27T09:07:55.147-00:00",
 	"Sources" : 
 	[
 		{
@@ -8,6 +8,9 @@
 			[
 				{
 					"PackageIdentifier" : "Doist.Todoist"
+				},
+				{
+					"PackageIdentifier" : "CoreyButler.NVMforWindows"
 				},
 				{
 					"PackageIdentifier" : "Notion.Notion"
@@ -28,6 +31,9 @@
 					"PackageIdentifier" : "CrystalDewWorld.CrystalDiskInfo"
 				},
 				{
+					"PackageIdentifier" : "Discord.Discord"
+				},
+				{
 					"PackageIdentifier" : "Git.Git"
 				},
 				{
@@ -38,9 +44,6 @@
 				},
 				{
 					"PackageIdentifier" : "JesseDuffield.lazygit"
-				},
-				{
-					"PackageIdentifier" : "LINE.LINE"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Edge"
@@ -100,19 +103,16 @@
 					"PackageIdentifier" : "junegunn.fzf"
 				},
 				{
-					"PackageIdentifier" : "Google.JapaneseIME"
-				},
-				{
 					"PackageIdentifier" : "Kensington.KensingtonWorks"
-				},
-				{
-					"PackageIdentifier" : "Tableau.Desktop"
 				},
 				{
 					"PackageIdentifier" : "Tableau.PrepBuilder"
 				},
 				{
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
@@ -139,13 +139,7 @@
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
-				},
-				{
 					"PackageIdentifier" : "Google.VPNByGoogleOne"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
 				},
 				{
 					"PackageIdentifier" : "Nvidia.GeForceExperience"
@@ -155,6 +149,12 @@
 				},
 				{
 					"PackageIdentifier" : "wez.wezterm"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
+					"PackageIdentifier" : "Tableau.Desktop"
 				}
 			],
 			"SourceDetails" : 

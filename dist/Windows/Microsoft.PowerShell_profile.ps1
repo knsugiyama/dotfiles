@@ -55,8 +55,8 @@ function script:deploy {
 }
 
 function script:update {
-    powershell $HOME\.dotfiles\dist\Windows\update.ps1
     deploy
+    powershell $HOME\.dotfiles\dist\Windows\update.ps1
 }
 
 function reload {
