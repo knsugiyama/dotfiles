@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-04-27T09:07:55.147-00:00",
+	"CreationDate" : "2024-05-07T08:50:29.816-00:00",
 	"Sources" : 
 	[
 		{
@@ -76,9 +76,6 @@
 					"PackageIdentifier" : "JanDeDobbeleer.OhMyPosh"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.OneDrive"
-				},
-				{
 					"PackageIdentifier" : "Postman.Postman"
 				},
 				{
@@ -88,7 +85,10 @@
 					"PackageIdentifier" : "Syncthing.Syncthing"
 				},
 				{
-					"PackageIdentifier" : "Zoom.Zoom"
+					"PackageIdentifier" : "TheBrowserCompany.Arc"
+				},
+				{
+					"PackageIdentifier" : "Zoom.Zoom.EXE"
 				},
 				{
 					"PackageIdentifier" : "DigitalScholar.Zotero"
@@ -116,6 +116,9 @@
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier" : "Tableau.Desktop"
 				},
 				{
 					"PackageIdentifier" : "Neovim.Neovim"
@@ -152,9 +155,6 @@
 				},
 				{
 					"PackageIdentifier" : "Microsoft.PowerShell"
-				},
-				{
-					"PackageIdentifier" : "Tableau.Desktop"
 				}
 			],
 			"SourceDetails" : 
@@ -166,5 +166,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.7.10861"
+	"WinGetVersion" : "1.7.11132"
 }
