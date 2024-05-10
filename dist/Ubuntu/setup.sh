@@ -16,10 +16,10 @@ ln -sfnv ${HOME}/.dotfiles/dist/Ubuntu/Brewfile ${HOME}/Brewfile
 
 # docker
 curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
-sudo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+secho y | udo add-apt-repository "deb [arch=amd64] https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
 
-sudo apt update
-sudo apt install docker-ce docker-ce-cli containerd.io
+secho y | udo apt update
+secho y | udo apt install docker-ce docker-ce-cli containerd.io
 
 # homebrew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"

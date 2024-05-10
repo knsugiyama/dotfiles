@@ -28,6 +28,7 @@ Set-Alias v nvim
 Set-Alias vi nvim
 Set-Alias vim nvim
 Set-Alias lg lazygit
+Set-Alias wslhome open-wsl
 
 ############
 # Functions
@@ -62,6 +63,11 @@ function script:update {
 function reload {
     . $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 }
+
+function open-wsl {
+    wsl --cd "~"
+}
+
 
 # psreadline
 ## Fish風の自動補完
