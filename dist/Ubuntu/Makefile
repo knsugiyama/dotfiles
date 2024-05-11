@@ -16,10 +16,11 @@ list: ## Show dot files in this repo
 deploy: ## Create symlink to home directory
 	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-ifeq (`which zsh`,)
-	@sudo sh -c "echo `which zsh` >> /etc/shells"
-	@chsh -s `which zsh`
-endif
+	@which zsh > /dev/null 2>&1; \
+	if [ $$? -eq 0 ]; then \
+		sudo sh -c "echo `which zsh` >> /etc/shells"; \
+		chsh -s `which zsh`; \
+	fi
 
 install: ## Install apps.
 	@brew bundle --file=${HOME}/.dotfiles/dist/Ubuntu/Brewfile
@@ -40,3 +41,4 @@ help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
+
