@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-05-07T08:50:29.816-00:00",
+	"CreationDate" : "2024-05-11T19:34:53.783-00:00",
 	"Sources" : 
 	[
 		{
@@ -124,22 +124,22 @@
 					"PackageIdentifier" : "Neovim.Neovim"
 				},
 				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
-				},
-				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
-				},
-				{
 					"PackageIdentifier" : "Google.GoogleDrive"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
 				},
 				{
 					"PackageIdentifier" : "Google.VPNByGoogleOne"
@@ -166,5 +166,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.7.11132"
+	"WinGetVersion" : "1.7.11261"
 }

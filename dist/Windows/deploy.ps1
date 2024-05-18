@@ -30,9 +30,3 @@ mountFsTab = false
 wsl.exe -d Ubuntu --user root --exec bash -c "rm -f /etc/wsl.conf || true && echo '$wslConf' >/etc/wsl.conf"
 wsl.exe --shutdown
 
-Write-Host "#####"
-Write-Host 'export package files'
-Write-Host "#####"
-winget export -o "$DOTFILES\dist\Windows\init\winget-app-list.json" -s winget --accept-source-agreements
-scoop export > "$DOTFILES\dist\Windows\init\scoopfile.json"
-

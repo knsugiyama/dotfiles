@@ -8,11 +8,10 @@ $env:XDG_STATE_HOME = $HOME + '\.local\state'
 Write-Host "############"
 Write-Host "wingetによるアプリインストールを実施"
 Write-Host "############"
-
-winget import $HOME\.dotfiles\dist\Windows\init\winget-app-list.json
+winget import -i "$HOME\.dotfiles\dist\Windows\init\winget-app-list.json" --ignore-unavailable --no-upgrade --accept-package-agreements --accept-source-agreements
 
 # AutoHotkeyのみ、インストール先の指定が必要なので、単独で実行
-Write-Output $HOME\.dotfiles\dist\Windows\config\ahk | winget install AutoHotkey.AutoHotkey
+# Write-Output $HOME\.dotfiles\dist\Windows\config\ahk | winget install AutoHotkey.AutoHotkey
 
 # .configフォルダを作成する
 if(!(Test-Path $HOME\.config)){
@@ -38,5 +37,7 @@ Start-Process powershell.exe ("-noprofile -command Set-ExecutionPolicy -Executio
 Write-Host "#####"
 Write-Host "scoop install"
 Write-Host "#####"
+
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
 scoop bucket add extras
+scoop import "$HOME\.dotfiles\dist\Windows\init\scoopfile.json"

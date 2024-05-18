@@ -60,6 +60,11 @@ function script:update {
     deploy
 }
 
+function script:export {
+    winget export -o "$DOTFILES\dist\Windows\init\winget-app-list.json" -s winget --accept-source-agreements
+    scoop export > "$DOTFILES\dist\Windows\init\scoopfile.json"
+}
+
 function reload {
     . $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 }

@@ -19,10 +19,8 @@ else {
 
 Set-Location $CURRENTPATH
 
-winget import -i "$DOTFILES\dist\Windows\init\winget-app-list.json" --ignore-unavailable --no-upgrade --accept-package-agreements --accept-source-agreements
 winget upgrade --unknown --include-pinned --all --accept-source-agreements --accept-package-agreements
 
-scoop import "$DOTFILES\dist\Windows\init\scoopfile.json"
 scoop update --all
 
 Update-Module
