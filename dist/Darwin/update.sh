@@ -11,4 +11,3 @@ fi
 
 brew upgrade
 brew upgrade --cask
-brew bundle dump --force --file=~/Brewfile

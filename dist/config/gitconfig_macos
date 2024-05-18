@@ -1,4 +1,6 @@
-[credential "https://github.com"]
+[credential]
 	helper = 
-[credential "https://gist.github.com"]
-	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager
+[credential "https://dev.azure.com"]
+	useHttpPath = true
+

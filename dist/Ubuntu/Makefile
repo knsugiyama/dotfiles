@@ -4,7 +4,7 @@ EXCLUSIONS := .DS_Store .git .gitignore .github .vscode
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 SHELL=/bin/bash
 
-.PHONY := all list deploy install clean help
+.PHONY := all list deploy install update export clean help
 .DEFAULT_GOAL := help
 
 all:
@@ -29,6 +29,10 @@ install: ## Install apps.
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/dist/Ubuntu/update.sh
+
+export: ## Export brew packages
+	@echo 'Export brew packages'
+	@brew bundle dump --force --file=~/Brewfile
 
 clean: ## Remove the dot files and this repo
 	@echo 'Remove the dot files and this repo.'

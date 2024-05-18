@@ -4,7 +4,7 @@ EXCLUSIONS := .DS_Store .git .gitignore .github .vscode .fleet
 DOTFILES   := $(filter-out $(EXCLUSIONS), $(CANDIDATES))
 SHELL=/bin/bash
 
-.PHONY := all list deploy update clean help
+.PHONY := all list deploy update export clean help
 .DEFAULT_GOAL := help
 
 all:
@@ -20,11 +20,14 @@ deploy: ## Create symlink to home directory & create files of cloud-config
 install: ## Install apps.
 	@brew bundle --verbose --file=$(DOTFILES)/dist/Darwin/Brewfile
 	@brew update --verbose
-	@defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
 	@DOTPATH=$(DOTPATH) bash $(DOTPATH)/dist/Darwin/update.sh
+
+export: ## Export brew packages
+	@echo 'Export brew packages'
+	@brew bundle dump --force --file=~/Brewfile
 
 clean: ## Remobe the dot files and this repo
 	@echo 'Remove dot files in your home direfctory.'
