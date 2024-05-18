@@ -24,8 +24,6 @@
   rebase = false
 [hub]
   protocol = https
-[includeIf "gitdir/i:C:/"]
-    path = ~/.dotfiles/dist/config/gitconfig_windows
 [includeIf "gitdir/i:/home/"]
     path = ~/.dotfiles/dist/config/gitconfig_linux
 [includeIf "gitdir/i:/Users/"]
