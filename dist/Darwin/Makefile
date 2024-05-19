@@ -20,6 +20,7 @@ deploy: ## Create symlink to home directory & create files of cloud-config
 install: ## Install apps.
 	@brew bundle --verbose --file=$(DOTFILES)/dist/Darwin/Brewfile
 	@brew update --verbose
+	@git update-index --assume-unchanged $(HOME)/.dotfiles/.config/zsh/.zsh.d/99_profile.zsh
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
