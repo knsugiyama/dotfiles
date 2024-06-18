@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-05-11T19:34:53.783-00:00",
+	"CreationDate" : "2024-06-02T10:09:04.852-00:00",
 	"Sources" : 
 	[
 		{
@@ -11,9 +11,6 @@
 				},
 				{
 					"PackageIdentifier" : "CoreyButler.NVMforWindows"
-				},
-				{
-					"PackageIdentifier" : "Notion.Notion"
 				},
 				{
 					"PackageIdentifier" : "Anki.Anki"
@@ -76,7 +73,7 @@
 					"PackageIdentifier" : "JanDeDobbeleer.OhMyPosh"
 				},
 				{
-					"PackageIdentifier" : "Postman.Postman"
+					"PackageIdentifier" : "Microsoft.OneDrive"
 				},
 				{
 					"PackageIdentifier" : "Valve.Steam"
@@ -112,9 +109,6 @@
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
@@ -139,10 +133,10 @@
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
+					"PackageIdentifier" : "Neovim.Neovim"
 				},
 				{
-					"PackageIdentifier" : "Google.VPNByGoogleOne"
+					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
 				},
 				{
 					"PackageIdentifier" : "Nvidia.GeForceExperience"
@@ -151,10 +145,16 @@
 					"PackageIdentifier" : "Nvidia.PhysX"
 				},
 				{
+					"PackageIdentifier" : "GitHub.cli"
+				},
+				{
 					"PackageIdentifier" : "wez.wezterm"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
 				}
 			],
 			"SourceDetails" : 

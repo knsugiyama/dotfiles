@@ -26,6 +26,8 @@ return {
         function()
           require('conform').list_all_formatters()
         end,
+        mode = '',
+        desc = 'Formatters',
       },
     },
 

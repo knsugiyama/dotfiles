@@ -47,6 +47,8 @@ function make {
         deploy
     } elseif ($param -eq "update") {
         update
+    } elseif ($param -eq "export") {
+        export
     }
 }
 
@@ -61,12 +63,12 @@ function script:update {
 }
 
 function script:export {
-    winget export -o "$DOTFILES\dist\Windows\init\winget-app-list.json" -s winget --accept-source-agreements
-    scoop export > "$DOTFILES\dist\Windows\init\scoopfile.json"
+    winget export -o $HOME\.dotfiles\dist\Windows\init\winget-app-list.json -s winget --accept-source-agreements
+    scoop export > $HOME\.dotfiles\dist\Windows\init\scoopfile.json
 }
 
 function reload {
-    . $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+    . $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 }
 
 function open-wsl {
