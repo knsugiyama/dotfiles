@@ -21,6 +21,7 @@ install: ## Install apps.
 	@brew bundle --verbose --file=$(DOTFILES)/dist/Darwin/Brewfile
 	@brew update --verbose
 	@git update-index --assume-unchanged $(HOME)/.dotfiles/.config/zsh/.zsh.d/99_profile.zsh
+	@git update-index --assume-unchanged $(HOME)/.dotfiles/.gitconfig_credential
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
