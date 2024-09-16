@@ -41,3 +41,5 @@ Write-Host "#####"
 Invoke-RestMethod get.scoop.sh | Invoke-Expression
 scoop bucket add extras
 scoop import "$HOME\.dotfiles\dist\Windows\init\scoopfile.json"
+
+git update-index --assume-unchanged $HOME/.dotfiles/.gitconfig_credential
