@@ -12,8 +12,6 @@
 !/.tigrc
 !/.vimrc
 !/.config/
-!/.config/alacritty/
-!/.config/alacritty/alacritty.toml
 !/.config/asdf/
 !/.config/asdf/.tool-versions
 !/.config/lazygit/

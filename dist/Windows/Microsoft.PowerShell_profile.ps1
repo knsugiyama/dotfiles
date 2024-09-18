@@ -5,12 +5,12 @@ Import-Module PSReadLine
 Import-Module -Name Terminal-Icons
 
 ############
-# 環境変数のデフォルト設定
+# 環境変数のデフォルト設定 -> 環境変数そのもので対応するようにしたため、コメントアウト
 ############
-$env:XDG_CONFIG_HOME = $HOME + '\.config'
-$env:XDG_DATA_HOME = $HOME + '\.local\share'
-$env:XDG_CACHE_HOME = $HOME + '\.local\cache'
-$env:XDG_STATE_HOME = $HOME + '\.local\state'
+# $env:XDG_CONFIG_HOME = $HOME + '\.config'
+# $env:XDG_DATA_HOME = $HOME + '\.local\share'
+# $env:XDG_CACHE_HOME = $HOME + '\.local\cache'
+# $env:XDG_STATE_HOME = $HOME + '\.local\state'
 
 ############
 # asdf 用
