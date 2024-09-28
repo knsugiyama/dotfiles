@@ -28,7 +28,8 @@ end
 
 -- This is where you actually apply your config choices
 -- Changing the color scheme and font:
-config.color_scheme = "MaterialDesignColors"
+-- config.color_scheme = "MaterialDesignColors"
+config.color_scheme = "Builtin Solarized Light"
 
 config.initial_rows = 40
 config.initial_cols = 150
@@ -97,27 +98,6 @@ config.keys = {
     key = "l",
     mods = "META|CTRL",
     action = wezterm.action.ActivatePaneDirection("Right"),
-  },
-  -- META Ctrl Shift hjklでペイン境界の調整
-  {
-    key = "h",
-    mod = "META|CTRL|SHIFT",
-    action = wezterm.action.AdjustPaneSize({ "Left", 2 }),
-  },
-  {
-    key = "j",
-    mods = "META|CTRL|SHIFT",
-    action = wezterm.action.AdjustPaneSize({ "Down", 2 }),
-  },
-  {
-    key = "k",
-    mods = "META|CTRL|SHIFT",
-    action = wezterm.action.AdjustPaneSize({ "Up", 2 }),
-  },
-  {
-    key = "l",
-    mods = "META|CTRL|SHIFT",
-    action = wezterm.action.AdjustPaneSize({ "Right", 2 }),
   },
 }
 
