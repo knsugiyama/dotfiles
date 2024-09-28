@@ -4,14 +4,20 @@ return {
     build = ':TSUpdate',
     opts = {
       ensure_installed = {
-        'bash',
-        'c',
         'html',
+        'java',
+        'javascript',
+        'json',
         'lua',
         'luadoc',
         'markdown',
+        'sql',
+        'toml',
+        'typescript',
         'vim',
-        'vimdoc'
+        'vimdoc',
+        'xml',
+        'yaml',
       },
       -- Autoinstall languages that are not installed
       auto_install = true,
@@ -21,14 +27,14 @@ return {
         --  If you are experiencing weird indenting issues, add the language to
         --  the list of additional_vim_regex_highlighting and disabled languages for indent.
         additional_vim_regex_highlighting = {
-          'ruby'
+          'ruby',
         },
       },
       indent = {
         enable = true,
         disable = {
-          'ruby'
-        }
+          'ruby',
+        },
       },
     },
     config = function(_, opts)

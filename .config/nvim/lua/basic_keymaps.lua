@@ -12,10 +12,10 @@ vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' }
 
 -- window の移動
 --  See `:help wincmd` for a list of all window commands
-vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
-vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
-vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
-vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
+-- vim.keymap.set('n', '<C-h>', '<C-w><C-h>', { desc = 'Move focus to the left window' })
+-- vim.keymap.set('n', '<C-l>', '<C-w><C-l>', { desc = 'Move focus to the right window' })
+-- vim.keymap.set('n', '<C-j>', '<C-w><C-j>', { desc = 'Move focus to the lower window' })
+-- vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper window' })
 
 -- vを二回で行末まで選択
 vim.keymap.set('v', 'v', '$h')
@@ -32,8 +32,8 @@ vim.keymap.set('n', 'x', '"_x')
 vim.keymap.set('v', 'x', '"_x')
 
 -- 分割
-vim.keymap.set('n', '<C-w>s', ':split<CR>')
-vim.keymap.set('n', '<C-w>v', ':vsplit<CR>')
+-- vim.keymap.set('n', '<C-w>s', ':split<CR>')
+-- vim.keymap.set('n', '<C-w>v', ':vsplit<CR>')
 
 -- Tab操作
 vim.keymap.set('n', '<C-t>n', ':tabnew<CR>')
@@ -60,7 +60,7 @@ vim.keymap.set('n', 'sq', ':q<CR>')
 vim.keymap.set('n', 'bd', ':bd<CR>')
 
 -- 設定ファイルを開く
--- vim.keymap.set('n', '<F1>', ':edit $MYVIMRC<CR>')
+vim.keymap.set('n', '<F1>', ':edit $MYVIMRC<CR>')
 
 -- 現在編集中のファイルのディレクトリに移動
-vim.keymap.set('n', 'cd', '<CMD>cd %:h<CR>', { desc = '[C]hange [D]irectory' })
+-- vim.keymap.set('n', 'cd', '<CMD>cd %:h<CR>', { desc = '[C]hange [D]irectory' })
