@@ -42,7 +42,6 @@ cask "font-hack-nerd-font", args: { appdir: "/Applications" }
 cask "font-monaspace"
 cask "git-credential-manager"
 cask "google-drive"
-cask "hammerspoon", args: { appdir: "/Applications" }
 cask "microsoft-auto-update"
 cask "microsoft-teams"
 cask "obsidian"
