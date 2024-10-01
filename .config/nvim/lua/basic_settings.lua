@@ -4,46 +4,49 @@ vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
 vim.scriptencoding = 'utf-8'
-vim.opt.encoding = 'utf-8'
-vim.opt.fileencoding = 'utf-8'
+
+local opt = vim.opt
+
+opt.encoding = 'utf-8'
+opt.fileencoding = 'utf-8'
 
 -- 行番号表示
-vim.opt.number = true
+opt.number = true
 -- 相対的な行番号表示
-vim.o.relativenumber = true
+opt.relativenumber = true
 
-vim.opt.mouse = 'a'
+opt.mouse = 'a'
 
-vim.opt.showmode = false
+opt.showmode = false
 
 -- Sync clipboard between OS and Neovim
-vim.opt.clipboard = { 'unnamed', 'unnamedplus' }
+opt.clipboard = { 'unnamed', 'unnamedplus' }
 
 -- Enable break indent
-vim.o.breakindent = true
+opt.breakindent = true
 
 -- Save undo history
-vim.o.undofile = true
+opt.undofile = true
 -- No create swapfile
-vim.opt.swapfile = false
+opt.swapfile = false
 
 -- Case insensitive searching UNLESS /C or capital in search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+opt.ignorecase = true
+opt.smartcase = true
 
 --行数表示の横に余白を追加
-vim.opt.signcolumn = 'yes'
+opt.signcolumn = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+opt.updatetime = 250
+opt.timeoutlen = 300
 
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+opt.splitright = true
+opt.splitbelow = true
 
 -- 空白文字等、不可視な文字の可視化
-vim.opt.list = true
-vim.opt.listchars = {
+opt.list = true
+opt.listchars = {
   tab = '»-',
   extends = '»',
   precedes = '«',
@@ -53,16 +56,16 @@ vim.opt.listchars = {
 }
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+opt.inccommand = 'split'
 
-vim.opt.cursorline = true
+opt.cursorline = true
 
 -- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 10
+opt.scrolloff = 10
 
-vim.opt.whichwrap = 'b,s,h,l'
+opt.whichwrap = 'b,s,h,l'
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
+opt.hlsearch = true
 
-vim.opt.helplang = 'ja'
+opt.helplang = 'ja'

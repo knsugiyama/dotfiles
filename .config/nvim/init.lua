@@ -9,4 +9,3 @@ if osName == "Windows_NT" then
 end
 
 -- load plugin manager
-require('lazy_nvim')
