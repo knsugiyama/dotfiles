@@ -1,8 +1,9 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
-oh-my-posh init pwsh --config $HOME\.dotfiles\dist\Windows\config\.mytheme.omp.json | Invoke-Expression
 Import-Module PSReadLine
 Import-Module -Name Terminal-Icons
+
+Invoke-Expression (&starship init powershell)
 
 ############
 # 環境変数のデフォルト設定 -> 環境変数そのもので対応するようにしたため、コメントアウト

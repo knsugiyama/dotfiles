@@ -29,7 +29,8 @@ end
 -- This is where you actually apply your config choices
 -- Changing the color scheme and font:
 -- config.color_scheme = "MaterialDesignColors"
-config.color_scheme = "Builtin Solarized Light"
+-- config.color_scheme = 'Solarized Light (Gogh)'
+config.color_scheme = 'Solarized (light) (terminal.sexy)'
 
 config.initial_rows = 40
 config.initial_cols = 150
@@ -38,7 +39,7 @@ config.default_cursor_style = "BlinkingUnderline"
 config.leader = { key = "Space", mods = "CTRL|SHIFT" }
 
 -- 背景透過
-config.window_background_opacity = 0.90
+config.window_background_opacity = 0.95
 
 config.window_close_confirmation = "NeverPrompt"
 

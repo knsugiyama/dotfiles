@@ -20,6 +20,7 @@
 !/.config/hammerspoon/init.lua
 !/.config/nvim/
 !/.config/nvim/**
+!/.config/starship.toml
 !/.config/wezterm/
 !/.config/wezterm/**
 !/.config/zsh/
