@@ -27,3 +27,5 @@ fi
 
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
+
+eval "$(starship init zsh)"
