@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-09-25T11:04:43.235-00:00",
+	"CreationDate" : "2024-10-04T11:27:18.483-00:00",
 	"Sources" : 
 	[
 		{
@@ -25,13 +25,13 @@
 					"PackageIdentifier" : "ShiningLight.OpenSSL.Light"
 				},
 				{
+					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
+				},
+				{
 					"PackageIdentifier" : "Neovim.Neovim"
 				},
 				{
 					"PackageIdentifier" : "CubeSoft.CubePDFUtility"
-				},
-				{
-					"PackageIdentifier" : "GitHub.cli"
 				},
 				{
 					"PackageIdentifier" : "SAP.SapMachine.21.JDK"
@@ -40,7 +40,7 @@
 					"PackageIdentifier" : "Google.GoogleDrive"
 				},
 				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
+					"PackageIdentifier" : "GitHub.cli"
 				},
 				{
 					"PackageIdentifier" : "Nvidia.GeForceExperience"
@@ -50,6 +50,9 @@
 				},
 				{
 					"PackageIdentifier" : "wez.wezterm"
+				},
+				{
+					"PackageIdentifier" : "Starship.Starship"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.PowerShell"
@@ -67,10 +70,16 @@
 					"PackageIdentifier" : "Valve.Steam"
 				},
 				{
+					"PackageIdentifier" : "Tableau.PrepBuilder"
+				},
+				{
 					"PackageIdentifier" : "Tableau.Desktop"
 				},
 				{
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
+				},
+				{
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
@@ -82,19 +91,13 @@
 					"PackageIdentifier" : "Nota.Gyazo"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
-				},
-				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
-				},
-				{
-					"PackageIdentifier" : "Kensington.KensingtonWorks"
-				},
-				{
 					"PackageIdentifier" : "Python.Launcher"
 				},
 				{
-					"PackageIdentifier" : "Tableau.PrepBuilder"
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
+				},
+				{
+					"PackageIdentifier" : "Kensington.KensingtonWorks"
 				},
 				{
 					"PackageIdentifier" : "Doist.Todoist"
@@ -112,6 +115,9 @@
 					"PackageIdentifier" : "BurntSushi.ripgrep.MSVC"
 				},
 				{
+					"PackageIdentifier" : "DenoLand.Deno"
+				},
+				{
 					"PackageIdentifier" : "Discord.Discord"
 				},
 				{
@@ -122,9 +128,6 @@
 				},
 				{
 					"PackageIdentifier" : "JesseDuffield.lazygit"
-				},
-				{
-					"PackageIdentifier" : "JanDeDobbeleer.OhMyPosh"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.OneDrive"
@@ -145,13 +148,13 @@
 					"PackageIdentifier" : "junegunn.fzf"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.VisualStudioCode"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.PowerToys"
 				},
 				{
 					"PackageIdentifier" : "Python.Python.3.12"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
 					"PackageIdentifier" : "Canonical.Ubuntu.2204"

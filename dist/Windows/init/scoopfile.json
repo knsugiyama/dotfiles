@@ -3,86 +3,86 @@
         {
             "Name": "main",
             "Source": "https://github.com/ScoopInstaller/Main.git",
-            "Updated": "2024-09-25T09:35:24+09:00",
-            "Manifests": 1341
+            "Updated": "2024-10-04T05:27:49+09:00",
+            "Manifests": 1343
         },
         {
             "Name": "extras",
             "Source": "https://github.com/ScoopInstaller/Extras",
-            "Updated": "2024-09-25T09:38:18+09:00",
-            "Manifests": 2073
+            "Updated": "2024-10-04T07:50:33+09:00",
+            "Manifests": 2080
         }
     ],
     "apps": [
         {
-            "Updated": "2024-08-21T14:42:29.1788471+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "24.08",
             "Name": "7zip",
-            "Info": "",
-            "Version": "24.08"
+            "Updated": "2024-08-21T14:42:29.1788471+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-07-07T15:00:58.5593669+09:00",
-            "Source": "extras",
+            "Info": "",
+            "Version": "2.8.1",
             "Name": "dasel",
-            "Info": "",
-            "Version": "2.8.1"
+            "Updated": "2024-07-07T15:00:58.5593669+09:00",
+            "Source": "extras"
         },
         {
-            "Updated": "2024-08-26T12:41:07.8542903+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "10.2.0",
             "Name": "fd",
-            "Info": "",
-            "Version": "10.2.0"
+            "Updated": "2024-08-26T12:41:07.8542903+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-07-21T14:46:23.2588794+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "1.6.2",
             "Name": "ghq",
-            "Info": "",
-            "Version": "1.6.2"
+            "Updated": "2024-07-21T14:46:23.2588794+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-04-08T10:33:06.8071217+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "1.3.12",
             "Name": "gzip",
-            "Info": "",
-            "Version": "1.3.12"
+            "Updated": "2024-04-08T10:33:06.8071217+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-04-08T10:33:07.2732789+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "4.4.1",
             "Name": "make",
-            "Info": "",
-            "Version": "4.4.1"
+            "Updated": "2024-04-08T10:33:07.2732789+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-09-12T11:51:10.8698625+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "14.2.0-rt_v12-rev0",
             "Name": "mingw",
-            "Info": "",
-            "Version": "14.2.0-rt_v12-rev0"
+            "Updated": "2024-09-12T11:51:10.8698625+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-04-11T11:35:25.8420202+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "0.2020.01.26",
             "Name": "sudo",
-            "Info": "",
-            "Version": "0.2020.01.26"
+            "Updated": "2024-04-11T11:35:25.8420202+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-04-08T10:33:43.6785896+09:00",
-            "Source": "main",
+            "Info": "",
+            "Version": "6.00",
             "Name": "unzip",
-            "Info": "",
-            "Version": "6.00"
+            "Updated": "2024-04-08T10:33:43.6785896+09:00",
+            "Source": "main"
         },
         {
-            "Updated": "2024-06-10T11:37:26.0278842+09:00",
-            "Source": "main",
-            "Name": "zig",
             "Info": "",
-            "Version": "0.13.0"
+            "Version": "0.13.0",
+            "Name": "zig",
+            "Updated": "2024-06-10T11:37:26.0278842+09:00",
+            "Source": "main"
         }
     ]
 }
