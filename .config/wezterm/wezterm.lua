@@ -28,9 +28,8 @@ end
 
 -- This is where you actually apply your config choices
 -- Changing the color scheme and font:
--- config.color_scheme = "MaterialDesignColors"
--- config.color_scheme = 'Solarized Light (Gogh)'
-config.color_scheme = 'Solarized (light) (terminal.sexy)'
+-- config.color_scheme = 'Solarized (light) (terminal.sexy)'
+config.color_scheme = 'MaterialDesignColors'
 
 config.initial_rows = 40
 config.initial_cols = 150
@@ -40,8 +39,13 @@ config.leader = { key = "Space", mods = "CTRL|SHIFT" }
 
 -- 背景透過
 config.window_background_opacity = 0.95
-
 config.window_close_confirmation = "NeverPrompt"
+config.window_padding = {
+    left = 0,
+    right = 0,
+    top = 0,
+    bottom = 0,
+}
 
 -- ショートカットキー設定
 local act = wezterm.action
@@ -60,45 +64,6 @@ config.keys = {
     key = "t",
     mods = "SHIFT|CTRL",
     action = act.SpawnTab("CurrentPaneDomain"),
-  },
-  -- META Ctrl ,で下方向にペイン分割
-  {
-    key = ",",
-    mods = "META|CTRL",
-    action = wezterm.action({ SplitVertical = { domain = "CurrentPaneDomain" } }),
-  },
-  -- META Ctrl .で右方向にペイン分割
-  {
-    key = ".",
-    mods = "META|CTRL",
-    action = wezterm.action({ SplitHorizontal = { domain = "CurrentPaneDomain" } }),
-  },
-  -- META Ctrl oでペインの中身を入れ替える
-  {
-    key = "o",
-    mods = "META|CTRL",
-    action = wezterm.action.RotatePanes("Clockwise"),
-  },
-  -- META Ctrl hjklでペインの移動
-  {
-    key = "h",
-    mods = "META|CTRL",
-    action = wezterm.action.ActivatePaneDirection("Left"),
-  },
-  {
-    key = "j",
-    mods = "META|CTRL",
-    action = wezterm.action.ActivatePaneDirection("Down"),
-  },
-  {
-    key = "k",
-    mods = "META|CTRL",
-    action = wezterm.action.ActivatePaneDirection("Up"),
-  },
-  {
-    key = "l",
-    mods = "META|CTRL",
-    action = wezterm.action.ActivatePaneDirection("Right"),
   },
 }
 
