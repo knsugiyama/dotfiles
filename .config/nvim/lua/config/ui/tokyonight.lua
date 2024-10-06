@@ -1,4 +1,8 @@
-local tokyonight = require("tokyonight")
+local tokyonight = safe_require("tokyonight")
+
+if not tokyonight then
+  return
+end
 
 tokyonight.setup({
   style = 'night',
