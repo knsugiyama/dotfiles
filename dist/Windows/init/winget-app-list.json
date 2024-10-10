@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-10-04T11:27:18.483-00:00",
+	"CreationDate" : "2024-10-10T09:15:25.554-00:00",
 	"Sources" : 
 	[
 		{
@@ -25,13 +25,10 @@
 					"PackageIdentifier" : "ShiningLight.OpenSSL.Light"
 				},
 				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
-				},
-				{
 					"PackageIdentifier" : "Neovim.Neovim"
 				},
 				{
-					"PackageIdentifier" : "CubeSoft.CubePDFUtility"
+					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
 				},
 				{
 					"PackageIdentifier" : "SAP.SapMachine.21.JDK"
@@ -116,9 +113,6 @@
 				},
 				{
 					"PackageIdentifier" : "DenoLand.Deno"
-				},
-				{
-					"PackageIdentifier" : "Discord.Discord"
 				},
 				{
 					"PackageIdentifier" : "Hugo.Hugo.Extended"
