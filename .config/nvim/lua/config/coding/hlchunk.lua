@@ -1,4 +1,6 @@
-local hlchunk = safe_require("hlchunk")
+local utils = require("rc.utils")
+
+local hlchunk = utils.safe_require("hlchunk")
 
 if not hlchunk then
   return

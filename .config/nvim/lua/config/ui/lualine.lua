@@ -1,7 +1,9 @@
 -- Eviline config for lualine
 -- Author: shadmansaleh
 -- Credit: glepnir
-local lualine = safe_require('lualine')
+local utils = require("rc.utils")
+
+local lualine = utils.safe_require('lualine')
 
 if not lualine then
   return

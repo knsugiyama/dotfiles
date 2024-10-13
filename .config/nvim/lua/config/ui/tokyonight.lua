@@ -1,4 +1,6 @@
-local tokyonight = safe_require("tokyonight")
+local utils = require("rc.utils")
+
+local tokyonight = utils.safe_require("tokyonight")
 
 if not tokyonight then
   return

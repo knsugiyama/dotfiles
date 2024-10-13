@@ -1,19 +1,11 @@
-local wk = safe_require('which-key')
+local utils = require("rc.utils")
+
+local wk = utils.safe_require('which-key')
 
 if not wk then
   return
 end
 
-local opts = {
-  keys = {
-    {
-      "<leader>?",
-      function()
-        require("which-key").show({ global = false })
-      end,
-      desc = "Buffer Local Keymaps (which-key)",
-    },
-  },
-}
+local opts = {}
 
-wk.setup(config)
+wk.setup(opts)

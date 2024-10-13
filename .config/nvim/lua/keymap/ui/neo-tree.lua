@@ -1,4 +1,6 @@
-local nt = safe_require('neo-tree')
+local utils = require("rc.utils")
+
+local nt = utils.safe_require('neo-tree')
 
 if not nt then
   return
