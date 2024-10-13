@@ -175,3 +175,5 @@ local config = {
 }
 
 nt.setup(config)
+
+require("keymap.ui.neo-tree")

@@ -20,3 +20,5 @@ tokyonight.setup({
   -- floats = "dark", -- style for floating windows
   },
 })
+
+vim.cmd[[colorscheme tokyonight]]

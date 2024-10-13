@@ -2,6 +2,7 @@ return {
   {
     "folke/tokyonight.nvim",
     lazy = false,
+    priority = 1000,
     config = function()
       require("config/ui/tokyonight")
     end,
@@ -17,7 +18,6 @@ return {
     "nvim-neo-tree/neo-tree.nvim",
     branch = "v3.x",
     config = function()
-      require("keymap/ui/neo-tree")
       require("config/ui/neo-tree")
     end,
   },
