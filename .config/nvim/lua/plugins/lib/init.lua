@@ -1,6 +1,6 @@
 return {
   {
-  'MunifTanjim/nui.nvim',
+    'MunifTanjim/nui.nvim',
   },
   {
     "nvim-tree/nvim-web-devicons",
