@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-10-10T09:15:25.554-00:00",
+	"CreationDate" : "2024-10-15T09:06:42.913-00:00",
 	"Sources" : 
 	[
 		{
@@ -58,6 +58,9 @@
 					"PackageIdentifier" : "Elgato.StreamDeck"
 				},
 				{
+					"PackageIdentifier" : "Kubernetes.minikube"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.Edge"
 				},
 				{
@@ -76,19 +79,19 @@
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
 				},
 				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
 				},
 				{
 					"PackageIdentifier" : "Nota.Gyazo"
 				},
 				{
 					"PackageIdentifier" : "Python.Launcher"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
@@ -142,10 +145,10 @@
 					"PackageIdentifier" : "junegunn.fzf"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VisualStudioCode"
+					"PackageIdentifier" : "Microsoft.PowerToys"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
+					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
 					"PackageIdentifier" : "Python.Python.3.12"

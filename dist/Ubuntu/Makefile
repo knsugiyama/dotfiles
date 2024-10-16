@@ -26,6 +26,7 @@ install: ## Install apps.
 	@brew bundle --file=${HOME}/.dotfiles/dist/Ubuntu/Brewfile
 	@brew upgrade
 	@git update-index --assume-unchanged $(HOME)/.dotfiles/.config/zsh/.zsh.d/99_profile.zsh
+	@git update-index --assume-unchanged $(HOME)/.dotfiles/.gitconfig_credential
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
@@ -46,4 +47,3 @@ help: ## Self-documented Makefile
 	@grep -E '^[a-zA-Z_-]+:.*?## .*$$' $(MAKEFILE_LIST) \
 		| sort \
 		| awk 'BEGIN {FS = ":.*?## "}; {printf "\033[36m%-30s\033[0m %s\n", $$1, $$2}'
-
