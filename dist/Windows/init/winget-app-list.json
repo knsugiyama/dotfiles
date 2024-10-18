@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-10-15T09:06:42.913-00:00",
+	"CreationDate" : "2024-10-18T09:29:44.981-00:00",
 	"Sources" : 
 	[
 		{
@@ -58,9 +58,6 @@
 					"PackageIdentifier" : "Elgato.StreamDeck"
 				},
 				{
-					"PackageIdentifier" : "Kubernetes.minikube"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.Edge"
 				},
 				{
@@ -86,9 +83,6 @@
 				},
 				{
 					"PackageIdentifier" : "Nota.Gyazo"
-				},
-				{
-					"PackageIdentifier" : "Python.Launcher"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
@@ -151,10 +145,7 @@
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
-					"PackageIdentifier" : "Python.Python.3.12"
-				},
-				{
-					"PackageIdentifier" : "Canonical.Ubuntu.2204"
+					"PackageIdentifier" : "Canonical.Ubuntu"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.AppInstaller"
