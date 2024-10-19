@@ -1,5 +1,4 @@
 tap "homebrew/bundle"
-tap "homebrew/core"
 
 brew "cmake"
 brew "dasel"
@@ -18,6 +17,7 @@ brew "lazygit"
 brew "lua"
 brew "neovim"
 brew "ripgrep"
+brew "starship"
 brew "stylua"
 brew "tree"
 brew "unar"
