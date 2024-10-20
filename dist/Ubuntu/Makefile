@@ -25,8 +25,8 @@ deploy: ## Create symlink to home directory
 install: ## Install apps.
 	@brew bundle --file=${HOME}/.dotfiles/dist/Ubuntu/Brewfile
 	@brew upgrade
-	@git update-index --assume-unchanged $(HOME)/.dotfiles/.config/zsh/.zsh.d/99_profile.zsh
-	@git update-index --assume-unchanged $(HOME)/.dotfiles/.gitconfig_credential
+	@git update-index --assume-unchanged ${HOME}/.dotfiles/.config/zsh/.zsh.d/99_profile.zsh
+	@git update-index --assume-unchanged ${HOME}/.dotfiles/.gitconfig_credential
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
