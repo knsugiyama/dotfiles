@@ -14,7 +14,6 @@ local lsp_servers = {
   "jsonls",
   "lua_ls",
   "grammarly",
-  "sqlls",
   "terraformls",
   "lemminx",
   "yamlls",
