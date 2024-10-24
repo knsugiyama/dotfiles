@@ -12,3 +12,9 @@ alias rm='rm -i'
 alias v='nvim'
 alias vi='nvim'
 alias vim='nvim'
+
+alias grep='rg'
+
+alias c='clear'
+alias reload='exec $SHELL -l'
+

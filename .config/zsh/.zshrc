@@ -7,11 +7,6 @@ if [ -d $ZSHDHOME -a -r $ZSHDHOME -a \
     done
 fi
 
-if [[ -d "$HOME/.asdf" ]]; then
-    . "$HOME/.asdf/asdf.sh"
-fi
-
 export SHELDON_CONFIG_FILE=$XDG_CONFIG_HOME/sheldon/.sheldon.toml
 eval "$(sheldon source)"
 
-eval "$(starship init zsh)"

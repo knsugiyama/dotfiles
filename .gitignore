@@ -26,11 +26,8 @@
 !/.config/wezterm/
 !/.config/wezterm/**
 !/.config/zsh/
-!/.config/zsh/.zimrc
 !/.config/zsh/.zshrc
 !/.config/zsh/abbreviations
-!/.config/zsh/.zsh.d
-!/.config/zsh/.zsh.d/**
 !/.config/zsh/defer/
 !/.config/zsh/defer/**
 !/.config/zsh/sync/
