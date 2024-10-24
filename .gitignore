@@ -31,6 +31,10 @@
 !/.config/zsh/abbreviations
 !/.config/zsh/.zsh.d
 !/.config/zsh/.zsh.d/**
+!/.config/zsh/defer/
+!/.config/zsh/defer/**
+!/.config/zsh/sync/
+!/.config/zsh/sync/**
 !/.git_commit_template
 !/.gitignore
 !/.github/
