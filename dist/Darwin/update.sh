@@ -9,5 +9,9 @@ else
   git pull
 fi
 
+if sheldon --help &>/dev/null; then
+  sheldon lock --update
+fi
+
 brew upgrade
 brew upgrade --cask
