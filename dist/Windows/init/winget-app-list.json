@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2024-10-18T09:29:44.981-00:00",
+	"CreationDate" : "2025-02-02T21:14:50.735-00:00",
 	"Sources" : 
 	[
 		{
@@ -19,6 +19,12 @@
 					"PackageIdentifier" : "Mozilla.Firefox"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.OneDrive"
+				},
+				{
+					"PackageIdentifier" : "Zen-Team.Zen-Browser"
+				},
+				{
 					"PackageIdentifier" : "DigitalScholar.Zotero"
 				},
 				{
@@ -28,19 +34,19 @@
 					"PackageIdentifier" : "Neovim.Neovim"
 				},
 				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
-				},
-				{
-					"PackageIdentifier" : "SAP.SapMachine.21.JDK"
+					"PackageIdentifier" : "Elgato.StreamDeck"
 				},
 				{
 					"PackageIdentifier" : "Google.GoogleDrive"
 				},
 				{
-					"PackageIdentifier" : "GitHub.cli"
+					"PackageIdentifier" : "SAP.SapMachine.21.JDK"
 				},
 				{
-					"PackageIdentifier" : "Nvidia.GeForceExperience"
+					"PackageIdentifier" : "Nushell.Nushell"
+				},
+				{
+					"PackageIdentifier" : "GitHub.cli"
 				},
 				{
 					"PackageIdentifier" : "Nvidia.PhysX"
@@ -49,58 +55,58 @@
 					"PackageIdentifier" : "wez.wezterm"
 				},
 				{
+					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
+				},
+				{
+					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
+				},
+				{
 					"PackageIdentifier" : "Starship.Starship"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
-				},
-				{
-					"PackageIdentifier" : "Elgato.StreamDeck"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Edge"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.EdgeWebView2Runtime"
-				},
-				{
 					"PackageIdentifier" : "Valve.Steam"
-				},
-				{
-					"PackageIdentifier" : "Tableau.PrepBuilder"
-				},
-				{
-					"PackageIdentifier" : "Tableau.Desktop"
 				},
 				{
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
-				},
-				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
-				},
-				{
 					"PackageIdentifier" : "Nota.Gyazo"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+					"PackageIdentifier" : "Tableau.Desktop"
+				},
+				{
+					"PackageIdentifier" : "Tableau.PrepBuilder"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
+				},
+				{
+					"PackageIdentifier" : "Box.BoxTools"
+				},
+				{
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
+				},
+				{
 					"PackageIdentifier" : "Kensington.KensingtonWorks"
 				},
 				{
-					"PackageIdentifier" : "Doist.Todoist"
+					"PackageIdentifier" : "Microsoft.PowerShell"
 				},
 				{
-					"PackageIdentifier" : "Bitwarden.Bitwarden"
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
 				},
 				{
 					"PackageIdentifier" : "Anki.Anki"
+				},
+				{
+					"PackageIdentifier" : "Asana.Asana"
 				},
 				{
 					"PackageIdentifier" : "AutoHotkey.AutoHotkey"
@@ -119,9 +125,6 @@
 				},
 				{
 					"PackageIdentifier" : "JesseDuffield.lazygit"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.OneDrive"
 				},
 				{
 					"PackageIdentifier" : "Syncthing.Syncthing"
@@ -148,6 +151,9 @@
 					"PackageIdentifier" : "Canonical.Ubuntu"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.Teams"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.AppInstaller"
 				},
 				{
@@ -166,6 +172,9 @@
 					"PackageIdentifier" : "Microsoft.WindowsTerminal"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.WSL"
+				},
+				{
 					"PackageIdentifier" : "TheBrowserCompany.Arc"
 				}
 			],
@@ -178,5 +187,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.8.1911"
+	"WinGetVersion" : "1.9.25200"
 }
