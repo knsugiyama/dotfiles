@@ -14,4 +14,11 @@ alias grep = rg
 
 alias c = clear
 
-alias cat = bat --theme="Dracula"
+if $nu.os-info.name == "macos" {
+    alias cat = bat --theme="Dracula"
+} else if $nu.os-info.name == "linux" {
+    alias cat = bat --theme="Dracula"
+} else if $nu.os-info.name == "windows" {
+} else {
+    print "Unknown OS"
+}
