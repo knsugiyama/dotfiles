@@ -17,6 +17,8 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
+source conf/index.nu
+
 $env.config.buffer_editor = 'nvim'
 
 # starship

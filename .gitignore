@@ -19,7 +19,10 @@
 !/.config/lazygit/
 !/.config/lazygit/config.yml
 !/.config/nushell/
-!/.config/nushell/**
+!/.config/nushell/config.nu
+!/.config/nushell/env.nu
+!/.config/nushell/*/
+!/.config/nushell/*/*
 !/.config/nvim/
 !/.config/nvim/**
 !/.config/sheldon/
