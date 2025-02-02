@@ -9,13 +9,13 @@ local eventtap = hs.eventtap
 -- auto reload
 --]]
 autoReload = hs.pathwatcher.new(os.getenv('HOME') .. '/.config/hammerspoon/init.lua', function()
-  hs.timer.doAfter(0.1, hs.reload)
+    hs.timer.doAfter(0.1, hs.reload)
 end):start()
 
 --[[
 -- 左右Altキーで英語、日本語入力を切り替える
 --]]
-local simpleAlt = false
+-- local simpleAlt = false
 
 --[[
 local function eikanaEvent(event)
@@ -54,22 +54,22 @@ switchToEisuOnEscape = eventtap.new({ keyDown }, function(e)
 end):start()
 --]]
 
---[[
 -- AquaSKK 向け
-local function terminalEvent(name, event, app)
-  if event == hs.application.watcher.activated then
-    -- log.i(name)
-    if name == 'WezTerm' then
-      hs.hotkey.bind({"ctrl"}, "j", function()
-        -- hs.eventtap.event.newKeyEvent({}, 'up', true):post(); return true;
-        -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', true):post()
-        -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', false):post()
-        hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, '0', true):post()
-      end)
+-- see: https://mac-ra.com/iterm2-aquqskk-lkey/#
+local function aquaSkkCtrlJ(name, event, app)
+    if event == hs.application.watcher.activated then
+        log.i(name)
+        if name == 'Microsoft PowerPoint' then
+            hs.hotkey.bind({ "ctrl" }, "j", function()
+                -- hs.eventtap.event.newKeyEvent({}, 'up', true):post(); return true;
+                -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', true):post()
+                -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', false):post()
+                -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, '0', true):post()
+                hs.eventtap.keyStroke({}, 104, 0)
+            end)
+        end
     end
-  end
 end
 
-terminalWatch = hs.application.watcher.new(terminalEvent)
+terminalWatch = hs.application.watcher.new(aquaSkkCtrlJ)
 terminalWatch:start()
---]]

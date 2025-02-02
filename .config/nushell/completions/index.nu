@@ -1,0 +1,10 @@
+source docker-completions.nu
+source gh-completions.nu
+source git-completions.nu
+source npm-completions.nu
+source rg-completions.nu
+source scoop-completions.nu
+source ssh-completions.nu
+source vscode-completions.nu
+source winget-completions.nu
+source yarn-v4-completions.nu

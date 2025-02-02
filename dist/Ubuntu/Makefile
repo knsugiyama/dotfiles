@@ -16,10 +16,15 @@ list: ## Show dot files in this repo
 deploy: ## Create symlink to home directory
 	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	@which zsh > /dev/null 2>&1; \
+	# @which zsh > /dev/null 2>&1; \
+	# if [ $$? -eq 0 ]; then \
+	# 	sudo sh -c "echo `which zsh` >> /etc/shells"; \
+	# 	chsh -s `which zsh`; \
+	# fi
+	@which nu > /dev/null 2>&1; \
 	if [ $$? -eq 0 ]; then \
-		sudo sh -c "echo `which zsh` >> /etc/shells"; \
-		chsh -s `which zsh`; \
+		sudo sh -c "echo `which nu` >> /etc/shells"; \
+		chsh -s `which nu`; \
 	fi
 
 install: ## Install apps.

@@ -14,10 +14,15 @@
 !/.config/
 !/.config/asdf/
 !/.config/asdf/.tool-versions
-!/.config/lazygit/
-!/.config/lazygit/config.yml
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
+!/.config/lazygit/
+!/.config/lazygit/config.yml
+!/.config/nushell/
+!/.config/nushell/config.nu
+!/.config/nushell/env.nu
+!/.config/nushell/*/
+!/.config/nushell/*/*
 !/.config/nvim/
 !/.config/nvim/**
 !/.config/sheldon/

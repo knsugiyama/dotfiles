@@ -11,6 +11,15 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
+-- wezterm.log_info('Home ' .. wezterm.home_dir)
+
+config.set_environment_variables = {
+  XDG_CONFIG_HOME = wezterm.home_dir .. "/.config",
+  XDG_CACHE_HOME = wezterm.home_dir .. "/.cache",
+  XDG_DATA_HOME = wezterm.home_dir .. "/.local/share",
+  XDG_STATE_HOME = wezterm.home_dir .. "/.local/state"
+}
+
 config.font_size = 16.0
 
 config.font = wezterm.font_with_fallback({
