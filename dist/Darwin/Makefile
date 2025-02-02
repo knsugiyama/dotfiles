@@ -22,6 +22,11 @@ install: ## Install apps.
 	@brew update --verbose
 	@git update-index --assume-unchanged $(HOME)/.dotfiles/.config/zsh/.zsh.d/99_profile.zsh
 	@git update-index --assume-unchanged $(HOME)/.dotfiles/.gitconfig_credential
+	@which nu > /dev/null 2>&1; \
+	if [ $$? -eq 0 ]; then \
+		sudo sh -c "echo `which nu` >> /etc/shells"; \
+		chsh -s `which nu`; \
+	fi
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'

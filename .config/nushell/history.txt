@@ -1,0 +1,13 @@
+exit
+echo $nu.config-path
+echo $nu.data-dir
+exit
+zsh
+cd
+cat .zshenv
+exit
+$env.HOME
+exit
+brew --version
+cd .dotfiles/
+make export
