@@ -24,6 +24,8 @@ install: ## Install apps.
 	@git update-index --assume-unchanged $(HOME)/.dotfiles/.gitconfig_credential
 	@which nu > /dev/null 2>&1; \
 	if [ $$? -eq 0 ]; then \
+		# sudo sh -c "echo `which nu` >> /etc/shells"; \
+		chsh -s `which nu`;
 		sudo sh -c "echo `which nu` >> /etc/shells"; \
 		chsh -s `which nu`; \
 	fi

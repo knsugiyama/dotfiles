@@ -3,6 +3,8 @@ export XDG_CACHE_HOME="$HOME"/.cache
 export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
+export PATH=/usr/local/bin:$PATH
+
 ZDOTDIR=$HOME/.config/zsh
 eval $(/opt/homebrew/bin/brew shellenv)
 . "$HOME/.cargo/env"

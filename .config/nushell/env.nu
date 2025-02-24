@@ -17,5 +17,8 @@
 # You can remove these comments if you want or leave
 # them for future reference.
 
+$env.PATH = ($env.PATH | append /usr/local/bin)
+
 # Homebrew のパスを環境変数 PATH に追加
 $env.PATH = ($env.PATH | append /opt/homebrew/bin)
+

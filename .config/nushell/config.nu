@@ -20,7 +20,6 @@
 source conf/index.nu
 source completions/index.nu
 
-
 # https://github.com/nushell/nu_scripts/blob/main/example-config/init.nu
 # we need to export the env we create with load-env
 # because we are `use`-ing here and not `source`-ing this file
@@ -42,4 +41,9 @@ export-env {
         ] | str join (char env_sep))
     }
 }
-source ~/.cache/starship/init.nu
+
+mkdir ($nu.data-dir | path join "vendor/autoload")
+starship init nu | save -f ($nu.data-dir | path join "vendor/autoload/starship.nu")
+
+# config set startup ["starship init nu | save ~/.cache/starship/init.nu" "source ~/.cache/starship/init.nu"]
+# source ~/.cache/starship/init.nu
