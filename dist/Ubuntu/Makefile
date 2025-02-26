@@ -16,21 +16,10 @@ list: ## Show dot files in this repo
 deploy: ## Create symlink to home directory
 	@echo 'Create symlink to home directory.'
 	@$(foreach val, $(DOTFILES), ln -sfnv $(abspath $(val)) $(HOME)/$(val);)
-	# @which zsh > /dev/null 2>&1; \
-	# if [ $$? -eq 0 ]; then \
-	# 	sudo sh -c "echo `which zsh` >> /etc/shells"; \
-	# 	chsh -s `which zsh`; \
-	# fi
-	@which nu > /dev/null 2>&1; \
-	if [ $$? -eq 0 ]; then \
-		sudo sh -c "echo `which nu` >> /etc/shells"; \
-		chsh -s `which nu`; \
-	fi
 
 install: ## Install apps.
-	@brew bundle --file=${HOME}/.dotfiles/dist/Ubuntu/Brewfile
-	@brew upgrade
-	@git update-index --assume-unchanged ${HOME}/.dotfiles/.config/zsh/.zsh.d/99_profile.zsh
+	@sudo dpkg --set-selections < $(DOTPATH)/dist/Ubuntu/package_list.txt
+	@sudo apt dselect-upgrade
 	@git update-index --assume-unchanged ${HOME}/.dotfiles/.gitconfig_credential
 
 update: ## Fetch changes for this repository
@@ -39,12 +28,10 @@ update: ## Fetch changes for this repository
 
 export: ## Export brew packages
 	@echo 'Export brew packages'
-	@brew bundle dump --force --file=~/Brewfile
+	@dpkg --get-selections > $(DOTPATH)/dist/Ubuntu/upackage_list.txt
 
 clean: ## Remove the dot files and this repo
 	@echo 'Remove the dot files and this repo.'
-	@/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)"
-	@bash <(curl -sL https://raw.githubusercontent.com/Homebrew/install/master/uninstall.sh)
 	@-$(foreach val, $(DOTFILES), rm -vrf $(HOME)/$(val);)
 	-rm -rf $(DOTPATH)
 

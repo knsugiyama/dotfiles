@@ -9,10 +9,6 @@ sudo apt install -y build-essential procps curl file git apt-transport-https ca-
 
 # make ファイルのシンボリックリンクをrootに移動
 ln -sfnv ${HOME}/.dotfiles/dist/Ubuntu/Makefile ${HOME}/.dotfiles/Makefile
-# .zshenv ファイル のシンボリックリンクをrootに移動
-ln -sfnv ${HOME}/.dotfiles/dist/Ubuntu/.zshenv ${HOME}/.zshenv
-# Brewfile ファイル のシンボリックリンクをrootに移動
-ln -sfnv ${HOME}/.dotfiles/dist/Ubuntu/Brewfile ${HOME}/Brewfile
 
 # Docker のリポジトリを追加
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -30,7 +26,4 @@ if [[ "$(uname -r)" == *microsoft* ]]; then
   sudo systemctl enable --now docker
 fi
 
-# homebrew
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
-(echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> ${HOME}/.profile
 source ~/.profile
