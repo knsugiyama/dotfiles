@@ -21,6 +21,11 @@ install: ## Install apps.
 	@sudo dpkg --set-selections < $(DOTPATH)/dist/Ubuntu/package_list.txt
 	@sudo apt dselect-upgrade
 	@git update-index --assume-unchanged ${HOME}/.dotfiles/.gitconfig_credential
+	@which nu > /dev/null 2>&1; \
+	if [ $$? -eq 0 ]; then \
+		sudo sh -c "echo `which zsh` >> /etc/shells"; \
+		chsh -s `which zsh`; \
+	fi
 
 update: ## Fetch changes for this repository
 	@echo 'Fetch changes for this repository.'
