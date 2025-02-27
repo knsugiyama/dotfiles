@@ -5,10 +5,12 @@ set -eu
 echo y | sudo apt update
 echo y | sudo apt upgrade
 
-sudo apt install -y build-essential procps curl file git apt-transport-https ca-certificates software-properties-common
+sudo apt install -y build-essential unzip ripgrep curl libffi-dev libffi8ubuntu1 libgmp-dev libgmp10 libncurses-dev fzf libfuse-dev pkg-config libssl-dev
 
 # make ファイルのシンボリックリンクをrootに移動
 ln -sfnv ${HOME}/.dotfiles/dist/Ubuntu/Makefile ${HOME}/.dotfiles/Makefile
+# .zshenv ファイル のシンボリックリンクをrootに移動
+ln -sfnv ${HOME}/.dotfiles/dist/Ubuntu/.zshenv ${HOME}/.zshenv
 
 # Docker のリポジトリを追加
 sudo install -m 0755 -d /etc/apt/keyrings
@@ -25,5 +27,8 @@ if [[ "$(uname -r)" == *microsoft* ]]; then
   echo -e "[boot]\nsystemd=true" | sudo tee /etc/wsl.conf
   sudo systemctl enable --now docker
 fi
+
+# cargo を使いたいので、rustup
+curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 
 source ~/.profile

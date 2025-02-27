@@ -7,6 +7,5 @@ if [ -d $ZSHDHOME -a -r $ZSHDHOME -a \
     done
 fi
 
-export SHELDON_CONFIG_FILE=$XDG_CONFIG_HOME/sheldon/.sheldon.toml
 eval "$(sheldon source)"
 
