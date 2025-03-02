@@ -21,7 +21,7 @@ install: ## Install apps.
 	@brew bundle --verbose --file=$(DOTFILES)/dist/Darwin/Brewfile
 	@brew update --verbose
 	@git update-index --assume-unchanged $(HOME)/.dotfiles/.gitconfig_credential
-	@which nu > /dev/null 2>&1; \
+	@which zsh > /dev/null 2>&1; \
 	if [ $$? -eq 0 ]; then \
 		sudo sh -c "echo `which zsh` >> /etc/shells"; \
 		chsh -s `which zsh`; \

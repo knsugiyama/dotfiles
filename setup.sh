@@ -35,11 +35,6 @@ git clone --recursive "$GITHUB_URL" "$DOTPATH"
 if [ "$OS" = Darwin ]; then
   # shellcheck disable=SC1090
   source "$HOME/.dotfiles/dist/Darwin/setup.sh"
-elif [ "$OS" = Linux ] && [ "$DIST" = Ubuntu ]; then
-  # shellcheck disable=SC1090
-  source "$HOME/.dotfiles/dist/Ubuntu/setup.sh"
-elif [[ "$(uname -r)" == *microsoft* ]]; then
-  source "$HOME/.dotfiles/dist/Ubuntu/setup.sh"
 else
-  logging "setup script is not found..."
+  source "$HOME/.dotfiles/dist/Ubuntu/setup.sh"
 fi

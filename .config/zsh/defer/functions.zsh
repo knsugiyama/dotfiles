@@ -2,13 +2,11 @@ function prj() {
   local repo=$(ghq list | fzf --preview "ghq list --full-path --exact {} | xargs exa -h --long --icons --classify --git --no-permissions --no-user --no-filesize --git-ignore --sort modified --reverse --tree --level 2")
   if [ -n "$repo" ]; then
     repo=$(ghq list --full-path --exact $repo)
-    BUFFER="cd ${repo}"
-    zle accept-line
+    cd ${repo}
   fi
-  zle clear-screen
 }
-zle -N prj
 bindkey '^p' prj
+zle -N prj
 
 # https://zenn.dev/kis9a/articles/my_zsh_completion_function >>
 function zsh_functions() {
@@ -41,6 +39,21 @@ function zh() {
     alias "$f"
     functions "$f"
   done
+}
+
+function create_multipass_vm() {
+    local file_name = $1
+    local name = $2
+
+    if [ -n "$1" ]; then
+        file_name = 'myvm.yml'
+    fi
+
+    if [ -n "$2" ]; then
+        name = 'myvm'
+    fi
+
+    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init ${file_name} --name ${name} --timeout 1800
 }
 
 function _zsh_function_find() {

@@ -3,26 +3,15 @@
 /.**
 
 ### not ignore ###
-!/.bash_profile
-!/.bashrc
 !/.editorconfig
 !/.gitconfig
 !/.gitconfig_credential
 !/.gitignore_global
-!/.tigrc
-!/.vimrc
 !/.config/
-!/.config/asdf/
-!/.config/asdf/.tool-versions
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
 !/.config/lazygit/
 !/.config/lazygit/config.yml
-!/.config/nushell/
-!/.config/nushell/config.nu
-!/.config/nushell/env.nu
-!/.config/nushell/*/
-!/.config/nushell/*/*
 !/.config/nvim/
 !/.config/nvim/**
 !/.config/sheldon/
@@ -32,7 +21,6 @@
 !/.config/wezterm/**
 !/.config/zsh/
 !/.config/zsh/.zshrc
-!/.config/zsh/abbreviations
 !/.config/zsh/defer/
 !/.config/zsh/defer/**
 !/.config/zsh/sync/
@@ -51,6 +39,8 @@
 !/dist/**
 !/etc/
 !/etc/**
+!/lib/
+!/lib/**
 !/tools/
 !/tools/**
 !/LICNSE
