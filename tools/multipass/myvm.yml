@@ -28,8 +28,11 @@ packages:
   - pkg-config
   - libssl-dev
   - cmake
-  - gnupg
   - gcc
+  - wget
+  - apt-transport-https
+  - gnupg
+  - software-properties-common
 
 # ユーザー作成
 users:
@@ -44,8 +47,6 @@ users:
 
 # コマンド実行（すべての初期化処理の最後に実行）
 runcmd:
-  # マウント先のディレクトリを "myvm" ユーザーの権限で作成
-  - su -c "mkdir /home/myvm/sync_myvm" - myvm
   # Docker インストール (公式リポジトリ利用)
   - apt update
   - install -m 0755 -d /etc/apt/keyrings
@@ -54,5 +55,14 @@ runcmd:
   - echo "deb [arch=$(dpkg --print-architecture) signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu $(. /etc/os-release && echo "$VERSION_CODENAME") stable" | tee /etc/apt/sources.list.d/docker.list > /dev/null
   - apt update
   - apt install -y docker-ce docker-ce-cli containerd.io
-  # act インストール
-  - curl --proto '=https' --tlsv1.2 -sSf https://raw.githubusercontent.com/nektos/act/master/install.sh | bash -s -- -b /usr/local/bin v0.2.60
+  #vscode
+  - curl https://packages.microsoft.com/keys/microsoft.asc | gpg --dearmor > microsoft.gpg
+  - install -o root -g root -m 644 microsoft.gpg /etc/apt/trusted.gpg.d/
+  - sh -c 'echo "deb [arch=$(dpkg --print-architecture)] https://packages.microsoft.com/repos/vscode stable main" > /etc/apt/sources.list.d/vscode.list'
+  - apt update
+  - apt install -y code
+  # nix
+  - curl -L https://nixos.org/nix/install | sh
+  - . /home/ubuntu/.nix-profile/etc/profile.d/nix.sh
+  - nix-env -iA nixpkgs.neovim
+  - nix-env -iA nixpkgs.fzf

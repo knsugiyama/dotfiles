@@ -17,4 +17,4 @@ touch "${WORKSPACE}/config"
 
 # 公開鍵を仮想環境の authorized_keys に追加
 # multipass exec <仮想環境名> --working-directory <コマンド実行ディレクトリ> -- <実行コマンド>
-multipass exec hoge --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
+multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"

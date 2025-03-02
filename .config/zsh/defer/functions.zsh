@@ -42,15 +42,16 @@ function zh() {
 }
 
 function create_multipass_vm() {
-    local file_name = $1
-    local name = $2
+    # echo "$1"
+    local file_name="$1"
+    local name="$2"
 
     if [ -n "$1" ]; then
-        file_name = 'myvm.yml'
+        file_name='myvm.yml'
     fi
 
     if [ -n "$2" ]; then
-        name = 'myvm'
+        name='myvm'
     fi
 
     multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init ${file_name} --name ${name} --timeout 1800
