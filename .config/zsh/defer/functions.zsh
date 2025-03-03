@@ -41,22 +41,6 @@ function zh() {
   done
 }
 
-function create_multipass_vm() {
-    # echo "$1"
-    local file_name="$1"
-    local name="$2"
-
-    if [ -n "$1" ]; then
-        file_name='myvm.yml'
-    fi
-
-    if [ -n "$2" ]; then
-        name='myvm'
-    fi
-
-    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init ${file_name} --name ${name} --timeout 1800
-}
-
 function _zsh_function_find() {
   BUFFER="$BUFFER$(zsh_functions | uniq | sort | fzf -m)"
   zle end-of-line
@@ -71,3 +55,59 @@ function _zsh_command_find() {
 bindkey '^k' _zsh_command_find
 zle -N _zsh_command_find
 # <<
+
+function create_multipass_vm() {
+    # echo "$1"
+    local filePath="$1"
+    local vmName="$2"
+
+    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init ${filePath} --name ${vmName} --timeout 1800
+}
+
+function create_ssh_key() {
+  vmName="$1"
+
+  # 仮想環境の名前を設定
+  INSTANCE_NAME="$vmName"
+
+  # ssh 接続設定用に仮想環境名ディレクトリを切る
+  WORKSPACE="$HOME/.ssh/multipass/$INSTANCE_NAME"
+  mkdir -p "$WORKSPACE"
+
+  # 仮想環境名の鍵生成
+  ssh-keygen -t ed25519 -N "" -f "$WORKSPACE/$INSTANCE_NAME"
+
+  # config ファイル作成
+  touch "$WORKSPACE/config"
+
+  # 設定内容のブロックを定義 (ヒアドキュメント使用)
+  configBlock="cat <<EOF
+Host ${INSTANCE_NAME}
+    HostName ${INSTANCE_NAME}.local
+    User ubuntu
+    IdentityFile ~/.ssh/multipass/${INSTANCE_NAME}/${INSTANCE_NAME}
+    IdentitiesOnly yes
+    ServerAliveInterval 60
+EOF"
+
+  # ファイルに設定内容を追記
+  if ! eval "$configBlock" >> "$WORKSPACE/config"; then
+    echo "ファイルへの書き込みに失敗しました" >&2
+    return 1
+  fi
+  echo "設定ブロックをファイル '$WORKSPACE/config' に追加しました (ホスト名: '$INSTANCE_NAME')"
+
+  # ~/.ssh/config への Include 行追記処理
+  CONFIG_FILE="$HOME/.ssh/config"
+  INCLUDE_LINE="Include ~/.ssh/multipass/${INSTANCE_NAME}/config"
+
+  # ~/.ssh/config が存在するか確認、なければ作成
+  if [ ! -f "$CONFIG_FILE" ]; then
+    touch "$CONFIG_FILE"
+  fi
+
+  # ~/.ssh/config に Include 行を追記
+  echo "$INCLUDE_LINE" >> "$CONFIG_FILE"
+
+  multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
+}

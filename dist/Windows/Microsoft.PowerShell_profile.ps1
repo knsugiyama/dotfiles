@@ -70,16 +70,67 @@ function open-wsl {
     wsl --cd "~"
 }
 function create_multipass_vm {
-    param([string]$arg1, [string]$arg2)
-    $fileName = $arg1
-    $vmName = $arg2
-    if ($fileName -eq $null) {
-        $fileName = 'myvm.yml'
-    }
-    if ($vmName -eq $null) {
-        $vmName = 'myvm'
-    }
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true, HelpMessage = "cloud-init の yml ファイルを指定してください (例: myvm)")]
+        [string]$filePath,
+        [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
+        [string]$vmName
+    )
     multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init $fileName --name $vmName --timeout 1800
+}
+
+function create_ssh_key {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
+        [string]$vmName
+    )
+
+    # 仮想環境の名前を設定
+    $INSTANCE_NAME = $vmName
+
+    # ssh 接続設定用に仮想環境名ディレクトリを切る
+    $WORKSPACE = "$HOME\.ssh\multipass\$INSTANCE_NAME"
+    New-Item -ItemType Directory -Force -Path "$WORKSPACE"
+
+    # 仮想環境名の鍵生成
+    ssh-keygen -t ed25519 -N "" -f "$WORKSPACE\$INSTANCE_NAME"
+
+    # config ファイル作成
+    New-Item -ItemType File -Path "$WORKSPACE\config"
+
+    # 設定内容のブロックを定義 (ヒアドキュメント使用)
+    $configBlock = @"
+Host $($INSTANCE_NAME)
+    HostName $($INSTANCE_NAME).local
+    User ubuntu
+    IdentityFile ~/.ssh/multipass/$($INSTANCE_NAME)/$($INSTANCE_NAME)
+    IdentitiesOnly yes
+    ServerAliveInterval 60
+"@
+
+    # ファイルに設定内容を追記
+    try {
+        Add-Content -Path "$WORKSPACE\config" -Value $configBlock -Encoding UTF8 -ErrorAction Stop
+    }
+    catch {
+        Write-Error "ファイルへの書き込みに失敗しました: $($_.Exception.Message)"
+    }
+
+        # ~/.ssh/config への Include 行追記処理
+    $CONFIG_FILE = "$HOME\.ssh\config"
+    $INCLUDE_LINE = "Include ~\.ssh\multipass\$INSTANCE_NAME\config"
+
+    # ~/.ssh/config が存在するか確認、なければ作成
+    if (!(Test-Path -Path $CONFIG_FILE -PathType Leaf)) {
+        New-Item -ItemType File -Path $CONFIG_FILE -Force
+    }
+
+    # ~/.ssh/config に Include 行を追記
+    Add-Content -Path $CONFIG_FILE -Value "$INCLUDE_LINE`n" -Encoding UTF
+
+    multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(Get-Content $WORKSPACE\$INSTANCE_NAME.pub)' | tee -a authorized_keys"
 }
 
 # psreadline

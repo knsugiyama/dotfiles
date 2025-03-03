@@ -1,5 +1,6 @@
 #cloud-config
-hostname: myvm # この仮想環境のホスト名を "myvm" に設定
+## hostname, users.name, ssh-authorized-keys を更新してから使用すること
+hostname: ホスト名 # この仮想環境のホスト名を指定
 locale: en_US.UTF-8 # システムロケールを英語(us)に設定
 timezone: Asia/Tokyo # システム時刻を日本時間に設定 UTC+9:00
 ssh_pwauth: no # パスワード認証による ssh ログインを禁止
@@ -36,12 +37,13 @@ packages:
 
 # ユーザー作成
 users:
-  - name: myvm # 新規作成するユーザー名の設定
+  - name: ユーザー名 # 新規作成するユーザー名の設定
     lock_passwd: true # パスワードによるログインを禁止
     sudo: ALL=(ALL) NOPASSWD:ALL # sudo 実行の際にパスワード入力を不要化
     shell: /bin/bash # デフォルトで使用する shell を設定
     ssh-authorized-keys: # ssh 接続時に使用する、公開鍵を設定
-      - <YOUR SSH PUBLIC KEY> # ~/.ssh/multipass/myvm/myvm.pub を記載
+      - <YOUR SSH PUBLIC KEY> # 例は以下
+      # - ~/.ssh/multipass/[vm名]/[vm名].pub
     groups: # docker コマンド実施の際に sudo を不要にするため docker グループへ追加
       - docker
 
@@ -63,6 +65,6 @@ runcmd:
   - apt install -y code
   # nix
   - curl -L https://nixos.org/nix/install | sh
-  - . /home/ubuntu/.nix-profile/etc/profile.d/nix.sh
+  - . $HOME/.nix-profile/etc/profile.d/nix.sh
   - nix-env -iA nixpkgs.neovim
   - nix-env -iA nixpkgs.fzf
