@@ -69,7 +69,8 @@ function reload {
 function open-wsl {
     wsl --cd "~"
 }
-function create_multipass_vm {
+
+function create_vm {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true, HelpMessage = "cloud-init の yml ファイルを指定してください (例: myvm)")]
@@ -77,10 +78,13 @@ function create_multipass_vm {
         [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
         [string]$vmName
     )
-    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init $filePath --name $vmName --timeout 1800
+    _create_ssh_key -vmName $vmName
+    _create_multipass_vm -filePath $filePath -vmName $vmName
+
+    multipass exec $vmName --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(Get-Content $WORKSPACE\$INSTANCE_NAME.pub)' | tee -a authorized_keys"
 }
 
-function create_ssh_key {
+function _create_ssh_key {
     [CmdletBinding()]
     param (
         [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
@@ -118,7 +122,7 @@ Host $($INSTANCE_NAME)
         Write-Error "ファイルへの書き込みに失敗しました: $($_.Exception.Message)"
     }
 
-        # ~/.ssh/config への Include 行追記処理
+    # ~/.ssh/config への Include 行追記処理
     $CONFIG_FILE = "$HOME\.ssh\config"
     $INCLUDE_LINE = "Include ~\.ssh\multipass\$INSTANCE_NAME\config"
 
@@ -130,7 +134,17 @@ Host $($INSTANCE_NAME)
     # ~/.ssh/config に Include 行を追記
     Add-Content -Path $CONFIG_FILE -Value "$INCLUDE_LINE`n" -Encoding utf8 -ErrorAction Stop
 
-    # multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(Get-Content $WORKSPACE\$INSTANCE_NAME.pub)' | tee -a authorized_keys"
+}
+
+function _create_multipass_vm {
+    [CmdletBinding()]
+    param (
+        [Parameter(Mandatory = $true, HelpMessage = "cloud-init の yml ファイルを指定してください (例: myvm)")]
+        [string]$filePath,
+        [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
+        [string]$vmName
+    )
+    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init $filePath --name $vmName --timeout 1800
 }
 
 # psreadline

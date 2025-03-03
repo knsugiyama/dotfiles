@@ -56,15 +56,17 @@ bindkey '^k' _zsh_command_find
 zle -N _zsh_command_find
 # <<
 
-function create_multipass_vm() {
-    # echo "$1"
+function create_vm() {
     local filePath="$1"
     local vmName="$2"
 
-    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init ${filePath} --name ${vmName} --timeout 1800
+    _create_ssh_key $vmName
+    _create_multipass_vm $filePath $vmName
+
+    multipass exec $vmName --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
 }
 
-function create_ssh_key() {
+function _create_ssh_key() {
   vmName="$1"
 
   # 仮想環境の名前を設定
@@ -109,5 +111,12 @@ EOF"
   # ~/.ssh/config に Include 行を追記
   echo "$INCLUDE_LINE" >> "$CONFIG_FILE"
 
-#   multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
+}
+
+function _create_multipass_vm() {
+    # echo "$1"
+    local filePath="$1"
+    local vmName="$2"
+
+    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init ${filePath} --name ${vmName} --timeout 1800
 }
