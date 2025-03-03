@@ -1,10 +1,5 @@
 Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process
 
-$env:XDG_CONFIG_HOME = $HOME + '\.config'
-$env:XDG_DATA_HOME = $HOME + '\.local\share'
-$env:XDG_CACHE_HOME = $HOME + '\.local\cache'
-$env:XDG_STATE_HOME = $HOME + '\.local\state'
-
 Write-Host "############"
 Write-Host "wingetによるアプリインストールを実施"
 Write-Host "############"
@@ -17,6 +12,11 @@ winget import -i "$HOME\.dotfiles\dist\Windows\init\winget-app-list.json" --igno
 if(!(Test-Path $HOME\.config)){
   mkdir $HOME\.config
 }
+
+Write-Host "############"
+Write-Host "set system env"
+Write-Host "############"
+Start-Process powershell.exe ("-noprofile -command Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process; " + $HOME + "\.dotfiles\dist\Windows\init\setSystemEnv.ps1") -Verb runas -wait
 
 Write-Host "############"
 Write-Host "install powershell modules"
