@@ -104,7 +104,7 @@ function create_ssh_key {
     $configBlock = @"
 Host $($INSTANCE_NAME)
     HostName $($INSTANCE_NAME).local
-    User ubuntu
+    User $($INSTANCE_NAME)
     IdentityFile ~/.ssh/multipass/$($INSTANCE_NAME)/$($INSTANCE_NAME)
     IdentitiesOnly yes
     ServerAliveInterval 60
