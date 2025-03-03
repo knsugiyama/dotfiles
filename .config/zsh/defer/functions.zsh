@@ -109,5 +109,5 @@ EOF"
   # ~/.ssh/config に Include 行を追記
   echo "$INCLUDE_LINE" >> "$CONFIG_FILE"
 
-  multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
+#   multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
 }

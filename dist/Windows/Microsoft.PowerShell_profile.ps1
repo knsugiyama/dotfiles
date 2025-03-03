@@ -77,7 +77,7 @@ function create_multipass_vm {
         [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
         [string]$vmName
     )
-    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init $fileName --name $vmName --timeout 1800
+    multipass launch --cpus 2 --disk 36G --memory 4G --cloud-init $filePath --name $vmName --timeout 1800
 }
 
 function create_ssh_key {
@@ -112,7 +112,7 @@ Host $($INSTANCE_NAME)
 
     # ファイルに設定内容を追記
     try {
-        Add-Content -Path "$WORKSPACE\config" -Value $configBlock -Encoding UTF8 -ErrorAction Stop
+        Add-Content -Path "$WORKSPACE\config" -Value $configBlock -Encoding utf8 -ErrorAction Stop
     }
     catch {
         Write-Error "ファイルへの書き込みに失敗しました: $($_.Exception.Message)"
@@ -128,9 +128,9 @@ Host $($INSTANCE_NAME)
     }
 
     # ~/.ssh/config に Include 行を追記
-    Add-Content -Path $CONFIG_FILE -Value "$INCLUDE_LINE`n" -Encoding UTF
+    Add-Content -Path $CONFIG_FILE -Value "$INCLUDE_LINE`n" -Encoding utf8 -ErrorAction Stop
 
-    multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(Get-Content $WORKSPACE\$INSTANCE_NAME.pub)' | tee -a authorized_keys"
+    # multipass exec myvm --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(Get-Content $WORKSPACE\$INSTANCE_NAME.pub)' | tee -a authorized_keys"
 }
 
 # psreadline
