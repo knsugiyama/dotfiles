@@ -115,6 +115,7 @@ Host $($INSTANCE_NAME)
     IdentityFile ~/.ssh/multipass/$($INSTANCE_NAME)/$($INSTANCE_NAME)
     IdentitiesOnly yes
     ServerAliveInterval 60
+    LocalForward 8080 127.0.0.1:8080
 "@
 
     # ファイルに設定内容を追記
