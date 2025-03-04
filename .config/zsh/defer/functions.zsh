@@ -60,20 +60,21 @@ function create_vm() {
     local filePath="$1"
     local vmName="$2"
 
-    _create_ssh_key $vmName
-    _create_multipass_vm $filePath $vmName
+    # 仮想環境の名前を設定
+    INSTANCE_NAME="$vmName"
+    # ssh 接続設定用に仮想環境名ディレクトリを切る
+    WORKSPACE="$HOME/.ssh/multipass/$INSTANCE_NAME"
 
-    multipass exec $vmName --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
+    _create_ssh_key $INSTANCE_NAME $WORKSPACE
+    _create_multipass_vm $filePath $INSTANCE_NAME
+
+    multipass exec $INSTANCE_NAME --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(cat ${WORKSPACE}/${INSTANCE_NAME}.pub)' | tee -a authorized_keys"
 }
 
 function _create_ssh_key() {
-  vmName="$1"
+  INSTANCE_NAME="$1"
+  WORKSPACE="$2"
 
-  # 仮想環境の名前を設定
-  INSTANCE_NAME="$vmName"
-
-  # ssh 接続設定用に仮想環境名ディレクトリを切る
-  WORKSPACE="$HOME/.ssh/multipass/$INSTANCE_NAME"
   mkdir -p "$WORKSPACE"
 
   # 仮想環境名の鍵生成

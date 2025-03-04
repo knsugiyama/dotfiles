@@ -78,8 +78,14 @@ function create_vm {
         [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
         [string]$vmName
     )
-    _create_ssh_key -vmName $vmName
-    _create_multipass_vm -filePath $filePath -vmName $vmName
+
+    # 仮想環境の名前を設定
+    $INSTANCE_NAME = $vmName
+    # ssh 接続設定用に仮想環境名ディレクトリを切る
+    $WORKSPACE = "$HOME\.ssh\multipass\$INSTANCE_NAME"
+
+    _create_ssh_key -INSTANCE_NAME $INSTANCE_NAME -WORKSPACE $WORKSPACE
+    _create_multipass_vm -filePath $filePath -vmName $INSTANCE_NAME
 
     multipass exec $vmName --working-directory "/home/ubuntu/.ssh" -- bash -c "echo '$(Get-Content $WORKSPACE\$INSTANCE_NAME.pub)' | tee -a authorized_keys"
 }
@@ -87,15 +93,12 @@ function create_vm {
 function _create_ssh_key {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true, HelpMessage = "設定するvm名を指定してください (例: myvm)")]
-        [string]$vmName
+        [Parameter(Mandatory = $true")]
+        [string]$INSTANCE_NAME,
+        [Parameter(Mandatory = $true")]
+        [string]$WORKSPACE
     )
 
-    # 仮想環境の名前を設定
-    $INSTANCE_NAME = $vmName
-
-    # ssh 接続設定用に仮想環境名ディレクトリを切る
-    $WORKSPACE = "$HOME\.ssh\multipass\$INSTANCE_NAME"
     New-Item -ItemType Directory -Force -Path "$WORKSPACE"
 
     # 仮想環境名の鍵生成
