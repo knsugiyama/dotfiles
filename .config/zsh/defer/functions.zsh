@@ -87,7 +87,7 @@ function _create_ssh_key() {
   configBlock="cat <<EOF
 Host ${INSTANCE_NAME}
     HostName ${INSTANCE_NAME}.local
-    User u${INSTANCE_NAME}
+    User ${INSTANCE_NAME}
     IdentityFile ~/.ssh/multipass/${INSTANCE_NAME}/${INSTANCE_NAME}
     IdentitiesOnly yes
     ServerAliveInterval 60
