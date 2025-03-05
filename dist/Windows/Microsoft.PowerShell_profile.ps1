@@ -93,9 +93,9 @@ function create_vm {
 function _create_ssh_key {
     [CmdletBinding()]
     param (
-        [Parameter(Mandatory = $true")]
+        [Parameter(Mandatory = $true)]
         [string]$INSTANCE_NAME,
-        [Parameter(Mandatory = $true")]
+        [Parameter(Mandatory = $true)]
         [string]$WORKSPACE
     )
 
