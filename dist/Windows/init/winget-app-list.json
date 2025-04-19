@@ -1,14 +1,11 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2025-02-02T21:14:50.735-00:00",
+	"CreationDate" : "2025-04-19T16:26:48.620-00:00",
 	"Sources" : 
 	[
 		{
 			"Packages" : 
 			[
-				{
-					"PackageIdentifier" : "CoreyButler.NVMforWindows"
-				},
 				{
 					"PackageIdentifier" : "CrystalDewWorld.CrystalDiskInfo"
 				},
@@ -28,25 +25,28 @@
 					"PackageIdentifier" : "DigitalScholar.Zotero"
 				},
 				{
+					"PackageIdentifier" : "Oracle.VirtualBox"
+				},
+				{
 					"PackageIdentifier" : "ShiningLight.OpenSSL.Light"
 				},
 				{
 					"PackageIdentifier" : "Neovim.Neovim"
 				},
 				{
+					"PackageIdentifier" : "Box.Box"
+				},
+				{
 					"PackageIdentifier" : "Elgato.StreamDeck"
 				},
 				{
-					"PackageIdentifier" : "Google.GoogleDrive"
-				},
-				{
-					"PackageIdentifier" : "SAP.SapMachine.21.JDK"
-				},
-				{
-					"PackageIdentifier" : "Nushell.Nushell"
+					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
 				},
 				{
 					"PackageIdentifier" : "GitHub.cli"
+				},
+				{
+					"PackageIdentifier" : "Google.Chrome"
 				},
 				{
 					"PackageIdentifier" : "Nvidia.PhysX"
@@ -55,10 +55,13 @@
 					"PackageIdentifier" : "wez.wezterm"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.PowerShell"
+				},
+				{
 					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
 				},
 				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
+					"PackageIdentifier" : "Canonical.Multipass"
 				},
 				{
 					"PackageIdentifier" : "Starship.Starship"
@@ -70,37 +73,49 @@
 					"PackageIdentifier" : "Valve.Steam"
 				},
 				{
+					"PackageIdentifier" : "Tableau.PrepBuilder"
+				},
+				{
+					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
+				},
+				{
+					"PackageIdentifier" : "Google.ChromeRemoteDesktopHost"
+				},
+				{
 					"PackageIdentifier" : "nathancorvussolis.corvusskk"
 				},
 				{
 					"PackageIdentifier" : "Nota.Gyazo"
 				},
 				{
-					"PackageIdentifier" : "Tableau.Desktop"
-				},
-				{
-					"PackageIdentifier" : "Tableau.PrepBuilder"
+					"PackageIdentifier" : "Box.BoxTools"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
-				},
-				{
-					"PackageIdentifier" : "Box.BoxTools"
-				},
-				{
-					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
-				},
-				{
 					"PackageIdentifier" : "Kensington.KensingtonWorks"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.8"
+				},
+				{
+					"PackageIdentifier" : "Tableau.Desktop"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.8"
+				},
+				{
+					"PackageIdentifier" : "Doist.Todoist"
 				},
 				{
 					"PackageIdentifier" : "Anki.Anki"
@@ -115,9 +130,6 @@
 					"PackageIdentifier" : "BurntSushi.ripgrep.MSVC"
 				},
 				{
-					"PackageIdentifier" : "DenoLand.Deno"
-				},
-				{
 					"PackageIdentifier" : "Hugo.Hugo.Extended"
 				},
 				{
@@ -127,7 +139,7 @@
 					"PackageIdentifier" : "JesseDuffield.lazygit"
 				},
 				{
-					"PackageIdentifier" : "Syncthing.Syncthing"
+					"PackageIdentifier" : "Postman.Postman"
 				},
 				{
 					"PackageIdentifier" : "Zoom.Zoom.EXE"
@@ -142,13 +154,10 @@
 					"PackageIdentifier" : "junegunn.fzf"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
-					"PackageIdentifier" : "Canonical.Ubuntu"
+					"PackageIdentifier" : "Microsoft.PowerToys"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Teams"
@@ -187,5 +196,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.9.25200"
+	"WinGetVersion" : "1.10.340"
 }

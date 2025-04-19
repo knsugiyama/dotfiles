@@ -12,7 +12,11 @@ New-Item -Type SymbolicLink -Path $HOME\.vimrc -Value $HOME\.dotfiles\.vimrc -Fo
 Write-Host "#####"
 Write-Host "Microsoft.PowerShell_profile.ps1"
 Write-Host "#####"
-New-Item -Type SymbolicLink -Path $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Value $HOME\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
+# New-Item -Type SymbolicLink -Path $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1 -Value $HOME\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Force
+
+# 動的に Documents フォルダのパスを取得
+$documentsPath = [Environment]::GetFolderPath("MyDocuments")
+Copy-Item -Path $HOME\.dotfiles\dist\Windows\Microsoft.PowerShell_profile.ps1 -Destination $documentsPath\PowerShell\Microsoft.PowerShell_profile.ps1 -Force
 
 # Write-Host "#####"
 # Write-Host 'replace wsl.conf.'
