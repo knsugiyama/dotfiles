@@ -5,37 +5,42 @@
 SendMode "Input"
 
 ;================================================================
-; キーボードレイアウト判定（最初に1回だけ実行）
+; グローバル変数の準備とタイマーの設定
 ;================================================================
-isJISLayout := (DllCall("GetKeyboardLayout", "UInt", DllCall("GetWindowThreadProcessId", "Ptr", WinExist("A"), "UInt", 0)) & 0xFFFF) == 0x0411
+global HasExternalKbd := false ; 外部キーボードの状態を保存する変数
+UpdateKbdStatus()              ; 起動時に一度、状態をチェック
+SetTimer UpdateKbdStatus, 5000  ; 5秒（5000ms）ごとに状態をチェックし続ける
+
+;================================================================
+; キーボードレイアウト判定
+;================================================================
+isJISLayout := (DllCall("GetKeyboardLayout", "UInt", DllCall("GetWindowThreadProcessId", "Ptr", WinExist("A"), "UInt",0)) & 0xFFFF) == 0x0411
+LogToFile("JISレイアウト判定結果: " . isJISLayout)
 
 ;================================================================
 ; 左右Altキーの空打ちでIMEを切り替える
 ;================================================================
 #HotIf !WinActive("ahk_exe msrdc.exe")
 
-; Altキーが押された瞬間にメニューフォーカスを「予防」する
 ~LAlt:: Send "{Blind}{vkFF}"
 ~RAlt:: Send "{Blind}{vkFF}"
 
-~LAlt Up:: {
-    KeyWait "LAlt"
-    if A_PriorKey == "LAlt" {
-        Send "{vk1Dsc07B}" ; 無変換
+LAlt Up:: {
+    if (A_PriorHotkey == "~LAlt" && A_TimeSincePriorHotkey < 400) {
+        Send "{vk1Dsc07B}"
     }
 }
-
-~RAlt Up:: {
-    KeyWait "RAlt"
-    if A_PriorKey == "RAlt" {
-        Send "{vk1Csc079}" ; 変換
+RAlt Up:: {
+    if (A_PriorHotkey == "~RAlt" && A_TimeSincePriorHotkey < 400) {
+        Send "{vk1Csc079}"
     }
 }
 
 ;================================================================
 ; JIS配列キーボードをUS配列風にするためのキーリマップ
 ;================================================================
-#HotIf isJISLayout
+; isJISLayoutがtrueで、かつ「外部キーボードが接続されている」場合のみ有効にする
+#HotIf isJISLayout && HasExternalKbd
 ; --- 1キー段目 ---
 sc029:: Send "{``}"    ; 半角/全角
 +sc029:: Send "{~}"
@@ -44,7 +49,7 @@ sc029:: Send "{``}"    ; 半角/全角
 +7:: Send "{&}"       ; Shift + 7         ['] -> &
 +8:: Send "{*}"       ; Shift + 8         [(] -> *
 +9:: Send "{(}"       ; Shift + 9         [)] -> (
-+0:: Send "{)}"       ; Shift + 0         [ ] -> )
++0:: Send "{)}"       ; Shift + 0         [ ] -> ),
 +-:: Send "{_}"       ; Shift + -         [=] -> _
 ^:: Send "{=}"        ;                   [^] -> =
 +^:: Send "{+}"       ; Shift + ^         [~] -> +
@@ -66,3 +71,29 @@ sc029:: Send "{``}"    ; 半角/全角
 
 ; すべてのHotIf条件をリセット
 #HotIf
+
+;================================================================
+; 外部キーボードの状態をチェックして変数を更新する関数
+;================================================================
+UpdateKbdStatus() {
+    try {
+        wmi := ComObjGet("winmgmts:")
+        keyboards := wmi.ExecQuery("SELECT * FROM Win32_Keyboard")
+
+        ; 以前の状態と変化があった場合のみログを記録
+        if (HasExternalKbd != (keyboards.Count > 1)) {
+            global HasExternalKbd := keyboards.Count > 1
+            LogToFile("キーボード状態更新: 外部キーボード " . (HasExternalKbd ? "あり" : "なし"))
+        }
+    } catch
+        return
+}
+
+;================================================================
+; ログをファイルに書き出すための関数
+;================================================================
+LogToFile(LogText) {
+    LogFile := A_ScriptDir . "\debug.log"
+    Timestamp := FormatTime(, "yyyy-MM-dd HH:mm:ss")
+    FileAppend Timestamp . ": " . LogText . "`n", LogFile
+}

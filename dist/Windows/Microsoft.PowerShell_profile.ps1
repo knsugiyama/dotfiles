@@ -63,7 +63,7 @@ function script:export {
 }
 
 function reload {
-    . $HOME\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
+    . $PROFILE
 }
 
 function open-wsl {
