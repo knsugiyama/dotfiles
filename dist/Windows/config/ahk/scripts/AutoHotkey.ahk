@@ -81,8 +81,8 @@ UpdateKbdStatus() {
         keyboards := wmi.ExecQuery("SELECT * FROM Win32_Keyboard")
 
         ; 以前の状態と変化があった場合のみログを記録
-        if (HasExternalKbd != (keyboards.Count > 1)) {
-            global HasExternalKbd := keyboards.Count > 1
+        if (HasExternalKbd != (keyboards.Count > 2)) {
+            global HasExternalKbd := keyboards.Count > 2
             LogToFile("キーボード状態更新: 外部キーボード " . (HasExternalKbd ? "あり" : "なし"))
         }
     } catch
