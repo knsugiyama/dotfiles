@@ -1,0 +1,30 @@
+# https://alacritty.org/config-alacritty.html
+[general]
+import = [
+    "~/.config/alacritty/themes/catppuccin-macchiato.toml"
+]
+# immediately reloadwhen this file is updated
+live_config_reload = true
+
+[window]
+# window size
+dimensions = { columns = 200, lines = 60 }
+dynamic_padding = true
+
+[cursor]
+style = "Beam"
+
+[font]
+size = 12
+
+# font names by type
+normal = { family = "Moralerspace Argon NF", style = "Regular" }
+bold = { family = "Moralerspace Argon NF", style = "Bold" }
+italic = { family = "Moralerspace Argon NF", style = "Italic" }
+bold_italic = { family = "Moralerspace Argon NF", style = "Bold Italic" }
+
+offset = { x = 0, y = 1 }
+
+[selection]
+semantic_escape_chars = "`~!@#$%^&*()-=+[{]}\\|;:'\",.<>/?｀～！＠＃＄％＾＆＊（）－＝＋［｛］｝＼｜；：＇＂，．＜＞／？「」、。【】『』　てにをはがのともへでや"
+save_to_clipboard = true

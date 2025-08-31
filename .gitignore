@@ -8,6 +8,8 @@
 !/.gitconfig_credential
 !/.gitignore_global
 !/.config/
+!/.config/alacritty/
+!/.config/alacritty/**
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
 !/.config/lazygit/
