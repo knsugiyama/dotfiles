@@ -19,7 +19,8 @@ else {
 
 Set-Location $CURRENTPATH
 
-winget upgrade --unknown --include-pinned --all --accept-source-agreements --accept-package-agreements
+# winget upgrade を別の cmd プロセスで実行（PowerShell 本体が更新対象でもスクリプト継続）
+Start-Process "cmd.exe" -ArgumentList @('/c', 'winget upgrade --unknown --include-pinned --all --accept-source-agreements --accept-package-agreements') -Wait
 
 scoop update --all
 
