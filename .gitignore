@@ -7,6 +7,11 @@
 !/.gitconfig
 !/.gitconfig_credential
 !/.gitignore_global
+!/.git_commit_template
+!/.gitignore
+!/.github/
+!/.github/**
+!/.tmux.conf
 !/.config/
 !/.config/alacritty/
 !/.config/alacritty/**
@@ -27,10 +32,6 @@
 !/.config/zsh/defer/**
 !/.config/zsh/sync/
 !/.config/zsh/sync/**
-!/.git_commit_template
-!/.gitignore
-!/.github/
-!/.github/**
 !/archives/
 !/archives/**
 !/bin/

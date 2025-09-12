@@ -1,31 +1,32 @@
 return {
   {
-    "folke/tokyonight.nvim",
+    'folke/tokyonight.nvim',
     lazy = false,
     priority = 1000,
     config = function()
-      require("config/ui/tokyonight")
+      require 'config/ui/tokyonight'
     end,
   },
   {
     'nvim-lualine/lualine.nvim',
-    event = "VeryLazy",
+    event = 'VeryLazy',
     config = function()
-      require("config/ui/lualine")
+      require 'config/ui/lualine'
     end,
   },
   {
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
+    'nvim-neo-tree/neo-tree.nvim',
+    branch = 'v3.x',
     config = function()
-      require("config/ui/neo-tree")
+      require 'config/ui/neo-tree'
     end,
   },
   {
-    "shellRaining/hlchunk.nvim",
-    event = { "BufReadPre", "BufNewFile" },
+    -- インデントガイドを表示するプラグイン
+    'shellRaining/hlchunk.nvim',
+    event = { 'BufReadPre', 'BufNewFile' },
     config = function()
-      require("config/ui/hlchunk")
-    end
+      require 'config/ui/hlchunk'
+    end,
   },
 }

@@ -1,18 +1,18 @@
 return {
   {
-    "neovim/nvim-lspconfig",
-    event = "InsertEnter",
+    'neovim/nvim-lspconfig',
+    event = 'InsertEnter',
   },
   {
-    "williamboman/mason.nvim",
+    'williamboman/mason.nvim',
     config = function()
-      require("config/coding/lsp/mason")
+      require 'config/coding/lsp/mason'
     end,
   },
   {
-    "williamboman/mason-lspconfig.nvim",
+    'williamboman/mason-lspconfig.nvim',
     config = function()
-      require("config/coding/lsp/mason-lspconfig")
+      require 'config/coding/lsp/mason-lspconfig'
     end,
   },
 }
