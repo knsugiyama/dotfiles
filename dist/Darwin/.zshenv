@@ -4,7 +4,10 @@ export XDG_DATA_HOME="$HOME"/.local/share
 export XDG_STATE_HOME="$HOME"/.local/state
 
 export PATH=/usr/local/bin:$PATH
-# export PATH=/Users/knsugiyama/Library/Application\ Support/multipass/bin:$PATH
+
+if [[ -d "$HOME/bin" ]]; then
+  export PATH=$HOME/bin:$PATH
+fi
 
 ZDOTDIR=$HOME/.config/zsh
 eval $(/opt/homebrew/bin/brew shellenv)

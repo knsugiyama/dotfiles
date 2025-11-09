@@ -12,64 +12,91 @@ autoReload = hs.pathwatcher.new(os.getenv('HOME') .. '/.config/hammerspoon/init.
     hs.timer.doAfter(0.1, hs.reload)
 end):start()
 
---[[
--- 左右Altキーで英語、日本語入力を切り替える
---]]
+-- --[[
+-- -- 左右Altキーで英語、日本語入力を切り替える
+-- --]]
 -- local simpleAlt = false
+-- local function eikanaEvent(event)
+--   local c = event:getKeyCode()
+--   local f = event:getFlags()
+--   if event:getType() == keyDown then
+--     if f['alt'] then
+--       simpleAlt = true
+--     end
+--   elseif event:getType() == flagsChanged then
+--     if not f['alt'] then
+--       if simpleAlt == false then
+--         if c == map['alt'] then
+--           -- hs.keycodes.setMethod('Alphanumeric (Google)')
+--           hs.keycodes.setMethod('ABC')
+--         elseif c == map['rightalt'] then
+--           -- hs.keycodes.setMethod('Hiragana (Google)')
+--           hs.keycodes.setMethod('ひらがな')
+--         end
+--       end
+--       simpleAlt = false
+--     end
+--   end
+-- end
+
+-- eikana = eventtap.new({ keyDown, flagsChanged }, eikanaEvent)
+-- eikana:start()
 
 --[[
+-- 左右Cmdキーで英語、日本語入力を切り替える
+--]]
+local simpleCmd = false
 local function eikanaEvent(event)
   local c = event:getKeyCode()
   local f = event:getFlags()
   if event:getType() == keyDown then
-    if f['alt'] then
-      simpleAlt = true
+    if f['cmd'] then
+      simpleCmd = true
     end
   elseif event:getType() == flagsChanged then
-    if not f['alt'] then
-      if simpleAlt == false then
-        if c == map['alt'] then
-          hs.keycodes.setMethod('Alphanumeric (Google)')
-        elseif c == map['rightalt'] then
-          hs.keycodes.setMethod('Hiragana (Google)')
+    if not f['cmd'] then
+      if simpleCmd == false then
+        if c == map['cmd'] then
+          -- hs.keycodes.setMethod('Alphanumeric (Google)')
+          hs.keycodes.setMethod('ABC')
+        elseif c == map['rightcmd'] then
+          -- hs.keycodes.setMethod('Hiragana (Google)')
+          hs.keycodes.setMethod('ひらがな')
         end
       end
-      simpleAlt = false
+      simpleCmd = false
     end
   end
 end
 
 eikana = eventtap.new({ keyDown, flagsChanged }, eikanaEvent)
 eikana:start()
---]]
 
 --[[
 -- esc キー押下でIME切り替えをする
 --]]
---[[
 switchToEisuOnEscape = eventtap.new({ keyDown }, function(e)
   if hs.keycodes.map[e:getKeyCode()] == 'escape' then
-    hs.keycodes.setMethod('Alphanumeric (Google)')
+    hs.keycodes.setMethod('ABC')
   end
 end):start()
---]]
 
 -- AquaSKK 向け
 -- see: https://mac-ra.com/iterm2-aquqskk-lkey/#
-local function aquaSkkCtrlJ(name, event, app)
-    if event == hs.application.watcher.activated then
-        log.i(name)
-        if name == 'Microsoft PowerPoint' then
-            hs.hotkey.bind({ "ctrl" }, "j", function()
-                -- hs.eventtap.event.newKeyEvent({}, 'up', true):post(); return true;
-                -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', true):post()
-                -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', false):post()
-                -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, '0', true):post()
-                hs.eventtap.keyStroke({}, 104, 0)
-            end)
-        end
-    end
-end
+-- local function aquaSkkCtrlJ(name, event, app)
+--     if event == hs.application.watcher.activated then
+--         log.i(name)
+--         if name == 'Microsoft PowerPoint' then
+--             hs.hotkey.bind({ "ctrl" }, "j", function()
+--                 -- hs.eventtap.event.newKeyEvent({}, 'up', true):post(); return true;
+--                 -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', true):post()
+--                 -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', false):post()
+--                 -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, '0', true):post()
+--                 hs.eventtap.keyStroke({}, 104, 0)
+--             end)
+--         end
+--     end
+-- end
 
-terminalWatch = hs.application.watcher.new(aquaSkkCtrlJ)
-terminalWatch:start()
+-- terminalWatch = hs.application.watcher.new(aquaSkkCtrlJ)
+-- terminalWatch:start()
