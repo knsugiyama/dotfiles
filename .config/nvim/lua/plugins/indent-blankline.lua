@@ -1,9 +1,9 @@
 return {
-  "lukas-reineke/indent-blankline.nvim",
+  'lukas-reineke/indent-blankline.nvim',
   -- プラグインのロードタイミング
-  event = { "BufReadPre", "BufNewFile" },
+  event = { 'BufReadPre', 'BufNewFile' },
   -- プラグインのメインモジュール
-  main = "ibl",
+  main = 'ibl',
   -- プラグインの設定オプション
   opts = {},
 }

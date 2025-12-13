@@ -1,17 +1,17 @@
-require("core.plugin").init()
-local lazy = require("lazy")
+require('core.plugin').init()
+local lazy = require 'lazy'
 
 if vim.env.NVIM_COLORSCHEME == nil then
   -- vim.cmd [[colorscheme tokyonight]]
-  vim.env.NVIM_COLORSCHEME = "tokyonight"
+  vim.env.NVIM_COLORSCHEME = 'tokyonight'
 end
 
-lazy.setup({
+lazy.setup {
   spec = {
-    { import = "plugins" },
+    { import = 'plugins' },
   },
   defaults = { lazy = true },
-  install = { missing = true, colorscheme = { "tokyonight" } },
+  install = { missing = true, colorscheme = { 'tokyonight' } },
   checker = { enabled = false },
   concurrency = 64,
   performance = {
@@ -20,18 +20,18 @@ lazy.setup({
     },
     rtp = {
       disabled_plugins = {
-        "gzip",
-        "matchit",
-        "matchparen",
-        "netrwPlugin",
-        "netrw",
-        "tarPlugin",
-        "tar",
-        "tohtml",
-        "tutor",
-        "zipPlugin",
-        "zip",
+        'gzip',
+        'matchit',
+        'matchparen',
+        'netrwPlugin',
+        'netrw',
+        'tarPlugin',
+        'tar',
+        'tohtml',
+        'tutor',
+        'zipPlugin',
+        'zip',
       },
     },
   },
-})
+}

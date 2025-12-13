@@ -8,12 +8,11 @@ vim.scriptencoding = 'utf-8'
 local opt = vim.opt
 
 opt.backup = true
-opt.backupdir = vim.fn.expand(vim.fn.stdpath("cache") .. "/.vim_backup")
+opt.backupdir = vim.fn.expand(vim.fn.stdpath 'cache' .. '/.vim_backup')
 -- Save undo history
 opt.undofile = true
 -- No create swapfile
 opt.swapfile = false
-
 
 opt.mouse = 'a'
 
