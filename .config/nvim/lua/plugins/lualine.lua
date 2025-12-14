@@ -1,18 +1,18 @@
 return {
   'nvim-lualine/lualine.nvim',
   dependencies = { 'nvim-tree/nvim-web-devicons' },
-  event = "VeryLazy",
+  event = 'VeryLazy',
   opts = function()
     local function skk_mode()
-      return vim.fn["skkeleton#mode"]()
+      return vim.fn['skkeleton#mode']()
     end
 
     return {
       options = {
         icons_enabled = true,
-        theme = "tokyonight",
-        component_separators = "",
-        section_separators = "",
+        theme = 'tokyonight',
+        component_separators = '',
+        section_separators = '',
         disabled_filetypes = {
           statusline = {},
           winbar = {},
@@ -27,18 +27,18 @@ return {
         },
       },
       sections = {
-        lualine_a = { "mode" },
-        lualine_b = { "branch", "diff", "diagnostics" },
-        lualine_c = { "filename" },
-        lualine_x = { "filetype", skk_mode },
-        lualine_y = { "progress" },
-        lualine_z = { "location" },
+        lualine_a = { 'mode' },
+        lualine_b = { 'branch', 'diff', 'diagnostics' },
+        lualine_c = { 'filename' },
+        lualine_x = { 'filetype', skk_mode },
+        lualine_y = { 'progress' },
+        lualine_z = { 'location' },
       },
       inactive_sections = {
         lualine_a = {},
         lualine_b = {},
-        lualine_c = { "filename" },
-        lualine_x = { "location" },
+        lualine_c = { 'filename' },
+        lualine_x = { 'location' },
         lualine_y = {},
         lualine_z = {},
       },

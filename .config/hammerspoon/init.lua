@@ -1,4 +1,4 @@
-local log = hs.logger.new('mymodule', 'debug')
+local log = hs.logger.new("mymodule", "debug")
 local map = hs.keycodes.map
 local keyDown = hs.eventtap.event.types.keyDown
 local keyUp = hs.eventtap.event.types.keyUp
@@ -8,9 +8,11 @@ local eventtap = hs.eventtap
 --[[
 -- auto reload
 --]]
-autoReload = hs.pathwatcher.new(os.getenv('HOME') .. '/.config/hammerspoon/init.lua', function()
-    hs.timer.doAfter(0.1, hs.reload)
-end):start()
+autoReload = hs.pathwatcher
+    .new(os.getenv("HOME") .. "/.config/hammerspoon/init.lua", function()
+      hs.timer.doAfter(0.1, hs.reload)
+    end)
+    :start()
 
 -- --[[
 -- -- 左右Altキーで英語、日本語入力を切り替える
@@ -47,21 +49,28 @@ end):start()
 --]]
 local simpleCmd = false
 local function eikanaEvent(event)
+  -- 現在アクティブなアプリケーションを取得
+  local frontmostApp = hs.application.frontmostApplication()
+  log.i(frontmostApp:name())
+  if frontmostApp:name() == "Alacritty" then
+    return
+  end
+
   local c = event:getKeyCode()
   local f = event:getFlags()
   if event:getType() == keyDown then
-    if f['cmd'] then
+    if f["cmd"] then
       simpleCmd = true
     end
   elseif event:getType() == flagsChanged then
-    if not f['cmd'] then
+    if not f["cmd"] then
       if simpleCmd == false then
-        if c == map['cmd'] then
+        if c == map["cmd"] then
           -- hs.keycodes.setMethod('Alphanumeric (Google)')
-          hs.keycodes.setMethod('ABC')
-        elseif c == map['rightcmd'] then
+          hs.keycodes.setMethod("ABC")
+        elseif c == map["rightcmd"] then
           -- hs.keycodes.setMethod('Hiragana (Google)')
-          hs.keycodes.setMethod('ひらがな')
+          hs.keycodes.setMethod("ひらがな")
         end
       end
       simpleCmd = false
@@ -73,13 +82,43 @@ eikana = eventtap.new({ keyDown, flagsChanged }, eikanaEvent)
 eikana:start()
 
 --[[
+-- test
+--]]
+-- local function test(name, event, app)
+--   if event == hs.application.watcher.activated then
+--     log.i(name)
+--   end
+-- end
+--
+-- watchTest = hs.application.watcher.new(test)
+-- watchTest:start()
+
+--[[
 -- esc キー押下でIME切り替えをする
 --]]
-switchToEisuOnEscape = eventtap.new({ keyDown }, function(e)
-  if hs.keycodes.map[e:getKeyCode()] == 'escape' then
-    hs.keycodes.setMethod('ABC')
+switchToEisuOnEscape = eventtap
+    .new({ keyDown }, function(e)
+      if hs.keycodes.map[e:getKeyCode()] == "escape" then
+        hs.keycodes.setMethod("ABC")
+      end
+    end)
+    :start()
+
+-- [[
+--
+-- ]]
+function appWatcher(name, event, app)
+  if event == hs.application.watcher.activated then
+    if name == "Alacritty" or name == "Terminal" then
+      if not hs.keycodes.currentSourceID("com.apple.keylayout.US") then
+        hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
+      end
+    end
   end
-end):start()
+end
+
+appWatcher = hs.application.watcher.new(appWatcher)
+appWatcher:start()
 
 -- AquaSKK 向け
 -- see: https://mac-ra.com/iterm2-aquqskk-lkey/#
