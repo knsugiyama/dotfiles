@@ -1,3 +1,4 @@
+-- タブ
 return {
   'akinsho/bufferline.nvim',
   version = '*', -- 最新バージョンを使用

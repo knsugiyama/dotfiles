@@ -1,3 +1,4 @@
+-- ファイラー
 return {
   'stevearc/oil.nvim',
   ---@module 'oil'
