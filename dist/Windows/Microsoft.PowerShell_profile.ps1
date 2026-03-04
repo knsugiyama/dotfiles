@@ -59,7 +59,7 @@ function script:update {
 
 function script:export {
     winget export -o $HOME\.dotfiles\dist\Windows\init\winget-app-list.json -s winget --accept-source-agreements
-    scoop export > $HOME\.dotfiles\dist\Windows\init\scoopfile.json
+    # scoop export > $HOME\.dotfiles\dist\Windows\init\scoopfile.json
 }
 
 function reload {

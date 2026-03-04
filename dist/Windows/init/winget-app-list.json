@@ -1,6 +1,6 @@
 {
 	"$schema" : "https://aka.ms/winget-packages.schema.2.0.json",
-	"CreationDate" : "2025-04-19T16:26:48.620-00:00",
+	"CreationDate" : "2026-03-04T23:32:35.021-00:00",
 	"Sources" : 
 	[
 		{
@@ -13,7 +13,7 @@
 					"PackageIdentifier" : "Git.Git"
 				},
 				{
-					"PackageIdentifier" : "Mozilla.Firefox"
+					"PackageIdentifier" : "Mozilla.Firefox.ja"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.OneDrive"
@@ -25,46 +25,46 @@
 					"PackageIdentifier" : "DigitalScholar.Zotero"
 				},
 				{
-					"PackageIdentifier" : "Oracle.VirtualBox"
+					"PackageIdentifier" : "GitHub.cli"
 				},
 				{
 					"PackageIdentifier" : "ShiningLight.OpenSSL.Light"
 				},
 				{
-					"PackageIdentifier" : "Neovim.Neovim"
-				},
-				{
-					"PackageIdentifier" : "Box.Box"
-				},
-				{
-					"PackageIdentifier" : "Elgato.StreamDeck"
-				},
-				{
-					"PackageIdentifier" : "TheDocumentFoundation.LibreOffice"
-				},
-				{
-					"PackageIdentifier" : "GitHub.cli"
+					"PackageIdentifier" : "RedHat.Podman"
 				},
 				{
 					"PackageIdentifier" : "Google.Chrome"
 				},
 				{
-					"PackageIdentifier" : "Nvidia.PhysX"
-				},
-				{
-					"PackageIdentifier" : "wez.wezterm"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.PowerShell"
+					"PackageIdentifier" : "Oracle.VirtualBox"
 				},
 				{
 					"PackageIdentifier" : "JohnMacFarlane.Pandoc"
 				},
 				{
-					"PackageIdentifier" : "Canonical.Multipass"
+					"PackageIdentifier" : "Google.GoogleDrive"
+				},
+				{
+					"PackageIdentifier" : "Oracle.JavaRuntimeEnvironment"
+				},
+				{
+					"PackageIdentifier" : "Alacritty.Alacritty"
+				},
+				{
+					"PackageIdentifier" : "Elgato.StreamDeck"
+				},
+				{
+					"PackageIdentifier" : "Cloudflare.Warp"
+				},
+				{
+					"PackageIdentifier" : "Nvidia.PhysX"
 				},
 				{
 					"PackageIdentifier" : "Starship.Starship"
+				},
+				{
+					"PackageIdentifier" : "Canonical.Multipass"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Edge"
@@ -73,7 +73,19 @@
 					"PackageIdentifier" : "Valve.Steam"
 				},
 				{
-					"PackageIdentifier" : "Tableau.PrepBuilder"
+					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+				},
+				{
+					"PackageIdentifier" : "nathancorvussolis.corvusskk"
+				},
+				{
+					"PackageIdentifier" : "Kensington.KensingtonWorks"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.8"
+				},
+				{
+					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
 				},
 				{
 					"PackageIdentifier" : "Intel.IntelDriverAndSupportAssistant"
@@ -82,40 +94,22 @@
 					"PackageIdentifier" : "Google.ChromeRemoteDesktopHost"
 				},
 				{
-					"PackageIdentifier" : "nathancorvussolis.corvusskk"
-				},
-				{
 					"PackageIdentifier" : "Nota.Gyazo"
-				},
-				{
-					"PackageIdentifier" : "Box.BoxTools"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.DotNet.Runtime.3_1"
 				},
 				{
-					"PackageIdentifier" : "Kensington.KensingtonWorks"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.DesktopRuntime.8"
+					"PackageIdentifier" : "Microsoft.DotNet.Runtime.8"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x64"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.VCRedist.2015+.x86"
+					"PackageIdentifier" : "Microsoft.PowerShell"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DotNet.Runtime.8"
-				},
-				{
-					"PackageIdentifier" : "Tableau.Desktop"
-				},
-				{
-					"PackageIdentifier" : "Microsoft.DotNet.AspNetCore.8"
-				},
-				{
-					"PackageIdentifier" : "Doist.Todoist"
+					"PackageIdentifier" : "Bitwarden.Bitwarden"
 				},
 				{
 					"PackageIdentifier" : "Anki.Anki"
@@ -139,6 +133,9 @@
 					"PackageIdentifier" : "JesseDuffield.lazygit"
 				},
 				{
+					"PackageIdentifier" : "Opera.Opera"
+				},
+				{
 					"PackageIdentifier" : "Postman.Postman"
 				},
 				{
@@ -154,10 +151,13 @@
 					"PackageIdentifier" : "junegunn.fzf"
 				},
 				{
+					"PackageIdentifier" : "Microsoft.PowerToys"
+				},
+				{
 					"PackageIdentifier" : "Microsoft.VisualStudioCode"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.PowerToys"
+					"PackageIdentifier" : "Google.Antigravity"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.Teams"
@@ -175,16 +175,10 @@
 					"PackageIdentifier" : "Microsoft.VCLibs.Desktop.14"
 				},
 				{
-					"PackageIdentifier" : "Microsoft.DevHome"
-				},
-				{
 					"PackageIdentifier" : "Microsoft.WindowsTerminal"
 				},
 				{
 					"PackageIdentifier" : "Microsoft.WSL"
-				},
-				{
-					"PackageIdentifier" : "TheBrowserCompany.Arc"
 				}
 			],
 			"SourceDetails" : 
@@ -196,5 +190,5 @@
 			}
 		}
 	],
-	"WinGetVersion" : "1.10.340"
+	"WinGetVersion" : "1.12.460"
 }

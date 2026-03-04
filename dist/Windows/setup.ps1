@@ -34,12 +34,12 @@ Write-Host "############"
 Start-Process powershell.exe ("-noprofile -command Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process; " + $HOME + "\.dotfiles\dist\Windows\deploy.ps1") -Verb runas -wait
 . $Home\Documents\PowerShell\Microsoft.PowerShell_profile.ps1
 
-Write-Host "#####"
-Write-Host "scoop install"
-Write-Host "#####"
+# Write-Host "#####"
+# Write-Host "scoop install"
+# Write-Host "#####"
 
-Invoke-RestMethod get.scoop.sh | Invoke-Expression
-scoop bucket add extras
-scoop import "$HOME\.dotfiles\dist\Windows\init\scoopfile.json"
+# Invoke-RestMethod get.scoop.sh | Invoke-Expression
+# scoop bucket add extras
+# scoop import "$HOME\.dotfiles\dist\Windows\init\scoopfile.json"
 
 git update-index --assume-unchanged $HOME/.dotfiles/.gitconfig_credential
