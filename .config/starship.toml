@@ -16,7 +16,6 @@ $git_state\
 $git_status\
 $git_metrics\
 $fill\
-$python\
 $lua\
 $nodejs\
 $rust\
@@ -122,7 +121,7 @@ style = 'bold fg:#313244 bg:#89b4fa'
 
 [nodejs]
 symbol = ""
-format = '[[ $symbol ($version) ]]($style)'
+format = '[${symbol} (${version})]($style)'
 detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
 detect_files = ["package.json", ".node-version", "!bunfig.toml", "!bun.lockb"]
 detect_folders = ["node_modules"]

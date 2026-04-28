@@ -49,7 +49,7 @@ map('i', 'jk', '<Esc>')
 map('n', 'sq', ':q<CR>')
 
 -- 現在のバッファ削除
-map('n', 'bd', ':bd<CR>')
+map('n', 'bd', ':bd<CR>', { desc = '<B>uffer <D>elete' })
 
 -- 設定ファイルを開く
 map('n', '<F1>', ':edit $MYVIMRC<CR>')

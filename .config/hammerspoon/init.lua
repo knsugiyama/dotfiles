@@ -1,141 +1,94 @@
+-- Global table to prevent Garbage Collection
+-- GCによる予期せぬ動作停止を防ぐため、グローバルなテーブルで管理します
+_G.myConfig = _G.myConfig or {}
+
 local log = hs.logger.new("mymodule", "debug")
 local map = hs.keycodes.map
-local keyDown = hs.eventtap.event.types.keyDown
-local keyUp = hs.eventtap.event.types.keyUp
 local flagsChanged = hs.eventtap.event.types.flagsChanged
-local eventtap = hs.eventtap
+local keyDown = hs.eventtap.event.types.keyDown
 
---[[
--- auto reload
---]]
-autoReload = hs.pathwatcher
-    .new(os.getenv("HOME") .. "/.config/hammerspoon/init.lua", function()
-      hs.timer.doAfter(0.1, hs.reload)
-    end)
-    :start()
+-- Settings / 設定
+-- 事前に hs.keycodes.currentSourceID() を実行して確認した値を入力してください
+-- local ID_ABC = "ABC"
+-- local ID_SKK = "ひらがな" -- macSKKの実際のID
+local ID_ABC = "net.mtgto.inputmethod.macSKK.ascii"
+local ID_SKK = "net.mtgto.inputmethod.macSKK.hiragana"
+local TIMEOUT_SEC = 0.3 -- これ以上長押しした場合は切り替えない
 
--- --[[
--- -- 左右Altキーで英語、日本語入力を切り替える
--- --]]
--- local simpleAlt = false
--- local function eikanaEvent(event)
---   local c = event:getKeyCode()
---   local f = event:getFlags()
---   if event:getType() == keyDown then
---     if f['alt'] then
---       simpleAlt = true
---     end
---   elseif event:getType() == flagsChanged then
---     if not f['alt'] then
---       if simpleAlt == false then
---         if c == map['alt'] then
---           -- hs.keycodes.setMethod('Alphanumeric (Google)')
---           hs.keycodes.setMethod('ABC')
---         elseif c == map['rightalt'] then
---           -- hs.keycodes.setMethod('Hiragana (Google)')
---           hs.keycodes.setMethod('ひらがな')
---         end
---       end
---       simpleAlt = false
---     end
---   end
--- end
+-- State / 状態
+local currentAppName = hs.application.frontmostApplication():name()
+local cmdPressedTime = 0
+local otherKeyPushed = false
 
--- eikana = eventtap.new({ keyDown, flagsChanged }, eikanaEvent)
--- eikana:start()
-
---[[
--- 左右Cmdキーで英語、日本語入力を切り替える
---]]
-local simpleCmd = false
-local function eikanaEvent(event)
-  -- 現在アクティブなアプリケーションを取得
-  local frontmostApp = hs.application.frontmostApplication()
-  log.i(frontmostApp:name())
-  if frontmostApp:name() == "Alacritty" then
-    return
-  end
-
-  local c = event:getKeyCode()
-  local f = event:getFlags()
-  if event:getType() == keyDown then
-    if f["cmd"] then
-      simpleCmd = true
+-- App Watcher / アプリ監視
+_G.myConfig.appWatcher = hs.application.watcher.new(function(name, event, app)
+    if event == hs.application.watcher.activated then
+        currentAppName = name
     end
-  elseif event:getType() == flagsChanged then
-    if not f["cmd"] then
-      if simpleCmd == false then
-        if c == map["cmd"] then
-          -- hs.keycodes.setMethod('Alphanumeric (Google)')
-          hs.keycodes.setMethod("ABC")
-        elseif c == map["rightcmd"] then
-          -- hs.keycodes.setMethod('Hiragana (Google)')
-          hs.keycodes.setMethod("ひらがな")
+end):start()
+
+-- Event Tap Logic / 入力切替ロジック
+_G.myConfig.eikanaEvent = hs.eventtap.new({ flagsChanged, keyDown }, function(event)
+    -- 特定のアプリでは処理をバイパス
+    if currentAppName == "Alacritty" then return false end
+
+    local type = event:getType()
+    local keyCode = event:getKeyCode()
+    local flags = event:getFlags()
+
+    -- 他のキーが押されたらフラグを立てる
+    if type == keyDown then
+        if flags["cmd"] then
+            otherKeyPushed = true
         end
-      end
-      simpleCmd = false
+        return false
     end
-  end
-end
 
-eikana = eventtap.new({ keyDown, flagsChanged }, eikanaEvent)
-eikana:start()
-
---[[
--- test
---]]
--- local function test(name, event, app)
---   if event == hs.application.watcher.activated then
---     log.i(name)
---   end
--- end
---
--- watchTest = hs.application.watcher.new(test)
--- watchTest:start()
-
---[[
--- esc キー押下でIME切り替えをする
---]]
-switchToEisuOnEscape = eventtap
-    .new({ keyDown }, function(e)
-      if hs.keycodes.map[e:getKeyCode()] == "escape" then
-        hs.keycodes.setMethod("ABC")
-      end
-    end)
-    :start()
-
--- [[
---
--- ]]
-function appWatcher(name, event, app)
-  if event == hs.application.watcher.activated then
-    if name == "Alacritty" or name == "Terminal" then
-      if not hs.keycodes.currentSourceID("com.apple.keylayout.US") then
-        hs.keycodes.currentSourceID("com.apple.keylayout.ABC")
-      end
+    -- FlagsChanged (Modifier key changed)
+    if type == flagsChanged then
+        if flags["cmd"] then
+            -- Cmd 押下時
+            cmdPressedTime = hs.timer.secondsSinceEpoch()
+            otherKeyPushed = false
+        else
+            -- Cmd 離上時
+            local duration = hs.timer.secondsSinceEpoch() - cmdPressedTime
+            -- 他のキーが押されておらず、かつ長押し（タイムアウト）でない場合のみ実行
+            if not otherKeyPushed and duration < TIMEOUT_SEC then
+                if keyCode == map["cmd"] then
+                    -- 左Cmd -> ABC (英数)
+                    if hs.keycodes.currentSourceID() ~= ID_ABC then
+                        hs.keycodes.currentSourceID(ID_ABC)
+                    end
+                elseif keyCode == map["rightcmd"] then
+                    -- 右Cmd -> macSKK (日本語)
+                    if hs.keycodes.currentSourceID() ~= ID_SKK then
+                        hs.keycodes.currentSourceID(ID_SKK)
+                    end
+                end
+            end
+            otherKeyPushed = false
+        end
     end
-  end
-end
+    return false
+end):start()
 
-appWatcher = hs.application.watcher.new(appWatcher)
-appWatcher:start()
+-- Esc Key Tap / Escキーで英数に戻す
+_G.myConfig.escTap = hs.eventtap.new({ keyDown }, function(event)
+    if event:getKeyCode() == map["escape"] then
+        log.i(hs.keycodes.currentSourceID())
+        -- 既にABCなら何もしない（負荷軽減）
+        if hs.keycodes.currentSourceID() ~= ID_ABC then
+            hs.keycodes.currentSourceID(ID_ABC)
+        end
+    end
+    return false
+end):start()
 
--- AquaSKK 向け
--- see: https://mac-ra.com/iterm2-aquqskk-lkey/#
--- local function aquaSkkCtrlJ(name, event, app)
---     if event == hs.application.watcher.activated then
---         log.i(name)
---         if name == 'Microsoft PowerPoint' then
---             hs.hotkey.bind({ "ctrl" }, "j", function()
---                 -- hs.eventtap.event.newKeyEvent({}, 'up', true):post(); return true;
---                 -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', true):post()
---                 -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, 'j', false):post()
---                 -- hs.eventtap.event.newKeyEvent({"ctrl", "shift"}, '0', true):post()
---                 hs.eventtap.keyStroke({}, 104, 0)
---             end)
---         end
---     end
--- end
+-- Path Watcher / 設定変更時の自動リロード
+local configPath = os.getenv("HOME") .. "/.config/hammerspoon/init.lua"
+_G.myConfig.reloader = hs.pathwatcher.new(configPath, function()
+    hs.timer.doAfter(0.1, hs.reload)
+end):start()
 
--- terminalWatch = hs.application.watcher.new(aquaSkkCtrlJ)
--- terminalWatch:start()
+log.i("Hammerspoon configuration loaded with enhanced stability.")
