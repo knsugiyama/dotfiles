@@ -13,14 +13,14 @@
 !/.github/**
 !/.tmux.conf
 !/.config/
-!/.config/alacritty/
-!/.config/alacritty/**
 !/.config/gh/
 !/.config/gh/**
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
 !/.config/lazygit/
 !/.config/lazygit/config.yml
+!/.config/nix/
+!/.config/nix/**
 !/.config/nvim/
 !/.config/nvim/**
 !/.config/sheldon/
@@ -52,6 +52,8 @@
 !/tools/**
 !/LICNSE
 !/README.md
+!/home.nix
+!/flake.nix
 !/setup.sh
 !/setup.ps1
 
