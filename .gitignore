@@ -17,6 +17,8 @@
 !/.config/gh/**
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
+!/.config/home-manager/
+!/.config/home-manager/**
 !/.config/lazygit/
 !/.config/lazygit/config.yml
 !/.config/nix/
@@ -52,7 +54,6 @@
 !/tools/**
 !/LICNSE
 !/README.md
-!/home.nix
 !/flake.nix
 !/setup.sh
 !/setup.ps1

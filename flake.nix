@@ -1,55 +1,38 @@
 {
-  description = "Mac と WSL2 で共有する Nix 開発環境の設計図";
+  description = "Home Manager configuration of knsugiyama";
 
-  # 外部リポジトリの定義
   inputs = {
-    # 最新のパッケージリポジトリ
-    nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
-
-    # ホームディレクトリ管理ツール (Home Manager)
-    home-manager = {
-      url = "github:nix-community/home-manager";
+    # Specify the source of Home Manager and Nixpkgs.
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nix-darwin = {
+      url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    # Ghostty ターミナルの最新版を取得
-    ghostty.url = "github:ghostty-org/ghostty";
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.11";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  # 環境の構築ロジック
-  outputs = { self, nixpkgs, home-manager, ghostty, ... }:
+  outputs = { nixpkgs, nix-darwin, home-manager, ... }:
     let
-      # 共通の引数をモジュールに渡すためのヘルパー
-      extraSpecialArgs = { inherit ghostty; };
-    in
-    {
-      homeConfigurations = {
-        # --- Mac 用の設定 (Apple Silicon) ---
-        # 実行コマンド: nix run home-manager -- switch --flake ~/.dotfiles#user@mac
-        "user@mac" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.aarch64-darwin; # Intel Mac の場合は x86_64-darwin に変更
-          modules = [
-            ./home.nix
-            {
-              # Mac 専用の追加パッケージ（Ghostty）
-              home.packages = [
-                ghostty.packages.aarch64-darwin.default
-              ];
-            }
-          ];
-          inherit extraSpecialArgs;
-        };
+      darwinUser = builtins.getEnv "DARWIN_USER";
+      darwinHost = builtins.getEnv "DARWIN_HOST";
+      
+      username = "knsugiyama";
+      system = "aarch64-darwin";
+      pkgs = nixpkgs.legacyPackages.${system};
+    in {
+      homeConfigurations."knsugiyama" = home-manager.lib.homeManagerConfiguration {
+        inherit pkgs;
 
-        # --- WSL2 用の設定 (Ubuntu等) ---
-        # 実行コマンド: nix run home-manager -- switch --flake ~/.dotfiles#user@wsl
-        "user@wsl" = home-manager.lib.homeManagerConfiguration {
-          pkgs = nixpkgs.legacyPackages.x86_64-linux;
-          modules = [
-            ./home.nix
-            # WSL2 では Windows 側のターミナルを使うため、Ghostty はインストールしない
-          ];
-          inherit extraSpecialArgs;
-        };
+        # Specify your home configuration modules here, for example,
+        # the path to your home.nix.
+        modules = [ ./home.nix ];
+
+        # Optionally use extraSpecialArgs
+        # to pass through arguments to home.nix
+        extraSpecialArgs = { inherit username; };
       };
     };
 }
