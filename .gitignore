@@ -16,7 +16,7 @@
 !/.config/gh/
 !/.config/gh/**
 /.config/gh/hosts.yml
-/.config/gh/config.yml.bak
+/.config/gh/config.yml
 
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
