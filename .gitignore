@@ -30,8 +30,8 @@
 !/.config/skk/
 !/.config/skk/**
 !/.config/starship.toml
-!/.config/wezterm/
-!/.config/wezterm/**
+!/.config/zed/
+!/.config/zed/settings.json
 !/.config/zsh/
 !/.config/zsh/.zshrc
 !/.config/zsh/defer/

@@ -9,6 +9,7 @@
     ../../modules/home/mise.nix
     ../../modules/home/starship.nix
     ../../modules/home/shell
+    ../../modules/home/config-files.nix
   ];
 
   # WSL2 specific packages

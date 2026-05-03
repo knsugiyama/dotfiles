@@ -10,7 +10,8 @@
     ../../modules/home/starship.nix
     ../../modules/home/shell
     ../../modules/home/macos_apps.nix
-    # ../../modules/home/terminal/ghostty.nix
+    ../../modules/home/config-files.nix
+    ../../modules/home/terminal/ghostty.nix
   ];
 
   # macOS specific packages

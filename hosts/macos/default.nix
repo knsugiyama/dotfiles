@@ -37,10 +37,12 @@
     apps_path="/Applications/Nix Apps"
     mkdir -p "$apps_path"
     find "$apps_path" -type l -exec rm {} +
+    find "$apps_path" -type d -depth 1 -exec rm -rf {} +
     find ${pkgs.buildEnv { name = "system-applications"; paths = [ pkgs.google-chrome pkgs.slack pkgs.discord pkgs.obsidian pkgs.postman pkgs.zoom-us pkgs.zotero pkgs.anki-bin ]; }}/Applications -maxdepth 1 -type l | while read -r app; do
       src=$(readlink "$app")
       appname=$(basename "$src")
-      ln -s "$src" "$apps_path/$appname"
+      echo "Creating alias for $appname..."
+      ${pkgs.mkalias}/bin/mkalias "$src" "$apps_path/$appname"
     done
   '';
 

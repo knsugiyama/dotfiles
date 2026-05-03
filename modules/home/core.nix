@@ -1,17 +1,28 @@
-{ pkgs, ... }: {
-  home.packages = with pkgs; [
-    direnv
-    gemini-cli
+{ pkgs, ... }: 
+let
+  shell-utils = with pkgs; [
     ripgrep
     fd
     eza
-    gh
-    ghq
     fzf
     jq
-    htop
-    neovim
-    tmux
-    stylua
+    direnv
   ];
+
+  dev-tools = with pkgs; [
+    neovim
+    gh
+    ghq
+    stylua
+    gemini-cli
+  ];
+
+  system-tools = with pkgs; [
+    tmux
+    htop
+  ];
+in {
+  xdg.enable = true;
+
+  home.packages = shell-utils ++ dev-tools ++ system-tools;
 }
