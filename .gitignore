@@ -15,6 +15,9 @@
 !/.config/
 !/.config/gh/
 !/.config/gh/**
+/.config/gh/hosts.yml
+/.config/gh/config.yml.bak
+
 !/.config/hammerspoon/
 !/.config/hammerspoon/init.lua
 !/.config/home-manager/
