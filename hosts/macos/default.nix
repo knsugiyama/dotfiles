@@ -40,14 +40,16 @@
     find "$apps_path" -type d -depth 1 -exec rm -rf {} +
     # Note: Only Nix-installed GUI apps should be linked here.
     # Most are now managed via Homebrew Cask below for better macOS integration.
-    find ${pkgs.buildEnv { name = "system-applications"; paths = [ ]; }}/Applications -maxdepth 1 -type l | while read -r app; do
-      src=$(readlink "$app")
-      appname=$(basename "$src")
-      echo "Creating alias for $appname..."
-      ${pkgs.mkalias}/bin/mkalias "$src" "$apps_path/$appname"
-    done
-  '';
-
+    apps_source="${pkgs.buildEnv { name = "system-applications"; paths = [ ]; }}/Applications"
+    if [ -d "$apps_source" ]; then
+      find "$apps_source" -maxdepth 1 -type l | while read -r app; do
+        src=$(readlink "$app")
+        appname=$(basename "$src")
+        echo "Creating alias for $appname..."
+        ${pkgs.mkalias}/bin/mkalias "$src" "$apps_path/$appname"
+      done
+    fi
+    '';
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
