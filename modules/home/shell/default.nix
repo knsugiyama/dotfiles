@@ -5,7 +5,7 @@
     autosuggestion.enable = true;
     syntaxHighlighting.enable = true;
 
-    # Using relative path to home directory (triggers a deprecation warning in some HM versions, 
+    # Using relative path to home directory (triggers a deprecation warning in some HM versions,
     # but currently the only functional way to place zsh config in .config/zsh via HM module)
     dotDir = ".config/zsh";
 
@@ -19,11 +19,12 @@
       export XDG_STATE_HOME="$HOME/.local/state"
 
       # PATH configuration
-      export PATH="/usr/local/bin:$PATH"
       [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
 
       # External tool integrations
-      eval $(/opt/homebrew/bin/brew shellenv)
+      if [ -e /opt/homebrew/bin/brew ]; then
+        eval $(/opt/homebrew/bin/brew shellenv)
+      fi
       [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
     '';
 
@@ -45,7 +46,7 @@
         setopt extended_history
         setopt hist_allow_clobber
         setopt hist_fcntl_lock
-        setopt hist_find_no_dups 
+        setopt hist_find_no_dups
         setopt hist_ignore_all_dups
         setopt hist_ignore_dups
         setopt hist_ignore_space
@@ -64,7 +65,7 @@
 
         # Functions
         ${import ./functions.nix}
-        
+
         # local config
         if [ -f "$HOME/.zshrc.local" ]; then
           source "$HOME/.zshrc.local"

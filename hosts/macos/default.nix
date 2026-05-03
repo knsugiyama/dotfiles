@@ -38,7 +38,9 @@
     mkdir -p "$apps_path"
     find "$apps_path" -type l -exec rm {} +
     find "$apps_path" -type d -depth 1 -exec rm -rf {} +
-    find ${pkgs.buildEnv { name = "system-applications"; paths = [ pkgs.google-chrome pkgs.slack pkgs.discord pkgs.obsidian pkgs.postman pkgs.zoom-us pkgs.zotero pkgs.anki-bin ]; }}/Applications -maxdepth 1 -type l | while read -r app; do
+    # Note: Only Nix-installed GUI apps should be linked here.
+    # Most are now managed via Homebrew Cask below for better macOS integration.
+    find ${pkgs.buildEnv { name = "system-applications"; paths = [ ]; }}/Applications -maxdepth 1 -type l | while read -r app; do
       src=$(readlink "$app")
       appname=$(basename "$src")
       echo "Creating alias for $appname..."
@@ -49,12 +51,32 @@
   homebrew = {
     enable = true;
     onActivation.cleanup = "zap";
+    taps = [
+      "deskflow/tap"
+    ];
+    brews = [
+      "utf8proc" # Often needed as a dependency for some macOS builds
+    ];
     casks = [
       "ghostty"
       "git-credential-manager"
+      "google-chrome"
+      "slack"
+      "discord"
+      "obsidian"
+      "postman"
+      "zoom"
+      "zotero"
+      "anki"
       "hammerspoon"
       "microsoft-auto-update"
       "microsoft-teams"
+      "font-biz-udpgothic"
+      "font-hack-nerd-font"
+      "font-monaspace"
+      "font-plemol-jp"
+      "font-plemol-jp-hs"
+      "font-plemol-jp-nf"
     ];
   };
 }

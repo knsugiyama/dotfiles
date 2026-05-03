@@ -38,28 +38,17 @@
 !/.config/zsh/defer/**
 !/.config/zsh/sync/
 !/.config/zsh/sync/**
-!/archives/
-!/archives/**
-!/bin/
-!/bin/btp/**
-!/bin/cf/**
-!/Brewfile
-!/dist/
-!/dist/**
-!/etc/
-!/etc/**
 !/hosts/
 !/hosts/**
-!/lib/
-!/lib/**
 !/modules/
 !/modules/**
 !/tools/
 !/tools/**
-!/LICNSE
+!/LICENSE
 !/README.md
 !/flake.nix
-!/setup.sh
+!/flake.lock
+!/bootstrap.sh
 !/setup.ps1
 
 ### OSX ###

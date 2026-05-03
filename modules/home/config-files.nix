@@ -1,11 +1,10 @@
-{ lib, ... }: 
+{ lib, ... }:
 let
   # List of directories in .config to be managed by Home Manager
   configDirs = [
     "gh"
     "hammerspoon"
     "lazygit"
-    "nix"
     "nvim"
     "sheldon"
     "skk"
