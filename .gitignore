@@ -34,6 +34,7 @@
 !/.config/skk/**
 !/.config/starship.toml
 !/.config/zed/settings.json
+/.config/zed/prompts/
 !/.config/zsh/
 !/.config/zsh/.zshrc
 !/.config/zsh/defer/

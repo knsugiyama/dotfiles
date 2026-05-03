@@ -16,6 +16,6 @@
 
   # Nix / Dotfiles Management
   dot-up = "if [[ $(uname) == 'Darwin' ]]; then darwin-up; else wsl-up; fi";
-  darwin-up = "pushd ~/.dotfiles && nix run nix-darwin -- switch --flake .#macos && popd";
+  darwin-up = "pushd ~/.dotfiles && sudo nix run nix-darwin -- switch --flake .#macos && popd";
   wsl-up = "pushd ~/.dotfiles && home-manager switch --flake .#wsl2 && popd";
 }
