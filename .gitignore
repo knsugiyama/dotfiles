@@ -48,8 +48,12 @@
 !/dist/**
 !/etc/
 !/etc/**
+!/hosts/
+!/hosts/**
 !/lib/
 !/lib/**
+!/modules/
+!/modules/**
 !/tools/
 !/tools/**
 !/LICNSE

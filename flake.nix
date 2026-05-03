@@ -1,38 +1,47 @@
 {
-  description = "Home Manager configuration of knsugiyama";
+  description = "Modular Nix configuration for macOS and WSL2";
 
   inputs = {
-    # Specify the source of Home Manager and Nixpkgs.
-    nixpkgs.url = "github:nixos/nixpkgs/nixos-24.11";
+    nixpkgs.url = "github:nixos/nixpkgs/nixos-unstable";
     nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
     home-manager = {
-      url = "github:nix-community/home-manager/release-24.11";
+      url = "github:nix-community/home-manager";
       inputs.nixpkgs.follows = "nixpkgs";
     };
   };
 
-  outputs = { nixpkgs, nix-darwin, home-manager, ... }:
+  outputs = { self, nixpkgs, nix-darwin, home-manager, ... }:
     let
-      darwinUser = builtins.getEnv "DARWIN_USER";
-      darwinHost = builtins.getEnv "DARWIN_HOST";
-      
       username = "knsugiyama";
-      system = "aarch64-darwin";
-      pkgs = nixpkgs.legacyPackages.${system};
-    in {
-      homeConfigurations."knsugiyama" = home-manager.lib.homeManagerConfiguration {
-        inherit pkgs;
-
-        # Specify your home configuration modules here, for example,
-        # the path to your home.nix.
-        modules = [ ./home.nix ];
-
-        # Optionally use extraSpecialArgs
-        # to pass through arguments to home.nix
-        extraSpecialArgs = { inherit username; };
+      # macOS configuration
+      darwinSystem = nix-darwin.lib.darwinSystem {
+        system = "aarch64-darwin";
+        modules = [
+          ./hosts/macos/default.nix
+          home-manager.darwinModules.home-manager
+          {
+            home-manager.useGlobalPkgs = true;
+            home-manager.useUserPackages = true;
+            home-manager.extraSpecialArgs = { inherit username; };
+            home-manager.users.${username} = import ./hosts/macos/home.nix;
+          }
+        ];
       };
+      
+      # WSL2 (Linux) configuration
+      homeConfiguration = home-manager.lib.homeManagerConfiguration {
+        pkgs = nixpkgs.legacyPackages.x86_64-linux;
+        extraSpecialArgs = { inherit username; };
+        modules = [ ./hosts/wsl2/home.nix ];
+      };
+    in {
+      # For macOS: darwin-rebuild switch --flake .#macos
+      darwinConfigurations.macos = darwinSystem;
+
+      # For WSL2: home-manager switch --flake .#wsl2
+      homeConfigurations.wsl2 = homeConfiguration;
     };
 }

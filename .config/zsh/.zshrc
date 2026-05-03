@@ -7,4 +7,4 @@ if [ -d $ZSHDHOME -a -r $ZSHDHOME -a \
     done
 fi
 
-eval "$(sheldon source)"
+# eval "$(sheldon source)"
