@@ -60,6 +60,7 @@
       "utf8proc" # Often needed as a dependency for some macOS builds
     ];
     casks = [
+      "docker"
       "ghostty"
       "git-credential-manager"
       "google-chrome"
