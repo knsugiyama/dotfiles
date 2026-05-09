@@ -11,7 +11,9 @@ $apps = @(
     "BurntSushi.ripgrep.MSVC",
     "sharkdp.fd",
     "starship.starship",
-    "junegunn.fzf"
+    "junegunn.fzf",
+    "Anthropic.ClaudeCode",
+    "Microsoft.Edit"
 )
 
 foreach ($app in $apps) {

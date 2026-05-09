@@ -19,6 +19,7 @@
       # macOS configuration
       darwinSystem = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
+        specialArgs = { inherit username; };
         modules = [
           ./hosts/macos/default.nix
           home-manager.darwinModules.home-manager

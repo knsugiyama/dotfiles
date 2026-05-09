@@ -4,23 +4,20 @@ let
     ripgrep
     fd
     eza
-    lsd
     fzf
     jq
-    direnv
     tree
     unzip
-    unar
     wget
     curl
     dasel
     git-lfs
     gnupg
     gnugrep
-    hub
   ];
 
   dev-tools = with pkgs; [
+    neovim
     ghq
     stylua
     gemini-cli
@@ -37,12 +34,13 @@ in {
 
   home.packages = shell-utils ++ dev-tools ++ system-tools;
 
-  programs.neovim = {
+  programs.direnv = {
     enable = true;
-    defaultEditor = true;
-    viAlias = true;
-    vimAlias = true;
-    withRuby = false;
-    withPython3 = false;
+    nix-direnv.enable = true;
+  };
+
+  home.sessionVariables = {
+    EDITOR = "nvim";
+    VISUAL = "nvim";
   };
 }

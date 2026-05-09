@@ -1,18 +1,15 @@
-{ lib, ... }:
+{ config, lib, ... }:
 let
-  # List of directories in .config to be managed by Home Manager
+  # Cross-platform config directories to symlink as live editable paths.
   configDirs = [
     "gh"
-    "hammerspoon"
     "lazygit"
     "nvim"
     "sheldon"
     "skk"
-    "zed"
   ];
 in {
-  # Automatically generate xdg.configFile entries for each directory in configDirs
   xdg.configFile = lib.genAttrs configDirs (name: {
-    source = ../../.config/${name};
+    source = config.lib.file.mkOutOfStoreSymlink "${config.home.homeDirectory}/.dotfiles/.config/${name}";
   });
 }
