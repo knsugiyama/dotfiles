@@ -24,3 +24,8 @@
   rebase = false
 [hub]
   protocol = https
+[include]
+    path = ~/.dotfiles/.gitconfig_credential
+[credential]
+	helper = 
+	helper = /usr/local/share/gcm-core/git-credential-manager

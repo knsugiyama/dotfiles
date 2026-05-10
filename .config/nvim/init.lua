@@ -1,11 +1,5 @@
-require('default_settings')
-require('keymaps')
-
-local osName = os.getenv("OS") or io.popen("uname -s"):read("*l")
-
-if osName == "Windows_NT" then
-  require('windows-shell')
+if vim.loader then
+  vim.loader.enable()
 end
 
--- load plugin manager
-require('lazy_nvim')
+require 'config'

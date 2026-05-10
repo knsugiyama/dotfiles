@@ -1,0 +1,86 @@
+// Zed settings
+//
+// For information on how to configure Zed, see the Zed
+// documentation: https://zed.dev/docs/configuring-zed
+//
+// To see all of Zed's default settings without changing your
+// custom settings, run `zed: open default settings` from the
+// command palette (cmd-shift-p / ctrl-shift-p)
+{
+  "format_on_save": "off",
+  "diagnostics": {
+    "button": false,
+  },
+  "project_panel": {
+    "git_status_indicator": true,
+    "button": true,
+    "dock": "right"
+  },
+  "outline_panel": {
+    "button": false,
+    "dock": "left",
+  },
+  "collaboration_panel": {
+    "button": false,
+    "dock": "left",
+  },
+  "agent": {
+    "button": false,
+    "dock": "right",
+    "favorite_models": [],
+    "model_parameters": [],
+  },
+  "git_panel": {
+    "show_count_badge": false,
+    "tree_view": true,
+    "file_icons": true,
+    "dock": "right"
+  },
+  "agent_servers": {},
+  "search": {
+    "button": false,
+  },
+  "telemetry": {
+    "diagnostics": false,
+    "metrics": false,
+  },
+  "vim_mode": true,
+  "terminal": {
+    "show_count_badge": false,
+    "dock": "left",
+    "font_family": "PlemolJP Console NF",
+    "font_weight": 400,
+    "font_size": 14,
+    "working_directory": "current_project_directory"
+  },
+  "base_keymap": "VSCode",
+  "minimap": {
+    "thumb": "always",
+  },
+  "current_line_highlight": "all",
+  "use_system_path_prompts": true,
+  "autosave": {
+    "after_delay": {
+      "milliseconds": 1000,
+    },
+  },
+  "buffer_font_fallbacks": ["Helvetica Neue", "Arial", "Hiragino Sans", "Noto Sans", "Meiryo", "sans-serif"],
+  "buffer_font_family": "PlemolJP Console NF",
+  "colorize_brackets": true,
+  "auto_indent_on_paste": true,
+  "use_on_type_format": true,
+  "show_whitespaces": "all",
+  "ensure_final_newline_on_save": true,
+  "preferred_line_length": 200,
+  "soft_wrap": "editor_width",
+  "ui_font_family": "IBM Plex Sans",
+  "ui_font_size": 16.0,
+  "ui_font_weight": 400,
+  "buffer_font_size": 15.0,
+  "buffer_font_weight": 400,
+  "theme": {
+    "mode": "system",
+    "light": "Ayu Light",
+    "dark": "Ayu Dark",
+  },
+}

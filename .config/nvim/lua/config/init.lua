@@ -1,0 +1,7 @@
+require 'config.global'
+require 'config.base'
+require 'config.autocmd'
+require 'config.options'
+require 'config.package'
+require 'config.lsp'
+require 'config.keymaps'
