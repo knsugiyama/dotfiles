@@ -9,6 +9,7 @@
     ../../modules/home/mise.nix
     ../../modules/home/starship.nix
     ../../modules/home/shell
+    ../../modules/home/tmux.nix
     ../../modules/home/config-files.nix
   ];
 

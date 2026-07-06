@@ -23,7 +23,12 @@
 
   homebrew = {
     enable = true;
-    onActivation.cleanup = "zap";
+    # dot-up (darwin-rebuild switch) だけで brew パッケージも最新化される
+    onActivation = {
+      autoUpdate = true;
+      upgrade = true;
+      cleanup = "zap";
+    };
     taps = [
       "deskflow/tap"
     ];

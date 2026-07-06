@@ -26,7 +26,6 @@ let
   ];
 
   system-tools = with pkgs; [
-    tmux
     htop
   ];
 in {

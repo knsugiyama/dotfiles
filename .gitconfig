@@ -1,10 +1,12 @@
+# Windows ホスト用 git 設定 (setup.ps1 が ~/.gitconfig に symlink する)
+# macOS / WSL2 は modules/home/git.nix (home-manager) で生成される
 [core]
   quotepath = false
   excludesfile = ~/.gitignore_global
   preloadindex = true
   autocrlf = false
   filemode = false
-  editor = vim -c \"set fenc=utf-8\"
+  editor = nvim
 [color]
   ui = auto
 [help]
@@ -26,6 +28,9 @@
   protocol = https
 [include]
     path = ~/.dotfiles/.gitconfig_credential
-[credential]
+[credential "https://github.com"]
 	helper = 
-	helper = /usr/local/share/gcm-core/git-credential-manager
+	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
+[credential "https://gist.github.com"]
+	helper = 
+	helper = !'C:\\Program Files\\GitHub CLI\\gh.exe' auth git-credential
