@@ -4,6 +4,7 @@
 !/.gitignore
 !/.github/
 !/modules/
+!/scripts/
 !/LICENSE
 !/README.md
 !/darwin.nix

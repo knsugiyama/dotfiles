@@ -7,6 +7,7 @@
     ./modules/home/core.nix
     ./modules/home/git.nix
     ./modules/home/mise.nix
+    ./modules/home/doctor.nix
     ./modules/home/starship.nix
     ./modules/home/shell
     ./modules/home/tmux.nix

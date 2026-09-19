@@ -24,6 +24,7 @@ cd ~/.dotfiles
 |---------|--------------|
 | `dot-apply` | Apply the locked Nix and Homebrew configuration |
 | `dot-update` | Explicitly update Nix and Homebrew packages, then apply |
+| `dot-doctor` | Diagnose the repository, managed links, Git, applications, fonts, and Homebrew state |
 
 `dot-apply` does not automatically update Homebrew packages. Routine configuration
 application and package updates are intentionally separate.
