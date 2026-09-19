@@ -6,8 +6,29 @@
   system.primaryUser = username;
 
   system.defaults = {
-    dock.autohide = true;
-    finder.AppleShowAllExtensions = true;
+    NSGlobalDomain = {
+      # Keep source code and technical writing from being rewritten by macOS.
+      NSAutomaticCapitalizationEnabled = false;
+      NSAutomaticDashSubstitutionEnabled = false;
+      NSAutomaticInlinePredictionEnabled = false;
+      NSAutomaticPeriodSubstitutionEnabled = false;
+      NSAutomaticQuoteSubstitutionEnabled = false;
+      NSAutomaticSpellingCorrectionEnabled = false;
+    };
+
+    dock = {
+      autohide = true;
+      minimize-to-application = true;
+      show-recents = false;
+    };
+
+    finder = {
+      AppleShowAllExtensions = true;
+      FXDefaultSearchScope = "SCcf";
+      ShowPathbar = true;
+      ShowStatusBar = true;
+      _FXSortFoldersFirst = true;
+    };
   };
 
   programs.zsh.enable = true;

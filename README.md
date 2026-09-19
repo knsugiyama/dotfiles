@@ -2,6 +2,11 @@
 
 Declarative macOS environment setup with nix-darwin, Home Manager, and Homebrew.
 
+The managed macOS defaults keep Finder paths and status visible, simplify the
+Dock, and disable automatic text substitutions that interfere with source code.
+Personal input preferences such as key repeat speed and trackpad gestures remain
+under System Settings.
+
 ## Setup
 
 For a fresh installation, run the bootstrap script directly:
