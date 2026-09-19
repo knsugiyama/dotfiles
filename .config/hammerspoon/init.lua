@@ -9,10 +9,11 @@ local keyDown = hs.eventtap.event.types.keyDown
 
 -- Settings / 設定
 -- 事前に hs.keycodes.currentSourceID() を実行して確認した値を入力してください
--- local ID_ABC = "ABC"
--- local ID_SKK = "ひらがな" -- macSKKの実際のID
-local ID_ABC = "net.mtgto.inputmethod.macSKK.ascii"
-local ID_SKK = "net.mtgto.inputmethod.macSKK.hiragana"
+local ID_ABC = "com.apple.inputmethod.Kotoeri.RomajiTyping.Roman"
+local ID_SKK = "com.apple.inputmethod.Kotoeri.RomajiTyping.Japanese"
+-- macSKKの実際のID
+-- local ID_ABC = "net.mtgto.inputmethod.macSKK.ascii"
+-- local ID_SKK = "net.mtgto.inputmethod.macSKK.hiragana"
 local TIMEOUT_SEC = 0.3 -- これ以上長押しした場合は切り替えない
 
 -- State / 状態
