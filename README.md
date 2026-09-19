@@ -9,13 +9,13 @@ Cross-platform environment setup: macOS (nix-darwin), WSL2 (Home Manager), and n
 For a fresh installation, run the bootstrap script directly:
 
 ```bash
-curl -sL https://raw.githubusercontent.com/knsugiyama/dotfiles/main/bootstrap.sh | bash
+curl -sL https://raw.githubusercontent.com/knsugiyama/dotfiles/develop/bootstrap.sh | bash
 ```
 
 Alternatively, clone and run manually:
 
 ```bash
-git clone https://github.com/knsugiyama/dotfiles.git ~/.dotfiles
+git clone --branch develop https://github.com/knsugiyama/dotfiles.git ~/.dotfiles
 cd ~/.dotfiles
 ./bootstrap.sh
 ```
@@ -29,7 +29,7 @@ Open PowerShell as Administrator and run:
 
 ```powershell
 Set-ExecutionPolicy RemoteSigned -Scope CurrentUser
-git clone https://github.com/knsugiyama/dotfiles.git $HOME/.dotfiles
+git clone --branch develop https://github.com/knsugiyama/dotfiles.git $HOME/.dotfiles
 cd $HOME/.dotfiles
 .\setup.ps1
 ```
@@ -43,10 +43,11 @@ The script is idempotent and will:
 
 | OS | Command | What it does |
 |----|---------|--------------|
-| macOS | `dot-up` | `darwin-rebuild switch` — Nix と Homebrew のパッケージを最新化して適用 |
-| WSL2 | `dot-up` | `home-manager switch` — 設定を再適用 |
-| macOS / WSL2 | `full-up` | `nix flake update` + 上記の適用 |
+| macOS / WSL2 | `dot-apply` | ロック済みのバージョンで設定を再適用 |
+| macOS / WSL2 | `dot-update` | NixとHomebrewのパッケージを明示的に更新して適用 |
 | Windows | `dot-up` | `winget upgrade --all` — winget パッケージを一括更新 |
+
+macOSでは通常の `dot-apply` でHomebrewの自動更新を行いません。日常の再適用と、バージョン更新を分離しています。
 
 ## Structure
 

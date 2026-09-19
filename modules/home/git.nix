@@ -1,4 +1,4 @@
-{ ... }: {
+{ pkgs, ... }: {
   programs.git = {
     enable = true;
     settings = {
@@ -8,7 +8,7 @@
       };
       init.defaultBranch = "main";
       core = {
-        editor = "nvim";
+        editor = if pkgs.stdenv.isDarwin then "zed --wait" else "nvim";
         quotepath = false;
         autocrlf = false;
         filemode = false;
@@ -21,9 +21,6 @@
       ghq.root = "~/src";
     };
     signing.format = null;
-    includes = [
-      { path = "~/.dotfiles/.gitconfig_credential"; }
-    ];
     ignores = [ ".DS_Store" "*.local" ];
   };
 }

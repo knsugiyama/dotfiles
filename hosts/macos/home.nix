@@ -11,7 +11,6 @@
     ../../modules/home/shell
     ../../modules/home/tmux.nix
     ../../modules/home/config-files.nix
-    ../../modules/home/terminal/ghostty.nix
   ];
 
   # macOS-specific config file symlinks (apps not available on Linux)

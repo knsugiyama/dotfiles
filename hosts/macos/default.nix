@@ -23,22 +23,20 @@
 
   homebrew = {
     enable = true;
-    # dot-up (darwin-rebuild switch) だけで brew パッケージも最新化される
+    # Keep normal activation deterministic. Updates are run explicitly via dot-update.
     onActivation = {
-      autoUpdate = true;
-      upgrade = true;
-      cleanup = "zap";
+      autoUpdate = false;
+      upgrade = false;
+      # Homebrew 7 removed the legacy `brew bundle --cleanup` switch.
+      # Remove obsolete packages explicitly instead of during every activation.
+      cleanup = "none";
     };
-    taps = [
-      "deskflow/tap"
-    ];
     brews = [
       "utf8proc"
     ];
     casks = [
       "docker-desktop"
-      "ghostty"
-      "git-credential-manager"
+      "zed"
       "google-chrome"
       "slack"
       "discord"
@@ -50,13 +48,7 @@
       "hammerspoon"
       "microsoft-auto-update"
       "microsoft-teams"
-      "font-biz-udpgothic"
-      "font-hack-nerd-font"
-      "font-monaspace"
-      "font-plemol-jp"
-      "font-plemol-jp-hs"
       "font-plemol-jp-nf"
-      "font-ibm-plex-sans-jp"
       "claude-code"
     ];
   };

@@ -40,7 +40,7 @@ if [ ! -f "flake.nix" ]; then
         cd "$DOTPATH"
     else
         echo -e "${BLUE}Cloning dotfiles to $DOTPATH...${NC}"
-        git clone https://github.com/knsugiyama/dotfiles.git "$DOTPATH"
+        git clone --branch develop https://github.com/knsugiyama/dotfiles.git "$DOTPATH"
         cd "$DOTPATH"
     fi
 fi

@@ -1,9 +1,7 @@
 { pkgs, lib, config, ... }: {
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
-    autosuggestion.enable = true;
-    syntaxHighlighting.enable = true;
+    enableCompletion = false;
 
     dotDir = "${config.xdg.configHome}/zsh";
     shellAliases = import ./alias.nix;
@@ -48,16 +46,5 @@
       fi
     '';
 
-    plugins = [
-      {
-        name = "zsh-completions";
-        src = pkgs.zsh-completions;
-      }
-    ];
-  };
-
-  programs.fzf = {
-    enable = true;
-    enableZshIntegration = true;
   };
 }

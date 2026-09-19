@@ -1,146 +1,102 @@
-# https://starship.rs/ja-JP/
-# エディターの補完を設定スキーマに合わせて取得
-"$schema" = 'https://starship.rs/config-schema.json'
+# https://starship.rs/config/
+"$schema" = "https://starship.rs/config-schema.json"
 
-# シェルのプロンプトの間に空行を挿入する
 add_newline = true
 
-format = """
-$os\
-$sudo\
-$custom\
-$direnv\
-$directory\
-$git_branch\
-$git_state\
-$git_status\
-$git_metrics\
-$fill\
-$lua\
-$nodejs\
-$rust\
-\n$character\
-"""
-
-right_format = """
-$cmd_duration\
-$time\
-"""
-
-[os.symbols]
-Macos = "  "
-Linux = " 󰌽 "
-Ubuntu = "  "
-Debian = "  "
+# Avoid connected background blocks and Powerline separators. Their glyph
+# metrics vary between terminal renderers and cause visible gaps on Terminal.app.
+format = "$os$sudo$directory$git_branch$git_state$git_status$git_metrics$lua$nodejs$rust\n$character"
+right_format = "$cmd_duration$time"
 
 [os]
 disabled = false
-format = """
-[](fg:#89b4fa)\
-[$symbol]($style)\
-[](fg:#89b4fa)\
-"""
-style = "fg:#313244 bg:#89b4fa"
+format = "[$symbol]($style) "
+style = "bold blue"
+
+[os.symbols]
+Macos = "macOS"
+Linux = "Linux"
+Ubuntu = "Ubuntu"
+Debian = "Debian"
 
 [sudo]
 disabled = false
-symbol = ' 󰿆 sudo'
-format = """
-[](fg:#eba0ac)\
-[$symbol]($style)\
-[](fg:#eba0ac)\
-"""
-style = "bold fg:#313244 bg:#eba0ac "
+symbol = "sudo"
+format = "[$symbol]($style) "
+style = "bold red"
 
 [directory]
 truncation_length = 6
-truncation_symbol = ' '
+truncation_symbol = "…/"
 truncate_to_repo = false
-home_symbol = '~'
-read_only = ' 󰌾 '
-format = """
-[](fg:#b4befe)\
-[$path]($style)\
-[$read_only]($read_only_style)\
-[](fg:#b4befe)\
-"""
-style = 'bold fg:#313244 bg:#b4befe'
-read_only_style = 'bold fg:#313244 bg:#b4befe'
+home_symbol = "~"
+read_only = " ro"
+format = "[$path]($style)[$read_only]($read_only_style) "
+style = "bold purple"
+read_only_style = "bold red"
 
 [git_branch]
-symbol = '  '
-truncation_length = 4
-truncation_symbol = ''
-style = 'bold fg:#89dceb bg:#45475a'
-format = """
-[](fg:#45475a)\
-[$symbol$branch(:$remote_branch)]($style)\
-"""
+symbol = "git:"
+truncation_length = 16
+truncation_symbol = "…"
+format = "[$symbol$branch(:$remote_branch)]($style) "
+style = "bold cyan"
+
+[git_state]
+format = '[\($state( $progress_current/$progress_total)\)]($style) '
+style = "bold yellow"
 
 [git_status]
 disabled = false
-style = 'bold fg:#eba0ac bg:#45475a'
-conflicted = '='
-ahead = '⇡${count}'
-behind = '⇣${count}'
-diverged = '⇕'
-up_to_date = '✓'
-untracked = '?'
-stashed = '$'
-modified = '!${count}'
-renamed = '»'
-deleted = '✘'
-format = """
-[  ](fg:#89dceb bg:#45475a)\
-[$all_status$ahead_behind]($style)\
-"""
+format = "[$all_status$ahead_behind]($style)"
+style = "bold red"
+conflicted = "=${count} "
+ahead = "↑${count} "
+behind = "↓${count} "
+diverged = "↕ "
+up_to_date = ""
+untracked = "?${count} "
+stashed = '\$${count} '
+modified = "!${count} "
+renamed = "»${count} "
+deleted = "-${count} "
 
 [git_metrics]
 disabled = false
-added_style = 'bold fg:#a6e3a1 bg:#45475a'
-deleted_style = 'bold fg:#89b4fa  bg:#45475a'
-format = """
-[  ](fg:#89dceb bg:#45475a)\
-[+$added]($added_style)[-$deleted]($deleted_style)[](fg:#45475a)\
-"""
-
-[fill]
-symbol = '─'
-style = 'fg:#89b4fa) bg:none'
-
-[python]
-pyenv_version_name = false
-symbol = '[ ](fg:#f9e2af bg:#8093fd)'
-format = '[](fg:#8093fd)[ ${symbol}${pyenv_prefix}(${version})(\($virtualenv\))]($style)[](fg:#8093fd)'
-style = 'bold fg:#313244 bg:#8093fd'
+format = "[Δ](bold cyan) [+$added]($added_style) [-$deleted]($deleted_style) "
+added_style = "bold green"
+deleted_style = "bold blue"
 
 [lua]
-symbol = "[ ](fg:#1e66f5 bg:#89b4fa)"
-format = '[](fg:#89b4fa)[ ${symbol}(${version})]($style)[](fg:#89b4fa)'
-style = 'bold fg:#313244 bg:#89b4fa'
+symbol = "lua "
+format = "[$symbol($version)]($style) "
+style = "bold blue"
 
 [nodejs]
-symbol = ""
-format = '[${symbol} (${version})]($style)'
+symbol = "node "
+format = "[$symbol($version)]($style) "
+style = "bold green"
 detect_extensions = ["js", "mjs", "cjs", "ts", "mts", "cts"]
 detect_files = ["package.json", ".node-version", "!bunfig.toml", "!bun.lockb"]
 detect_folders = ["node_modules"]
 
 [rust]
-symbol = "[󱘗 ](fg:#e64553 bg:#eba0ac)"
-format = '[](fg:#eba0ac)[ ${symbol}(${version})]($style)[](fg:#eba0ac)'
-style = 'bold fg:#313244 bg:#eba0ac'
+symbol = "rust "
+format = "[$symbol($version)]($style) "
+style = "bold red"
 
 [cmd_duration]
 show_milliseconds = true
 min_time = 100
-format = '[󰞌 $duration  ](fg:#f9e2af)'
+format = "[took $duration]($style) "
+style = "yellow"
 
 [time]
 disabled = false
-format = '[ $time](bold fg:#6c7086)'
-time_format = '%T'
+format = "[$time]($style)"
+time_format = "%T"
+style = "dimmed white"
 
 [character]
-success_symbol = "[❯](bold #74c7ec)[❯](bold #b4befe)[❯](bold #89b4fa)"
-error_symbol = "[❯](bold #eba0ac)[❯](bold #f38ba8)[❯](bold #f17497)"
+success_symbol = "[❯](bold cyan)"
+error_symbol = "[❯](bold red)"

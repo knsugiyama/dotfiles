@@ -35,11 +35,12 @@ in {
 
   programs.direnv = {
     enable = true;
+    enableZshIntegration = false;
     nix-direnv.enable = true;
   };
 
   home.sessionVariables = {
-    EDITOR = "nvim";
-    VISUAL = "nvim";
+    EDITOR = if pkgs.stdenv.isDarwin then "zed --wait" else "nvim";
+    VISUAL = if pkgs.stdenv.isDarwin then "zed --wait" else "nvim";
   };
 }
