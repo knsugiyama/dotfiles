@@ -5,6 +5,7 @@
 
   imports = [
     ./modules/home/core.nix
+    ./modules/home/check.nix
     ./modules/home/git.nix
     ./modules/home/mise.nix
     ./modules/home/doctor.nix
