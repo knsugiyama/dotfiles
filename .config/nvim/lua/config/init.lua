@@ -1,4 +1,3 @@
-require 'config.global'
 require 'config.base'
 require 'config.autocmd'
 require 'config.options'

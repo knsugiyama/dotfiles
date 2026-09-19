@@ -1,4 +1,4 @@
-{ pkgs, lib, config, ... }: {
+{ config, ... }: {
   programs.zsh = {
     enable = true;
     enableCompletion = false;
@@ -9,7 +9,6 @@
     envExtra = ''
       [ -d "$HOME/bin" ] && export PATH="$HOME/bin:$PATH"
       [ -f "$HOME/.cargo/env" ] && . "$HOME/.cargo/env"
-    '' + lib.optionalString pkgs.stdenv.isDarwin ''
       if [ -e /opt/homebrew/bin/brew ]; then
         eval "$(/opt/homebrew/bin/brew shellenv)"
       fi

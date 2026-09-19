@@ -1,6 +1,6 @@
 { config, lib, ... }:
 let
-  # Cross-platform config directories to symlink as live editable paths.
+  # Config directories to symlink as live editable paths.
   configDirs = [
     "gh"
     "lazygit"

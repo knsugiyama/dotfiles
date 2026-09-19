@@ -1,19 +1,15 @@
-{ pkgs, username, ... }: {
-  # macOS system level settings
+{ username, ... }: {
   nix.settings.experimental-features = "nix-command flakes";
-
   nixpkgs.config.allowUnfree = true;
 
   system.stateVersion = 5;
   system.primaryUser = username;
 
-  # Basic system settings
   system.defaults = {
     dock.autohide = true;
     finder.AppleShowAllExtensions = true;
   };
 
-  # Use Zsh as the default shell
   programs.zsh.enable = true;
 
   users.users.${username} = {

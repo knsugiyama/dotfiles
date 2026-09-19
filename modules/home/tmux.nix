@@ -29,10 +29,7 @@
       set -s set-clipboard external
 
       # Copy-mode の y で「tmuxバッファ + システムクリップボード」に送る
-      # macOS
-      if-shell 'uname | grep -qi darwin' 'bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"'
-      # Linux（xclip が入っている前提）
-      if-shell 'uname | grep -qi linux'  'bind -T copy-mode-vi y send -X copy-pipe-and-cancel "xclip -i -sel clipboard"'
+      bind -T copy-mode-vi y send -X copy-pipe-and-cancel "pbcopy"
 
       ##### 画面分割と移動（現在ディレクトリを引き継ぐ） #####
       bind v split-window -h -c "#{pane_current_path}"
@@ -48,8 +45,8 @@
 
       ##### ステータス #####
       set -g status-style bg=black,fg=white
-      set -g status-left "#[fg=green]#H #[fg=black]• #[fg=green]#(uname -r | cut -c 1-6)#[default]"
-      set -g status-right "#[fg=green]#(cut -d ' ' -f 1-3 /proc/loadavg)#[default]"
+      set -g status-left "#[fg=green]#H #[fg=black]• #[fg=green]macOS #(sw_vers -productVersion)#[default]"
+      set -g status-right "#[fg=green]%Y-%m-%d %H:%M#[default]"
     '';
   };
 }

@@ -40,7 +40,7 @@ in {
   };
 
   home.sessionVariables = {
-    EDITOR = if pkgs.stdenv.isDarwin then "zed --wait" else "nvim";
-    VISUAL = if pkgs.stdenv.isDarwin then "zed --wait" else "nvim";
+    EDITOR = "zed --wait";
+    VISUAL = "zed --wait";
   };
 }

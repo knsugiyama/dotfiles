@@ -1,19 +1,16 @@
 ### リポジトリ直下: 全て ignore し、管理対象だけ許可 ###
 /*
 !/.editorconfig
-!/.gitconfig
-!/.gitconfig_credential
-!/.gitignore_global
 !/.gitignore
 !/.github/
-!/hosts/
 !/modules/
 !/LICENSE
 !/README.md
+!/darwin.nix
 !/flake.nix
 !/flake.lock
+!/home.nix
 !/bootstrap.sh
-!/setup.ps1
 !/.config/
 
 ### .config: 直下を全て ignore し、管理対象のディレクトリだけ許可 ###

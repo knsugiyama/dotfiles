@@ -15,9 +15,6 @@ style = "bold blue"
 
 [os.symbols]
 Macos = "macOS"
-Linux = "Linux"
-Ubuntu = "Ubuntu"
-Debian = "Debian"
 
 [sudo]
 disabled = false

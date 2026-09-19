@@ -1,4 +1,4 @@
-{ pkgs, ... }: {
+{ ... }: {
   programs.git = {
     enable = true;
     settings = {
@@ -8,7 +8,7 @@
       };
       init.defaultBranch = "main";
       core = {
-        editor = if pkgs.stdenv.isDarwin then "zed --wait" else "nvim";
+        editor = "zed --wait";
         quotepath = false;
         autocrlf = false;
         filemode = false;
